@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Simplicity.master.cs" Inherits="Simplicity" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <link rel="stylesheet" type="text/css" href="~/css/general.css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="layout">
+    	<div id="header">
+    		<div id="logo"><img src="../images/Logo.gif" alt="Logo"/></div>
+	    	<div id="navBarButtons">
+	    	    <div>
+                    <asp:HyperLink ID="hlLogout" runat="server" NavigateUrl="~/pages/Logout.aspx" style="margin-right:15px" Visible="false">Sign Out</asp:HyperLink>
+	    	    <div>
+	    	    <div>
+			    <a href="Trolley.aspx">
+			        <asp:Image ID="imgBtnSignup" runat="server" ImageUrl="~/images/Trolley.gif" AlternateText="Signup" onmouseover="this.src='../images/Trolley_rollover.gif'" onmouseout="this.src='../images/Trolley.gif'"/></a>	    	
+		    	<a href="Login.aspx">
+                    <asp:Image ID="imgBtnLogin" runat="server" ImageUrl="~/images/SignUp_login.gif" AlternateText="Login" onmouseover="this.src='../images/SignUp_login_rollover.gif'" onmouseout="this.src='../images/SignUp_login.gif'" style="margin-bottom:13px;"/></a>
+			    <a href="Logout.aspx">
+			        <asp:Image ID="imgBtnLogout" runat="server" 
+                    ImageUrl="~/images/Customer_logout.gif" AlternateText="Logout" 
+                    onmouseover="this.src='../images/Customer_logout_rollover.gif'" 
+                    onmouseout="this.src='../images/Customer_logout.gif'" 
+                     Visible="false" style="margin-bottom:13px"/></a>    
+    			<a href="#"><img class="button" alt="" src="../images/FAQs.gif" onmouseover="this.src='../images/FAQs_rollover.gif'" onmouseout="this.src='../images/FAQs.gif'" style="margin-bottom:13px;"/></a>
+    			</div>
+    			</div>
+	    	</div>
+	    </div><!-- header ends -->
+	    <div id="main">
+		    <div id="content">
+        		<div class="topBarButtons">
+		        	<a href="UserHome.aspx"><img class="button" alt="" src="../images/Home.gif" onmouseover="this.src='../images/Home_rollover.gif'" onmouseout="this.src='../images/Home.gif'"></a>
+			        <a href="Products.aspx"><img class="button" alt="" src="../images/Products.gif" onmouseover="this.src='../images/Products_rollover.gif'" onmouseout="this.src='../images/Products.gif'"></a>
+        			<a href="#"><img class="button" alt="" src="../images/Solutions.gif" onmouseover="this.src='../images/Solutions_rollover.gif'" onmouseout="this.src='../images/Solutions.gif'"></a>
+		        	<a href="#"><img class="button" alt="" src="../images/Company.gif" onmouseover="this.src='../images/Company_rollover.gif'" onmouseout="this.src='../images/Company.gif'"></a>
+           			<a href="#"><img class="button" alt="" src="../images/Services.gif" onmouseover="this.src='../images/Services_rollover.gif'" onmouseout="this.src='../images/Services.gif'"></a>
+        			<a href="#"><img class="button" alt="" src="../images/Community.gif" onmouseover="this.src='../images/Community_rollover.gif'" onmouseout="this.src='../images/Community.gif'"></a>
+		        	<a href="#"><img class="button" alt="" src="../images/Contact.gif" onmouseover="this.src='../images/Contact_rollover.gif'" onmouseout="this.src='../images/Contact.gif'"></a>
+        		</div>		    
+        		<div class="noFloat">
+                    <asp:ContentPlaceHolder ID="PageHead" runat="server">
+    
+                    </asp:ContentPlaceHolder>
+		            <div class="errorSummary">
+                        <asp:Label ID="lblErrorMessage" runat="server" Text="" Visible="false"></asp:Label>		
+		            </div>
+		            <div class="infoSummary">
+                        <asp:Label ID="lblInfoMessage" runat="server" Text="" Visible="false"></asp:Label>		
+		            </div>
+        		
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>        
+    </form>
+</body>
+</html>
