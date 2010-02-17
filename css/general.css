@@ -531,7 +531,7 @@ div.paymentDetails div.col2
 
 div.paymentDetails div.col3
 {
-	width:100px;
+	width:80px;
 	float:left;
 	font-weight:bold;
 }
@@ -719,5 +719,25 @@ div.forgotPassword div.row div.col2
 	width:250px;
 	float:left;
 }
+
+div.receipt
+{
+	clear:both;
+	padding-top:10px;
+	font-weight:bold;
+}
+
+div.receipt div.col1
+{
+	width:150px;
+	float:left;
+}
+
+div.receipt div.col2
+{
+	float:left;
+}
+
+
 
 

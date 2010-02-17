@@ -59,12 +59,24 @@ function onTermsAndConditionsChkboxClick(index)
 				<asp:ImageButton ID="btnCheckout" runat="server" 
                     ImageUrl="~/images/Confirm.gif" AlternateText="Confirm Payment" 
                     onmouseover="this.src='../images/Confirm_rollover.gif'" 
-                    onmouseout="this.src='../images/Confirm.gif'" onclick="btnCheckout_Click"/>
+                    onmouseout="this.src='../images/Confirm.gif'" onclick="btnCheckout_Click" />
 			</div>			
+			
 		</div>
+
 
 		<div class="noFloat" style="padding-top:30px;">
 			<img src="../images/paymentOptions.png"/>
 		</div>
+		
+					
+		<% insertSignature3("10", "GBP", "authorization"); %>
+                
+        
+
+            
+
 </asp:Content>
+
+
 
