@@ -34,7 +34,7 @@ public partial class pages_ConfirmCheckout : GenericPage
     protected void btnCheckout_Click(object sender, ImageClickEventArgs e)
     {
         bool anyError = false;
-        string[] acceptTerms = Request["acceptTerms"].Split(',');
+        //string[] acceptTerms = Request["acceptTerms"].Split(',');
         /*foreach (string acceptTerm in acceptTerms)
         {
             if (acceptTerm.Equals("false"))
