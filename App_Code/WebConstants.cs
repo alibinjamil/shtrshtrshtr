@@ -26,6 +26,7 @@ using System.Xml.Linq;
             public static string NEED_LOGIN = "NEED_LOGIN";
             public static string USER_UID = "USER_UID";
             public static string VERIFICATION_CODE = "VERIFICATION_CODE";
+            public static string RECEIVE_EMAILS = "receiveEmails";
         }
         public static class Messages
         {

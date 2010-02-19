@@ -17,7 +17,7 @@ using System.Net;
 /// </summary>
 public static class EmailUtility
 {
-    private static string FROM_ADDRESS = "rashid.awan@gmail.com";
+    private static string FROM_ADDRESS = ConfigurationSettings.AppSettings["FromEmailAddress"];
     private static string SMTP_SERVER = "smtpauth.moose.co.uk";
     private static string USER_NAME = "andrewcowie";
     private static string PASSWORD = "access";
@@ -72,6 +72,25 @@ public static class EmailUtility
         message.IsBodyHtml = true;
         message.Body = "Your password is " + password;
         //+ " Or click on the following link: <br/>" + url;
+        SendEmail(message);
+    }
+
+    public static void SendCallMeEmailToAdmin(string contents)
+    {
+        MailMessage message = new MailMessage();
+        message.To.Add(new MailAddress(ConfigurationSettings.AppSettings["AdminEmailAddress"]));
+        message.Subject = "Simplicity Call Me Request";
+        message.IsBodyHtml = true;
+        message.Body = contents;
+        SendEmail(message);
+    }
+    public static void SendCallMeEmailToUser(string email)
+    {
+        MailMessage message = new MailMessage();
+        message.To.Add(new MailAddress(email));
+        message.Subject = "Simplicity Call Me Request";
+        message.IsBodyHtml = true;
+        message.Body = "Thank you for submitting your request. We will call you back shortly";
         SendEmail(message);
     }
 
