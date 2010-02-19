@@ -43,11 +43,14 @@
 		            <div class="row">
 			            <div class="col1">Password</div>
 			            <div class="col2"><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="170px"></asp:TextBox></div>
+			            <div class="col3">
+                            <asp:ImageButton ID="imgBtnLogin" runat="server" OnClick="imgBtnLogin_Click" ImageUrl="~/images/Login.gif" 
+                            onmouseover="this.src='../images/Login_rollover.gif'" onmouseout="this.src='../images/Login.gif'"/></div>
 			            <div class="noFloat"></div>
 		            </div>
                         
 		            <div style="padding-left:30px;padding-top:50px;">
-		                <div class="col1"><a href="http://www.yahoo.com" style="color:black;">Forgot your password?</a></div>
+		                <div class="col1"><a href="ForgotPassword.aspx" style="color:black;">Forgot your password?</a></div>
 		            </div>
 		            <div style="padding-left:30px;padding-top:10px;">
 				        <u>Do not have an account? </u><a href="CreateAccount.aspx" style="color:blue;">Sign up for free!</a>

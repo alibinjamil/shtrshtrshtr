@@ -365,6 +365,11 @@ div.callMeBack div.row div.col4
 	width:300px;
 	float:left;
 }
+div.callMeBack div.row div.col5 
+{
+	width:890px;
+	float:left;
+}
 
 div.products
 {

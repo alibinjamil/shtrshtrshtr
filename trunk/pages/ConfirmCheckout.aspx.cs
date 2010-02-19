@@ -35,14 +35,14 @@ public partial class pages_ConfirmCheckout : GenericPage
     {
         bool anyError = false;
         string[] acceptTerms = Request["acceptTerms"].Split(',');
-        foreach (string acceptTerm in acceptTerms)
+        /*foreach (string acceptTerm in acceptTerms)
         {
             if (acceptTerm.Equals("false"))
             {
                 SetErrorMessage("Terms and Conditions must be accepted for all the selected products");
                 anyError = true;
             }
-        }
+        }*/
 
         if (!anyError)
         {

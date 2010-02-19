@@ -15,6 +15,20 @@ function onCheckboxClick(value)
 		hid.value = '';
 	}
 }
+function onRecCheckboxClick(){
+    var img = document.getElementById('chk_ReceiveEmails');
+    var hid = document.getElementById('receiveEmails');
+    if(hid.value == '') 
+    {
+        img.src = '../images/checkbox_checked.png';
+        hid.value = "true";		
+    }
+    else
+    {
+        img.src = '../images/checkbox_unchecked.png';
+        hid.value = "";
+    }            
+}
 </script>
     		<div class="header">
 			<div class="blueHeading">Complete all fields marked with *</div>
@@ -134,6 +148,17 @@ function onCheckboxClick(value)
 				<div class="col1">Comments</div>
 				<div class="floatLeft"><asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox></div>
 			</div>
+			<div class="row">
+			    <div class="col1" style="text-align:right"></div>
+			</div>
+			<div class="row" style="margin-top:30px;">
+                <div class="col5" onclick="onRecCheckboxClick();" >						
+                    <img id="chk_ReceiveEmails" src='../images/checkbox_unchecked.png'/>
+					<input type="hidden" name="receiveEmails" id="receiveEmails" value=""/>
+					<span>Please indicate if you would like to receives further updates for products</span>
+				</div>
+            </div>               
+
 			<div class="noFloat"></div>
 		</div>		
 		<div class="noFloat"></div>
