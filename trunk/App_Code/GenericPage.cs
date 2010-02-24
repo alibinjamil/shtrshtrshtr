@@ -55,4 +55,16 @@ public class GenericPage : System.Web.UI.Page
             return null;
         }
     }
+
+    protected int LoggedInUserId
+    {
+        get
+        {
+            if (Session[WebConstants.Session.USER_ID] != null)
+            {
+                return (int)Session[WebConstants.Session.USER_ID];
+            }
+            return 0;
+        }
+    }
 }

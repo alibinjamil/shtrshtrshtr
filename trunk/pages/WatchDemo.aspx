@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="WatchDemo.aspx.cs" Inherits="pages_WatchDemo" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="WatchDemo.aspx.cs" Inherits="pages_WatchDemo" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui-1.7.2.custom.css" />
@@ -6,12 +6,21 @@
     <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
     <script type="text/javascript">
 	    function open_train(tar){
-		    window.open(tar, "Simplicity", "width=820,height=620,location=no,toolbar=no,scrollbars=yes,status=no,resizable=1");
+		    $('#demoDialog').load('DemoMovie.aspx?videoId='+tar);   
+            jQuery("#demoDialog").dialog('open');      
 	    }
     </script>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="PageHead" runat="server" ID="conten4">
     <h2>Watch a demo</h2>
+    <div id="demoDialog" title="Demo"></div>    
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery("#demoDialog").dialog({
+          bgiframe: true, autoOpen: false, height: 635, width:845, modal: true
+        });
+      });
+    </script>    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 		<div class="watchDemo">
@@ -28,7 +37,7 @@
 				    <asp:Repeater ID="rptVideos" runat="server">
 				        <HeaderTemplate><ol>
 				        </HeaderTemplate>
-                        <ItemTemplate><li><a href='<%#GetURL(DataBinder.Eval(Container.DataItem, "url"))%>'><%#DataBinder.Eval(Container.DataItem, "text")%></a></li>
+                        <ItemTemplate><li><a href='<%#GetURL(DataBinder.Eval(Container.DataItem, "video_id"))%>'><%#DataBinder.Eval(Container.DataItem, "text")%></a></li>
                         </ItemTemplate>
                         <FooterTemplate></ol>
                         </FooterTemplate>

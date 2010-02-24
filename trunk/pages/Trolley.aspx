@@ -1,4 +1,4 @@
-﻿ <%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="Trolley.aspx.cs" Inherits="pages_Trolley" Title="Untitled Page" %>
+﻿ <%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="Trolley.aspx.cs" Inherits="pages_Trolley" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -51,10 +51,10 @@
 				</div>
 			</div>		
 			<div class="trolleyActionsCol4">
-				<div class="trolleyCell" style="margin-top:20px;"><%# DataBinder.Eval(Container, "DataItem.Price")%></div>
+				<div class="trolleyCell" style="margin-top:20px;">&pound;<%# DataBinder.Eval(Container, "DataItem.Price")%></div>
 			</div>		
 			<div class="trolleyActionsCol5">
-				<div class="trolleyCell" style="margin-top:20px;"><%# DataBinder.Eval(Container, "DataItem.Total")%></div>
+				<div class="trolleyCell" style="margin-top:20px;">&pound;<%# DataBinder.Eval(Container, "DataItem.Total")%></div>
 			</div>		
 			<div class="noFloat"></div>
 		</div>

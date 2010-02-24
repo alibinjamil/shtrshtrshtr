@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="UserHome.aspx.cs" Inherits="pages_UserHome" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="UserHome.aspx.cs" Inherits="pages_UserHome" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -9,10 +9,10 @@
 					<object classid="clsid:D697CDE7E-AE6D-11cf-96B8-458453540000"
                             codebase="http://active.macromedia.com/flash4/cabs/swflash.cab#version=4,0,0,0"
                             id="animation name" width="468" height="60">
-                        <param name="movie" value="../images/Main_movie.swf"/>
+                        <param name="movie" value="../images/Movie_flash_page.swf"/>
                         <param name="quality" value="high"/>
                         <param name="bgcolor" value="#FFFFFF"/>
-                        <embed name="Simplicity" src="../images/Main_movie.swf" quality="high" bgcolor="#FFFFFF"
+                        <embed name="Simplicity" src="../images/Movie_flash_page.swf" quality="high" bgcolor="#FFFFFF"
                             width="750px" height="340px" type="application/x-shockwave-flash"
                             pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
                         </embed>
@@ -23,7 +23,7 @@
 						<a href="ViewDemo.aspx"><img class="button" src="../images/Watch.gif" onmouseover="this.src='../images/Watch_rollover.gif'" onmouseout="this.src='../images/Watch.gif'"></a>
 					</div>					
 					<div style="padding-top:10px;">
-						<a href="#"><img class="button" src="../images/Buy.gif" onmouseover="this.src='../images/Buy_rollover.gif'" onmouseout="this.src='../images/Buy.gif'"></a>
+						<a href="Products.aspx"><img class="button" src="../images/Buy.gif" onmouseover="this.src='../images/Buy_rollover.gif'" onmouseout="this.src='../images/Buy.gif'"></a>
 					</div>					
 					<div style="padding-top:10px;">
 						<a href="CallMePage.aspx"><img class="button" src="../images/Call.gif" onmouseover="this.src='../images/Call_rollover.gif'" onmouseout="this.src='../images/Call.gif'"></a>

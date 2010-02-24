@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="ProductPrices.aspx.cs" Inherits="pages_ProductPrices" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="ProductPrices.aspx.cs" Inherits="pages_ProductPrices" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -44,7 +44,7 @@
                     <asp:Repeater ID="rptVersions" runat="server" >
                         <ItemTemplate>
                         <div class="colfooter">
-                            <%# DataBinder.Eval(Container.DataItem, "price")%><br />
+                            &pound;<%# DataBinder.Eval(Container.DataItem, "price")%><br />
                             <a href='<%#GetVersionBuyNowURL(DataBinder.Eval(Container.DataItem, "version_id"))%>'>
                                 <img alt="Buy Now" src="../images/Buy_Now.gif" onmouseover="this.src='../images/Buy_now_rollover.gif'" onmouseout="this.src='../images/Buy_now.gif'" />
                             </a>
@@ -66,7 +66,7 @@
                     <asp:Repeater ID="rptVersions" runat="server" >
                         <ItemTemplate>
                             <div class="col2">                            
-                                <div class="price"><%# DataBinder.Eval(Container.DataItem, "Price")%></div>    
+                                <div class="price">&pound;<%# DataBinder.Eval(Container.DataItem, "Price")%></div>    
                                 <div class="buynow">
                                     <a href='<%#GetProductDetailBuyNowURL(DataBinder.Eval(Container.DataItem, "VersionId"),DataBinder.Eval(Container.DataItem, "ProductDetailId"),DataBinder.Eval(Container.DataItem, "Price"))%>'>
                                         <img alt="Buy Now" src="../images/Buy_now_addon.gif" onmouseover="this.src='../images/Buy_now_addon_rollover.gif'" onmouseout="this.src='../images/Buy_now_addon.gif'" />                                    

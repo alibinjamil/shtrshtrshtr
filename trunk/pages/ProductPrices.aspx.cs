@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
-
+using ShoppingTrolley.Web.Objects;
 public class Version
 {
     private int versionId;
@@ -55,8 +55,7 @@ public partial class pages_ProductPrices : GenericPage
                 {
                     int productDetailId = int.Parse(Request[WebConstants.Request.PRODUCT_DETAIL_ID]);
                     int versionId = int.Parse(Request[WebConstants.Request.VERSION_ID]);
-                    int price = int.Parse(Request[WebConstants.Request.PRICE]);
-                    ShoppingCart.AddProductDetail(product, productDetailId,versionId,price);
+                    ShoppingCart.AddProductDetail(product, productDetailId,versionId);
                     SetInfoMessage("Add On has been added to your trolley");
                 }
                 else if (Request[WebConstants.Request.VERSION_ID] != null)
@@ -107,10 +106,10 @@ public partial class pages_ProductPrices : GenericPage
     {
         if (product != null)
         {
-            return "ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + product.ProductDS.product_id 
+            return "ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + product.ProductDS.product_id
                 + "&" + WebConstants.Request.VERSION_ID + "=" + versionId
-                + "&" + WebConstants.Request.PRODUCT_DETAIL_ID + "=" + productDetailId
-                + "&" + WebConstants.Request.PRICE + "=" + price;
+                + "&" + WebConstants.Request.PRODUCT_DETAIL_ID + "=" + productDetailId;
+
         }
         return "#";
     }

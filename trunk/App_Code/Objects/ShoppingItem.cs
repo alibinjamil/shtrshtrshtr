@@ -60,23 +60,36 @@ using System.Xml.Linq;
             }
         }
 
-        private byte quantity;
-        public byte Quantity
+        private int quantity;
+        public int Quantity
         {
             get { return quantity; }
             set { quantity = value; }
         }
 
-        private double price;
+        
         public double Price
         {
-            get { return price; }
-            set { price = value; }
+            get 
+            {
+                if (this.ProductDetail != null)
+                {
+                    if (this.ProductVersion != null && this.ProductVersion.IsdiscountNull() == false)
+                    {
+                        return this.ProductDetail.price - this.ProductDetail.price * this.ProductVersion.discount / 100;
+                    }
+                    return this.ProductDetail.price;
+                }
+                else
+                {
+                    return this.ProductVersion.price;
+                }
+            }
         }
 
         public double Total
         {
-            get { return price * quantity * durationInMonths; }
+            get { return this.Price * quantity * durationInMonths; }
         }
 
         public ShoppingItem()
@@ -84,5 +97,22 @@ using System.Xml.Linq;
             //
             // TODO: Add constructor logic here
             //
+        }
+
+        public static ShoppingItem Load(WishList.WishListSelectRow wishList)
+        {
+            ShoppingItem shoppingItem = new ShoppingItem();
+            shoppingItem.product = ShoppingTrolley.Web.Objects.Product.GetProduct(wishList.product_id);
+            shoppingItem.DurationInMonths = wishList.duration;
+            shoppingItem.Quantity = wishList.quantity;
+            if(wishList.Isversion_idNull() == false)
+            {
+                shoppingItem.ProductVersion = ShoppingTrolley.Web.Objects.Product.GetVersion(wishList.version_id);
+            }
+            if (wishList.Isproduct_detail_idNull() == false)
+            {
+                shoppingItem.ProductDetail = ShoppingTrolley.Web.Objects.Product.GetProductDetail(wishList.product_detail_id);
+            }
+            return shoppingItem;
         }
     }

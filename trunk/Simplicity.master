@@ -16,6 +16,7 @@
     		<div id="logo"><img src="../images/Logo.gif" alt="Logo"/></div>
 	    	<div id="navBarButtons">
 	    	    <div>
+	    	        <a href="WishList.aspx"><asp:Image ID="imgWishList" runat="server" ImageUrl="~/images/Wish_List.gif" AlternateText="Login" onmouseover="this.src='../images/Wish_List_rollover.gif'" onmouseout="this.src='../images/Wish_List.gif'" style="margin-right:225px;" Visible="false"/></a>
                     <asp:HyperLink ID="hlLogout" runat="server" NavigateUrl="~/pages/Logout.aspx" style="margin-right:15px" Visible="false">Sign Out</asp:HyperLink>
 	    	    <div>
 	    	    <div>
@@ -37,8 +38,8 @@
 	    <div id="main">
 		    <div id="content">
         		<div class="topBarButtons">
-		        	<a href="UserHome.aspx"><img class="button" alt="" src="../images/Home.gif" onmouseover="this.src='../images/Home_rollover.gif'" onmouseout="this.src='../images/Home.gif'"></a>
-			        <a href="Products.aspx"><img class="button" alt="" src="../images/Products.gif" onmouseover="this.src='../images/Products_rollover.gif'" onmouseout="this.src='../images/Products.gif'"></a>
+		        	<a href="http://84.51.250.96/web.html"><img class="button" alt="" src="../images/Home.gif" onmouseover="this.src='../images/Home_rollover.gif'" onmouseout="this.src='../images/Home.gif'"></a>
+			        <a href="http://84.51.250.96/web.html"><img class="button" alt="" src="../images/Products.gif" onmouseover="this.src='../images/Products_rollover.gif'" onmouseout="this.src='../images/Products.gif'"></a>
         			<a href="http://84.51.250.96/web.html"><img class="button" alt="" src="../images/Solutions.gif" onmouseover="this.src='../images/Solutions_rollover.gif'" onmouseout="this.src='../images/Solutions.gif'"></a>
 		        	<a href="http://84.51.250.96/web.html"><img class="button" alt="" src="../images/Company.gif" onmouseover="this.src='../images/Company_rollover.gif'" onmouseout="this.src='../images/Company.gif'"></a>
            			<a href="http://84.51.250.96/web.html"><img class="button" alt="" src="../images/Services.gif" onmouseover="this.src='../images/Services_rollover.gif'" onmouseout="this.src='../images/Services.gif'"></a>

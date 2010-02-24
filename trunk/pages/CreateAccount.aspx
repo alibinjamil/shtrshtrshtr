@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="CreateAccount.aspx.cs" Inherits="pages_CreateAccount" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="CreateAccount.aspx.cs" Inherits="pages_CreateAccount" Title="Simplicity4Business" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script type="text/javascript">
         function onCheckboxClick(){

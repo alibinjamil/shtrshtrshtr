@@ -32,6 +32,7 @@ using System.Xml.Linq;
             public static string VERSION_ID = "versionId";
             public static string PRODUCT_DETAIL_ID = "productDetailId";
             public static string PRICE = "price";
+            public static string VIDEO_ID = "videoId";
         }
         public static class Messages
         {

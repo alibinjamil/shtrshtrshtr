@@ -19,10 +19,12 @@ public partial class Simplicity : System.Web.UI.MasterPage
         if (Session[WebConstants.Session.USER_ID] == null)
         {
             hlLogout.Visible = false;
+            imgWishList.Visible = false;
         }
         else
         {
             hlLogout.Visible = true;
+            imgWishList.Visible = true;
         }
 
     }
