@@ -12,6 +12,7 @@ using System.Xml.Linq;
 
     public static class WebConstants
     {
+        public static int DEFAULT_DURATION = 12;
         public static class Session
         {
             public static string USER_ID = "USER_ID";
@@ -27,6 +28,10 @@ using System.Xml.Linq;
             public static string USER_UID = "USER_UID";
             public static string VERIFICATION_CODE = "VERIFICATION_CODE";
             public static string RECEIVE_EMAILS = "receiveEmails";
+            public static string PRODUCT_ID = "productId";
+            public static string VERSION_ID = "versionId";
+            public static string PRODUCT_DETAIL_ID = "productDetailId";
+            public static string PRICE = "price";
         }
         public static class Messages
         {

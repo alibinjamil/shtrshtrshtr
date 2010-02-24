@@ -12,12 +12,11 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-using ShoppingTrolley.Web.Objects;
 using ShoppingTrolley.Web;
 public partial class pages_TrolleyAdd : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
+    {/*
         List<ShoppingItem> data = new List<ShoppingItem>();
         ShoppingItem item = new ShoppingItem();
         item.ProductName = "Simplicyt H&S";
@@ -42,6 +41,6 @@ public partial class pages_TrolleyAdd : System.Web.UI.Page
 
         data.Add(item);
         data.Add(item1);
-        Session[WebConstants.Session.TROLLEY] = data;
+        Session[WebConstants.Session.TROLLEY] = data;*/
     }
 }

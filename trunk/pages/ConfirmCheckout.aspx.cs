@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-using ShoppingTrolley.Web.Objects;
+
 using ShoppingTrolley.Web;
 using System.Net;
 using System.Text;
@@ -49,8 +49,16 @@ public partial class pages_ConfirmCheckout : GenericPage
             string url = "https://orderpagetest.ic3.com/hop/ProcessOrder.do";
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             string proxy = null;
-
-            string data = "amount=" + Server.UrlEncode(Request["amount"]);
+            double totalAmount = 0;
+            if (Session[WebConstants.Session.TROLLEY] != null)
+            {
+                List<ShoppingItem> trolley = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
+                foreach (ShoppingItem item in trolley)
+                {
+                    totalAmount += item.Total;
+                }
+            }
+            string data = "amount=" + Server.UrlEncode(totalAmount.ToString());
             data = data + "&currency=" + Server.UrlEncode(Request["currency"]);
             data = data + "&orderPage_timestamp=" + Server.UrlEncode(Request["orderPage_timestamp"]);
             data = data + "&merchantID=" + Server.UrlEncode(Request["merchantID"]);
@@ -98,6 +106,16 @@ public partial class pages_ConfirmCheckout : GenericPage
 
     protected void insertSignature3(String amount, String currency, String orderPage_transactionType)
     {
-        CyberSourceCS.insertSignature3(Response, amount, currency, orderPage_transactionType);       
+        double totalAmount = 0;
+        if (Session[WebConstants.Session.TROLLEY] != null)
+        {
+            List<ShoppingItem> trolley = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
+            foreach (ShoppingItem item in trolley)
+            {
+                totalAmount += item.Total;
+            }
+        }
+
+        CyberSourceCS.insertSignature3(Response, totalAmount.ToString(), currency, orderPage_transactionType);       
     }
 }

@@ -5,32 +5,63 @@
     <script type="text/javascript" src="../js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
     <script type="text/javascript">
-    function loadMovie(str)
-    {
-        $('#demoDialog').load('DemoMovie.aspx');   
-        jQuery("#demoDialog").dialog('open');        
-    }
+	    function open_train(tar){
+		    window.open(tar, "Simplicity", "width=820,height=620,location=no,toolbar=no,scrollbars=yes,status=no,resizable=1");
+	    }
     </script>
 </asp:Content>
+<asp:Content ContentPlaceHolderID="PageHead" runat="server" ID="conten4">
+    <h2>Watch a demo</h2>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-<div class="heading">Watch a Demo</div>
-    <br />
-    <br />
-        <h3>Please select a demo from below to watch</h3>
-        <h3>Simplicity H&amp;S Live</h3>
-        <h3>1. H&amp;S Live Demo</h3><a href="#" onclick="loadMovie('123'); return false">Watch Demo</a>
-
-<div id="demoDialog" title="Demo"></div>
-
-<script type="text/javascript">
-  jQuery(document).ready(function() {
-    jQuery("#demoDialog").dialog({
-      bgiframe: true, autoOpen: false, height: 635, width:845, modal: true
-    });
-  });
-</script>
-
-	        
+		<div class="watchDemo">
+			<div class='watchDemoContent'>
+				<div class="content" > 
+				    <div>
+				        <asp:Label runat="server" ID="lblContent" Text="Select the product of your choice from the buttons below to view related videos"></asp:Label> 
+				    </div>
+				    <div class="heading">
+				        <asp:Label runat="server" ID="lblProdName" Text="test" Visible="false"></asp:Label> 
+				    </div>	
+				    <br />
+				    <div>			       				     
+				    <asp:Repeater ID="rptVideos" runat="server">
+				        <HeaderTemplate><ol>
+				        </HeaderTemplate>
+                        <ItemTemplate><li><a href='<%#GetURL(DataBinder.Eval(Container.DataItem, "url"))%>'><%#DataBinder.Eval(Container.DataItem, "text")%></a></li>
+                        </ItemTemplate>
+                        <FooterTemplate></ol>
+                        </FooterTemplate>
+                    </asp:Repeater>
+                    </div>
+				</div>
+				<div class="floatRight" style="padding-right:30px;">
+					<div style="padding-top:30px;">
+						<a href="ViewDemo.aspx"><img class="button" src="../images/Watch.gif" onmouseover="this.src='../images/Watch_rollover.gif'" onmouseout="this.src='../images/Watch.gif'"></a>
+					</div>					
+					<div style="padding-top:10px;">
+						<a href="#"><img class="button" src="../images/Buy.gif" onmouseover="this.src='../images/Buy_rollover.gif'" onmouseout="this.src='../images/Buy.gif'"></a>
+					</div>					
+					<div style="padding-top:10px;">
+						<a href="CallMePage.aspx"><img class="button" src="../images/Call.gif" onmouseover="this.src='../images/Call_rollover.gif'" onmouseout="this.src='../images/Call.gif'"></a>
+					</div>					
+				</div>			
+			</div>
+			<div class="noFloat"/>
+			<div class="watchDemoButtons">
+                <asp:Repeater ID="rptProds" runat="server">
+                    <ItemTemplate>
+                    <a href='WatchDemo.aspx?productId=<%#DataBinder.Eval(Container.DataItem, "product_id")%>' style="margin-left:10px;">
+                        <asp:Image ID="Image2" runat="server" ImageUrl='<%#"~/images/watch_" + DataBinder.Eval(Container.DataItem, "short_name") + ".gif"%>'
+                        onmouseover='<%#GetMouseOver(DataBinder.Eval(Container.DataItem, "short_name"))%>' onmouseout='<%#GetMouseOut(DataBinder.Eval(Container.DataItem, "short_name"))%>'/>
+                    </a>
+                    </ItemTemplate>
+                </asp:Repeater>				
+				<a href="#"><img class="button" src="../images/Watch_Client_login.gif" onmouseover="this.src='../images/Watch_Client_login_rollover.gif'" onmouseout="this.src='../images/Watch_Client_login.gif'"></a>
+			</div>
+			<div class="noFloat"/>
+		</div>
+   
 
 </asp:Content>
 

@@ -39,9 +39,9 @@ function onTermsAndConditionsChkboxClick(index)
 			    <HeaderTemplate><div class="orderSummary">Order Summary</div>
 			    </HeaderTemplate>
 			    <ItemTemplate>
-			        <div class="row"><%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.ProductName") %> for a <%# DataBinder.Eval(Container, "DataItem.DurationString") %></div>
+			        <div class="row"><%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %> for a <%# DataBinder.Eval(Container, "DataItem.DurationString") %></div>
 			        <div class="terms">
-				        <div><a href="<%# DataBinder.Eval(Container, "DataItem.TermsUrl") %>" style="color:black;">Terms & Conditions</a></div>
+				        <div><a href="<%# DataBinder.Eval(Container, "DataItem.Product.terms_url") %>" style="color:black;">Terms & Conditions</a></div>
 				        <div onclick='onTermsAndConditionsChkboxClick(<%#DataBinder.Eval(Container, "ItemIndex", "")%>)' class="floatLeft" style="padding-top:5px;">
 					        <img id='img_chk_TermsAndConditions<%#DataBinder.Eval(Container, "ItemIndex", "")%>' src='../images/checkbox_unchecked.png' alt="Accept Terms & Conditions"/>
 					        <input type="hidden" name="acceptTerms" id='chk_TermsAndConditions<%#DataBinder.Eval(Container, "ItemIndex", "")%>' value="false"/>
