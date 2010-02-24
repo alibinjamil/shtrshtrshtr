@@ -32,29 +32,29 @@
         <ItemTemplate>
 		<div class="trolleyActions">
 			<div class="floatLeft" style="width:19px;">&nbsp;</div>
-			<div class="trolleyActionsCol1">
+			<div class="trolleyActionsCol1" style="margin-top:20px;">
 				<div class="trolleyCell">
                     <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Save" CommandArgument='<%#DataBinder.Eval(Container, "ItemIndex", "")%>'>Save For Later</asp:LinkButton></div>
 				<div class="trolleyCell"><asp:LinkButton ID="LinkButton2" runat="server" CommandName="Remove" CommandArgument='<%#DataBinder.Eval(Container, "ItemIndex", "")%>'>Remove</asp:LinkButton></div>
 			</div>		
 			<div class="trolleyActionsCol2">
 				<div class="floatLeft">
-                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# DataBinder.Eval(Container, "DataItem.ImageUrl") %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.ProductName") %>'/></div>
-				<div class="floatLeft">
-				<div class="trolleyCell"><asp:Image ID="Image2" runat="server" ImageUrl='<%# DataBinder.Eval(Container, "DataItem.ProductLogoUrl") %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.ProductName") %>'/></div>
-				<div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.ProductName")%> (<%# DataBinder.Eval(Container, "DataItem.DurationString")%>)</div>		
+                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_man.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
+				<div class="floatLeft" style="margin-top:20px;">
+				<div class="trolleyCell"><asp:Image ID="Image2" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_logo.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
+				<div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.Product.name")%> (<%# DataBinder.Eval(Container, "DataItem.DurationString")%>)</div>		
 				</div>		
 			</div>
 			<div class="trolleyActionsCol3">
-				<div class="trolleyCell">
+				<div class="trolleyCell" style="margin-top:20px;">
 					<%# DataBinder.Eval(Container, "DataItem.Quantity")%>
 				</div>
 			</div>		
 			<div class="trolleyActionsCol4">
-				<div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.Price")%></div>
+				<div class="trolleyCell" style="margin-top:20px;"><%# DataBinder.Eval(Container, "DataItem.Price")%></div>
 			</div>		
 			<div class="trolleyActionsCol5">
-				<div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.Total")%></div>
+				<div class="trolleyCell" style="margin-top:20px;"><%# DataBinder.Eval(Container, "DataItem.Total")%></div>
 			</div>		
 			<div class="noFloat"></div>
 		</div>
@@ -64,8 +64,8 @@
 		
 		<div class="noFloat">
 			<div class="floatRight">
-				<a href="#"><img src="../images/Continue.gif" onmouseover="this.src='../images/Continue_rollover.gif'" onmouseout="this.src='../images/Continue.gif'"></a>
-				<a href="#"><img src="../images/Checkout.gif" onmouseover="this.src='../images/Checkout_rollover.gif'" onmouseout="this.src='../images/Checkout.gif'"></a>
+				<a href="Products.aspx"><img src="../images/Continue.gif" onmouseover="this.src='../images/Continue_rollover.gif'" onmouseout="this.src='../images/Continue.gif'"></a>
+				<a href="PaymentDetails.aspx"><img src="../images/Checkout.gif" onmouseover="this.src='../images/Checkout_rollover.gif'" onmouseout="this.src='../images/Checkout.gif'"></a>
 			</div>
 		</div>
 	</asp:Content>

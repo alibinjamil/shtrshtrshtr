@@ -14,7 +14,7 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        EmailUtility.SendEmail("hello"); 
+        //EmailUtility.SendEmail("hello"); 
         Response.Redirect("~/pages/UserHome.aspx");
     }
 }

@@ -13,36 +13,28 @@ using System.Xml.Linq;
 /// <summary>
 /// Summary description for PurchasedObject
 /// </summary>
-namespace ShoppingTrolley.Web.Objects
-{
+
     public class ShoppingItem
     {
-        private string productLogoUrl;
-        public string ProductLogoUrl
+        private Products.ProductEntityRow product;
+        public Products.ProductEntityRow Product 
         {
-            get { return productLogoUrl; }
-            set { productLogoUrl = value; }
+            get{ return product;}
+            set{product = value;}
         }
 
-        private string productName;
-        public string ProductName
+        private Products.ProductDetailEntityRow productDetail;
+        public Products.ProductDetailEntityRow ProductDetail
         {
-            get { return productName; }
-            set { productName = value; }
+            get { return productDetail; }
+            set { productDetail = value; }
         }
 
-        private string productDescription;
-        public string ProductDescription
+        private Products.ProductVersionEntityRow productVersion;
+        public Products.ProductVersionEntityRow ProductVersion
         {
-            get { return productDescription; }
-            set { productDescription = value; }
-        }
-
-        private string imageUrl;
-        public string ImageUrl
-        {
-            get { return imageUrl; }
-            set { imageUrl = value; }
+            get { return productVersion; }
+            set { productVersion = value; }
         }
 
         private int durationInMonths;
@@ -82,25 +74,11 @@ namespace ShoppingTrolley.Web.Objects
             set { price = value; }
         }
 
-        private double total;
         public double Total
         {
-            get { return total; }
-            set { total = value; }
+            get { return price * quantity * durationInMonths; }
         }
 
-        private int productId;
-        public int ProductId
-        {
-            get { return productId; }
-            set { productId = value; }
-        }
-        private string termsUrl;
-        public string TermsUrl
-        {
-            get { return termsUrl; }
-            set { termsUrl = value; }
-        }
         public ShoppingItem()
         {
             //
@@ -108,4 +86,3 @@ namespace ShoppingTrolley.Web.Objects
             //
         }
     }
-}

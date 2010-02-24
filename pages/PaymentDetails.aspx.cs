@@ -15,32 +15,11 @@ public partial class pages_PaymentDetails : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (Session["cardType"] != null)
-        //    lstCardType.Text = (string)Session["cardType"];
-        //if (Session["cardExpiryMonth"] != null)
-        //    txtExpiryMonth.Text = (string)Session["cardExpiryMonth"];
-        //if (Session["cardExpiryYear"] != null)
-        //    txtExpiryYear.Text = (string)Session["cardExpiryYear"];
-        //if (Session["cardStartMonth"] != null)
-        //    txtStartMonth.Text = (string)Session["cardStartMonth"];
-        //if (Session["cardStartYear"] != null)
-        //    txtStartYear.Text = (string)Session["cardStartYear"];
-        //if (Session["cardFirstName"] != null)
-        //    txtFirstName.Text = (string)Session["cardFirstName"];
-        //if (Session["cardLastName"] != null)
-        //    txtLastName.Text = (string)Session["cardLastName"];
-        //if (Session["cardBillingStreet"] != null)
-        //    txtBillingStreet.Text = (string)Session["cardBillingStreet"];
-        //if (Session["cardBillingTown"] != null)
-        //    txtBillingTown.Text = (string)Session["cardBillingTown"];
-        //if (Session["cardBillingCounty"] != null)
-        //    txtBillingCounty.Text = (string)Session["cardBillingCounty"];
-        //if (Session["cardBillingCountry"] != null)
-        //    txtBillingCountry.Text = (string)Session["cardBillingCountry"];
-        //if (Session["cardBillingZipCode"] != null)
-        //    txtBillingZipCode.Text = (string)Session["cardBillingZipCode"];
-        //if (Session["cardBillingTelephone"] != null)
-        //    txtTelephone.Text = (string)Session["cardBillingTelephone"];
+        if (LoggedIsUser == null)
+        {
+            Session[WebConstants.Session.RETURN_URL] = "~/pages/PaymentDetails.aspx";
+            Response.Redirect("Login.aspx");
+        }
     }
 
     protected void btnContinue_Click(object sender, ImageClickEventArgs e)

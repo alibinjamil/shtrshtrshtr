@@ -743,6 +743,117 @@ div.receipt div.col2
 	float:left;
 }
 
+div.productPrices 
+{
+	padding-top:10px;
+	text-align:left;
+	clear:both;
+	width:900px;
+}
+
+div.productPrices div.headingRow
+{
+	vertical-align: middle;
+	clear: both;
+	margin-left: 154px;
+	margin-top: 30px;
+	font-size:12pt;
+	font-weight:bold;
+}
+
+div.productPrices div.row
+{
+	vertical-align: middle;
+	clear: both;
+	margin-left: 154px;
+	margin-right:154px;
+	border-left-style: solid;
+	border-left-width: medium;
+	border-left-color: #C0C0C0;
+	border-right-style: solid;
+	border-right-width: medium;
+	border-right-color: #C0C0C0;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-bottom-color: #C0C0C0;
+	background-color: #FFFFFF;
+}
+
+div.productPrices div.row div.col1
+{
+	width: 285px;
+	float: left;
+}
+
+div.productPrices div.row div.col1 span
+{
+	color: #002675;	
+}
+
+div.productPrices div.row div.col2 
+{
+	width:150px;
+	float:left;
+	text-align: center;
+}
+
+div.productPrices div.row div.col2 div.price
+{
+	font-size: 12pt;
+	font-weight: bold;
+	float:left;
+	margin-bottom:2px;
+	width:45px;
+	text-align:right;
+}
+div.productPrices div.row div.col2 div.buynow
+{
+	margin-left:5px;
+	float:left;
+	width:100px;
+	text-align:left;
+}
 
 
+div.productPrices div.row div.colfooter
+{
+	width: 150px;
+	float: left;
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: center;
+}
 
+div.watchDemo 
+{
+	text-align:left; 
+	width:950px;
+}
+
+div.watchDemo div.content
+{
+	float:left;
+	background-image:url(../images/main_frame.png);
+	width:697px;
+	height:397px;
+	background-repeat:no-repeat;	
+	margin-left:20px;
+	padding: 25px;
+}
+div.watchDemo div.content div.heading
+{
+	font-size: 14pt;
+	font-weight: bold;
+		color: #002675;	
+}
+div.watchDemo div.watchDemoContent
+{
+	height: 350px;
+	padding-top:30px;
+}
+
+div.watchDemo div.watchDemoButtons {
+	padding-top:5px;
+	margin-left:10px;
+	padding-bottom:20px;
+}

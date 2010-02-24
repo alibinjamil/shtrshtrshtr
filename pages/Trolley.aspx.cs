@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-using ShoppingTrolley.Web.Objects;
+
 using ShoppingTrolley.Web;
 public partial class pages_Trolley : GenericPage
 {
@@ -42,8 +42,8 @@ public partial class pages_Trolley : GenericPage
                 int index = int.Parse(e.CommandArgument.ToString());
                 ShoppingItem currentItem = ((List<ShoppingItem>)Session[WebConstants.Session.TROLLEY])[index];
                 //Save record for current user
-                WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
-                ta.Insert(LoggedIsUser, currentItem.ProductId, currentItem.Quantity, currentItem.Price, currentItem.Total);
+                /*WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
+                ta.Insert(LoggedIsUser, currentItem.ProductId, currentItem.Quantity, currentItem.Price, currentItem.Total);*/
                 SetInfoMessage("Item added to your wishlist");
             }
             else
