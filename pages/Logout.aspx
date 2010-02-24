@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="Logout.aspx.cs" Inherits="pages_Logout" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="Logout.aspx.cs" Inherits="pages_Logout" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="ConfirmCheckout.aspx.cs" Inherits="pages_ConfirmCheckout" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="ConfirmCheckout.aspx.cs" Inherits="pages_ConfirmCheckout" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <script type="text/javascript">

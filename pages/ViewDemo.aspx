@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="ViewDemo.aspx.cs" Inherits="pages_ViewDemo" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="ViewDemo.aspx.cs" Inherits="pages_ViewDemo" Title="Simplicity4Business" %>
 
 
 <%@ Register src="../common/CallMePageUserControl.ascx" tagname="CallMePageUserControl" tagprefix="uc1" %>

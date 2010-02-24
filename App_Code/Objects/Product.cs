@@ -14,109 +14,148 @@ using System.Collections.Generic;
 /// <summary>
 /// Summary description for Product
 /// </summary>
-public class Product
+/// 
+namespace ShoppingTrolley.Web.Objects
 {
-	public Product()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
-    private Products.ProductEntityRow productDS;
-    public Products.ProductEntityRow ProductDS
+    public class Product
     {
-        get { return productDS; }
-        set { productDS = value; }
-    }
-
-    private List<Products.ProductVersionEntityRow> versions = new List<Products.ProductVersionEntityRow>();
-    public List<Products.ProductVersionEntityRow> Versions
-    {
-        get { return versions; }
-        set { versions = value; }
-    }
-
-    private List<Products.ProductDetailEntityRow> mandatoryDetails = new List<Products.ProductDetailEntityRow>();
-    public List<Products.ProductDetailEntityRow> MandatoryDetails
-    {
-        get { return mandatoryDetails; }
-        set { mandatoryDetails = value; }
-    }
-
-    private List<Products.ProductDetailEntityRow> optionalDetails = new List<Products.ProductDetailEntityRow>();
-    public List<Products.ProductDetailEntityRow> OptionalDetails
-    {
-        get { return optionalDetails; }
-        set { optionalDetails = value; }
-    }
-
-    public Products.ProductVersionEntityRow GetVersion(int versionId)
-    {
-        foreach (Products.ProductVersionEntityRow version in this.versions)
+        public Product()
         {
-            if (version.version_id == versionId)
-            {
-                return version;
-            }
+            //
+            // TODO: Add constructor logic here
+            //
         }
-        return null;
-    }
-
-    public Products.ProductDetailEntityRow GetProductDetail(int productDetailId)
-    {
-        foreach (Products.ProductDetailEntityRow productDetail in this.MandatoryDetails)
+        private Products.ProductEntityRow productDS;
+        public Products.ProductEntityRow ProductDS
         {
-            if (productDetail.product_detail_id == productDetailId)
-            {
-                return productDetail;
-            }
+            get { return productDS; }
+            set { productDS = value; }
         }
-        foreach (Products.ProductDetailEntityRow productDetail in this.OptionalDetails)
-        {
-            if (productDetail.product_detail_id == productDetailId)
-            {
-                return productDetail;
-            }
-        }
-        return null;
-    }
 
-    public static Product LoadCompleteProduct(int productId)
-    {
-        ProductsTableAdapters.ProductTableAdapter productTA = new ProductsTableAdapters.ProductTableAdapter();
-        IEnumerator<Products.ProductEntityRow> products =  productTA.GetProductById(productId).GetEnumerator();
-        if (products.MoveNext())
+        private List<Products.ProductVersionEntityRow> versions = new List<Products.ProductVersionEntityRow>();
+        public List<Products.ProductVersionEntityRow> Versions
         {
-            Product product = new Product();
-            product.ProductDS = products.Current;
-            ProductsTableAdapters.ProductDetailTableAdapter detailTA = new ProductsTableAdapters.ProductDetailTableAdapter();
-            IEnumerator<Products.ProductDetailEntityRow> details = detailTA.GetDetailsByProduct(productId).GetEnumerator();
-            double totalPrice = 0;
-            while (details.MoveNext())
+            get { return versions; }
+            set { versions = value; }
+        }
+
+        private List<Products.ProductDetailEntityRow> mandatoryDetails = new List<Products.ProductDetailEntityRow>();
+        public List<Products.ProductDetailEntityRow> MandatoryDetails
+        {
+            get { return mandatoryDetails; }
+            set { mandatoryDetails = value; }
+        }
+
+        private List<Products.ProductDetailEntityRow> optionalDetails = new List<Products.ProductDetailEntityRow>();
+        public List<Products.ProductDetailEntityRow> OptionalDetails
+        {
+            get { return optionalDetails; }
+            set { optionalDetails = value; }
+        }
+
+        public Products.ProductVersionEntityRow GetLoadedVersion(int versionId)
+        {
+            foreach (Products.ProductVersionEntityRow version in this.versions)
             {
-                if (details.Current.mandatory)
+                if (version.version_id == versionId)
                 {
-                    product.mandatoryDetails.Add(details.Current);
-                    totalPrice += details.Current.price;
-                }
-                else
-                {
-                    product.optionalDetails.Add(details.Current);
+                    return version;
                 }
             }
+            return null;
+        }
 
-            ProductsTableAdapters.ProductVersionTableAdapter versionTA = new ProductsTableAdapters.ProductVersionTableAdapter();
-            IEnumerator<Products.ProductVersionEntityRow> versions = versionTA.GetVersionByProduct(productId).GetEnumerator();
-            while (versions.MoveNext())
+        public Products.ProductDetailEntityRow GetLoadedProductDetail(int productDetailId)
+        {
+            foreach (Products.ProductDetailEntityRow productDetail in this.MandatoryDetails)
             {
-                product.versions.Add(versions.Current);
+                if (productDetail.product_detail_id == productDetailId)
+                {
+                    return productDetail;
+                }
+            }
+            foreach (Products.ProductDetailEntityRow productDetail in this.OptionalDetails)
+            {
+                if (productDetail.product_detail_id == productDetailId)
+                {
+                    return productDetail;
+                }
+            }
+            return null;
+        }
+
+        public static Product LoadCompleteProduct(int productId)
+        {
+            ProductsTableAdapters.ProductTableAdapter productTA = new ProductsTableAdapters.ProductTableAdapter();
+            IEnumerator<Products.ProductEntityRow> products = productTA.GetProductById(productId).GetEnumerator();
+            if (products.MoveNext())
+            {
+                Product product = new Product();
+                product.ProductDS = products.Current;
+                ProductsTableAdapters.ProductDetailTableAdapter detailTA = new ProductsTableAdapters.ProductDetailTableAdapter();
+                IEnumerator<Products.ProductDetailEntityRow> details = detailTA.GetDetailsByProduct(productId).GetEnumerator();
+                double totalPrice = 0;
+                while (details.MoveNext())
+                {
+                    if (details.Current.mandatory)
+                    {
+                        product.mandatoryDetails.Add(details.Current);
+                        totalPrice += details.Current.price;
+                    }
+                    else
+                    {
+                        product.optionalDetails.Add(details.Current);
+                    }
+                }
+
+                ProductsTableAdapters.ProductVersionTableAdapter versionTA = new ProductsTableAdapters.ProductVersionTableAdapter();
+                IEnumerator<Products.ProductVersionEntityRow> versions = versionTA.GetVersionByProduct(productId).GetEnumerator();
+                while (versions.MoveNext())
+                {
+                    product.versions.Add(versions.Current);
+                }
+                return product;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static Products.ProductVersionEntityRow GetVersion(int versionId)
+        {
+            Products.ProductVersionEntityRow version = null;
+            ProductsTableAdapters.ProductVersionTableAdapter ta = new ProductsTableAdapters.ProductVersionTableAdapter();
+            IEnumerator<Products.ProductVersionEntityRow> versions = ta.GetVersionById(versionId).GetEnumerator();
+            if (versions.MoveNext())
+            {
+                version = versions.Current;
+            }
+            return version;
+        }
+
+        public static Products.ProductDetailEntityRow GetProductDetail(int productDetailId)
+        {
+            Products.ProductDetailEntityRow productDetail = null;
+            ProductsTableAdapters.ProductDetailTableAdapter ta = new ProductsTableAdapters.ProductDetailTableAdapter();
+            IEnumerator<Products.ProductDetailEntityRow> productDetails = ta.GetDetailById(productDetailId).GetEnumerator();
+            if (productDetails.MoveNext())
+            {
+                productDetail = productDetails.Current;
+            }
+            return productDetail;
+        }
+
+        public static Products.ProductEntityRow GetProduct(int productId)
+        {
+            Products.ProductEntityRow product = null;
+            ProductsTableAdapters.ProductTableAdapter ta = new ProductsTableAdapters.ProductTableAdapter();
+            IEnumerator<Products.ProductEntityRow> products = ta.GetProductById(productId).GetEnumerator();
+            if (products.MoveNext())
+            {
+                product = products.Current;
             }
             return product;
         }
-        else
-        {
-            return null;
-        }
     }
 }
-

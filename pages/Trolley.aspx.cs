@@ -42,8 +42,15 @@ public partial class pages_Trolley : GenericPage
                 int index = int.Parse(e.CommandArgument.ToString());
                 ShoppingItem currentItem = ((List<ShoppingItem>)Session[WebConstants.Session.TROLLEY])[index];
                 //Save record for current user
-                /*WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
-                ta.Insert(LoggedIsUser, currentItem.ProductId, currentItem.Quantity, currentItem.Price, currentItem.Total);*/
+                WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
+                Nullable<int> versionId = null;
+                if(currentItem.ProductVersion != null) versionId = currentItem.ProductVersion.version_id;
+
+                Nullable<int> productDetailId = null;
+                if(currentItem.ProductDetail != null) productDetailId = currentItem.ProductDetail.product_detail_id;
+                
+                ta.Insert(LoggedInUserId,currentItem.Product.product_id,versionId,productDetailId,currentItem.Quantity,currentItem.DurationInMonths);
+
                 SetInfoMessage("Item added to your wishlist");
             }
             else

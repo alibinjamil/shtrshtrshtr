@@ -56,8 +56,8 @@ public partial class pages_WatchDemo : GenericPage
     {
         return "this.src='../images/watch_" + shortName + ".gif'";
     }
-    protected string GetURL(object url)
+    protected string GetURL(object videoId)
     {
-        return "javascript:open_train(\"" + url + "\");";
+        return "javascript:open_train(\"" + videoId + "\");";
     }
 }

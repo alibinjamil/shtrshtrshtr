@@ -1,5 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DemoMovie.aspx.cs" Inherits="pages_DemoMovie" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DemoMovie.aspx.cs" Inherits="pages_DemoMovie" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<div style="background-color:#292F8D;"><iframe style="border:0px; padding:0px; margin-top:5px; margin-left:0px; margin-right:0px; margin-bottom:5px;" src="http://simplicity4business.com/training/train2.html" height="620" width="800"></iframe></div>
+<div style="background-color:#292F8D;">
+<object id="MediaPlayer" width=780 height=580 classid="CLSID:22D6F312-B0F6-11D0-94AB-0080C74C7E95" standby="Loading Windows Media Player components..." type="application/x-oleobject"> 
+<param name="filename" value="<%=VideoURL%>"> 
+<param name="Showcontrols" value="True"> 
+<param name="AutoStart" value="True"> 
+<embed type="application/x-mplayer2" src="<%=VideoURL%>" width=780 height=580></embed> 
+</object> 
+</div>

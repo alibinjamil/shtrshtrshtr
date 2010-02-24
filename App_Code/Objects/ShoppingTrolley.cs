@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
+using ShoppingTrolley.Web.Objects;
 /// <summary>
 /// Summary description for PurchasedObject
 /// </summary>
@@ -20,12 +21,11 @@ using System.Collections.Generic;
         public static void AddProductVersion(Product product, int versionId)
         {
             //see if already exists in cart
-            Products.ProductVersionEntityRow version = product.GetVersion(versionId);
+            Products.ProductVersionEntityRow version = product.GetLoadedVersion(versionId);
             ShoppingItem shoppingItem = new ShoppingItem();
             shoppingItem.Product = product.ProductDS;
             shoppingItem.ProductVersion = version;
             shoppingItem.DurationInMonths = WebConstants.DEFAULT_DURATION;
-            shoppingItem.Price = version.price;
             shoppingItem.Quantity = version.min_users;
             AddShoppingItem(shoppingItem);
         }
@@ -46,17 +46,16 @@ using System.Collections.Generic;
         }
 
 
-        public static void AddProductDetail(Product product, int productDetailId,int versionId,double price)
+        public static void AddProductDetail(Product product, int productDetailId,int versionId)
         {
             //see if already exists in cart
-            Products.ProductDetailEntityRow productDetail = product.GetProductDetail(productDetailId);
-            Products.ProductVersionEntityRow version = product.GetVersion(versionId);
+            Products.ProductDetailEntityRow productDetail = product.GetLoadedProductDetail(productDetailId);
+            Products.ProductVersionEntityRow version = product.GetLoadedVersion(versionId);
             ShoppingItem shoppingItem = new ShoppingItem();
             shoppingItem.Product = product.ProductDS;
             shoppingItem.ProductDetail = productDetail;
             shoppingItem.ProductVersion = version;
             shoppingItem.DurationInMonths = WebConstants.DEFAULT_DURATION;
-            shoppingItem.Price = price;
             shoppingItem.Quantity = 1;
             AddShoppingItem(shoppingItem);
         }
