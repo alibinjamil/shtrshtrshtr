@@ -89,7 +89,7 @@ using System.Xml.Linq;
 
         public double Total
         {
-            get { return this.Price * quantity * durationInMonths; }
+            get { return this.Price * quantity; }
         }
 
         public ShoppingItem()

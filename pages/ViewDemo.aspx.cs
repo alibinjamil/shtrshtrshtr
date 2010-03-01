@@ -12,14 +12,13 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
 using ShoppingTrolley.Web;
-public partial class pages_ViewDemo : System.Web.UI.Page
+public partial class pages_ViewDemo : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session[WebConstants.Session.VIEW_DEMO] != null)
+        if (Session[WebConstants.Session.VIEW_DEMO] != null || LoggedIsUser != null)
         {
             Response.Redirect("~/pages/WatchDemo.aspx");
         }
-
     }
 }

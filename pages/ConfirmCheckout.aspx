@@ -17,6 +17,10 @@ function onTermsAndConditionsChkboxClick(index)
 		hid.value = "false";
 	}
 }
+function openWindow(url)
+{
+	window.open(url, "Simplicity", "width=820,height=620,location=no,toolbar=no,scrollbars=yes,status=no,resizable=1");
+}
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
@@ -41,7 +45,7 @@ function onTermsAndConditionsChkboxClick(index)
 			    <ItemTemplate>
 			        <div class="row"><%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %> for a <%# DataBinder.Eval(Container, "DataItem.DurationString") %></div>
 			        <div class="terms">
-				        <div><a href="<%# DataBinder.Eval(Container, "DataItem.Product.terms_url") %>" style="color:black;">Terms & Conditions</a></div>
+				        <div><a href="<%# "javascript: openWindow('" + DataBinder.Eval(Container, "DataItem.Product.terms_url") + "');" %>" style="color:black;">Terms & Conditions</a></div>
 				        <div onclick='onTermsAndConditionsChkboxClick(<%#DataBinder.Eval(Container, "ItemIndex", "")%>)' class="floatLeft" style="padding-top:5px;">
 					        <img id='img_chk_TermsAndConditions<%#DataBinder.Eval(Container, "ItemIndex", "")%>' src='../images/checkbox_unchecked.png' alt="Accept Terms & Conditions"/>
 					        <input type="hidden" name="acceptTerms" id='chk_TermsAndConditions<%#DataBinder.Eval(Container, "ItemIndex", "")%>' value="false"/>
@@ -70,7 +74,7 @@ function onTermsAndConditionsChkboxClick(index)
 		</div>
 		
 					
-		<% insertSignature3("10", "GBP", "authorization"); %>
+		<% insertSignature3("GBP", "authorization"); %>
                 
         
 

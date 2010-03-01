@@ -41,10 +41,47 @@ using ShoppingTrolley.Web.Objects;
             {
                 shoppingItems = new List<ShoppingItem>();
             }
-            shoppingItems.Add(shoppingItem);
+            ReplaceShoppingItem(shoppingItems, shoppingItem);
             HttpContext.Current.Session[WebConstants.Session.TROLLEY] = shoppingItems;
         }
 
+        private static void ReplaceShoppingItem(List<ShoppingItem> shoppingItems,ShoppingItem shoppingItemToAdd)
+        {
+            bool added = false;
+
+            
+            foreach (ShoppingItem shoppingItem in shoppingItems)
+            {
+                // if it is a product detail then it will have detail and version as well. 
+                // both items should have the same set therefore it is imp to check for that.
+                if (shoppingItemToAdd.ProductDetail != null)
+                {
+                    if (shoppingItemToAdd.ProductDetail != null && shoppingItemToAdd.ProductVersion != null
+                        && shoppingItem.ProductDetail != null && shoppingItem.ProductVersion != null)
+                    {
+                        if (shoppingItemToAdd.ProductDetail.product_detail_id == shoppingItem.ProductDetail.product_detail_id
+                            && shoppingItemToAdd.ProductVersion.version_id == shoppingItem.ProductVersion.version_id)
+                        {
+                            shoppingItem.Quantity += shoppingItemToAdd.Quantity;
+                            added = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (shoppingItemToAdd.ProductVersion != null && shoppingItem.ProductVersion != null
+                        && shoppingItemToAdd.ProductVersion.version_id == shoppingItem.ProductVersion.version_id)
+                    {
+                        shoppingItem.Quantity += shoppingItemToAdd.Quantity;
+                        added = true;
+                    }
+                }
+            }
+            if (!added)
+            {
+                shoppingItems.Add(shoppingItemToAdd);
+            }
+        }
 
         public static void AddProductDetail(Product product, int productDetailId,int versionId)
         {

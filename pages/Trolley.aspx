@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PageHead" runat="server">
-		<div class="header">
+        <div class="header">
 			<div class="heading">Trolley</div>
 			<div class="headingImages">
 				<a href="#"><img src="../images/Sterling.gif" onmouseover="this.src='../images/Sterling_rollover.gif'" onmouseout="this.src='../images/Sterling.gif'"></a>
@@ -47,7 +47,7 @@
 			</div>
 			<div class="trolleyActionsCol3">
 				<div class="trolleyCell" style="margin-top:20px;">
-					<%# DataBinder.Eval(Container, "DataItem.Quantity")%>
+					<asp:TextBox ID="txtQty" runat="server" Width="25px" Text='<%# DataBinder.Eval(Container, "DataItem.Quantity")%>'></asp:TextBox>
 				</div>
 			</div>		
 			<div class="trolleyActionsCol4">
@@ -57,6 +57,7 @@
 				<div class="trolleyCell" style="margin-top:20px;">&pound;<%# DataBinder.Eval(Container, "DataItem.Total")%></div>
 			</div>		
 			<div class="noFloat"></div>
+            
 		</div>
 		<div class="noFloat" style="padding-bottom:7em;width:925px"><hr/></div>
 		</ItemTemplate>
@@ -65,7 +66,10 @@
 		<div class="noFloat">
 			<div class="floatRight">
 				<a href="Products.aspx"><img src="../images/Continue.gif" onmouseover="this.src='../images/Continue_rollover.gif'" onmouseout="this.src='../images/Continue.gif'"></a>
-				<a href="PaymentDetails.aspx"><img src="../images/Checkout.gif" onmouseover="this.src='../images/Checkout_rollover.gif'" onmouseout="this.src='../images/Checkout.gif'"></a>
+    				<asp:ImageButton ID="imbBtnCheckout" runat="server" 
+                    ImageUrl="~/images/Checkout.gif" 
+                    onmouseover="this.src='../images/Checkout_rollover.gif'" 
+                    onmouseout="this.src='../images/Checkout.gif'" onclick="imbBtnCheckout_Click"/>
 			</div>
 		</div>
 	</asp:Content>

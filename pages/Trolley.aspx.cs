@@ -23,14 +23,23 @@ public partial class pages_Trolley : GenericPage
     }
     private void BindRepeater()
     {
-        rptItems.DataSource = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
+        rptItems.DataSource = GetShoppingTrolley();
         rptItems.DataBind();
+    }
+
+    protected List<ShoppingItem> GetShoppingTrolley()
+    {
+        if (Session[WebConstants.Session.TROLLEY] == null)
+        {
+            Session[WebConstants.Session.TROLLEY] = new List<ShoppingItem>();
+        }
+        return (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
     }
     protected void rptItems_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
         if (e.CommandName.Equals("Remove"))
         {
-            List<ShoppingItem> trolley = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
+            List<ShoppingItem> trolley = GetShoppingTrolley();
             trolley.RemoveAt(int.Parse(e.CommandArgument.ToString()));
             Session[WebConstants.Session.TROLLEY] = trolley;
             BindRepeater();
@@ -40,7 +49,7 @@ public partial class pages_Trolley : GenericPage
             if (LoggedIsUser != null)
             {
                 int index = int.Parse(e.CommandArgument.ToString());
-                ShoppingItem currentItem = ((List<ShoppingItem>)Session[WebConstants.Session.TROLLEY])[index];
+                ShoppingItem currentItem = GetShoppingTrolley()[index];
                 //Save record for current user
                 WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
                 Nullable<int> versionId = null;
@@ -55,9 +64,28 @@ public partial class pages_Trolley : GenericPage
             }
             else
             {
-                Session[WebConstants.Session.RETURN_URL] = "~/pages/Trolley.aspx";
-                Response.Redirect("~/pages/Login.aspx?"+ WebConstants.Request.NEED_LOGIN +"=true");
+                RedirectToLogin();
             }
         }
     }
+
+    protected void imbBtnCheckout_Click(object sender, ImageClickEventArgs e)
+    {
+        if (GetShoppingTrolley().Count == 0)
+        {
+            SetErrorMessage("Please select alteast one item before checking out");
+        }
+        else
+        {
+            if (LoggedIsUser == null)
+            {
+                RedirectToLogin();
+            }
+            else
+            {
+                Response.Redirect("~/pages/PaymentDetails.aspx");
+            }
+        }
+    }
+
 }
