@@ -17,9 +17,9 @@ public partial class pages_WatchDemo : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session[WebConstants.Session.VIEW_DEMO] == null)
+        if (Session[WebConstants.Session.VIEW_DEMO] == null && LoggedIsUser == null)
         {
-            //Response.Redirect("~/pages/ViewDemo.aspx");
+            Response.Redirect("~/pages/ViewDemo.aspx");
         }
         ProductsTableAdapters.ProductTableAdapter prodTA = new ProductsTableAdapters.ProductTableAdapter();
         IEnumerator<Products.ProductEntityRow> products = prodTA.GetAllProducts().GetEnumerator();

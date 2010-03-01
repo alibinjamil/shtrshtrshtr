@@ -11,14 +11,17 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class pages_PaymentDetails : GenericPage
+public partial class pages_PaymentDetails : AuthenticatedPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (LoggedIsUser == null)
+        if (IsPostBack == false)
         {
-            Session[WebConstants.Session.RETURN_URL] = "~/pages/PaymentDetails.aspx";
-            Response.Redirect("Login.aspx");
+            int year = DateTime.Now.Year;
+            for (int i = year; i < 2050; i++)
+                txtExpiryYear.Items.Add(i.ToString());
+            for (int i = 2000; i <= year; i++)
+                txtStartYear.Items.Add(i.ToString());
         }
     }
 

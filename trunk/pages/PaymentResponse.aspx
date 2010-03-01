@@ -6,54 +6,50 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
 <div style="margin-top:25px;">
-    <% 
-        if(!verifyTransactionSignature(Request))
-            Response.Write("<span style='color:red'>Invalid response from Payment gateway. Please Try again</span>");
-        else
-        {
-            if (Request.Form.Get("decision") == "ACCEPT" || Request.Form.Get("decision") == "REVIEW")
-            { %>
-                <div class="header">
-		        	<div class="heading">Payment Receipt</div>
-        			<div class="noFloat"></div>        			
-		        </div>		
-		        <div class="receipt">
-                    <div>
-                        <div class="col1">Card holder's name:</div>
-                        <div class="col2"><% Response.Write(Request.Form.Get("billTo_firstName")); %>&nbsp; <% Response.Write(Request.Form.Get("billTo_lastName")); %></div>
-                        <div class="noFloat"></div>        			
-                        <div class="col1">Card #:</div>
-                        <div class="col2"><% Response.Write(Request.Form.Get("card_accountNumber")); %></div>
-                        <div class="noFloat"></div>        			                        
-                        <div class="col1">Card Expiry:</div>
-                        <div class="col2"><% Response.Write(Request.Form.Get("card_expirationMonth")); %>/<% Response.Write(Request.Form.Get("card_expirationYear")); %></div>
-                        <div class="noFloat"></div>        			                        
-                        <div class="col1">Card Type:</div>
-                        <div class="col2"><% if (Request.Form.Get("card_cardType") == "001")
-                                             {%>Visa<% }
-                                             else if (Request.Form.Get("card_cardType") == "002")
-                                             { %>MasterCard<% }
-                                             else if (Request.Form.Get("card_cardType") == "003")
-                                             {%>American Express<% }
-                                             else if (Request.Form.Get("card_cardType") == "004")
-                                             { %>Discover<% }
-                                             else if (Request.Form.Get("card_cardType") == "005")
-                                             { %> Diners Club <% }
-                                             else if (Request.Form.Get("card_cardType") == "007")
-                                             {%> JCB <% }
-                                             else if (Request.Form.Get("card_cardType") == "024")
-                                             {%> Maestro/Solo <% } %></div>
-                        <div class="noFloat"></div>
-                        <div class="col1">Amount Charged:</div>
-                        <div class="col2"><% Response.Write(Request.Form.Get("ccAuthReply_amount")); %>&nbsp;<% Response.Write(Request.Form.Get("orderCurrency").ToUpper()); %></div>
-                        <div class="noFloat"></div>        			                                                        			                        
-                    </div>
-                    <div style="padding-top:15px">Print
-                    </div>
-		        </div>
-<%          }
-            else
-            { %>
+    <asp:Panel ID="panelSignature" runat="server" Visible="false">
+        <span style='color:red'>Invalid response from Payment gateway. Please Try again</span>
+    </asp:Panel>
+    <asp:Panel ID="panelSuccess" runat="server" Visible="false">        
+        <div class="header">
+        	<div class="heading">Payment Receipt</div>
+			<div class="noFloat"></div>        			
+        </div>		
+        <div class="receipt">
+            <div>
+                <div class="col1">Card holder's name:</div>
+                <div class="col2"><% Response.Write(Request.Form.Get("billTo_firstName")); %>&nbsp; <% Response.Write(Request.Form.Get("billTo_lastName")); %></div>
+                <div class="noFloat"></div>        			
+                <div class="col1">Card #:</div>
+                <div class="col2"><% Response.Write(Request.Form.Get("card_accountNumber")); %></div>
+                <div class="noFloat"></div>        			                        
+                <div class="col1">Card Expiry:</div>
+                <div class="col2"><% Response.Write(Request.Form.Get("card_expirationMonth")); %>/<% Response.Write(Request.Form.Get("card_expirationYear")); %></div>
+                <div class="noFloat"></div>        			                        
+                <div class="col1">Card Type:</div>
+                <div class="col2"><% if (Request.Form.Get("card_cardType") == "001")
+                                     {%>Visa<% }
+                                     else if (Request.Form.Get("card_cardType") == "002")
+                                     { %>MasterCard<% }
+                                     else if (Request.Form.Get("card_cardType") == "003")
+                                     {%>American Express<% }
+                                     else if (Request.Form.Get("card_cardType") == "004")
+                                     { %>Discover<% }
+                                     else if (Request.Form.Get("card_cardType") == "005")
+                                     { %> Diners Club <% }
+                                     else if (Request.Form.Get("card_cardType") == "007")
+                                     {%> JCB <% }
+                                     else if (Request.Form.Get("card_cardType") == "024")
+                                     {%> Maestro/Solo <% } %></div>
+                <div class="noFloat"></div>
+                <div class="col1">Amount Charged:</div>
+                <div class="col2"><% Response.Write(Request.Form.Get("ccAuthReply_amount")); %>&nbsp;<% Response.Write(Request.Form.Get("orderCurrency").ToUpper()); %></div>
+                <div class="noFloat"></div>        			                                                        			                        
+            </div>
+            <div style="padding-top:15px">Print
+            </div>
+        </div>
+    </asp:Panel>        
+    <asp:Panel ID="panelFailure" runat="server" Visible="false">        
                 <div>
                     <div style="color:Red;font-weight:bold;font-size:13px;">Some error occured while processing the payment</div>
                     <div style="padding-top:5px;color:Red;font-weight:bold;font-size:13px;">Error: <% Response.Write(Request.Form.Get("reasonCode")); %><br />
@@ -156,9 +152,7 @@
                     </div>
                     <div style="padding-top:10px"><a href="PaymentDetails.aspx">Back To Payment Details</a></div>
                 </div>
-<%          }
-        }
-    %>
+            </asp:Panel>
     </div>
 </asp:Content>
 

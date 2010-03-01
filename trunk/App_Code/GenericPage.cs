@@ -67,4 +67,10 @@ public class GenericPage : System.Web.UI.Page
             return 0;
         }
     }
+
+    protected void RedirectToLogin()
+    {
+        Session[WebConstants.Session.RETURN_URL] = Request.AppRelativeCurrentExecutionFilePath;
+        Response.Redirect("~/pages/Login.aspx?" + WebConstants.Request.NEED_LOGIN + "=true");
+    }
 }

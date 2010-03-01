@@ -31,7 +31,7 @@ public partial class pages_ForgotPassword : GenericPage
                 string password = Utility.RandomString(8, true);
                 customerTA.UpdatePassword(Utility.GetMd5Sum(password), customer.Current.entity_id, customer.Current.entity_id);
                 EmailUtility.SendPasswordEmail(customer.Current.email, password);
-                Response.Redirect("Login.aspx");
+                Response.Redirect("~/pages/Login.aspx");
             }
             else
             {

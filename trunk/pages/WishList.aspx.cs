@@ -12,19 +12,11 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-public partial class pages_WishList : GenericPage
+public partial class pages_WishList : AuthenticatedPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (LoggedIsUser == null)
-        {
-            Session[WebConstants.Session.RETURN_URL] = "~/pages/WishList.aspx";
-            Response.Redirect("~/pages/Login.aspx?" + WebConstants.Request.NEED_LOGIN + "=true");
-        }
-        else
-        {
-            BindRepeater();
-        }
+        BindRepeater();
     }
     private void BindRepeater()
     {
