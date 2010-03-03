@@ -16,19 +16,14 @@ public partial class pages_WishList : AuthenticatedPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        BindRepeater();
+        if(!IsPostBack)
+            BindRepeater();
     }
     private void BindRepeater()
     {
         if (LoggedIsUser != null)
         {
-            List<ShoppingItem> shoppingItems = new List<ShoppingItem>();
-            WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
-            IEnumerator<WishList.WishListSelectRow> wishLists = ta.GetWishListForUser(LoggedIsUser).GetEnumerator();
-            while (wishLists.MoveNext())
-            {
-                shoppingItems.Add(ShoppingItem.Load(wishLists.Current));
-            }
+            List<ShoppingItem> shoppingItems = GetShoppingTrolley();
             rpt.DataSource = shoppingItems;
             rpt.DataBind();
         }
@@ -66,5 +61,52 @@ public partial class pages_WishList : AuthenticatedPage
                 Response.Redirect("~/pages/Login.aspx?" + WebConstants.Request.NEED_LOGIN + "=true");
             }*/
         }
+    }
+
+    List<ShoppingItem> GetShoppingTrolley()
+    {
+        List<ShoppingItem> shoppingItems = new List<ShoppingItem>();
+        if (LoggedIsUser != null)
+        {
+            WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
+
+            IEnumerator<WishList.WishListSelectRow> wishLists = ta.GetWishListForUser(LoggedIsUser).GetEnumerator();
+            while (wishLists.MoveNext())
+            {
+                shoppingItems.Add(ShoppingItem.Load(wishLists.Current));
+            }
+        }
+        return shoppingItems;
+    }
+
+    protected void Sterling_Click(object sender, ImageClickEventArgs e)
+    {
+        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("STR");
+        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+    }
+    protected void Euro_Click(object sender, ImageClickEventArgs e)
+    {
+        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("EUR");
+        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+    }
+    protected void Dollar_Click(object sender, ImageClickEventArgs e)
+    {
+        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("USD");
+        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+    }
+
+    private void ReBind(double exchangeRate, string htmlCurrencyCode)
+    {
+        List<ShoppingItem> shoppingItems = GetShoppingTrolley();
+        if (shoppingItems.Count > 0)
+        {
+            foreach (ShoppingItem item in shoppingItems)
+            {
+                item.ConversionRate = exchangeRate;
+                item.Currency = htmlCurrencyCode;
+            }
+        }
+        rpt.DataSource = shoppingItems;
+        rpt.DataBind();
     }
 }

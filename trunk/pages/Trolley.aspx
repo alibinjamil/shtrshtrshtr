@@ -1,4 +1,4 @@
-﻿ <%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="Trolley.aspx.cs" Inherits="pages_Trolley" Title="Simplicity4Business" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="Trolley.aspx.cs" Inherits="pages_Trolley" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -6,9 +6,18 @@
         <div class="header">
 			<div class="heading">Trolley</div>
 			<div class="headingImages">
-				<a href="#"><img src="../images/Sterling.gif" onmouseover="this.src='../images/Sterling_rollover.gif'" onmouseout="this.src='../images/Sterling.gif'"></a>
-				<a href="#"><img src="../images/Euro.gif" onmouseover="this.src='../images/Euro_rollover.gif'" onmouseout="this.src='../images/Euro.gif'"></a>
-				<a href="#"><img src="../images/Dollar.gif" onmouseover="this.src='../images/Dollar_rollover.gif'" onmouseout="this.src='../images/Dollar.gif'"></a>
+				<asp:ImageButton ID="Sterling" runat="server" BorderWidth="2px" BorderColor="blue"
+                    onmouseover="this.src='../images/Sterling_rollover.gif'" onmouseout="this.src='../images/Sterling.gif'"
+                    ImageUrl="~/images/Sterling.gif" onclick="Sterling_Click" />
+                &nbsp;    
+                <asp:ImageButton ID="Euro" runat="server" BorderWidth="2px" BorderColor="blue"
+                    onmouseover="this.src='../images/Euro_rollover.gif'" onmouseout="this.src='../images/Euro.gif'"
+                    ImageUrl="~/images/Euro.gif" onclick="Euro_Click" />
+                &nbsp;    
+                <asp:ImageButton ID="Dollar" runat="server" BorderWidth="2px" BorderColor="blue"
+                    onmouseover="this.src='../images/Dollar_rollover.gif'" onmouseout="this.src='../images/Dollar.gif'"
+                    ImageUrl="~/images/Dollar.gif" onclick="Dollar_Click" />
+			    
 			</div>	
 			<div class="noFloat"></div>
 		</div>	
@@ -47,14 +56,20 @@
 			</div>
 			<div class="trolleyActionsCol3">
 				<div class="trolleyCell" style="margin-top:20px;">
-					<asp:TextBox ID="txtQty" runat="server" Width="25px" Text='<%# DataBinder.Eval(Container, "DataItem.Quantity")%>'></asp:TextBox>
+					<asp:TextBox ID="txtQty" runat="server" Width="25px" Text='<%# DataBinder.Eval(Container, "DataItem.Quantity")%>' AutoPostBack="True" OnTextChanged="txtQty_OnTextChanged" EnableViewState="False" ></asp:TextBox>
 				</div>
 			</div>		
 			<div class="trolleyActionsCol4">
-				<div class="trolleyCell" style="margin-top:20px;">&pound;<%# DataBinder.Eval(Container, "DataItem.Price")%></div>
+				<div id= "" class="trolleyCell" style="margin-top:20px;">
+				<%# DataBinder.Eval(Container, "DataItem.Currency")%>
+				<asp:Label ID='unitPrice' runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.Price")%>' ></asp:Label>
+				</div>
 			</div>		
 			<div class="trolleyActionsCol5">
-				<div class="trolleyCell" style="margin-top:20px;">&pound;<%# DataBinder.Eval(Container, "DataItem.Total")%></div>
+				<div class="trolleyCell" style="margin-top:20px;">
+				<%# DataBinder.Eval(Container, "DataItem.Currency")%>
+				
+                    <asp:Label ID='totalPrice' runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.Total")%>'></asp:Label>
 			</div>		
 			<div class="noFloat"></div>
             
@@ -65,8 +80,12 @@
 		
 		<div class="noFloat">
 			<div class="floatRight">
-				<a href="Products.aspx"><img src="../images/Continue.gif" onmouseover="this.src='../images/Continue_rollover.gif'" onmouseout="this.src='../images/Continue.gif'"></a>
-    				<asp:ImageButton ID="imbBtnCheckout" runat="server" 
+    				<asp:ImageButton ID="imbBtnContinue" runat="server" 
+                    ImageUrl="~/images/Continue.gif" 
+                    onmouseover="this.src='../images/Continue_rollover.gif'" 
+                    onmouseout="this.src='../images/Continue.gif'" 
+                    onclick="imbBtnContinue_Click"/>
+			&nbsp;<asp:ImageButton ID="imbBtnCheckout" runat="server" 
                     ImageUrl="~/images/Checkout.gif" 
                     onmouseover="this.src='../images/Checkout_rollover.gif'" 
                     onmouseout="this.src='../images/Checkout.gif'" onclick="imbBtnCheckout_Click"/>
