@@ -67,6 +67,19 @@ using System.Xml.Linq;
             set { quantity = value; }
         }
 
+        private double conversionRate = 1;
+        public double ConversionRate
+        {
+            get { return conversionRate; }
+            set { conversionRate = value; }
+        }
+
+        private string currency = "&pound";
+        public string Currency
+        {
+            get { return currency; }
+            set { currency = value; }
+        }
         
         public double Price
         {
@@ -76,13 +89,13 @@ using System.Xml.Linq;
                 {
                     if (this.ProductVersion != null && this.ProductVersion.IsdiscountNull() == false)
                     {
-                        return this.ProductDetail.price - this.ProductDetail.price * this.ProductVersion.discount / 100;
+                        return (this.ProductDetail.price - this.ProductDetail.price * this.ProductVersion.discount / 100)*this.conversionRate;
                     }
-                    return this.ProductDetail.price;
+                    return this.ProductDetail.price * this.conversionRate;
                 }
                 else
                 {
-                    return this.ProductVersion.price;
+                    return this.ProductVersion.price * this.conversionRate;
                 }
             }
         }

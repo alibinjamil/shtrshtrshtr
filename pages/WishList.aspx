@@ -6,9 +6,17 @@
 		<div class="header">
 			<div class="heading">Wish List</div>
 			<div class="headingImages">
-				<a href="#"><img src="../images/Sterling.gif" onmouseover="this.src='../images/Sterling_rollover.gif'" onmouseout="this.src='../images/Sterling.gif'"></a>
-				<a href="#"><img src="../images/Euro.gif" onmouseover="this.src='../images/Euro_rollover.gif'" onmouseout="this.src='../images/Euro.gif'"></a>
-				<a href="#"><img src="../images/Dollar.gif" onmouseover="this.src='../images/Dollar_rollover.gif'" onmouseout="this.src='../images/Dollar.gif'"></a>
+				<asp:ImageButton ID="Sterling" runat="server" BorderWidth="2px" BorderColor="blue"
+                    onmouseover="this.src='../images/Sterling_rollover.gif'" onmouseout="this.src='../images/Sterling.gif'"
+                    ImageUrl="~/images/Sterling.gif" onclick="Sterling_Click" />
+                &nbsp;    
+                <asp:ImageButton ID="Euro" runat="server" BorderWidth="2px" BorderColor="blue"
+                    onmouseover="this.src='../images/Euro_rollover.gif'" onmouseout="this.src='../images/Euro.gif'"
+                    ImageUrl="~/images/Euro.gif" onclick="Euro_Click" />
+                &nbsp;    
+                <asp:ImageButton ID="Dollar" runat="server" BorderWidth="2px" BorderColor="blue"
+                    onmouseover="this.src='../images/Dollar_rollover.gif'" onmouseout="this.src='../images/Dollar.gif'"
+                    ImageUrl="~/images/Dollar.gif" onclick="Dollar_Click" />
 			</div>	
 			<div class="noFloat"></div>
 		</div>	
@@ -50,10 +58,14 @@
 				</div>
 			</div>		
 			<div class="wishListActionsCol4">
-				<div class="wishListCell" style="margin-top:20px;">&pound;<%# DataBinder.Eval(Container, "DataItem.Price")%></div>
+				<div class="wishListCell" style="margin-top:20px;">
+				<%# DataBinder.Eval(Container, "DataItem.Currency")%>
+				<%# DataBinder.Eval(Container, "DataItem.Price")%></div>
 			</div>		
 			<div class="wishListActionsCol5">
-				<div class="wishListCell"style="margin-top:20px;">&pound;<%# DataBinder.Eval(Container, "DataItem.Total")%></div>
+				<div class="wishListCell"style="margin-top:20px;">
+				<%# DataBinder.Eval(Container, "DataItem.Currency")%>
+				<%# DataBinder.Eval(Container, "DataItem.Total")%></div>
 			</div>		
 			<div class="noFloat"></div>
 		</div>

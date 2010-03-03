@@ -14,7 +14,7 @@ using System.Collections.Generic;
 /// <summary>
 /// Summary description for Product
 /// </summary>
-/// 
+///                                                                                                                                   
 namespace ShoppingTrolley.Web.Objects
 {
     public class Product
@@ -156,6 +156,27 @@ namespace ShoppingTrolley.Web.Objects
                 product = products.Current;
             }
             return product;
+        }
+
+        public static Products.ExchangeRateRow GetExchangeRate(string country)
+        {
+            Products.ExchangeRateRow exchangeRate = null;
+            
+            ProductsTableAdapters.ExchangeRateTableAdapter ta = new ProductsTableAdapters.ExchangeRateTableAdapter();
+            IEnumerator<Products.ExchangeRateRow> exchangeRates;
+            try
+            {
+                exchangeRates = ta.GetExchangeRateByCountry(country).GetEnumerator();
+                if (exchangeRates.MoveNext())
+                {
+                    exchangeRate = exchangeRates.Current;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.StackTrace);
+            }
+            return exchangeRate;
         }
     }
 }
