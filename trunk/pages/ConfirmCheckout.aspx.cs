@@ -36,7 +36,7 @@ public partial class pages_ConfirmCheckout : AuthenticatedPage
     protected void btnCheckout_Click(object sender, ImageClickEventArgs e)
     {
         bool anyError = false;
-        //
+
         if (Request["acceptTerms"] != null)
         {
             string[] acceptTerms = Request["acceptTerms"].Split(',');
@@ -58,7 +58,7 @@ public partial class pages_ConfirmCheckout : AuthenticatedPage
             string transactionId = InsertTransaction();
             if ( transactionId != null)
             {               
-                string data = "amount=" + Server.UrlEncode(GetTotalAmount().ToString());
+                string data = "amount=" + Server.UrlEncode(Request["amount"]);
                 data += "&orderNumber=" + Server.UrlEncode(transactionId);
                 data += "&currency=" + Server.UrlEncode(Request["currency"]);
                 data += "&orderPage_timestamp=" + Server.UrlEncode(Request["orderPage_timestamp"]);
@@ -83,6 +83,14 @@ public partial class pages_ConfirmCheckout : AuthenticatedPage
                 data += "&card_startMonth=" + Server.UrlEncode((string)Session["cardStartMonth"]);
                 data += "&card_startYear=" + Server.UrlEncode((string)Session["cardStartYear"]);
                 data += "&orderPage_requestToken=" + Server.UrlEncode(System.Guid.NewGuid().ToString());
+
+                data += "&recurringSubscriptionInfo_amount=" + Server.UrlEncode(Request["recurringSubscriptionInfo_amount"]);
+                data += "&recurringSubscriptionInfo_numberOfPayments=" + Server.UrlEncode(Request["recurringSubscriptionInfo_numberOfPayments"]);
+                data += "&recurringSubscriptionInfo_frequency=" + Server.UrlEncode(Request["recurringSubscriptionInfo_frequency"]);
+                data += "&recurringSubscriptionInfo_automaticRenew=" + Server.UrlEncode(Request["recurringSubscriptionInfo_automaticRenew"]);
+                data += "&recurringSubscriptionInfo_startDate=" + Server.UrlEncode(Request["recurringSubscriptionInfo_startDate"]);
+                data += "&recurringSubscriptionInfo_signaturePublic=" + Server.UrlEncode(Request["recurringSubscriptionInfo_signaturePublic"]);
+
                 byte[] buffer = Encoding.UTF8.GetBytes(data);
 
                 req.Method = "POST";
@@ -145,6 +153,18 @@ public partial class pages_ConfirmCheckout : AuthenticatedPage
     protected void insertSignature3(String currency, String orderPage_transactionType)
     {
         CyberSourceCS.insertSignature3(Response, GetTotalAmount().ToString(), currency, orderPage_transactionType);
+    }
+
+    protected void insertSubscriptionSignature()
+    {
+        string today = String.Format("{0:yyyyMMdd}", DateTime.Now);
+        CyberSourceCS.insertSubscriptionSignature(Response, GetInstallmentAmount(GetTotalAmount()).ToString(), today, "monthly", "4", "false");
+    }
+
+    private double GetInstallmentAmount(double totalAmount)
+    {
+        int numOfMonths = 4;
+        return totalAmount / numOfMonths;
     }
 
     protected double GetTotalAmount()
