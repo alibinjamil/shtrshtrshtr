@@ -40,8 +40,8 @@
 			<div class="floatLeft" style="width:19px;">&nbsp;</div>
 			<div class="wishListActionsCol1" style="margin-top:20px;">
 				<div class="wishListCell">
-                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Save" CommandArgument='<%#DataBinder.Eval(Container, "ItemIndex", "")%>'>Add to Trolley</asp:LinkButton></div>
-				<div class="wishListCell"><asp:LinkButton ID="LinkButton2" runat="server" CommandName="Remove" CommandArgument='<%#DataBinder.Eval(Container, "ItemIndex", "")%>'>Remove</asp:LinkButton></div>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Save" CommandArgument='<%#DataBinder.Eval(Container, "DataItem.WishListItemId")%>'>Add to Trolley</asp:LinkButton></div>
+				<div class="wishListCell"><asp:LinkButton ID="LinkButton2" runat="server" CommandName="Remove" CommandArgument='<%#DataBinder.Eval(Container, "DataItem.WishListItemId")%>'>Remove</asp:LinkButton></div>
 			</div>		
 			<div class="wishListActionsCol2">
 				<div class="floatLeft">

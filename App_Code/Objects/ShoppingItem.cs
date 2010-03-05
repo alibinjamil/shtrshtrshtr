@@ -112,12 +112,13 @@ using System.Xml.Linq;
             //
         }
 
-        public static ShoppingItem Load(WishList.WishListSelectRow wishList)
+        public static ShoppingItem Load(WishList.WishListDSRow wishList)
         {
             ShoppingItem shoppingItem = new ShoppingItem();
             shoppingItem.product = ShoppingTrolley.Web.Objects.Product.GetProduct(wishList.product_id);
             shoppingItem.DurationInMonths = wishList.duration;
             shoppingItem.Quantity = wishList.quantity;
+            shoppingItem.wishListItemId = wishList.wish_list_id;
             if(wishList.Isversion_idNull() == false)
             {
                 shoppingItem.ProductVersion = ShoppingTrolley.Web.Objects.Product.GetVersion(wishList.version_id);
@@ -128,4 +129,12 @@ using System.Xml.Linq;
             }
             return shoppingItem;
         }
+
+        private int wishListItemId;
+        public int WishListItemId
+        {
+            get { return wishListItemId; }
+            set { wishListItemId = value; }
+        }
+
     }

@@ -56,15 +56,24 @@ public partial class pages_Trolley : GenericPage
                 int index = int.Parse(e.CommandArgument.ToString());
                 ShoppingItem currentItem = GetShoppingTrolley()[index];
                 //Save record for current user
-                WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
-                Nullable<int> versionId = null;
-                if(currentItem.ProductVersion != null) versionId = currentItem.ProductVersion.version_id;
+                WishListTableAdapters.WishListDSTableAdapter ta = new WishListTableAdapters.WishListDSTableAdapter();
 
-                Nullable<int> productDetailId = null;
-                if(currentItem.ProductDetail != null) productDetailId = currentItem.ProductDetail.product_detail_id;
-                
-                ta.Insert(LoggedInUserId,currentItem.Product.product_id,versionId,productDetailId,currentItem.Quantity,currentItem.DurationInMonths);
+                IEnumerator<WishList.WishListDSRow> wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.product_id).GetEnumerator();
+                if (wishListRows.MoveNext())
+                {
+                    wishListRows.Current.quantity++;
+                    ta.Update(wishListRows.Current);
+                }
+                else
+                {
+                    Nullable<int> versionId = null;
+                    if (currentItem.ProductVersion != null) versionId = currentItem.ProductVersion.version_id;
 
+                    Nullable<int> productDetailId = null;
+                    if (currentItem.ProductDetail != null) productDetailId = currentItem.ProductDetail.product_detail_id;
+
+                    ta.Insert(LoggedInUserId, currentItem.Product.product_id, versionId, productDetailId, currentItem.Quantity, currentItem.DurationInMonths);
+                }
                 SetInfoMessage("Item added to your wishlist");
             }
             else
