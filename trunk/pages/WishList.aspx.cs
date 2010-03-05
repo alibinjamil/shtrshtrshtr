@@ -23,8 +23,7 @@ public partial class pages_WishList : AuthenticatedPage
     {
         if (LoggedIsUser != null)
         {
-            List<ShoppingItem> shoppingItems = GetShoppingTrolley();
-            rpt.DataSource = shoppingItems;
+            rpt.DataSource = GetWishList();
             rpt.DataBind();
         }
     }
@@ -32,45 +31,70 @@ public partial class pages_WishList : AuthenticatedPage
     {
         if (e.CommandName.Equals("Remove"))
         {
-            /*List<ShoppingItem> trolley = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
-            trolley.RemoveAt(int.Parse(e.CommandArgument.ToString()));
-            Session[WebConstants.Session.TROLLEY] = trolley;
-            BindRepeater();*/
+            int productWishListId = int.Parse(e.CommandArgument.ToString());
+            WishListTableAdapters.WishListDSTableAdapter ta = new WishListTableAdapters.WishListDSTableAdapter();
+            ta.Delete(productWishListId);
+            BindRepeater();
+            ta.Dispose();
         }
         else if (e.CommandName.Equals("Save"))
         {
-            /*if (LoggedIsUser != null)
+            if (LoggedIsUser != null)
             {
-                int index = int.Parse(e.CommandArgument.ToString());
-                ShoppingItem currentItem = ((List<ShoppingItem>)Session[WebConstants.Session.TROLLEY])[index];
-                //Save record for current user
-                WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
-                Nullable<int> versionId = null;
-                if (currentItem.ProductVersion != null) versionId = currentItem.ProductVersion.version_id;
+                
+                WishList.WishListDSRow wishList = null;
+                int wishListId = int.Parse(e.CommandArgument.ToString());
+                WishListTableAdapters.WishListDSTableAdapter ta = new WishListTableAdapters.WishListDSTableAdapter();
+                IEnumerator<WishList.WishListDSRow> wishListRowIterator = ta.GetWishListById(wishListId).GetEnumerator();
+                if (wishListRowIterator.MoveNext())
+                    wishList = wishListRowIterator.Current;
+                if (wishList != null)
+                {
+                    List<ShoppingItem> trolleyItems = ((List<ShoppingItem>)Session[WebConstants.Session.TROLLEY]);
+                    bool added = false;
+                    if (trolleyItems == null)
+                    {
+                        trolleyItems = new List<ShoppingItem>();
+                        added = true;
+                    }
 
-                Nullable<int> productDetailId = null;
-                if (currentItem.ProductDetail != null) productDetailId = currentItem.ProductDetail.product_detail_id;
+                    foreach (ShoppingItem item in trolleyItems)
+                    {
+                        if (wishList.product_id == item.Product.product_id)
+                        {
+                            if (!wishList.Isproduct_detail_idNull() && item.ProductDetail != null && item.ProductDetail.product_detail_id == wishList.product_detail_id)
+                            {
+                                item.Quantity++;
+                                added = true;
+                                break;
+                            }
+                        }
+                    }
 
-                ta.Insert(LoggedInUserId, currentItem.Product.product_id, versionId, productDetailId, currentItem.Quantity, currentItem.DurationInMonths);
-
+                    if (!added)
+                    {
+                        ShoppingTrolley.Web.Objects.Product product = ShoppingTrolley.Web.Objects.Product.LoadCompleteProduct(wishList.product_id);
+                        if (!wishList.Isproduct_detail_idNull())
+                        {
+                            ShoppingCart.AddProductDetail(product, wishList.product_detail_id, wishList.version_id);
+                        }
+                        else
+                            ShoppingCart.AddProductVersion(product, wishList.version_id);
+                    }
+                }
                 SetInfoMessage("Item added to your trolley");
             }
-            else
-            {
-                Session[WebConstants.Session.RETURN_URL] = "~/pages/Trolley.aspx";
-                Response.Redirect("~/pages/Login.aspx?" + WebConstants.Request.NEED_LOGIN + "=true");
-            }*/
         }
     }
-
-    List<ShoppingItem> GetShoppingTrolley()
+    
+    List<ShoppingItem> GetWishList()
     {
         List<ShoppingItem> shoppingItems = new List<ShoppingItem>();
         if (LoggedIsUser != null)
         {
-            WishListTableAdapters.WishListTableAdapter ta = new WishListTableAdapters.WishListTableAdapter();
+            WishListTableAdapters.WishListDSTableAdapter ta = new WishListTableAdapters.WishListDSTableAdapter();
 
-            IEnumerator<WishList.WishListSelectRow> wishLists = ta.GetWishListForUser(LoggedIsUser).GetEnumerator();
+            IEnumerator<WishList.WishListDSRow> wishLists = ta.GetWishListForUser(LoggedIsUser).GetEnumerator();
             while (wishLists.MoveNext())
             {
                 shoppingItems.Add(ShoppingItem.Load(wishLists.Current));
@@ -97,7 +121,7 @@ public partial class pages_WishList : AuthenticatedPage
 
     private void ReBind(double exchangeRate, string htmlCurrencyCode)
     {
-        List<ShoppingItem> shoppingItems = GetShoppingTrolley();
+        List<ShoppingItem> shoppingItems = GetWishList();
         if (shoppingItems.Count > 0)
         {
             foreach (ShoppingItem item in shoppingItems)
