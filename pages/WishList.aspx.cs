@@ -56,6 +56,13 @@ public partial class pages_WishList : AuthenticatedPage
                     {
                         trolleyItems = new List<ShoppingItem>();
                         added = true;
+                        ShoppingTrolley.Web.Objects.Product product = ShoppingTrolley.Web.Objects.Product.LoadCompleteProduct(wishList.product_id);
+                        if (!wishList.Isproduct_detail_idNull())
+                        {
+                            ShoppingCart.AddProductDetail(product, wishList.product_detail_id, wishList.version_id);
+                        }
+                        else
+                            ShoppingCart.AddProductVersion(product, wishList.version_id);
                     }
 
                     foreach (ShoppingItem item in trolleyItems)
@@ -105,32 +112,19 @@ public partial class pages_WishList : AuthenticatedPage
 
     protected void Sterling_Click(object sender, ImageClickEventArgs e)
     {
-        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("STR");
-        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+        ShoppingCart.SetCurrency(WebConstants.Currencies.GBP);
+        BindRepeater();
     }
     protected void Euro_Click(object sender, ImageClickEventArgs e)
     {
-        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("EUR");
-        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+        ShoppingCart.SetCurrency(WebConstants.Currencies.EUR);
+        BindRepeater();
     }
     protected void Dollar_Click(object sender, ImageClickEventArgs e)
     {
-        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("USD");
-        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+        ShoppingCart.SetCurrency(WebConstants.Currencies.GBP);
+        BindRepeater();
     }
 
-    private void ReBind(double exchangeRate, string htmlCurrencyCode)
-    {
-        List<ShoppingItem> shoppingItems = GetWishList();
-        if (shoppingItems.Count > 0)
-        {
-            foreach (ShoppingItem item in shoppingItems)
-            {
-                item.ConversionRate = exchangeRate;
-                item.Currency = htmlCurrencyCode;
-            }
-        }
-        rpt.DataSource = shoppingItems;
-        rpt.DataBind();
-    }
+
 }

@@ -31,6 +31,10 @@ public partial class pages_Login : GenericPage
                 lblErrorMessage.Visible = true;
                 lblErrorMessage.Text = "Please login to continue";
             }
+            else if (Request[WebConstants.Request.FROM_PAGE] != null)
+            {
+                SetInfoMessage("An email has been sent to you for your login details");
+            }
         }
     }
     protected void imgBtnLogin_Click(object sender, ImageClickEventArgs e)

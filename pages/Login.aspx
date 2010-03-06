@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-	<div class="noFloat"></div>
+    <div class="noFloat"></div>
     <div class="header">
 			<div class="heading">Customer Login</div>
 			<div class="noFloat"></div>
@@ -26,6 +26,7 @@
                     <div style="padding-top:60px;padding-left:10px;" class="row">
 	                    <div class="colerror"> 
 	                        &nbsp;<div class="errorMessage"><asp:Label ID="lblErrorMessage" runat="server" Text="Label" Visible="false"></asp:Label> </div>		
+	                        
                         </div>
                         <div class="noFloat"></div>
 	                </div>

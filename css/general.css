@@ -146,13 +146,14 @@ div.trolleyActionsHeader1 {
 }
 
 div.trolleyActionsHeader2 {
-	width:480px;
+	width:430px;
 	float:left;
 }
 
 div.trolleyActionsHeader3 {
-	width:75px;
+	width:125px;
 	float:left;
+	text-align:center;
 }
 
 div.trolleyActionsHeader4 {
@@ -167,9 +168,9 @@ div.trolleyActionsHeader5 {
 
 div.trolleyActions {
 	padding-top:0;
-	padding-bottom:0.5em;
+	padding-bottom:5px;
 	font-weight:bold; 
-	font-size:1.3em;
+	font-size:12pt;
 }
 
 div.trolleyActionsCol1 {
@@ -178,13 +179,14 @@ div.trolleyActionsCol1 {
 }
 
 div.trolleyActionsCol2 {
-	width:480px;
+	width:430px;
 	float:left;
 }
 
 div.trolleyActionsCol3 {
-	width:75px;
+	width:125px;
 	float:left;
+	text-align:center;
 }
 
 div.trolleyActionsCol4 {
@@ -197,8 +199,8 @@ div.trolleyActionsCol5 {
 }
 
 div.trolleycell {
-	padding-top:0.5em; 
-	padding-bottom:0.5em;
+	padding-top:10px; 
+	padding-bottom:10px;
 }
 
 input {
@@ -759,6 +761,14 @@ div.productPrices div.headingRow
 	margin-top: 30px;
 	font-size:12pt;
 	font-weight:bold;
+}
+div.productPrices div.hlRow
+{
+	vertical-align: middle;
+	clear: both;
+	margin-left: 154px;
+	margin-right:154px;
+	font-size:12pt;
 }
 
 div.productPrices div.row

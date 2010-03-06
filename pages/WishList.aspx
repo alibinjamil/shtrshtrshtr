@@ -26,11 +26,11 @@
 			<div class="floatLeft" style="background-image:url(../images/blueBar.png);width:930px">
 				<div class="floatLeft"><img src="../images/leftRoundBlue.png"/></div>
 				<div class="floatRight"><img src="../images/rightRoundBlue.png"/></div>
-				<div class="wishListActionsHeaders wishListActionsHeader1">ACTIONS</div>
-				<div class="wishListActionsHeaders wishListActionsHeader2">DESCRIPTIONS</div>
-				<div class="wishListActionsHeaders wishListActionsHeader3">QTY</div>
-				<div class="wishListActionsHeaders wishListActionsHeader4">PRICE</div>
-				<div class="wishListActionsHeaders wishListActionsHeader5">TOTAL</div>
+				<div class="wishListActionsHeaders wishListActionsHeader1">Actions</div>
+				<div class="wishListActionsHeaders wishListActionsHeader2">Descriptions</div>
+				<div class="wishListActionsHeaders wishListActionsHeader3">No. of License(s)</div>
+				<div class="wishListActionsHeaders wishListActionsHeader4">Price</div>
+				<div class="wishListActionsHeaders wishListActionsHeader5">Total</div>
 			</div>
 			<div class="noFloat"></div>
 		</div>	

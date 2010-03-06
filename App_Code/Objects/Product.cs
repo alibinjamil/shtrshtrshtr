@@ -111,7 +111,7 @@ namespace ShoppingTrolley.Web.Objects
                 ProductsTableAdapters.ProductVersionTableAdapter versionTA = new ProductsTableAdapters.ProductVersionTableAdapter();
                 IEnumerator<Products.ProductVersionEntityRow> versions = versionTA.GetVersionByProduct(productId).GetEnumerator();
                 while (versions.MoveNext())
-                {
+                {                    
                     product.versions.Add(versions.Current);
                 }
                 return product;

@@ -43,33 +43,78 @@ public partial class pages_ProductPrices : GenericPage
     {
         if (Request[WebConstants.Request.PRODUCT_ID] != null)
         {
-            int productId = int.Parse(Request[WebConstants.Request.PRODUCT_ID]);
-            product = Product.LoadCompleteProduct(productId);
-            if (product != null)
+            if (IsPostBack == false)
             {
-                rptMandatory.DataSource = product.MandatoryDetails;
-                rptMandatory.DataBind();
-                rptOptional.DataSource = product.OptionalDetails;
-                rptOptional.DataBind();
-                if (Request[WebConstants.Request.PRODUCT_DETAIL_ID] != null)
+                BindData();
+                if (product != null)
                 {
-                    int productDetailId = int.Parse(Request[WebConstants.Request.PRODUCT_DETAIL_ID]);
-                    int versionId = int.Parse(Request[WebConstants.Request.VERSION_ID]);
-                    ShoppingCart.AddProductDetail(product, productDetailId,versionId);
-                    SetInfoMessage("Add On has been added to your trolley");
+                    if (Request[WebConstants.Request.PRODUCT_DETAIL_ID] != null)
+                    {
+                        int productDetailId = int.Parse(Request[WebConstants.Request.PRODUCT_DETAIL_ID]);
+                        int versionId = int.Parse(Request[WebConstants.Request.VERSION_ID]);
+                        ShoppingCart.AddProductDetail(product, productDetailId, versionId);
+                        if (ConfigurationSettings.AppSettings["PaymentOffline"].Equals("true"))
+                        {
+                            Response.Redirect("~/pages/PaymentOffline.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/pages/Trolley.aspx");
+                        }
+                    }
+                    else if (Request[WebConstants.Request.VERSION_ID] != null)
+                    {
+                        int versionId = int.Parse(Request[WebConstants.Request.VERSION_ID]);
+                        ShoppingCart.AddProductVersion(product, versionId);
+                        if (ConfigurationSettings.AppSettings["PaymentOffline"].Equals("true"))
+                        {
+                            Response.Redirect("~/pages/PaymentOffline.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/pages/Trolley.aspx");
+                        }
+                    }
                 }
-                else if (Request[WebConstants.Request.VERSION_ID] != null)
-                {
-                    int versionId = int.Parse(Request[WebConstants.Request.VERSION_ID]);
-                    ShoppingCart.AddProductVersion(product, versionId);
-                    SetInfoMessage("Selected product has been added to your trolley ");
-                }
-
             }
         }
         else
         {
             Response.Redirect("~/pages/Products.aspx");
+        }
+    }
+    
+    private void BindData()
+    {
+        int productId = int.Parse(Request[WebConstants.Request.PRODUCT_ID]);
+        product = Product.LoadCompleteProduct(productId);
+        if (product != null)
+        {
+            if (Request[WebConstants.Request.MORE] != null)
+            {
+                if (product.OptionalDetails.Count > WebConstants.DEFAULT_ADDONS)
+                {
+                    rptOptional.DataSource = product.OptionalDetails.GetRange(WebConstants.DEFAULT_ADDONS, product.OptionalDetails.Count - WebConstants.DEFAULT_ADDONS);
+                    rptOptional.DataBind();
+                }                    
+                hlBack.NavigateUrl = "~/pages/ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + Request[WebConstants.Request.PRODUCT_ID] ;
+                hlBack.Visible = true;
+            }
+            else
+            {
+                rptMandatory.DataSource = product.MandatoryDetails;
+                rptMandatory.DataBind();
+                //as we have to show the first five elements only.
+                if (product.OptionalDetails.Count > WebConstants.DEFAULT_ADDONS)
+                {
+                    rptOptional.DataSource = product.OptionalDetails.GetRange(0, 5);
+                    hlMore.Visible = true;
+                }
+                rptOptional.DataBind();
+                hlMore.NavigateUrl = "~/pages/ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + Request[WebConstants.Request.PRODUCT_ID]
+                    + "&" + WebConstants.Request.MORE + "=true";
+                hlMore.Visible = true;
+            }
         }
     }
     protected string GetProductImage()
@@ -113,6 +158,12 @@ public partial class pages_ProductPrices : GenericPage
         }
         return "#";
     }
+
+    protected string GetVersionPrice(object price)
+    {
+        double finalPrice = ((double)price) * ShoppingCart.GetCurrentCurrency().exchange_rate;
+        return String.Format("{0:N2}", finalPrice);
+    }
     protected void rptOptional_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
         if (product != null)
@@ -137,6 +188,7 @@ public partial class pages_ProductPrices : GenericPage
                         {
                             version.Price = productDetails.price - productDetails.price * versionDS.discount / 100;
                         }
+                        version.Price *= ShoppingCart.GetCurrentCurrency().exchange_rate;
                         versions.Add(version);
                     }
                     rptHeader.DataSource = versions;
@@ -144,5 +196,21 @@ public partial class pages_ProductPrices : GenericPage
                 }
             }
         }
+    }
+
+    protected void Sterling_Click(object sender, ImageClickEventArgs e)
+    {
+        ShoppingCart.SetCurrency(WebConstants.Currencies.GBP);
+        BindData();
+    }
+    protected void Euro_Click(object sender, ImageClickEventArgs e)
+    {
+        ShoppingCart.SetCurrency(WebConstants.Currencies.EUR);
+        BindData();
+    }
+    protected void Dollar_Click(object sender, ImageClickEventArgs e)
+    {
+        ShoppingCart.SetCurrency(WebConstants.Currencies.USD);
+        BindData();
     }
 }

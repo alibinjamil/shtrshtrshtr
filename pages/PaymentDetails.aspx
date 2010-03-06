@@ -398,5 +398,9 @@
 		<div class="noFloat" style="padding-top:30px;">
 			<img src="../images/paymentOptions.png"/>
 		</div>
+		<% insertSignature3(); %>
+		
+		<% insertSubscriptionSignature(); %>
+		
 </asp:Content>
 

@@ -42,7 +42,8 @@
                                      {%> Maestro/Solo <% } %></div>
                 <div class="noFloat"></div>
                 <div class="col1">Amount Charged:</div>
-                <div class="col2"><% Response.Write(Request.Form.Get("ccAuthReply_amount")); %>&nbsp;<% Response.Write(Request.Form.Get("orderCurrency").ToUpper()); %></div>
+                <div class="col2">
+                    <asp:Label ID="lblAmountText" runat="server" Text=""></asp:Label></div>
                 <div class="noFloat"></div>        			                                                        			                        
             </div>
             <div style="padding-top:15px">Print
