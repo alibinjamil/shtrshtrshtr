@@ -98,7 +98,7 @@ public partial class pages_Trolley : GenericPage
             else
             {
                 
-                Response.Redirect("~/pages/PaymentDetails.aspx");
+                Response.Redirect("~/pages/AccountAddress.aspx");
             }
         }
     }
@@ -106,11 +106,19 @@ public partial class pages_Trolley : GenericPage
     protected void txtQty_OnTextChanged(object sender, EventArgs e)
     {
         TextBox txtQty = ((TextBox)(sender));
+        int qty = int.Parse(txtQty.Text);
         RepeaterItem repeaterItem = ((RepeaterItem)(txtQty.NamingContainer));
-        Label lblUnitPrice = (Label)repeaterItem.FindControl("unitPrice");
-        Label lblTotalPrice = (Label)repeaterItem.FindControl("totalPrice");
-        lblTotalPrice.Text = Convert.ToString(Convert.ToInt32(txtQty.Text) * Convert.ToInt32(lblUnitPrice.Text));
-        GetShoppingTrolley()[repeaterItem.ItemIndex].Quantity = Convert.ToInt32(txtQty.Text);
+        if (GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion != null
+            && qty < GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion.min_users)
+        {
+            SetErrorMessage("Number of licenses must be atleast " + GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion.min_users);
+        }
+        else
+        {
+            Label lblTotalPrice = (Label)repeaterItem.FindControl("totalPrice");            
+            GetShoppingTrolley()[repeaterItem.ItemIndex].Quantity = Convert.ToInt32(txtQty.Text);
+            lblTotalPrice.Text = GetShoppingTrolley()[repeaterItem.ItemIndex].Total.ToString();
+        }
     }
 
     protected void imbBtnContinue_Click(object sender, ImageClickEventArgs e)
@@ -151,32 +159,22 @@ public partial class pages_Trolley : GenericPage
     }
     protected void Sterling_Click(object sender, ImageClickEventArgs e)
     {
-        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("STR");
-        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+        ShoppingCart.SetCurrency(WebConstants.Currencies.GBP);
+        BindRepeater();
     }
     protected void Euro_Click(object sender, ImageClickEventArgs e)
     {
-        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("EUR");
-        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+        ShoppingCart.SetCurrency(WebConstants.Currencies.EUR);
+        BindRepeater();
     }
     protected void Dollar_Click(object sender, ImageClickEventArgs e)
     {
-        Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("USD");
-        this.ReBind(exchangeRate.exchange_rate, exchangeRate.html_currency_code);
+        ShoppingCart.SetCurrency(WebConstants.Currencies.USD);
+        BindRepeater();
+    }
+    protected string GetCurrencySymbol()
+    {
+        return ShoppingCart.GetCurrentCurrency().html_currency_code;
     }
 
-    private void ReBind(double exchangeRate, string htmlCurrencyCode)
-    {
-        List<ShoppingItem> shoppingItems = GetShoppingTrolley();
-        if (shoppingItems.Count > 0)
-        {
-            foreach (ShoppingItem item in shoppingItems)
-            {
-                item.ConversionRate = exchangeRate;
-                item.Currency = htmlCurrencyCode;
-            }
-        }
-        rptItems.DataSource = shoppingItems;
-        rptItems.DataBind();
-    }
 }

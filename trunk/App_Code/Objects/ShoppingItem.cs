@@ -53,9 +53,12 @@ using System.Xml.Linq;
                 int years = durationInMonths / 12;
                 if (years > 0)
                 {
-                    durationString = years.ToString() + " years";
+                    durationString = years.ToString() + " year(s) ";
                 }
-                durationString += months.ToString() + " months";
+                if (months > 0)
+                {
+                    durationString += months.ToString() + " month(s)";
+                }
                 return durationString;
             }
         }
@@ -67,19 +70,6 @@ using System.Xml.Linq;
             set { quantity = value; }
         }
 
-        private double conversionRate = 1;
-        public double ConversionRate
-        {
-            get { return conversionRate; }
-            set { conversionRate = value; }
-        }
-
-        private string currency = "&pound";
-        public string Currency
-        {
-            get { return currency; }
-            set { currency = value; }
-        }
         
         public double Price
         {
@@ -89,13 +79,13 @@ using System.Xml.Linq;
                 {
                     if (this.ProductVersion != null && this.ProductVersion.IsdiscountNull() == false)
                     {
-                        return (this.ProductDetail.price - this.ProductDetail.price * this.ProductVersion.discount / 100)*this.conversionRate;
+                        return (this.ProductDetail.price - this.ProductDetail.price * this.ProductVersion.discount / 100) * ShoppingCart.GetCurrentCurrency().exchange_rate;
                     }
-                    return this.ProductDetail.price * this.conversionRate;
+                    return this.ProductDetail.price * ShoppingCart.GetCurrentCurrency().exchange_rate;
                 }
                 else
                 {
-                    return this.ProductVersion.price * this.conversionRate;
+                    return this.ProductVersion.price * ShoppingCart.GetCurrentCurrency().exchange_rate;
                 }
             }
         }

@@ -162,6 +162,6 @@
             <asp:ImageButton ID="btnSave" ImageUrl="../images/Continue.gif" runat="server" onclick="btnSave_Click" onmouseover="this.src='../images/Continue_rollover.gif'" onmouseout="this.src='../images/Continue.gif'"/>
         </div>
         <div class="noFloat" style="height:10px;"></div>
-        </form>
+        
 </asp:Content>
 

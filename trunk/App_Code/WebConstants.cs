@@ -13,6 +13,7 @@ using System.Xml.Linq;
     public static class WebConstants
     {
         public static int DEFAULT_DURATION = 12;
+        public static int DEFAULT_ADDONS = 5;
         public static class Session
         {
             public static string USER_ID = "USER_ID";
@@ -21,7 +22,9 @@ using System.Xml.Linq;
             public static string RETURN_URL = "RETURN_URL";
             public static string PASSWORD = "PASSWORD";
             public static string ACTIVATION_CODE = "ACTIVATION_CODE";
+            public static string CURRENT_CURRENCY = "CURRENT_CURRENCY";
         }
+
         public static class Request
         {
             public static string NEED_LOGIN = "NEED_LOGIN";
@@ -33,6 +36,8 @@ using System.Xml.Linq;
             public static string PRODUCT_DETAIL_ID = "productDetailId";
             public static string PRICE = "price";
             public static string VIDEO_ID = "videoId";
+            public static string MORE = "more";
+            public static string FROM_PAGE = "fromPage";
         }
         public static class Messages
         {
@@ -46,5 +51,11 @@ using System.Xml.Linq;
                 public static string CANNOT_LOGIN = "Invalid User Name / Password";
                 public static string INVALID_CREDENTIALS = "Invalid Credentials. Can not proceed furhter.";
             }
+        }
+        public static class Currencies
+        {
+            public static string GBP = "GBP";
+            public static string EUR = "EUR";
+            public static string USD = "USD";
         }
     }

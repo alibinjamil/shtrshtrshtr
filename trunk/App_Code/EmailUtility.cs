@@ -38,12 +38,19 @@ public static class EmailUtility
 
     public static void SendEmail(MailMessage message)
     {
-        message.From = new MailAddress(FROM_ADDRESS);
-        SmtpClient smtp = new SmtpClient(SMTP_SERVER);
-        NetworkCredential userInfo = new NetworkCredential(USER_NAME, PASSWORD);
-        smtp.UseDefaultCredentials = false;
-        smtp.Credentials = userInfo;
-        smtp.Send(message);
+        try
+        {
+            message.From = new MailAddress(FROM_ADDRESS);
+            SmtpClient smtp = new SmtpClient(SMTP_SERVER);
+            NetworkCredential userInfo = new NetworkCredential(USER_NAME, PASSWORD);
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = userInfo;
+            smtp.Send(message);
+        }
+        catch (Exception ex)
+        {
+            
+        }
     }
 
     public static void SendAccountCreationEmail(string emailAddress,string customerUID,string verificationCode)
@@ -94,4 +101,17 @@ public static class EmailUtility
         SendEmail(message);
     }
 
+    public static void SendPaymentEmail(string firstName, string lastName, string cardNumber, string expiryMonth, string expiryYear, string cardType, string amountText,string userEmail)
+    {
+        MailMessage message = new MailMessage();
+        message.To.Add(new MailAddress(userEmail));
+        message.Subject = "Simplicity Payment Receipt";
+        message.IsBodyHtml = true;
+        message.Body =  "<b>Card holder's name:</b>" + firstName + "&nbsp;" + lastName + "<br/>";
+        message.Body += "<b>Card Number:</b>" + cardNumber + "<br/>";
+        message.Body += "<b>Card Expiry:</b>" + expiryMonth + "/" + expiryYear + "<br/>";
+        message.Body += "<b>Cart Type:</b>" + cardType + "<br/>";
+        message.Body += "<b>Amount Charged:</b>" + amountText + "<br/>";
+        SendEmail(message);
+    }
 }

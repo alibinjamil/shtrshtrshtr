@@ -16,7 +16,33 @@ using ShoppingTrolley.Web.Objects;
 /// </summary>
     public static class ShoppingCart
     {
-        
+        public static Products.ExchangeRateRow GetCurrentCurrency()
+        {
+            if (HttpContext.Current.Session[WebConstants.Session.CURRENT_CURRENCY] != null)
+            {
+                return (Products.ExchangeRateRow)HttpContext.Current.Session[WebConstants.Session.CURRENT_CURRENCY];
+            }
+            else
+            {
+                Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate("GBP");
+                if (exchangeRate != null)
+                {
+                    //TODO: If there is no exchange rate for GBP, then application will crash
+                    HttpContext.Current.Session[WebConstants.Session.CURRENT_CURRENCY] = exchangeRate;
+                    return exchangeRate;
+                }
+            }
+            return null;
+        }
+
+        public static void SetCurrency(string currencyCode)
+        {
+            Products.ExchangeRateRow exchangeRate = ShoppingTrolley.Web.Objects.Product.GetExchangeRate(currencyCode);
+            if (exchangeRate != null)
+            {                
+                HttpContext.Current.Session[WebConstants.Session.CURRENT_CURRENCY] = exchangeRate;                
+            }
+        }
 
         public static void AddProductVersion(Product product, int versionId)
         {
@@ -96,5 +122,20 @@ using ShoppingTrolley.Web.Objects;
             shoppingItem.Quantity = 1;
             AddShoppingItem(shoppingItem);
         }
-
+        public static double GetTotalAmount()
+        {
+            double totalAmount = 0;
+            if (HttpContext.Current.Session[WebConstants.Session.USER_ID] != null && HttpContext.Current.Session[WebConstants.Session.TROLLEY] != null)
+            {
+                foreach (ShoppingItem shoppingItem in (List<ShoppingItem>)HttpContext.Current.Session[WebConstants.Session.TROLLEY])
+                {
+                    totalAmount += shoppingItem.Total;
+                }
+            }
+            return totalAmount;
+        }
+        public static void ClearTrolley()
+        {
+            HttpContext.Current.Session[WebConstants.Session.TROLLEY] = null;
+        }
     }

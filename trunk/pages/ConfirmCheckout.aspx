@@ -74,9 +74,6 @@ function openWindow(url)
 		</div>
 		
 					
-		<% insertSignature3("GBP", "subscription"); %>
-		
-		<% insertSubscriptionSignature(); %>
                 
         
 

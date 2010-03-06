@@ -29,4 +29,5 @@ public class AuthenticatedPage : GenericPage
         }
         base.OnInit(e);
     }
+    
 }

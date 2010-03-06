@@ -72,4 +72,21 @@ public static class Utility
             return builder.ToString().ToLower();
         return builder.ToString();
     }
+
+    public static string GetCardType(string cardType)
+    {
+        if(cardType == "001") return "Visa";
+        if(cardType == "002") return "MasterCard";
+                                     else if (cardType == "003")
+                                     return "American Express";
+                                     else if (cardType == "004")
+                                     return "Discover";
+                                     else if (cardType == "005")
+                                     return "Diners Club ";
+                                     else if (cardType == "007")
+                                     return " JCB ";
+                                     else if (cardType == "024")
+                                     return " Maestro/Solo ";
+        return null;
+    }
 }
