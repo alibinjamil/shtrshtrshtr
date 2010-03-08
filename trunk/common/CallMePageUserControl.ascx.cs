@@ -45,13 +45,30 @@ public partial class common_CallMePageUserControl : System.Web.UI.UserControl
             {
                 CallMe.CallMeEntityRow callMe = (CallMe.CallMeEntityRow)ie.Current;
                 emailContents = GetEmailContent(callMe);
-                foreach (string product in Request["products"].Split(','))
+                if (cbHS.Selected)
                 {
-                    if (product.Length > 0)
-                    {
-                        prodTA.Insert(callMe.call_me_id, product);
-                        emailContents += "<B> Product: </B>" + product + "<BR/>";
-                    }
+                    prodTA.Insert(callMe.call_me_id, "Simplicity H&S Live");
+                    emailContents += "<B> Product: </B>Simplicity H&S Live<BR/>";
+                }
+                if (cbHandyGas.Selected)
+                {
+                    prodTA.Insert(callMe.call_me_id, "SimplicityHandyGas");
+                    emailContents += "<B> Product: </B>SimplicityHandyGas<BR/>";
+                }
+                if (cbHandyLEC.Selected)
+                {
+                    prodTA.Insert(callMe.call_me_id, "SimplicityHandyLEC");
+                    emailContents += "<B> Product: </B>SimplicityHandyLEC<BR/>";
+                }
+                if (cbHandyServe.Selected)
+                {
+                    prodTA.Insert(callMe.call_me_id, "SimplicityHandyServe");
+                    emailContents += "<B> Product: </B>SimplicityHandyServe<BR/>";
+                }
+                if (cbEAS.Selected)
+                {
+                    prodTA.Insert(callMe.call_me_id, "SimplicityEAS");
+                    emailContents += "<B> Product: </B>SimplicityEAS<BR/>";
                 }
             }
             if (ViewDemo)

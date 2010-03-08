@@ -55,6 +55,7 @@
 				<div class="floatLeft" >
 				    <div class="trolleyCell"><asp:Image ID="Image2" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_logo.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
 				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.Product.name")%> (<%# DataBinder.Eval(Container, "DataItem.DurationString")%>)</div>		
+				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.ProductVersion.name")%></div>		
 				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%></div>		
 				</div>		
 			</div>

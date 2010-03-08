@@ -564,7 +564,7 @@ div.confirmCheckout div.orderSummary
 	vertical-align:middle;
 	clear:both;
 	font-weight:bold;
-	font-size:1.2em;
+	font-size:12pt;
 }
 
 div.confirmCheckout div.row
@@ -573,7 +573,7 @@ div.confirmCheckout div.row
 	vertical-align:middle;
 	clear:both;
 	font-weight:bold;
-	font-size:1.1em;
+	font-size:10pt;
 	/*margin-top:20px;*/
 }
 
@@ -583,7 +583,7 @@ div.confirmCheckout div.terms
 	vertical-align:middle;
 	clear:both;
 	font-weight:bold;
-	font-size:1.1em;
+	font-size:10pt;
 }
 div.wishListActionBar 
 {
@@ -625,9 +625,9 @@ div.wishListActionsHeader5 {
 
 div.wishListActions {
 	padding-top:0;
-	padding-bottom:0.5em;
+	padding-bottom:5px;
 	font-weight:bold; 
-	font-size:1.3em;
+	font-size:12pt;
 }
 
 div.wishListActionsCol1 {
@@ -636,13 +636,14 @@ div.wishListActionsCol1 {
 }
 
 div.wishListActionsCol2 {
-	width:480px;
+	width:430px;
 	float:left;
 }
 
 div.wishListActionsCol3 {
-	width:75px;
+	width:125px;
 	float:left;
+	text-align:center;
 }
 
 div.wishListActionsCol4 {
@@ -655,9 +656,10 @@ div.wishListActionsCol5 {
 }
 
 div.wishListcell {
-	padding-top:0.5em; 
-	padding-bottom:0.5em;
+	padding-top:10px; 
+	padding-bottom:10px;
 }
+
 
 div.productsScreen
 {

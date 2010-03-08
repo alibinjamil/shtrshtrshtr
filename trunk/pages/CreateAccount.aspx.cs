@@ -49,7 +49,7 @@ public partial class pages_CreateAccount : GenericPage
             //try
             {
                 CustomerTableAdapters.CustomerTableAdapter customerTA = new CustomerTableAdapters.CustomerTableAdapter();
-                IEnumerator ieCustomer = customerTA.InsertAndReturn(false, false,(Request["receiveEmails"].Length > 0), 0, 0, GetFullName(), null, null, txtSurname.Text, txtFirstName.Text, txtJobTitle.Text, txtEmail.Text, 
+                IEnumerator ieCustomer = customerTA.InsertAndReturn(false, false,cbEmails.Selected, 0, 0, GetFullName(), null, null, txtSurname.Text, txtFirstName.Text, txtJobTitle.Text, txtEmail.Text, 
                     Utility.GetMd5Sum(txtPassword.Text),byte.Parse(listForgotPasswordQuestion.SelectedValue), listForgotPasswordQuestion.SelectedItem.Text,Utility.GetMd5Sum(txtForgotPasswordAnswer.Text), null, false, false, 0,
                     false, null, null, DateTime.Now, null, DateTime.Now, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE), ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE.USER)).GetEnumerator();
 

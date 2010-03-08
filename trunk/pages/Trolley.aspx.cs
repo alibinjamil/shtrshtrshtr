@@ -111,51 +111,37 @@ public partial class pages_Trolley : GenericPage
         if (GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion != null
             && qty < GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion.min_users)
         {
-            SetErrorMessage("Number of licenses must be atleast " + GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion.min_users);
+            SetErrorMessage("Number of licenses must be atleast " + GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion.min_users + ". Changes have not been comitted to the Trolley");
         }
         else
         {
             Label lblTotalPrice = (Label)repeaterItem.FindControl("totalPrice");            
             GetShoppingTrolley()[repeaterItem.ItemIndex].Quantity = Convert.ToInt32(txtQty.Text);
-            lblTotalPrice.Text = GetShoppingTrolley()[repeaterItem.ItemIndex].Total.ToString();
+            lblTotalPrice.Text = String.Format("{0:N2}", GetShoppingTrolley()[repeaterItem.ItemIndex].Total);
         }
     }
 
     protected void imbBtnContinue_Click(object sender, ImageClickEventArgs e)
     {
-        if (GetShoppingTrolley().Count == 0)
-        {
-            SetErrorMessage("Please select alteast one item before checking out");
-        }
-        else
-        {
-            if (LoggedIsUser == null)
+            /*if (IsPostBack)
             {
-                RedirectToLogin();
-            }
-            else
-            {
-                if (IsPostBack)
+                int count = 0;
+                List<ShoppingItem> shoppingItems = GetShoppingTrolley();
+                foreach (RepeaterItem item in rptItems.Items)
                 {
-                    int count = 0;
-                    List<ShoppingItem> shoppingItems = GetShoppingTrolley();
-                    foreach (RepeaterItem item in rptItems.Items)
+                    TextBox txtQty = item.FindControl("txtQty") as TextBox;
+                    Label totalPrice = item.FindControl("totalPrice") as Label;
+                    if (shoppingItems[count].Quantity != Convert.ToInt32(txtQty.Text))
                     {
-                        TextBox txtQty = item.FindControl("txtQty") as TextBox;
-                        Label totalPrice = item.FindControl("totalPrice") as Label;
-                        if (shoppingItems[count].Quantity != Convert.ToInt32(txtQty.Text))
-                        {
-                            shoppingItems[count].Quantity = int.Parse(txtQty.Text.ToString());
-                           
-                        }
-                        count++;
+                        shoppingItems[count].Quantity = int.Parse(txtQty.Text.ToString());
+                       
                     }
+                    count++;
                 }
-               // Session[WebConstants.Session.TROLLEY] = shoppingItems ;
-                
-                Response.Redirect("~/pages/Products.aspx");
             }
-        }
+               // Session[WebConstants.Session.TROLLEY] = shoppingItems ;*/
+                
+        Response.Redirect("~/pages/Products.aspx");
     }
     protected void Sterling_Click(object sender, ImageClickEventArgs e)
     {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="Oops.aspx.cs" Inherits="pages_Oops" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="Oops.aspx.cs" Inherits="pages_Oops" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>

@@ -1,22 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="ConfirmCheckout.aspx.cs" Inherits="pages_ConfirmCheckout" Title="Simplicity4Business" %>
-
+<%@ Register src="~/common/CheckBox.ascx" tagname="CheckBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-<script type="text/javascript">
-function onTermsAndConditionsChkboxClick(index)
-{
-	var img = document.getElementById('img_chk_TermsAndConditions' + index);
-	var hid = document.getElementById('chk_TermsAndConditions' + index);
-	if(hid.value == 'false') 
-	{
-		img.src = '../images/checkbox_checked.png';
-		hid.value = "true";		
-	}
-	else
-	{
-		img.src = '../images/checkbox_unchecked.png';
-		hid.value = "false";
-	}
-}
+<script src="../js/CheckBox.js" type="text/javascript"></script>
+<script type="text/javascript">    
 function openWindow(url)
 {
 	window.open(url, "Simplicity", "width=820,height=620,location=no,toolbar=no,scrollbars=yes,status=no,resizable=1");
@@ -43,14 +29,10 @@ function openWindow(url)
 			    <HeaderTemplate><div class="orderSummary">Order Summary</div>
 			    </HeaderTemplate>
 			    <ItemTemplate>
-			        <div class="row"><%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %> for a <%# DataBinder.Eval(Container, "DataItem.DurationString") %></div>
+			        <div class="row"><%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %>&nbsp;<%#DataBinder.Eval(Container, "DataItem.ProductVersion.name")%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%> for <%# DataBinder.Eval(Container, "DataItem.DurationString") %></div>
 			        <div class="terms">
 				        <div><a href="<%# "javascript: openWindow('" + DataBinder.Eval(Container, "DataItem.Product.terms_url") + "');" %>" style="color:black;">Terms & Conditions</a></div>
-				        <div onclick='onTermsAndConditionsChkboxClick(<%#DataBinder.Eval(Container, "ItemIndex", "")%>)' class="floatLeft" style="padding-top:5px;">
-					        <img id='img_chk_TermsAndConditions<%#DataBinder.Eval(Container, "ItemIndex", "")%>' src='../images/checkbox_unchecked.png' alt="Accept Terms & Conditions"/>
-					        <input type="hidden" name="acceptTerms" id='chk_TermsAndConditions<%#DataBinder.Eval(Container, "ItemIndex", "")%>' value="false"/>
-				        </div>
-				        <div class="floatLeft" style="padding-left:10px;padding-top:5px; vertical-align:middle;">	Please tick to confirm that you have read the terms & conditions</div>
+                        <uc1:CheckBox ID="cbTerms" runat="server" Style="padding-top:5px;" Text="Please tick to confirm that you have read the terms & conditions" Selected="false"/>				        
 				        <div class="noFloat"/>
 			        </div>
 			    </ItemTemplate>

@@ -1,21 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="CreateAccount.aspx.cs" Inherits="pages_CreateAccount" Title="Simplicity4Business" %>
+<%@ Register src="~/common/CheckBox.ascx" tagname="CheckBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script type="text/javascript">
-        function onCheckboxClick(){
-	        var img = document.getElementById('chk_ReceiveEmails');
-	        var hid = document.getElementById('receiveEmails');
-	        if(hid.value == '') 
-	        {
-		        img.src = '../images/checkbox_checked.png';
-		        hid.value = "true";		
-	        }
-	        else
-	        {
-		        img.src = '../images/checkbox_unchecked.png';
-		        hid.value = "";
-	        }            
-        }
-    </script>
+    <script src="../js/CheckBox.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" runat="server">
     <div class="breadcrumps">
@@ -149,11 +135,7 @@
                     <div class="col4"><asp:TextBox ID="txtMobile" Width="250px" runat="server"></asp:TextBox></div>            
                 </div> 
                 <div class="row" style="margin-top:30px;">
-                    <div class="col5" onclick="onCheckboxClick();" >						
-                        <img id="chk_ReceiveEmails" src='../images/checkbox_unchecked.png'/>
-						<input type="hidden" name="receiveEmails" id="receiveEmails" value=""/>
-						<span>Please indicate if you would like to receives further updates for products</span>
-					</div>
+                    <uc1:CheckBox ID="cbEmails" runat="server" CssClass="col5" Text="Please indicate if you would like to receives further updates for products" Selected="false"/>
                 </div>               
             </div>
         </div>

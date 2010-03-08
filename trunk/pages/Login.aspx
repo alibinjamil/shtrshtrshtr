@@ -9,9 +9,9 @@
 			<div class="noFloat"></div>
     </div>
 	<div class="login" id="mainLogin">
-	    <div class="loginConnectSimplicity" onclick="javascript:window.open('http://84.51.250.96/')">
+	    <div class="loginConnectSimplicity" onclick="javascript:window.open('http://94.236.98.81/')">
 	    </div>		
-	    <div class="loginConnectHnS" onclick="javascript:window.open('http://84.51.250.96/HS/')">
+	    <div class="loginConnectHnS" onclick="javascript:window.open('http://hands-live.com/')">
     	</div>        
         <div>
             <asp:Panel ID="PanelAlreadyLoggedIn" runat="server" Visible="false">
