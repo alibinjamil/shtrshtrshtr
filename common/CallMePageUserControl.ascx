@@ -1,36 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CallMePageUserControl.ascx.cs" Inherits="common_CallMePageUserControl" %>
-<script type="text/javascript">
-function onCheckboxClick(value)
-{
-	var img = document.getElementById('chk_' + value);
-	var hid = document.getElementById('prod_'+ value);
-	if(hid.value == '') 
-	{
-		img.src = '../images/checkbox_checked.png';
-		hid.value = value;		
-	}
-	else
-	{
-		img.src = '../images/checkbox_unchecked.png';
-		hid.value = '';
-	}
-}
-function onRecCheckboxClick(){
-    var img = document.getElementById('chk_ReceiveEmails');
-    var hid = document.getElementById('receiveEmails');
-    if(hid.value == '') 
-    {
-        img.src = '../images/checkbox_checked.png';
-        hid.value = "true";		
-    }
-    else
-    {
-        img.src = '../images/checkbox_unchecked.png';
-        hid.value = "";
-    }            
-}
-</script>
-    		<div class="header">
+<%@ Register src="~/common/CheckBox.ascx" tagname="CheckBox" tagprefix="uc1" %>
+    	<div class="header">
 			<div class="blueHeading">Complete all fields marked with *</div>
 			<div class="heading"><%=PageName%></div>			
 		</div>		
@@ -89,41 +59,26 @@ function onRecCheckboxClick(){
 			<div class="row">
 				<div class="col1">SimplicityEAS</div>
 				<div class="col2">
-					<div onclick="onCheckboxClick('SimplicityEAS')">
-						<img id="chk_SimplicityEAS" src='../images/checkbox_unchecked.png'>
-						<input type="hidden" name="products" id="prod_SimplicityEAS" value=""/>
-					</div>
+					<uc1:CheckBox ID="cbEAS" runat="server" Text="" Selected="false"/>	
 				</div>
 				<div class="col3">SimplicityH&Slive</div>
 				<div class="col4">
-					<div onclick="onCheckboxClick('SimplicityHnSlive')">
-						<img id="chk_SimplicityHnSlive" src='../images/checkbox_unchecked.png'>
-						<input type="hidden" name="products" id="prod_SimplicityHnSlive" value=""/>
-					</div>
+				    <uc1:CheckBox ID="cbHS" runat="server" Text="" Selected="false"/>
 				</div>
 				<div class="col5">SimplicityHandyGas</div>
 				<div class="col6">
-					<div onclick="onCheckboxClick('SimplicityHandyGas')">
-						<img id="chk_SimplicityHandyGas" src='../images/checkbox_unchecked.png'>
-						<input type="hidden" name="products" id="prod_SimplicityHandyGas" value=""/>
-					</div>
+				    <uc1:CheckBox ID="cbHandyGas" runat="server" Text="" Selected="false"/>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col1">SimplicityHandyServe</div>
 				<div class="col2">
-					<div onclick="onCheckboxClick('SimplicityHandyServe')">
-						<img id="chk_SimplicityHandyServe" src='../images/checkbox_unchecked.png'>
-						<input type="hidden" name="products" id="prod_SimplicityHandyServe" value=""/>
-					</div>
+                    <uc1:CheckBox ID="cbHandyServe" runat="server" Text="" Selected="false"/>
 				</div>
 				<div class="col3">SimplicityHandyLEC</div>
 				<div class="col4">
-					<div onclick="onCheckboxClick('SimplicityHandyLEC')">
-						<img id="chk_SimplicityHandyLEC" src='../images/checkbox_unchecked.png'>
-						<input type="hidden" name="products" id="prod_SimplicityHandyLEC" value=""/>
-					</div>
-				</div>
+                    <uc1:CheckBox ID="cbHandyLEC" runat="server" Text="" Selected="false"/>		
+        		</div>
 			</div>
 			<div class="noFloat"></div>
 		</div>
@@ -152,11 +107,7 @@ function onRecCheckboxClick(){
 			    <div class="col1" style="text-align:right"></div>
 			</div>
 			<div class="row" style="margin-top:30px;">
-                <div class="col5" onclick="onRecCheckboxClick();" >						
-                    <img id="chk_ReceiveEmails" src='../images/checkbox_unchecked.png'/>
-					<input type="hidden" name="receiveEmails" id="receiveEmails" value=""/>
-					<span>Please indicate if you would like to receives further updates for products</span>
-				</div>
+			    <uc1:CheckBox ID="cbEmails" runat="server" CssClass="col5" Text="Please indicate if you would like to receives further updates for products" Selected="false"/>
             </div>               
 
 			<div class="noFloat"></div>

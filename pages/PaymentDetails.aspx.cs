@@ -137,7 +137,7 @@ public partial class pages_PaymentDetails : AuthenticatedPage
         if (LoggedIsUser != null && Session[WebConstants.Session.TROLLEY] != null)
         {
             TransactionsTableAdapters.TransactionTableAdapter tranTA = new TransactionsTableAdapters.TransactionTableAdapter();
-            IEnumerator<Transactions.TransactionEntityRow> transaciton = tranTA.InsertAndReturn(LoggedInUserId).GetEnumerator();
+            IEnumerator<Transactions.TransactionEntityRow> transaciton = tranTA.InsertAndReturn(LoggedInUserId,ShoppingCart.GetCurrentCurrency().country_code,ShoppingCart.GetCurrentCurrency().exchange_rate).GetEnumerator();
             if (transaciton.MoveNext())
             {
                 TransactionsTableAdapters.TransactionDetailTableAdapter tranDetailTA = new TransactionsTableAdapters.TransactionDetailTableAdapter();

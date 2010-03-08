@@ -27,6 +27,58 @@ public partial class pages_WishList : AuthenticatedPage
             rpt.DataBind();
         }
     }
+    protected void imbBtnCheckout_Click(object sender, ImageClickEventArgs e)
+    {
+        WishListTableAdapters.WishListDSTableAdapter wlTA = new WishListTableAdapters.WishListDSTableAdapter();
+        IEnumerator<WishList.WishListDSRow> wishLists = wlTA.GetWishListForUser(LoggedInUserId).GetEnumerator();
+        while (wishLists.MoveNext())
+        {
+            
+            if (wishLists.Current.product_detail_id != null)
+            {
+                ShoppingCart.AddProductDetail(wis
+            }
+        }
+        if (GetShoppingTrolley().Count == 0)
+        {
+            SetErrorMessage("Please select alteast one item before checking out");
+        }
+        else
+        {
+            if (LoggedIsUser == null)
+            {
+                RedirectToLogin();
+            }
+            else
+            {
+
+                Response.Redirect("~/pages/AccountAddress.aspx");
+            }
+        }
+    }
+    
+    protected void imbBtnContinue_Click(object sender, ImageClickEventArgs e)
+    {
+        /*if (IsPostBack)
+        {
+            int count = 0;
+            List<ShoppingItem> shoppingItems = GetShoppingTrolley();
+            foreach (RepeaterItem item in rptItems.Items)
+            {
+                TextBox txtQty = item.FindControl("txtQty") as TextBox;
+                Label totalPrice = item.FindControl("totalPrice") as Label;
+                if (shoppingItems[count].Quantity != Convert.ToInt32(txtQty.Text))
+                {
+                    shoppingItems[count].Quantity = int.Parse(txtQty.Text.ToString());
+                       
+                }
+                count++;
+            }
+        }
+           // Session[WebConstants.Session.TROLLEY] = shoppingItems ;*/
+
+        Response.Redirect("~/pages/Products.aspx");
+    }
     protected void rptItems_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
         if (e.CommandName.Equals("Remove"))

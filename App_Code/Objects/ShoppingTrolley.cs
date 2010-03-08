@@ -95,7 +95,9 @@ using ShoppingTrolley.Web.Objects;
                 }
                 else
                 {
-                    if (shoppingItemToAdd.ProductVersion != null && shoppingItem.ProductVersion != null
+                    //if it is version the detail should be null
+                    if ( shoppingItemToAdd.ProductDetail == null && shoppingItem.ProductDetail == null
+                        && shoppingItemToAdd.ProductVersion != null && shoppingItem.ProductVersion != null
                         && shoppingItemToAdd.ProductVersion.version_id == shoppingItem.ProductVersion.version_id)
                     {
                         shoppingItem.Quantity += shoppingItemToAdd.Quantity;

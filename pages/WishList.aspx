@@ -6,15 +6,15 @@
 		<div class="header">
 			<div class="heading">Wish List</div>
 			<div class="headingImages">
-				<asp:ImageButton ID="Sterling" runat="server" BorderWidth="2px" BorderColor="blue"
+				<asp:ImageButton ID="Sterling" runat="server" 
                     onmouseover="this.src='../images/Sterling_rollover.gif'" onmouseout="this.src='../images/Sterling.gif'"
                     ImageUrl="~/images/Sterling.gif" onclick="Sterling_Click" />
                 &nbsp;    
-                <asp:ImageButton ID="Euro" runat="server" BorderWidth="2px" BorderColor="blue"
+                <asp:ImageButton ID="Euro" runat="server" 
                     onmouseover="this.src='../images/Euro_rollover.gif'" onmouseout="this.src='../images/Euro.gif'"
                     ImageUrl="~/images/Euro.gif" onclick="Euro_Click" />
                 &nbsp;    
-                <asp:ImageButton ID="Dollar" runat="server" BorderWidth="2px" BorderColor="blue"
+                <asp:ImageButton ID="Dollar" runat="server" 
                     onmouseover="this.src='../images/Dollar_rollover.gif'" onmouseout="this.src='../images/Dollar.gif'"
                     ImageUrl="~/images/Dollar.gif" onclick="Dollar_Click" />
 			</div>	
@@ -58,14 +58,11 @@
 				</div>
 			</div>		
 			<div class="wishListActionsCol4">
-				<div class="wishListCell" style="margin-top:20px;">
-				<%# DataBinder.Eval(Container, "DataItem.Currency")%>
-				<%# DataBinder.Eval(Container, "DataItem.Price")%></div>
+				<div class="wishListCell" style="margin-top:20px;"><%# ShoppingCart.GetCurrentCurrency().html_currency_code%><%# DataBinder.Eval(Container, "DataItem.Price", "{0:N2}")%></div>
 			</div>		
 			<div class="wishListActionsCol5">
 				<div class="wishListCell"style="margin-top:20px;">
-				<%# DataBinder.Eval(Container, "DataItem.Currency")%>
-				<%# DataBinder.Eval(Container, "DataItem.Total")%></div>
+				<%# ShoppingCart.GetCurrentCurrency().html_currency_code%><%# DataBinder.Eval(Container, "DataItem.Total", "{0:N2}")%></div>
 			</div>		
 			<div class="noFloat"></div>
 		</div>
@@ -75,8 +72,15 @@
 		
 		<div class="noFloat">
 			<div class="floatRight">
-				<a href="Products.aspx"><img src="../images/Continue_shopping.gif" onmouseover="this.src='../images/Continue_shopping_rollover.gif'" onmouseout="this.src='../images/Continue_shopping.gif'"></a>
-				<a href="PaymentDetails.aspx"><img src="../images/Checkout.gif" onmouseover="this.src='../images/Checkout_rollover.gif'" onmouseout="this.src='../images/Checkout.gif'"></a>
+    		    <asp:ImageButton ID="imbBtnContinue" runat="server" 
+                    ImageUrl="~/images/Continue.gif" 
+                    onmouseover="this.src='../images/Continue_rollover.gif'" 
+                    onmouseout="this.src='../images/Continue.gif'" 
+                    onclick="imbBtnContinue_Click"/>
+			&nbsp;<asp:ImageButton ID="imbBtnCheckout" runat="server" 
+                    ImageUrl="~/images/Checkout.gif" 
+                    onmouseover="this.src='../images/Checkout_rollover.gif'" 
+                    onmouseout="this.src='../images/Checkout.gif'" onclick="imbBtnCheckout_Click"/>
 			</div>
 			<div class="noFloat"></div>
 		</div>

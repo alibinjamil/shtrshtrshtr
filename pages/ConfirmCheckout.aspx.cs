@@ -32,24 +32,20 @@ public partial class pages_ConfirmCheckout : AuthenticatedPage
         rptItems.DataSource = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
         rptItems.DataBind();
     }
-    double totalAmount = 0;
+
     protected void btnCheckout_Click(object sender, ImageClickEventArgs e)
     {
         bool anyError = false;
 
-        if (Request["acceptTerms"] != null)
+        foreach (RepeaterItem rpItem in rptItems.Items)
         {
-            string[] acceptTerms = Request["acceptTerms"].Split(',');
-            foreach (string acceptTerm in acceptTerms)
+            ASP.common_checkbox_ascx ctrl = (ASP.common_checkbox_ascx)rpItem.FindControl("cbTerms");
+            if (ctrl.Selected == false)
             {
-                if (acceptTerm.Equals("false"))
-                {
-                    SetErrorMessage("Terms and Conditions must be accepted for all the selected products");
-                    anyError = true;
-                }
+                SetErrorMessage("Terms and Conditions must be accepted for all the selected products");
+                anyError = true;
             }
         }
-
         if (!anyError)
         {
             Response.Redirect("~/pages/PaymentDetails.aspx");
