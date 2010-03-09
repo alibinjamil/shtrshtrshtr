@@ -44,6 +44,18 @@ using ShoppingTrolley.Web.Objects;
             }
         }
 
+        public static void AddProductVersion(Product product, int versionId, int quantity)
+        {
+            //see if already exists in cart
+            Products.ProductVersionEntityRow version = product.GetLoadedVersion(versionId);
+            ShoppingItem shoppingItem = new ShoppingItem();
+            shoppingItem.Product = product.ProductDS;
+            shoppingItem.ProductVersion = version;
+            shoppingItem.DurationInMonths = WebConstants.DEFAULT_DURATION;
+            shoppingItem.Quantity = quantity;
+            AddShoppingItem(shoppingItem);
+        }
+
         public static void AddProductVersion(Product product, int versionId)
         {
             //see if already exists in cart
@@ -124,6 +136,21 @@ using ShoppingTrolley.Web.Objects;
             shoppingItem.Quantity = 1;
             AddShoppingItem(shoppingItem);
         }
+
+        public static void AddProductDetail(Product product, int productDetailId, int versionId, int quantity)
+        {
+            //see if already exists in cart
+            Products.ProductDetailEntityRow productDetail = product.GetLoadedProductDetail(productDetailId);
+            Products.ProductVersionEntityRow version = product.GetLoadedVersion(versionId);
+            ShoppingItem shoppingItem = new ShoppingItem();
+            shoppingItem.Product = product.ProductDS;
+            shoppingItem.ProductDetail = productDetail;
+            shoppingItem.ProductVersion = version;
+            shoppingItem.DurationInMonths = WebConstants.DEFAULT_DURATION;
+            shoppingItem.Quantity = quantity;
+            AddShoppingItem(shoppingItem);
+        }
+
         public static double GetTotalAmount()
         {
             double totalAmount = 0;
