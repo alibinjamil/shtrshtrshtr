@@ -33,13 +33,15 @@ public partial class pages_WishList : AuthenticatedPage
         IEnumerator<WishList.WishListDSRow> wishLists = wlTA.GetWishListForUser(LoggedInUserId).GetEnumerator();
         while (wishLists.MoveNext())
         {
-            
-            if (wishLists.Current.product_detail_id != null)
+            ShoppingTrolley.Web.Objects.Product product = ShoppingTrolley.Web.Objects.Product.LoadCompleteProduct(wishLists.Current.product_id);
+            if (!wishLists.Current.Isproduct_detail_idNull())
             {
-                ShoppingCart.AddProductDetail(wis
+                ShoppingCart.AddProductDetail(product, wishLists.Current.product_detail_id, wishLists.Current.version_id,wishLists.Current.quantity);
             }
+            else
+                ShoppingCart.AddProductVersion(product, wishLists.Current.version_id, wishLists.Current.quantity);
         }
-        if (GetShoppingTrolley().Count == 0)
+        if (GetWishList().Count == 0)
         {
             SetErrorMessage("Please select alteast one item before checking out");
         }
