@@ -25,6 +25,17 @@ public partial class pages_ConfirmCheckout : AuthenticatedPage
         if (IsPostBack == false)
         {
             BindRepeater();
+            double total = 0;
+            if (Session[WebConstants.Session.TROLLEY] != null)
+            {
+
+                List<ShoppingItem> items = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
+                foreach (ShoppingItem item in items)
+                {
+                    total += item.Total;
+                }
+            }
+            this.paymentMsg.Text = "You will be paying " + ShoppingCart.GetCurrentCurrency().html_currency_code + " " + total + " amount per month for a year from this " + DateTime.Now.ToShortDateString() + " to this " + DateTime.Now.AddMonths(12).ToShortDateString();
         }
     }
     private void BindRepeater()

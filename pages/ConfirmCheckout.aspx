@@ -29,7 +29,10 @@ function openWindow(url)
 			    <HeaderTemplate><div class="orderSummary">Order Summary</div>
 			    </HeaderTemplate>
 			    <ItemTemplate>
-			        <div class="row"><%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %>&nbsp;<%#DataBinder.Eval(Container, "DataItem.ProductVersion.name")%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%> for <%# DataBinder.Eval(Container, "DataItem.DurationString") %></div>
+			        <div class="row">
+			        <%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %>&nbsp;<%#DataBinder.Eval(Container, "DataItem.ProductVersion.name")%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%> for <%# DataBinder.Eval(Container, "DataItem.DurationString") %><br/><br/>
+			        <i style="font-weight:normal">You will be paying <%# ShoppingCart.GetCurrentCurrency().html_currency_code%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.MonthlyTotal", "{0:N2}")%> per month for <%# DataBinder.Eval(Container, "DataItem.DurationString")%></i>
+			        </div>
 			        <div class="terms">
 				        <div><a href="<%# "javascript: openWindow('" + DataBinder.Eval(Container, "DataItem.Product.terms_url") + "');" %>" style="color:black;">Terms & Conditions</a></div>
                         <uc1:CheckBox ID="cbTerms" runat="server" Style="padding-top:5px;" Text="Please tick to confirm that you have read the terms & conditions" Selected="false"/>				        
@@ -40,7 +43,9 @@ function openWindow(url)
 		</div>
 
 		<div class="noFloat" style="padding-top:15px;">
-			<div><hr/></div>
+			<div>
+                <asp:Label ID="paymentMsg" Font-Bold="false" Font-Italic="true" runat="server" Text="Label"></asp:Label>
+                <hr/></div>
 			<div class="floatRight">
 				<asp:ImageButton ID="btnCheckout" runat="server" 
                     ImageUrl="~/images/Confirm.gif" AlternateText="Confirm Payment" 
