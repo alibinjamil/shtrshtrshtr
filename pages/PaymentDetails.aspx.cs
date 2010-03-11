@@ -30,6 +30,20 @@ public partial class pages_PaymentDetails : AuthenticatedPage
                 txtExpiryYear.Items.Add(i.ToString());
             for (int i = 2000; i <= year; i++)
                 txtStartYear.Items.Add(i.ToString());
+
+            double total = 0;
+            if (Session[WebConstants.Session.TROLLEY] != null)
+            {
+
+                List<ShoppingItem> items = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
+                foreach (ShoppingItem item in items)
+                {
+                    total += item.Total;
+                }
+            }
+            total = total /12;
+
+            lblCCMsg.Text = "Amount " + ShoppingCart.GetCurrentCurrency().html_currency_code + " " + String.Format("{0:0.00}",total) + " will be deducted from credit card no " + txtCardNumber.Text + " monthly " + " starting from " + DateTime.Now.ToShortDateString() + "to " + DateTime.Now.AddMonths(12).ToShortDateString();
         }
     }
 
@@ -77,17 +91,26 @@ public partial class pages_PaymentDetails : AuthenticatedPage
             
 
             byte[] buffer = Encoding.UTF8.GetBytes(data);
+            try
+            {
+                req.Method = "POST";
+                req.ContentType = "application/x-www-form-urlencoded";
+                req.ContentLength = buffer.Length;
+                req.Proxy = new WebProxy(proxy, true);
+                req.CookieContainer = new CookieContainer();
 
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            req.ContentLength = buffer.Length;
-            req.Proxy = new WebProxy(proxy, true);
-            req.CookieContainer = new CookieContainer();
-
-            Stream reqst = req.GetRequestStream();
-            reqst.Write(buffer, 0, buffer.Length);
-            reqst.Flush();
-            reqst.Close();
+                Stream reqst = req.GetRequestStream();
+                reqst.Write(buffer, 0, buffer.Length);
+                ShoppingCart.ClearTrolley();
+                reqst.Flush();
+                reqst.Close();
+            }
+            catch (Exception ex)
+            {
+               
+                ex.StackTrace.ToString();
+            }
+                       
 
             HttpWebResponse res = (HttpWebResponse)req.GetResponse();
 
