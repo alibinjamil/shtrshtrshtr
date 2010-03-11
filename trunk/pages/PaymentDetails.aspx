@@ -384,6 +384,9 @@
 				</div>
 			</div>
 			<div class="noFloat"/>
+			    <br />
+		        <asp:Label ID="lblCCMsg" runat="server"></asp:Label>
+		        <br />
 		</div>
 
 		<div class="noFloat" style="padding-top:15px;">
