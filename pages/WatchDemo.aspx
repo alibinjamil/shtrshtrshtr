@@ -17,7 +17,10 @@
     <script type="text/javascript">
       jQuery(document).ready(function() {
         jQuery("#demoDialog").dialog({
-          bgiframe: true, autoOpen: false, height: 635, width:845, modal: true
+          bgiframe: true, autoOpen: false, height: 635, width:845, modal: true,
+          close: function(ev, ui) {
+             $('#demoDialog').load('Oops.aspx');
+        }
         });
       });
     </script>    

@@ -154,7 +154,7 @@ using ShoppingTrolley.Web.Objects;
         public static double GetTotalAmount()
         {
             double totalAmount = 0;
-            if (HttpContext.Current.Session[WebConstants.Session.USER_ID] != null && HttpContext.Current.Session[WebConstants.Session.TROLLEY] != null)
+            if (HttpContext.Current.Session[WebConstants.Session.TROLLEY] != null)
             {
                 foreach (ShoppingItem shoppingItem in (List<ShoppingItem>)HttpContext.Current.Session[WebConstants.Session.TROLLEY])
                 {

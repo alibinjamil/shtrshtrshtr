@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="ConfirmCheckout.aspx.cs" Inherits="pages_ConfirmCheckout" Title="Simplicity4Business" %>
 <%@ Register src="~/common/CheckBox.ascx" tagname="CheckBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-<script src="../js/CheckBox.js" type="text/javascript"></script>
+
+    <script src="../js/CheckBox.js" type="text/javascript"></script>
 <script type="text/javascript">    
 function openWindow(url)
 {
@@ -10,11 +11,11 @@ function openWindow(url)
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
-	<div class="breadcrumps">
+    <div class="breadcrumps">
 			<a href="#">Trolley ></a>
 			<a href="#">Create an Account ></a>
+			<a class="current" href="#">Confirm Checkout ></a>			
 			<a href="#">Payment Details ></a>
-			<a class="current" href="#">Confirm Checkout</a>
 		</div>
 		
 		<div class="header">
@@ -23,7 +24,7 @@ function openWindow(url)
 		</div>		
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
-    		<div class="confirmCheckout">
+            <div class="confirmCheckout">
 			
 			<asp:Repeater ID="rptItems" runat="server">
 			    <HeaderTemplate><div class="orderSummary">Order Summary</div>

@@ -54,7 +54,7 @@
                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_man.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
 				<div class="floatLeft" >
 				    <div class="trolleyCell"><asp:Image ID="Image2" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_logo.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
-				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.Product.name")%> (<%# DataBinder.Eval(Container, "DataItem.DurationString")%>)</div>		
+				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.Product.name")%> [<%# DataBinder.Eval(Container, "DataItem.DurationString")%>]</div>		
 				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.ProductVersion.name")%></div>		
 				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%></div>		
 				</div>		
@@ -74,19 +74,27 @@
 				<%# ShoppingCart.GetCurrentCurrency().html_currency_code%><asp:Label ID='totalPrice' runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.Total","{0:N2}")%>'></asp:Label>
                 </div>
 			</div>		
-			<div class="noFloat"></div>
-            
+			<div class="noFloat"></div>            
 		</div>
 		<div class="noFloat" style="padding-bottom:5px;width:925px"><hr/></div>
 		</ItemTemplate>
+		<FooterTemplate>
+		<div class="trolleyActions">
+			<div class="floatLeft" style="width:19px;">&nbsp;</div>
+			<div class="trolleyFooterCol1"><%#"Charged each month from " + DateTime.Now.AddDays(1).ToShortDateString() + " till " + DateTime.Now.AddDays(1).AddMonths(12).ToShortDateString() %></div>		
+			<div class="trolleyActionsCol5"><div class="trolleyCell"><%# ShoppingCart.GetCurrentCurrency().html_currency_code%><%# String.Format("{0:N2}",ShoppingCart.GetTotalAmount())%></div></div>		
+			<div class="noFloat"></div>            
+		</div>
+		<div class="noFloat" style="padding-bottom:5px;width:925px"><hr/></div>		
+		</FooterTemplate>
 		</asp:Repeater>
 		
 		<div class="noFloat">
 			<div class="floatRight">
     				<asp:ImageButton ID="imbBtnContinue" runat="server" 
-                    ImageUrl="~/images/Continue.gif" 
-                    onmouseover="this.src='../images/Continue_rollover.gif'" 
-                    onmouseout="this.src='../images/Continue.gif'" 
+                    ImageUrl="~/images/Continue_shopping.gif" 
+                    onmouseover="this.src='../images/Continue_shopping_rollover.gif'" 
+                    onmouseout="this.src='../images/Continue_shopping.gif'" 
                     onclick="imbBtnContinue_Click"/>
 			&nbsp;<asp:ImageButton ID="imbBtnCheckout" runat="server" 
                     ImageUrl="~/images/Checkout.gif" 

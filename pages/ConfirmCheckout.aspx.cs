@@ -36,7 +36,7 @@ public partial class pages_ConfirmCheckout : AuthenticatedPage
                     total += item.Total;
                 }
             }
-            this.paymentMsg.Text = "You will be paying " + ShoppingCart.GetCurrentCurrency().html_currency_code + " " + total + " amount per month for a year from " + DateTime.Now.ToShortDateString() + " to " + DateTime.Now.AddMonths(12).ToShortDateString();
+            this.paymentMsg.Text = "You will be paying " + ShoppingCart.GetCurrentCurrency().html_currency_code + " " + String.Format("{0:N2}",total) + " amount per month for a year from " + DateTime.Now.AddDays(1).ToShortDateString() + " to " + DateTime.Now.AddDays(1).AddMonths(12).ToShortDateString();
         }
     }
     private void BindRepeater()

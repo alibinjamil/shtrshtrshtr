@@ -41,20 +41,65 @@ public partial class pages_PaymentResponse : AuthenticatedPage
             }
             else
             {
-                panelFailure.Visible = true;
-                hlBack.NavigateUrl = "~/pages/PaymentDetails?" + WebConstants.Request.TRANSACTION_ID + "=" + transactionId;
                 tranTA.Update(transactionId, Request.Form.Get("decision"), int.Parse(Request.Form.Get("reasonCode")), transactionId);
+                if(Request.Form.Get("reasonCode") == "102")
+                {
+                    HashSet<string> fields = new HashSet<string>();
+                    for(int i=0;i<100;i++)
+                    {
+                        if (Request["InvalidField" + i] != null)
+                            fields.Add(Request["InvalidField" + i]);
+                        else
+                            break;
+                    }
+
+                    for (int i = 0; i < 100; i++)
+                    {
+                        if (Request["MissingField" + i] != null)
+                            fields.Add(Request["MissingField" + i]);
+                        else
+                            break;
+                    }
+                    string fieldValues = "";
+                    foreach (string field in fields)
+                    {
+                        fieldValues += field + ",";
+                    }
+                    Response.Redirect("~/pages/PaymentDetails.aspx?" + WebConstants.Request.TRANSACTION_ID + "=" + transactionId
+                        + "&" + WebConstants.Request.INVALID_FIELDS + "=" + fieldValues);
+                }
+                else
+                {
+                    panelFailure.Visible = true;
+                    hlBack.NavigateUrl = "~/pages/PaymentDetails.aspx?" + WebConstants.Request.TRANSACTION_ID + "=" + transactionId;
+                }
             }
         }
     }
 
     protected string GetAmountText()
     {
-        return ShoppingCart.GetTotalAmount() + Request.Form.Get("orderCurrency") + " will be charged each month starting from " + DateTime.Now.AddDays(1).ToShortDateString() + " for the next " + WebConstants.DEFAULT_DURATION + " months";
+        return GetCurrency(Request.Form.Get("orderCurrency")) +  String.Format("{0:N2}",Request.Form.Get("orderAmount")) + " will be charged each month starting from " + DateTime.Now.AddDays(1).ToShortDateString() + " for the next " + WebConstants.DEFAULT_DURATION + " months";
     }
 
     protected Boolean verifyTransactionSignature(System.Web.HttpRequest map)
     {
         return CyberSourceCS.verifyTransactionSignature(map);
+    }
+
+    private string GetCurrency(string currency)
+    {
+        if (currency.ToLower().Equals("usd"))
+        {
+            return "$";
+        }
+        else if (currency.ToLower().Equals("eur"))
+        {
+            return "&euro;";
+        }
+        else
+        {
+            return "&pound;";
+        }
     }
 }

@@ -45,6 +45,7 @@
                 <div class="col2">
                     <asp:Label ID="lblAmountText" runat="server" Text=""></asp:Label></div>
                 <div class="noFloat"></div>        			                                                        			                        
+                <div><a href="JavaScript:window.print();">Print</a></div>
             </div>
         </div>
     </asp:Panel>        
