@@ -142,6 +142,8 @@ public partial class pages_WishList : AuthenticatedPage
                         else
                             ShoppingCart.AddProductVersion(product, wishList.version_id);
                     }
+                    ta.Delete(wishListId);
+                    BindRepeater();
                 }
                 SetInfoMessage("Item added to your trolley");
             }

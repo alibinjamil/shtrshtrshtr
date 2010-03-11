@@ -34,7 +34,7 @@
 			</div>		
 			<div class="row">
 				<div class="col1">Card Number</div>
-				<div class="col2"><asp:TextBox ID="txtCardNumber" MaxLength="16" runat="server" Text="4111111111111111"></asp:TextBox>
+				<div class="col2"><asp:TextBox ID="txtCardNumber" MaxLength="16" runat="server" ></asp:TextBox>
 				    <asp:RegularExpressionValidator ControlToValidate="txtCardNumber"
                             ID="RegularExpressionValidator1" runat="server" ErrorMessage="!" ValidationExpression="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtCardNumber"></asp:RequiredFieldValidator>                        
@@ -63,7 +63,7 @@
 			<div class="row">
 				<div class="col1">Security Code</div>
 				<div class="col2">
-				    <asp:TextBox ID="txtSecurityCode" Width="30px" MaxLength="3" runat="server" Text="111"></asp:TextBox>
+				    <asp:TextBox ID="txtSecurityCode" Width="30px" MaxLength="3" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtSecurityCode"></asp:RequiredFieldValidator>				    
 				</div>
 				<div class="col3">Start Date</div>
@@ -88,21 +88,21 @@
 			<div class="row">
 				<div class="col1">First Name</div>
 				<div class="col2">
-				    <asp:TextBox ID="txtFirstName" MaxLength="30" runat="server" Text="Rashid"></asp:TextBox>
+				    <asp:TextBox ID="txtFirstName" MaxLength="30" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ControlToValidate="txtFirstName"></asp:RequiredFieldValidator>				    
 				</div>
 			</div>
 			<div class="row">
 				<div class="col1">Last Name</div>
 				<div class="col2">
-				    <asp:TextBox ID="txtLastName" MaxLength="30" runat="server" Text="Awan"></asp:TextBox>
+				    <asp:TextBox ID="txtLastName" MaxLength="30" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*" ControlToValidate="txtLastName"></asp:RequiredFieldValidator>				    
 				</div>
 			</div>
 			<div class="row">
 				<div class="col1">Telephone</div>
 				<div class="col2">
-				    <asp:TextBox ID="txtTelephone" MaxLength="20" runat="server" Text="111-111-1111"></asp:TextBox>
+				    <asp:TextBox ID="txtTelephone" MaxLength="20" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*" ControlToValidate="txtTelephone"></asp:RequiredFieldValidator>				    
 				</div>
 			</div>
@@ -112,7 +112,7 @@
 			<div class="row" style="padding-top:10px;">
 				<div class="col1">Street & Number</div>
 				<div class="col2">
-				    <asp:TextBox ID="txtBillingStreet" MaxLength="100" Width="300px" runat="server" Text="1"></asp:TextBox>
+				    <asp:TextBox ID="txtBillingStreet" MaxLength="100" Width="300px" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="*" ControlToValidate="txtBillingStreet"></asp:RequiredFieldValidator>				    
 				</div>
 			</div>
@@ -120,14 +120,14 @@
 			<div class="row">
 				<div class="col1">Town</div>
 				<div class="col2">
-				    <asp:TextBox ID="txtBillingTown" MaxLength="30" runat="server" Text="1"></asp:TextBox>
+				    <asp:TextBox ID="txtBillingTown" MaxLength="30" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*" ControlToValidate="txtBillingTown"></asp:RequiredFieldValidator>				    
 				</div>
 			</div>
 			<div class="row">
 				<div class="col1">County</div>
 				<div class="col2">
-				    <asp:TextBox ID="txtBillingCounty" MaxLength="30" runat="server" Text = "1"></asp:TextBox>
+				    <asp:TextBox ID="txtBillingCounty" MaxLength="30" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*" ControlToValidate="txtBillingCounty"></asp:RequiredFieldValidator>				    
 				</div>
 			</div>
@@ -379,7 +379,7 @@
 			<div class="row">
 				<div class="col1">Postcode/Zip</div>
 				<div class="col2">
-				    <asp:TextBox ID="txtBillingZipCode" MaxLength="10" Width="75px" runat="server" Text="54000"></asp:TextBox>
+				    <asp:TextBox ID="txtBillingZipCode" MaxLength="10" Width="75px" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="*" ControlToValidate="txtBillingZipCode"></asp:RequiredFieldValidator>				    
 				</div>
 			</div>

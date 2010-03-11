@@ -23,6 +23,7 @@ using System.Xml.Linq;
             public static string PASSWORD = "PASSWORD";
             public static string ACTIVATION_CODE = "ACTIVATION_CODE";
             public static string CURRENT_CURRENCY = "CURRENT_CURRENCY";
+            public static string PAYMENT_DETAILS = "PAYMENT_DETAILS";
         }
 
         public static class Request
@@ -38,6 +39,7 @@ using System.Xml.Linq;
             public static string VIDEO_ID = "videoId";
             public static string MORE = "more";
             public static string FROM_PAGE = "fromPage";
+            public static string TRANSACTION_ID = "transactionId";
         }
         public static class Messages
         {

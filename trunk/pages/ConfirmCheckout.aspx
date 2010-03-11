@@ -31,7 +31,7 @@ function openWindow(url)
 			    <ItemTemplate>
 			        <div class="row">
 			        <%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %>&nbsp;<%#DataBinder.Eval(Container, "DataItem.ProductVersion.name")%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%> for <%# DataBinder.Eval(Container, "DataItem.DurationString") %><br/><br/>
-			        <i style="font-weight:normal">You will be paying <%# ShoppingCart.GetCurrentCurrency().html_currency_code%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.MonthlyTotal", "{0:N2}")%> per month for <%# DataBinder.Eval(Container, "DataItem.DurationString")%></i>
+			        <i style="font-weight:normal">You will be paying <%# ShoppingCart.GetCurrentCurrency().html_currency_code%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.Total", "{0:N2}")%> per month for <%# DataBinder.Eval(Container, "DataItem.DurationString")%></i>
 			        </div>
 			        <div class="terms">
 				        <div><a href="<%# "javascript: openWindow('" + DataBinder.Eval(Container, "DataItem.Product.terms_url") + "');" %>" style="color:black;">Terms & Conditions</a></div>
