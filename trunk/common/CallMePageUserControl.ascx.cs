@@ -79,9 +79,9 @@ public partial class common_CallMePageUserControl : System.Web.UI.UserControl
             else
             {
                 lblInfoMessage.Visible = true;
-                lblInfoMessage.Text = "Your request has been submited.";
                 EmailUtility.SendCallMeEmailToAdmin(emailContents);
                 EmailUtility.SendCallMeEmailToUser(txtEmail.Text);
+                Response.Redirect("~/pages/RequestSubmitted.aspx");
             }
         }
     }
@@ -107,7 +107,7 @@ public partial class common_CallMePageUserControl : System.Web.UI.UserControl
             SetErrorMessage("Email Addresses do not match");
             return false;
         }
-        if (Request["products"].Replace(",", "").Length == 0)
+        if(cbEAS.Selected == false && cbHandyGas.Selected == false && cbHandyLEC.Selected == false && cbHandyServe.Selected == false && cbHS.Selected == false)
         {
             SetErrorMessage("Atleast one product must be selected.");
             return false;

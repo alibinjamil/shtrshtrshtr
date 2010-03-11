@@ -6,8 +6,8 @@
     <div class="breadcrumps">
 		<a href="#">Checkout ></a>
 		<a class="current" href="#">Create an Account ></a>
+		<a href="#">Confirm Checkout ></a>		
 		<a href="#">Payment Details ></a>
-		<a href="#">Confirm Checkout ></a>
 	</div>
 	<div id="screenTitle">
 		<div class="heading">Create an Account</div>

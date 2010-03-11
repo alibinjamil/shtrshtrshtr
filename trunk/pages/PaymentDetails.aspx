@@ -6,8 +6,8 @@
     	<div class="breadcrumps">
 			<a href="#">Trolley ></a>
 			<a href="#">Create an Account ></a>
+			<a href="#">Confirm Checkout ></a>
 			<a class="current" href="#">Payment Details ></a>
-			<a href="#">Confirm Checkout</a>
 		</div>
 		
 		<div class="header">
@@ -34,12 +34,38 @@
 			</div>		
 			<div class="row">
 				<div class="col1">Card Number</div>
-				<div class="col2"><asp:TextBox ID="txtCardNumber" MaxLength="16" runat="server" ></asp:TextBox>
+				<div class="col2"><asp:TextBox ID="txtCardNumber" MaxLength="16" runat="server"></asp:TextBox>
 				    <asp:RegularExpressionValidator ControlToValidate="txtCardNumber"
                             ID="RegularExpressionValidator1" runat="server" ErrorMessage="!" ValidationExpression="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtCardNumber"></asp:RequiredFieldValidator>                        
                 </div>
                         
+				<div class="col3">Start Date</div>
+				<div class="col4">
+				    <asp:DropDownList id="txtStartMonth" runat="server" >
+				        <asp:ListItem Value="01">01</asp:ListItem>
+				        <asp:ListItem Value="02">02</asp:ListItem>
+				        <asp:ListItem Value="03">03</asp:ListItem>
+				        <asp:ListItem Value="04">04</asp:ListItem>
+				        <asp:ListItem Value="05">05</asp:ListItem>
+				        <asp:ListItem Value="06">06</asp:ListItem>
+				        <asp:ListItem Value="07">07</asp:ListItem>
+				        <asp:ListItem Value="08">08</asp:ListItem>
+				        <asp:ListItem Value="09">09</asp:ListItem>
+				        <asp:ListItem Value="10">10</asp:ListItem>
+				        <asp:ListItem Value="11">11</asp:ListItem>
+				        <asp:ListItem Value="12">12</asp:ListItem>
+				    </asp:DropDownList>
+				    &nbsp;&nbsp;<asp:DropDownList id="txtStartYear" runat="server"></asp:DropDownList>		
+				    
+				</div>
+			</div>
+			<div class="row">
+				<div class="col1">Security Code</div>
+				<div class="col2">
+				    <asp:TextBox ID="txtSecurityCode" Width="30px" MaxLength="3" runat="server" ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtSecurityCode"></asp:RequiredFieldValidator>				    
+				</div>
 				<div class="col3">Expiry Date</div>
 				<div class="col4">
 				    <asp:DropDownList id="txtExpiryMonth" runat="server">
@@ -55,34 +81,8 @@
 				        <asp:ListItem Value="10">10</asp:ListItem>
 				        <asp:ListItem Value="11">11</asp:ListItem>
 				        <asp:ListItem Value="12">12</asp:ListItem>
-				    </asp:DropDownList>
-				    &nbsp;&nbsp;<asp:DropDownList id="txtExpiryYear" runat="server"></asp:DropDownList>		
-				    
-				</div>
-			</div>
-			<div class="row">
-				<div class="col1">Security Code</div>
-				<div class="col2">
-				    <asp:TextBox ID="txtSecurityCode" Width="30px" MaxLength="3" runat="server" ></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtSecurityCode"></asp:RequiredFieldValidator>				    
-				</div>
-				<div class="col3">Start Date</div>
-				<div class="col4">
-				    <asp:DropDownList id="txtStartMonth" runat="server">
-				        <asp:ListItem Value="01">01</asp:ListItem>
-				        <asp:ListItem Value="02">02</asp:ListItem>
-				        <asp:ListItem Value="03">03</asp:ListItem>
-				        <asp:ListItem Value="04">04</asp:ListItem>
-				        <asp:ListItem Value="05">05</asp:ListItem>
-				        <asp:ListItem Value="06">06</asp:ListItem>
-				        <asp:ListItem Value="07">07</asp:ListItem>
-				        <asp:ListItem Value="08">08</asp:ListItem>
-				        <asp:ListItem Value="09">09</asp:ListItem>
-				        <asp:ListItem Value="10">10</asp:ListItem>
-				        <asp:ListItem Value="11">11</asp:ListItem>
-				        <asp:ListItem Value="12">12</asp:ListItem>
 				    </asp:DropDownList>				
-				    &nbsp;&nbsp;<asp:DropDownList id="txtStartYear" runat="server"></asp:DropDownList>
+				    &nbsp;&nbsp;<asp:DropDownList id="txtExpiryYear" runat="server"></asp:DropDownList>
 				</div>
 			</div>
 			<div class="row">
@@ -384,7 +384,7 @@
 				</div>
 			</div>
 			<div class="noFloat"/>
-			    <br />
+				<br />
 		        <asp:Label ID="lblCCMsg" runat="server"></asp:Label>
 		        <br />
 		</div>

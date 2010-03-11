@@ -40,6 +40,8 @@ using System.Xml.Linq;
             public static string MORE = "more";
             public static string FROM_PAGE = "fromPage";
             public static string TRANSACTION_ID = "transactionId";
+            public static string INVALID_FIELDS = "invalidFields";
+            public static string MISSING_FIELDS = "missingFields";
         }
         public static class Messages
         {

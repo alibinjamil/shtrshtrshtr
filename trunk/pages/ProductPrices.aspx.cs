@@ -110,10 +110,11 @@ public partial class pages_ProductPrices : GenericPage
                     rptOptional.DataSource = product.OptionalDetails.GetRange(0, 5);
                     hlMore.Visible = true;
                 }
+
                 rptOptional.DataBind();
                 hlMore.NavigateUrl = "~/pages/ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + Request[WebConstants.Request.PRODUCT_ID]
                     + "&" + WebConstants.Request.MORE + "=true";
-                hlMore.Visible = true;
+                
             }
         }
     }

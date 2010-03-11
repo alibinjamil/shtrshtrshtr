@@ -5,6 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
-    <h3>Please contact Simplicity4Business for payment details.</h3>
+    <h3>THANK YOU FOR PROVIDING YOUR PAYMENT DETAILS TO SIMPLICITY FOR BUSINESS. IN ORDER TO FINALISE PAYMENT FOR YOUR ORDER, PLEASE CONTACT US ON TELEPHONE NUMBER + 44 207 272 812</h3>
 </asp:Content>
 

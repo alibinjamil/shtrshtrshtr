@@ -62,7 +62,7 @@ public partial class pages_CreateAccount : GenericPage
                         GetFullAddress(), txtTele1.Text, txtTele2.Text, txtFax.Text, txtMobile.Text, null, DateTime.Now, null, DateTime.Now, txtTown.Text, txtCounty.Text, txtCountry.Text);
                     
                     EmailUtility.SendAccountCreationEmail(txtEmail.Text, customer.entity_uid,customer.verification_code);
-                    SetInfoMessage("Instructions have been sent to your email address. Please follow them to activate your account.");
+                    Response.Redirect("~/pages/ConfirmMail.aspx");
                 }
             }
             /*catch

@@ -29,7 +29,7 @@
 				    <asp:TextBox ID="txtTelephone" runat="server"></asp:TextBox>
 				    <asp:RequiredFieldValidator ID="rf12" runat="server" ErrorMessage="*" ControlToValidate="txtTelephone" CssClass="errorMessage"></asp:RequiredFieldValidator>
 				</div>
-				<div class="col3">*Mobile</div>
+				<div class="col3">Mobile</div>
 				<div class="col4">
 				    <asp:TextBox ID="txtMobile" runat="server"></asp:TextBox>
 				</div>

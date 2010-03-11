@@ -198,6 +198,19 @@ div.trolleyActionsCol5 {
 	float:left;
 }
 
+div.trolleyFooterCol1
+{
+	width: 815px;
+	float: left;
+	text-align: right;
+	font-style: italic;
+	margin-right:20px;
+}
+div.trolleyFooterCol2 {
+	float:left;
+}
+
+
 div.trolleycell {
 	padding-top:10px; 
 	padding-bottom:10px;
@@ -207,6 +220,13 @@ input {
 	border: 1px solid #999;
 	border-right: 3px solid #777;
 	border-bottom: 3px solid #777;
+}
+
+.errorField 
+{
+	border: 1px solid red;
+	border-right: 2px solid red;
+	border-bottom: 2px solid red;	
 }
 
 div.createAccount 

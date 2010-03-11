@@ -25,6 +25,9 @@ public partial class pages_PaymentDetails : AuthenticatedPage
     {
         if (IsPostBack == false)
         {
+            lblCCMsg.Text = ShoppingCart.GetCurrentCurrency().html_currency_code + String.Format("{0:N2}", ShoppingCart.GetTotalAmount())
+                + " will be deducted from your Card monthly starting from " + DateTime.Now.AddDays(1).ToShortDateString() + " to " + DateTime.Now.AddDays(1).AddMonths(12).ToShortDateString();
+//"
             int year = DateTime.Now.Year;
             for (int i = year; i < 2050; i++)
                 txtExpiryYear.Items.Add(i.ToString());
@@ -51,20 +54,51 @@ public partial class pages_PaymentDetails : AuthenticatedPage
                     txtTelephone.Text = paymentDetails.Telephone;
                     lstCardType.SelectedValue = paymentDetails.CardType;
                 }
-            }
-            double total = 0;
-            if (Session[WebConstants.Session.TROLLEY] != null)
-            {
 
-                List<ShoppingItem> items = (List<ShoppingItem>)Session[WebConstants.Session.TROLLEY];
-                foreach (ShoppingItem item in items)
+                if (Request[WebConstants.Request.INVALID_FIELDS] != null)
                 {
-                    total += item.Total;
+                    SetErrorMessage("Some of the required fields are missing. Please provide all mandatory fields and proceed with checkout");
+                    string[] invalidFields = Request[WebConstants.Request.INVALID_FIELDS].Split(',');
+                    string ERROR_FIELD = "errorField";
+                    foreach (string invalidField in invalidFields)
+                    {
+                        if(invalidField == "billTo_firstName")
+                        {
+                            txtFirstName.CssClass = ERROR_FIELD;
+                        }
+                        else if(invalidField == "billTo_lastName")
+                        {
+                            txtLastName.CssClass = ERROR_FIELD;
+                        }
+                        else if(invalidField == "card_cardType")
+                        {
+                            lstCardType.CssClass = ERROR_FIELD;
+                        }
+                        else if(invalidField == "card_accountNumber")
+                        {
+                            txtCardNumber.CssClass = ERROR_FIELD;
+                        }
+                        else if(invalidField == "card_expirationMonth" || invalidField == "card_expirationYear")
+                        {
+                            txtExpiryMonth.CssClass = ERROR_FIELD;
+                            txtExpiryYear.CssClass = ERROR_FIELD;
+                        }
+                        else if(invalidField == "billTo_street1")
+                        {
+                            txtBillingStreet.CssClass = ERROR_FIELD;
+                        }
+                        else if(invalidField == "billTo_city")
+                        {
+                            txtBillingCounty.CssClass = ERROR_FIELD;
+                        }
+                        else if (invalidField == "billTo_country")
+                        {
+                            txtBillingCountry.CssClass = ERROR_FIELD;
+                        }
+                    }
                 }
             }
-            total = total /12;
-
-            lblCCMsg.Text = "Amount " + ShoppingCart.GetCurrentCurrency().html_currency_code + " " + String.Format("{0:0.00}",total) + " will be deducted from credit card no " + txtCardNumber.Text + " monthly " + " starting from " + DateTime.Now.ToShortDateString() + "to " + DateTime.Now.AddMonths(12).ToShortDateString();
+            
         }
     }
 
@@ -145,7 +179,7 @@ public partial class pages_PaymentDetails : AuthenticatedPage
 
                 Stream reqst = req.GetRequestStream();
                 reqst.Write(buffer, 0, buffer.Length);
-                ShoppingCart.ClearTrolley();
+
                 reqst.Flush();
                 reqst.Close();
             }

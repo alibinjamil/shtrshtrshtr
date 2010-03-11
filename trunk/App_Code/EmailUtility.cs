@@ -85,7 +85,11 @@ public static class EmailUtility
     public static void SendCallMeEmailToAdmin(string contents)
     {
         MailMessage message = new MailMessage();
-        message.To.Add(new MailAddress(ConfigurationSettings.AppSettings["AdminEmailAddress"]));
+        string [] adminEmailAddresses = ConfigurationSettings.AppSettings["AdminEmailAddress"].Split(',');
+        foreach (string adminEmailAddress in adminEmailAddresses)
+        {
+            message.To.Add(new MailAddress(adminEmailAddress));
+        }
         message.Subject = "Simplicity Call Me Request";
         message.IsBodyHtml = true;
         message.Body = contents;
