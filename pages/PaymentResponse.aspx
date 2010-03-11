@@ -46,8 +46,6 @@
                     <asp:Label ID="lblAmountText" runat="server" Text=""></asp:Label></div>
                 <div class="noFloat"></div>        			                                                        			                        
             </div>
-            <div style="padding-top:15px">Print
-            </div>
         </div>
     </asp:Panel>        
     <asp:Panel ID="panelFailure" runat="server" Visible="false">        
@@ -151,7 +149,8 @@
                        Some error occurred while processing the payment. Your card might have been charged. To avoid duplicating the payment, please contact support
                        <%} %>
                     </div>
-                    <div style="padding-top:10px"><a href="PaymentDetails.aspx">Back To Payment Details</a></div>
+                    <div style="padding-top:10px">
+                        <asp:HyperLink ID="hlBack" runat="server">Back to Payment Details</asp:HyperLink></div>
                 </div>
             </asp:Panel>
     </div>

@@ -42,6 +42,7 @@ public partial class pages_PaymentResponse : AuthenticatedPage
             else
             {
                 panelFailure.Visible = true;
+                hlBack.NavigateUrl = "~/pages/PaymentDetails?" + WebConstants.Request.TRANSACTION_ID + "=" + transactionId;
                 tranTA.Update(transactionId, Request.Form.Get("decision"), int.Parse(Request.Form.Get("reasonCode")), transactionId);
             }
         }

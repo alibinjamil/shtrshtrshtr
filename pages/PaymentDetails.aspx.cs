@@ -30,7 +30,28 @@ public partial class pages_PaymentDetails : AuthenticatedPage
                 txtExpiryYear.Items.Add(i.ToString());
             for (int i = 2000; i <= year; i++)
                 txtStartYear.Items.Add(i.ToString());
-
+            if (Request[WebConstants.Request.TRANSACTION_ID] != null)
+            {
+                PaymentDetails paymentDetails = SessionFactory.GetPaymentDetails(Request[WebConstants.Request.TRANSACTION_ID]);
+                if (paymentDetails != null)
+                {
+                    txtBillingCountry.SelectedValue = paymentDetails.Country;
+                    txtBillingCounty.Text = paymentDetails.County;
+                    txtBillingStreet.Text = paymentDetails.Street;
+                    txtBillingTown.Text = paymentDetails.Town;
+                    txtBillingZipCode.Text = paymentDetails.PostCode;
+                    txtCardNumber.Text = paymentDetails.CardNumber;
+                    txtExpiryMonth.SelectedValue = paymentDetails.ExpiryMonth;
+                    txtExpiryYear.SelectedValue = paymentDetails.ExpiryYear;
+                    txtFirstName.Text = paymentDetails.FirstName;
+                    txtLastName.Text = paymentDetails.LastName;
+                    txtSecurityCode.Text = paymentDetails.SecurityCode;
+                    txtStartMonth.SelectedValue = paymentDetails.StartMonth;
+                    txtStartYear.SelectedValue = paymentDetails.StartYear;
+                    txtTelephone.Text = paymentDetails.Telephone;
+                    lstCardType.SelectedValue = paymentDetails.CardType;
+                }
+            }
             double total = 0;
             if (Session[WebConstants.Session.TROLLEY] != null)
             {
@@ -52,9 +73,32 @@ public partial class pages_PaymentDetails : AuthenticatedPage
         string url = ConfigurationSettings.AppSettings["CyberSourceURL"];
         HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
         string proxy = null;
+        //clear it from session to keep the session as min as possible
+        if (Request[WebConstants.Request.TRANSACTION_ID] != null)
+        {
+            SessionFactory.RemovePaymentDetails(Request[WebConstants.Request.TRANSACTION_ID]);
+        }
         string transactionId = InsertTransaction();
         if (transactionId != null)
         {
+            PaymentDetails paymentDetails = new PaymentDetails();
+            paymentDetails.CardNumber = txtCardNumber.Text;
+            paymentDetails.CardType = lstCardType.SelectedValue;
+            paymentDetails.Country = txtBillingCountry.Text;
+            paymentDetails.County = txtBillingCounty.Text;
+            paymentDetails.ExpiryMonth = txtExpiryMonth.SelectedValue;
+            paymentDetails.ExpiryYear = txtExpiryYear.SelectedValue;
+            paymentDetails.FirstName = txtFirstName.Text;
+            paymentDetails.LastName = txtLastName.Text;
+            paymentDetails.PostCode = txtBillingZipCode.Text;
+            paymentDetails.SecurityCode = txtSecurityCode.Text;
+            paymentDetails.StartMonth = txtStartMonth.SelectedValue;
+            paymentDetails.StartYear = txtStartYear.SelectedValue;
+            paymentDetails.Street = txtBillingStreet.Text;
+            paymentDetails.Telephone = txtTelephone.Text;
+            paymentDetails.Town = txtBillingTown.Text;
+            SessionFactory.AddPaymentDetails(transactionId, paymentDetails);
+
             string data = "amount=" + Server.UrlEncode(Request["amount"]);
             data += "&orderNumber=" + Server.UrlEncode(transactionId);
             data += "&currency=" + Server.UrlEncode(Request["currency"]);

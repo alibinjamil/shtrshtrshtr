@@ -127,10 +127,4 @@ using System.Xml.Linq;
             set { wishListItemId = value; }
         }
 
-        private double monthlyTotal;
-        public double MonthlyTotal
-        {
-            get { return quantity * Total / 12; }
-            set { monthlyTotal = value; }
-        }
     }
