@@ -200,14 +200,12 @@ div.trolleyActionsCol5 {
 
 div.trolleyFooterCol1
 {
-	width: 815px;
+	width: 100%;
 	float: left;
 	text-align: right;
 	font-style: italic;
-	margin-right:20px;
-}
-div.trolleyFooterCol2 {
-	float:left;
+	margin-right:50px;
+	padding-right:50px;
 }
 
 
