@@ -595,6 +595,22 @@ div.confirmCheckout div.row
 	/*margin-top:20px;*/
 }
 
+div.confirmCheckout div.col1
+{
+	float:left;
+	/*margin-top:20px;*/
+}
+div.confirmCheckout div.col2
+{
+	border: 2px solid #000080;
+	float: left;
+	margin-left: 20px;
+	background-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+
 div.confirmCheckout div.terms
 {
 	padding-top:10px;

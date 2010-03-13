@@ -62,4 +62,16 @@ using System.Xml.Linq;
             public static string EUR = "EUR";
             public static string USD = "USD";
         }
+        public static class Config
+        {
+            public static string ADMIN_EMAIL_ADDRESSES = "AdminEmailAddress";
+		    public static string FROM_EMAIL_ADDRESS = "FromEmailAddress";
+		    public static string CYBER_SOURCE_URL = "CyberSourceURL";
+            public static string REDIRECT_URL = "RedirectURL";
+		    public static string PAYMENT_OFFLINE = "PaymentOffline";
+            public static string MERCHANT_ID = "MerchantID";
+            public static string PUBLIC_KEY = "PublicKey";
+            public static string PRIVATE_KEY = "PrivateKey";
+            public static string SERIAL_NUMBER = "SerialNumber";
+        }
     }

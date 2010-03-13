@@ -104,7 +104,7 @@ public partial class pages_PaymentDetails : AuthenticatedPage
 
     protected void btnContinue_Click(object sender, ImageClickEventArgs e)
     {
-        string url = ConfigurationSettings.AppSettings["CyberSourceURL"];
+        string url = ConfigurationSettings.AppSettings[WebConstants.Config.CYBER_SOURCE_URL];
         HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
         string proxy = null;
         //clear it from session to keep the session as min as possible
@@ -196,6 +196,7 @@ public partial class pages_PaymentDetails : AuthenticatedPage
             StreamReader sr = new StreamReader(resst);
             string response = sr.ReadToEnd();
             Response.Write(response);
+            //ClientScript.RegisterStartupScript(typeof(Page), "Processing", "showDialog();", true);
         }
 
         /*Session["cardType"] = lstCardType.Text;

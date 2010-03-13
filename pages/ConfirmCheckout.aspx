@@ -31,13 +31,17 @@ function openWindow(url)
 			    </HeaderTemplate>
 			    <ItemTemplate>
 			        <div class="row">
-			        <%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %>&nbsp;<%#DataBinder.Eval(Container, "DataItem.ProductVersion.name")%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%> for <%# DataBinder.Eval(Container, "DataItem.DurationString") %><br/><br/>
-			        <i style="font-weight:normal">You will be paying <%# ShoppingCart.GetCurrentCurrency().html_currency_code%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.Total", "{0:N2}")%> per month for <%# DataBinder.Eval(Container, "DataItem.DurationString")%></i>
+                        <div class="col1"><%# DataBinder.Eval(Container, "DataItem.Quantity") %> x <%# DataBinder.Eval(Container, "DataItem.Product.name") %>&nbsp;<%#DataBinder.Eval(Container, "DataItem.ProductVersion.name")%>&nbsp;<%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%> for <%# DataBinder.Eval(Container, "DataItem.DurationString") %></div>
+                        <div class="col2"><%# ShoppingCart.GetCurrentCurrency().html_currency_code%><%# DataBinder.Eval(Container, "DataItem.Total", "{0:N2}")%></div>
+			            <div style="clear:both;"></div>
 			        </div>
 			        <div class="terms">
 				        <div><a href="<%# "javascript: openWindow('" + DataBinder.Eval(Container, "DataItem.Product.terms_url") + "');" %>" style="color:black;">Terms & Conditions</a></div>
                         <uc1:CheckBox ID="cbTerms" runat="server" Style="padding-top:5px;" Text="Please tick to confirm that you have read the terms & conditions" Selected="false"/>				        
 				        <div class="noFloat"/>
+			        </div>
+			        <div class="row">
+			            <hr />
 			        </div>
 			    </ItemTemplate>
 			</asp:Repeater>
@@ -48,6 +52,13 @@ function openWindow(url)
                 <asp:Label ID="paymentMsg" Font-Bold="false" Font-Italic="true" runat="server" Text="Label"></asp:Label>
                 <hr/></div>
 			<div class="floatRight">
+			    <a href="Trolley.aspx">
+			        <asp:Image ID="imgTrolley" runat="server" AlternateText="Cancel"
+			        ImageUrl="~/images/Cancel.gif" onmouseover="this.src='../images/Cancel_rollover.gif'" 
+                    onmouseout="this.src='../images/Cancel.gif'" />
+			    </a>
+                
+			    
 				<asp:ImageButton ID="btnCheckout" runat="server" 
                     ImageUrl="~/images/Confirm.gif" AlternateText="Confirm Payment" 
                     onmouseover="this.src='../images/Confirm_rollover.gif'" 
