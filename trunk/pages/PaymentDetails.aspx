@@ -1,6 +1,53 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="PaymentDetails.aspx.cs" Inherits="pages_PaymentDetails" Title="Simplicity4Business" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui-1.7.2.custom.css" />
+    <script type="text/javascript" src="../js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
+    <script type="text/javascript">
+	    function showDialog()
+	    {
+            if (typeof(Page_ClientValidate) == 'function')
+                Page_ClientValidate();	    
+	        if (Page_IsValid)
+	        {
+                var shimDiv = document.createElement('div');  
+                shimDiv.id = 'shim';  
+                shimDiv.style.position = 'absolute';  
+                shimDiv.style.top = 0;  
+                shimDiv.style.left = 0;  
+                shimDiv.style.width = document.body.clientWidth;
+                shimDiv.style.height = document.body.clientHeight;
+                shimDiv.style.backgroundColor = '#000'; 
+                shimDiv.style.zIndex = 3;
+                shimDiv.style.opacity = 0.50;
+                shimDiv.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=75)';
+                document.body.appendChild(shimDiv);
+                var img = document.createElement("img");
+                img.src = "../images/preloader_animated_02.gif";
+                img.style.position = 'absolute';
+                if(img.height < document.body.clientHeight)
+                {
+                    img.style.top = Math.floor((document.body.clientHeight - img.height) / 2) + "px";                
+                }              
+                else
+                {
+                    img.style.top = 0;
+                }
+                if(img.width < document.body.clientWidth)
+                {
+                    img.style.left = Math.floor((document.body.clientWidth - img.width) / 2) + "px";                
+                }
+                else
+                {
+                    img.style.left = 0;
+                }
+                img.style.zIndex = 4;
+                document.body.appendChild(img);            
+	        }
+	    }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
     	<div class="breadcrumps">
@@ -13,7 +60,8 @@
 		<div class="header">
 			<div class="heading">Payment Details</div>
 			<div class="noFloat"></div>
-		</div>		
+		</div>
+				
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
 		<div class="paymentDetails">
@@ -394,7 +442,7 @@
 			<asp:ImageButton ID="btnCheckout" runat="server" 
                     ImageUrl="~/images/Continue.gif" AlternateText="Continue" 
                     onmouseover="this.src='../images/Continue_rollover.gif'" 
-                    onmouseout="this.src='../images/Continue.gif'" onclick="btnContinue_Click"/>				
+                    onmouseout="this.src='../images/Continue.gif'" onclick="btnContinue_Click" OnClientClick="showDialog();" />				
 			</div>
 		</div>
 

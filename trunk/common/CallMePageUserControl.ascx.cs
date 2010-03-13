@@ -74,6 +74,7 @@ public partial class common_CallMePageUserControl : System.Web.UI.UserControl
             if (ViewDemo)
             {
                 Session[WebConstants.Session.VIEW_DEMO] = true;
+                EmailUtility.SendViewDemoEmailToUser(txtEmail.Text);
                 Response.Redirect("~/pages/WatchDemo.aspx");
             }
             else

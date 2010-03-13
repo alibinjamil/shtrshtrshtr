@@ -7,22 +7,27 @@ public class CyberSourceCS
 {
     private static String getMerchantID()
     {
-        return "ultranovacoding_moto";
+        return ConfigurationSettings.AppSettings[WebConstants.Config.MERCHANT_ID];
+        
+        //return "ultranovacoding_moto";
     }
 
     private static String getPublicKey()
     {
-        return "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3xRFysfMjx5yqtxND85vB9C/MH6V94+ZN1FqI1cgrornPIlYsUIyj86AlZ/yC21rKM/HIu30vuvCpQb2xxScGE4uqHqVaLM9J5/me9JN09DYGe+Wp9Bgn5LI/3soGGbxVRbetOxGtvsKAG0GU3x7/xTeaIJ6sDKpvyz9wfd/KjwIDAQAB";
+        return ConfigurationSettings.AppSettings[WebConstants.Config.PUBLIC_KEY];
+        //return "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3xRFysfMjx5yqtxND85vB9C/MH6V94+ZN1FqI1cgrornPIlYsUIyj86AlZ/yC21rKM/HIu30vuvCpQb2xxScGE4uqHqVaLM9J5/me9JN09DYGe+Wp9Bgn5LI/3soGGbxVRbetOxGtvsKAG0GU3x7/xTeaIJ6sDKpvyz9wfd/KjwIDAQAB";
     }
 
     private static String getPrivateKey()
     {
-         return "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwgg`JdAgEAAoGBAPfFEXKx8yPHnKq3E0Pzm8H0L8wfpX3j5k3UWojVyCuiuc8iVixQjKPzoCVn/ILbWsoz8ci7fS+68KlBvbHFJwYTi6oepVosz0nn+Z70k3T0NgZ75an0GCfksj/eygYZvFVFt607Ea2+woAbQZTfHv/FN5ognqwMqm/LP3B938qPAgMBAAECgYBycV0YzCcRLL8pfzxv05LrKF33e9qV5nFXG7HhqFU4CoamrSZ+e4oqpHohLQHOc4FhClMws6EkLcXBeDMlbHoUBMPxxRRNdN/YxZtmgmOal4x/cJ8OraHqUFwfehHGXg1tej88vz7ct6Wg4+KDyOUlfc63bPKvk7Zae6Q9Hq6IwQJBAPy7cOvHmW1VJzQa/NPjLMscs3Bz4SJdSeDjB16y0pKocfQQso7WjPWk04EscENvu3iyATUP0XLoctJXa1yv8WECQQD6+TOD82PDLb0SXbTPk7+SPB3IKlIeywMSI+jtaU5WbTj7ZwCjqLAihziCVy11hwrVm2oN/DtEvaGWLrAwVhHvAkAtOxqlh+5ki9XdVGslPMYaf8N5f7OuI8YCEn+SKizXhIAIbyiVub42hE46EwrwdsG1gx4GMhOJHiLWlECpsO9hAkEA1V4p6uNwjE4FcWjTQKrG8qdDVpqMSHul97Up4TVnEVk4WZv/UiQm4qP9aep9zm5pyqKfbpZjORTTHKBC0EVMZwJBAMX0Y5JeoBEQFskejz1NXUU/sstaY8RRf3JagtIwHkwXZqnwGIJ7eEsdSt74M5BaTxQY7MnD+BdZ5sd8fLVancs=";
+        return ConfigurationSettings.AppSettings[WebConstants.Config.PRIVATE_KEY]; 
+        //return "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwgg`JdAgEAAoGBAPfFEXKx8yPHnKq3E0Pzm8H0L8wfpX3j5k3UWojVyCuiuc8iVixQjKPzoCVn/ILbWsoz8ci7fS+68KlBvbHFJwYTi6oepVosz0nn+Z70k3T0NgZ75an0GCfksj/eygYZvFVFt607Ea2+woAbQZTfHv/FN5ognqwMqm/LP3B938qPAgMBAAECgYBycV0YzCcRLL8pfzxv05LrKF33e9qV5nFXG7HhqFU4CoamrSZ+e4oqpHohLQHOc4FhClMws6EkLcXBeDMlbHoUBMPxxRRNdN/YxZtmgmOal4x/cJ8OraHqUFwfehHGXg1tej88vz7ct6Wg4+KDyOUlfc63bPKvk7Zae6Q9Hq6IwQJBAPy7cOvHmW1VJzQa/NPjLMscs3Bz4SJdSeDjB16y0pKocfQQso7WjPWk04EscENvu3iyATUP0XLoctJXa1yv8WECQQD6+TOD82PDLb0SXbTPk7+SPB3IKlIeywMSI+jtaU5WbTj7ZwCjqLAihziCVy11hwrVm2oN/DtEvaGWLrAwVhHvAkAtOxqlh+5ki9XdVGslPMYaf8N5f7OuI8YCEn+SKizXhIAIbyiVub42hE46EwrwdsG1gx4GMhOJHiLWlECpsO9hAkEA1V4p6uNwjE4FcWjTQKrG8qdDVpqMSHul97Up4TVnEVk4WZv/UiQm4qP9aep9zm5pyqKfbpZjORTTHKBC0EVMZwJBAMX0Y5JeoBEQFskejz1NXUU/sstaY8RRf3JagtIwHkwXZqnwGIJ7eEsdSt74M5BaTxQY7MnD+BdZ5sd8fLVancs=";
     }
 
     private static String getSerialNumber()
     {
-        return "2662573288090176056187";
+        return ConfigurationSettings.AppSettings[WebConstants.Config.SERIAL_NUMBER];
+        //return "2662573288090176056187";
     }
     
     //method deprecated

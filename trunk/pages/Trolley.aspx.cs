@@ -91,15 +91,8 @@ public partial class pages_Trolley : GenericPage
         }
         else
         {
-            if (LoggedIsUser == null)
-            {
-                RedirectToLogin();
-            }
-            else
-            {
-                
-                Response.Redirect("~/pages/AccountAddress.aspx");
-            }
+            //chckec for authentication on the respective page so it is redirected there
+            Response.Redirect("~/pages/AccountAddress.aspx");
         }
     }
 

@@ -12,12 +12,13 @@ using System.Xml.Linq;
 using System.Net.Mail;
 using System.Net;
 
+using System.Collections.Generic;
 /// <summary>
 /// Summary description for EmailUtility
 /// </summary>
 public static class EmailUtility
 {
-    private static string FROM_ADDRESS = ConfigurationSettings.AppSettings["FromEmailAddress"];
+    private static string FROM_ADDRESS = ConfigurationSettings.AppSettings[WebConstants.Config.FROM_EMAIL_ADDRESS];
     private static string SMTP_SERVER = "smtpauth.moose.co.uk";
     private static string USER_NAME = "andrewcowie";
     private static string PASSWORD = "access";
@@ -85,7 +86,7 @@ public static class EmailUtility
     public static void SendCallMeEmailToAdmin(string contents)
     {
         MailMessage message = new MailMessage();
-        string [] adminEmailAddresses = ConfigurationSettings.AppSettings["AdminEmailAddress"].Split(',');
+        string [] adminEmailAddresses = ConfigurationSettings.AppSettings[WebConstants.Config.ADMIN_EMAIL_ADDRESSES].Split(',');
         foreach (string adminEmailAddress in adminEmailAddresses)
         {
             message.To.Add(new MailAddress(adminEmailAddress));
@@ -116,6 +117,27 @@ public static class EmailUtility
         message.Body += "<b>Card Expiry:</b>" + expiryMonth + "/" + expiryYear + "<br/>";
         message.Body += "<b>Cart Type:</b>" + cardType + "<br/>";
         message.Body += "<b>Amount Charged:</b>" + amountText + "<br/>";
+        SendEmail(message);
+    }
+    public static void SendViewDemoEmailToUser(string email)
+    {
+        MailMessage message = new MailMessage();
+        message.To.Add(new MailAddress(email));
+        message.IsBodyHtml = true;
+
+        SettingsTableAdapters.SettingTableAdapter ta = new SettingsTableAdapters.SettingTableAdapter();
+        IEnumerator<Settings.SettingEntityRow> settings = ta.GetSettingsByGroup("ViewDemo").GetEnumerator();
+        while (settings.MoveNext())
+        {
+            if (settings.Current.setting_key == "EmailSubject")
+            {
+                message.Subject = settings.Current.setting_value;
+            }
+            else if (settings.Current.setting_key == "EmailContents")
+            {
+                message.Body = settings.Current.setting_value;
+            }
+        }
         SendEmail(message);
     }
 }

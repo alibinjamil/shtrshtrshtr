@@ -53,7 +53,7 @@ public partial class pages_ProductPrices : GenericPage
                         int productDetailId = int.Parse(Request[WebConstants.Request.PRODUCT_DETAIL_ID]);
                         int versionId = int.Parse(Request[WebConstants.Request.VERSION_ID]);
                         ShoppingCart.AddProductDetail(product, productDetailId, versionId);
-                        if (ConfigurationSettings.AppSettings["PaymentOffline"].Equals("true"))
+                        if (ConfigurationSettings.AppSettings[WebConstants.Config.PAYMENT_OFFLINE].Equals("true"))
                         {
                             Response.Redirect("~/pages/PaymentOffline.aspx");
                         }
@@ -66,7 +66,7 @@ public partial class pages_ProductPrices : GenericPage
                     {
                         int versionId = int.Parse(Request[WebConstants.Request.VERSION_ID]);
                         ShoppingCart.AddProductVersion(product, versionId);
-                        if (ConfigurationSettings.AppSettings["PaymentOffline"].Equals("true"))
+                        if (ConfigurationSettings.AppSettings[WebConstants.Config.PAYMENT_OFFLINE].Equals("true"))
                         {
                             Response.Redirect("~/pages/PaymentOffline.aspx");
                         }
