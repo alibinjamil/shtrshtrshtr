@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
     <div class="breadcrumps">
 		<a href="#">Checkout ></a>
-		<a class="current" href="#">Create an Account ></a>
+		<a class="current" href="#">Billing &amp; Shipping Information ></a>
 		<a href="#">Confirm Checkout ></a>		
 		<a href="#">Payment Details ></a>
 	</div>
@@ -16,7 +16,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class="createAccount" >            
             <div class="noFloat" style="padding-top:10px"><!-- address div starts -->
-                <h3>Billing Information</h3>
+                <h3>Billing &amp; Shipping Information</h3>
                 <div class="row" >
                     <div class="col5" >
                         <asp:ImageButton ID="imgBtnBilling" runat="server" 

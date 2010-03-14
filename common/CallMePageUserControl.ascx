@@ -106,7 +106,7 @@
 			    <div class="col1" style="text-align:right"></div>
 			</div>
 			<div class="row" style="margin-top:30px;">
-			    <uc1:CheckBox ID="cbEmails" runat="server" CssClass="col5" Text="Please indicate if you would like to receives further updates for products" Selected="false"/>
+			    <uc1:CheckBox ID="cbEmails" runat="server" CssClass="col5" Text="Please indicate if you would like to receives further updates for products" Selected="true"/>
             </div>               
 
 			<div class="noFloat"></div>

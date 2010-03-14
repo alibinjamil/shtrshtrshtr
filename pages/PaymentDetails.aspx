@@ -21,7 +21,7 @@
                 shimDiv.style.backgroundColor = '#000'; 
                 shimDiv.style.zIndex = 3;
                 shimDiv.style.opacity = 0.50;
-                shimDiv.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=75)';
+                shimDiv.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=50)';
                 document.body.appendChild(shimDiv);
                 var img = document.createElement("img");
                 img.src = "../images/preloader_animated_02.gif";
@@ -52,7 +52,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
     	<div class="breadcrumps">
 			<a href="#">Trolley ></a>
-			<a href="#">Create an Account ></a>
+			<a href="#">Billing &amp; Shipping Information ></a>
 			<a href="#">Confirm Checkout ></a>
 			<a class="current" href="#">Payment Details ></a>
 		</div>
