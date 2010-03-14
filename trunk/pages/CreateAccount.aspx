@@ -156,7 +156,7 @@
                     <div class="col4"><asp:TextBox ID="txtMobile" Width="250px" runat="server"></asp:TextBox></div>            
                 </div> 
                 <div class="row" style="margin-top:30px;">
-                    <uc1:CheckBox ID="cbEmails" runat="server" CssClass="col5" Text="Please indicate if you would like to receives further updates for products" Selected="false"/>
+                    <uc1:CheckBox ID="cbEmails" runat="server" CssClass="col5" Text="Please indicate if you would like to receives further updates for products" Selected="true"/>
                 </div>               
             </div>
         </div>

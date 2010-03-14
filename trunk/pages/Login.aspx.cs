@@ -17,7 +17,7 @@ public partial class pages_Login : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        SetInfoMessage("You may connect to Simplicity and Hands Live by clicking on the relevant tabs");
+        SetInfoMessage("You may connect to Simplicity EAS and Simplicity H&S Live by clicking on the relevant tabs");
         if (LoggedIsUser != null)
         {
             PanelLogin.Visible = false;

@@ -13,7 +13,7 @@ function openWindow(url)
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
     <div class="breadcrumps">
 			<a href="#">Trolley ></a>
-			<a href="#">Create an Account ></a>
+			<a href="#">Billing &amp; Shipping Information ></a>
 			<a class="current" href="#">Confirm Checkout ></a>			
 			<a href="#">Payment Details ></a>
 		</div>

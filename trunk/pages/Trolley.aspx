@@ -84,7 +84,7 @@
 		<div class="trolleyActions">
 			<div class="floatLeft" style="width:19px;">&nbsp;</div>
 			<div class="trolleyFooterCol1">
-			    <%="Charged each month from " + DateTime.Now.AddDays(1).ToShortDateString() + " till " + DateTime.Now.AddDays(1).AddMonths(12).ToShortDateString() %>
+			    <%="Charge each month from " + DateTime.Now.AddDays(1).ToShortDateString() + " till " + DateTime.Now.AddDays(1).AddMonths(12).ToShortDateString() %>
 			    &nbsp;&nbsp;&nbsp;
 			    <%= ShoppingCart.GetCurrentCurrency().html_currency_code%><%= String.Format("{0:N2}",ShoppingCart.GetTotalAmount())%>
 			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
