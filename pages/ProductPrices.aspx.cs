@@ -92,9 +92,9 @@ public partial class pages_ProductPrices : GenericPage
         {
             if (Request[WebConstants.Request.MORE] != null)
             {
-                if (product.OptionalDetails.Count > WebConstants.DEFAULT_ADDONS)
+                if (product.OptionalDetails.Count > 0)
                 {
-                    rptOptional.DataSource = product.OptionalDetails.GetRange(WebConstants.DEFAULT_ADDONS, product.OptionalDetails.Count - WebConstants.DEFAULT_ADDONS);
+                    rptOptional.DataSource = product.OptionalDetails.GetRange(0, product.OptionalDetails.Count > WebConstants.DEFAULT_ADDONS ? WebConstants.DEFAULT_ADDONS : product.OptionalDetails.Count);
                     rptOptional.DataBind();
                 }                    
                 hlBack.NavigateUrl = "~/pages/ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + Request[WebConstants.Request.PRODUCT_ID] ;
@@ -110,7 +110,10 @@ public partial class pages_ProductPrices : GenericPage
                     rptOptional.DataSource = product.OptionalDetails.GetRange(0, 5);
                     hlMore.Visible = true;
                 }
-
+                else if (product.OptionalDetails.Count > 0)
+                {
+                    rptOptional.DataSource = product.OptionalDetails.GetRange(0, product.OptionalDetails.Count);
+                }
                 rptOptional.DataBind();
                 hlMore.NavigateUrl = "~/pages/ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + Request[WebConstants.Request.PRODUCT_ID]
                     + "&" + WebConstants.Request.MORE + "=true";
