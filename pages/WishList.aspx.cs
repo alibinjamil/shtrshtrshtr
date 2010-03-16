@@ -113,10 +113,10 @@ public partial class pages_WishList : AuthenticatedPage
                         ShoppingTrolley.Web.Objects.Product product = ShoppingTrolley.Web.Objects.Product.LoadCompleteProduct(wishList.product_id);
                         if (!wishList.Isproduct_detail_idNull())
                         {
-                            ShoppingCart.AddProductDetail(product, wishList.product_detail_id, wishList.version_id);
+                            ShoppingCart.AddProductDetail(product, wishList.product_detail_id, wishList.version_id,wishList.quantity);
                         }
                         else
-                            ShoppingCart.AddProductVersion(product, wishList.version_id);
+                            ShoppingCart.AddProductVersion(product, wishList.version_id,wishList.quantity);
                     }
 
                     foreach (ShoppingItem item in trolleyItems)
@@ -129,6 +129,7 @@ public partial class pages_WishList : AuthenticatedPage
                                 added = true;
                                 break;
                             }
+                            
                         }
                     }
 
@@ -137,13 +138,14 @@ public partial class pages_WishList : AuthenticatedPage
                         ShoppingTrolley.Web.Objects.Product product = ShoppingTrolley.Web.Objects.Product.LoadCompleteProduct(wishList.product_id);
                         if (!wishList.Isproduct_detail_idNull())
                         {
-                            ShoppingCart.AddProductDetail(product, wishList.product_detail_id, wishList.version_id);
+                            ShoppingCart.AddProductDetail(product, wishList.product_detail_id, wishList.version_id,wishList.quantity);
                         }
                         else
-                            ShoppingCart.AddProductVersion(product, wishList.version_id);
+                            ShoppingCart.AddProductVersion(product, wishList.version_id, wishList.quantity);
                     }
                     ta.Delete(wishListId);
                     BindRepeater();
+
                 }
                 SetInfoMessage("Item added to your trolley");
             }

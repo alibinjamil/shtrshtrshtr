@@ -49,7 +49,7 @@
                 </div>
 				<div class="floatLeft" style="margin-top:20px;">
 				<div class="wishListCell"><asp:Image ID="Image2" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_logo.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
-				<div class="wishListCell"><%# DataBinder.Eval(Container, "DataItem.Product.name")%> (<%# DataBinder.Eval(Container, "DataItem.DurationString")%>)</div>		
+				<div class="wishListCell"><%# DataBinder.Eval(Container, "DataItem.Product.name")%> [<%# DataBinder.Eval(Container, "DataItem.DurationString")%>]</div>		
 				</div>		
 			</div>
 			<div class="wishListActionsCol3">
@@ -73,7 +73,7 @@
 		<div class="noFloat">
 			<div class="floatRight">
     		    <asp:ImageButton ID="imbBtnContinue" runat="server" 
-                    ImageUrl="~/images/Continue.gif" 
+                    ImageUrl="~/images/Continue_shopping.gif" 
                     onmouseover="this.src='../images/Continue_rollover.gif'" 
                     onmouseout="this.src='../images/Continue.gif'" 
                     onclick="imbBtnContinue_Click"/>
