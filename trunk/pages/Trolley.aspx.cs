@@ -74,7 +74,10 @@ public partial class pages_Trolley : GenericPage
 
                     ta.Insert(LoggedInUserId, currentItem.Product.product_id, versionId, productDetailId, currentItem.Quantity, currentItem.DurationInMonths);
                 }
+                GetShoppingTrolley().RemoveAt(index);
                 SetInfoMessage("Item added to your wishlist");
+                BindRepeater();
+ 
             }
             else
             {
