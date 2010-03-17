@@ -74,8 +74,8 @@
 			<div class="floatRight">
     		    <asp:ImageButton ID="imbBtnContinue" runat="server" 
                     ImageUrl="~/images/Continue_shopping.gif" 
-                    onmouseover="this.src='../images/Continue_rollover.gif'" 
-                    onmouseout="this.src='../images/Continue.gif'" 
+                    onmouseover="this.src='../images/Continue_shopping_rollover.gif'" 
+                    onmouseout="this.src='../images/Continue_shopping.gif'" 
                     onclick="imbBtnContinue_Click"/>
 			&nbsp;<asp:ImageButton ID="imbBtnCheckout" runat="server" 
                     ImageUrl="~/images/Checkout.gif" 

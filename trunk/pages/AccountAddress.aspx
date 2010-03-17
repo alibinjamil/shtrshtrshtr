@@ -10,7 +10,7 @@
 		<a href="#">Payment Details ></a>
 	</div>
 	<div id="screenTitle">
-		<div class="heading">Create an Account</div>
+		<div class="heading">Billing &amp; Shipping Details</div>
 	</div>		
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">

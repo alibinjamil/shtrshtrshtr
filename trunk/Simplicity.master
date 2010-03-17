@@ -6,6 +6,22 @@
 <head runat="server">
     <title>Untitled Page</title>
     <link rel="stylesheet" type="text/css" href="~/css/general.css" />
+    <script type="text/javascript">
+        function showProcessingImage(){
+            if (typeof(Page_ClientValidate) == 'function')
+                Page_ClientValidate();	    
+	        if (Page_IsValid)
+	        {
+                var imgDiv = document.getElementById("processingImageDiv");
+                var img = document.getElementById("processingImage");
+                imgDiv.style.display = "block";
+                setTimeout('changeImageSource()',100);           
+            }
+        }
+        function changeImageSource(){
+            document.getElementById("processingImage").src = document.getElementById("processingImage").src;
+        }
+    </script>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -47,19 +63,28 @@
 		        	<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Contact.gif" onmouseover="this.src='../images/Contact_rollover.gif'" onmouseout="this.src='../images/Contact.gif'"></a>
         		</div>		    
         		<div class="noFloat">
+        		    <div>
+        		        <div style="float:left">
                     <asp:ContentPlaceHolder ID="PageHead" runat="server">
     
                     </asp:ContentPlaceHolder>
+                        </div>
+                        <div style="float:right;padding-top:10px;padding-right:30px;">
+                            <div id="processingImageDiv" style="display:none;text-align:right;"><img id="processingImage" src="../images/ajax-loader.gif" alt="Processing..." /></div>        
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
 		            <div class="errorSummary">
                         <asp:Label ID="lblErrorMessage" runat="server" Text="" Visible="false"></asp:Label>		
 		            </div>
 		            <div class="infoSummary">
                         <asp:Label ID="lblInfoMessage" runat="server" Text="" Visible="false"></asp:Label>		
 		            </div>
-        		
+        		    
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
     
                     </asp:ContentPlaceHolder>
+                    
                 </div>
             </div>
         </div>
