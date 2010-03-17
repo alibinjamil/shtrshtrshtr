@@ -85,17 +85,30 @@ public static class EmailUtility
 
     public static void SendCallMeEmailToAdmin(string contents)
     {
+        SendCallMeEmailToAdmin(contents, "Simplicity Call Me Request");
+    }
+
+    public static void SendViewDemoEmailToAdmin(string contents)
+    {
+        SendCallMeEmailToAdmin(contents, "Simplicity View Demo Request");
+    }
+
+    private static void SendCallMeEmailToAdmin(string contents, string subject)
+    {
         MailMessage message = new MailMessage();
-        string [] adminEmailAddresses = ConfigurationSettings.AppSettings[WebConstants.Config.ADMIN_EMAIL_ADDRESSES].Split(',');
+        string[] adminEmailAddresses = ConfigurationSettings.AppSettings[WebConstants.Config.ADMIN_EMAIL_ADDRESSES].Split(',');
         foreach (string adminEmailAddress in adminEmailAddresses)
         {
             message.To.Add(new MailAddress(adminEmailAddress));
         }
-        message.Subject = "Simplicity Call Me Request";
+        message.Subject = subject;
         message.IsBodyHtml = true;
         message.Body = contents;
         SendEmail(message);
     }
+
+
+
     public static void SendCallMeEmailToUser(string email)
     {
         MailMessage message = new MailMessage();

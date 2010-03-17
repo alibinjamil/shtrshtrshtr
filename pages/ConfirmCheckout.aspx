@@ -47,11 +47,16 @@ function openWindow(url)
 			</asp:Repeater>
 		</div>
 
-		<div class="noFloat" style="padding-top:15px;">
+		<div class="noFloat" >
 			<div>
                 <asp:Label ID="paymentMsg" Font-Bold="false" Font-Italic="true" runat="server" Text="Label"></asp:Label>
-                <hr/></div>
-			<div class="floatRight">
+                <hr/>
+            </div>
+            <div class="errorSummary">
+            It is important to note that in order to receive the activation code(s) that will allow you to use your purchased product(s), you must print, sign and return the agreement to Simplicity for Business, either by fax, email, or post.  Contact details can be found under the [Contact] button at the top rightside of the current webpage.
+            <hr />
+            </div>
+			<div class="floatRight" style="padding-top:10px;">
 			    <a href="Trolley.aspx">
 			        <asp:Image ID="imgTrolley" runat="server" AlternateText="Cancel"
 			        ImageUrl="~/images/Cancel.gif" onmouseover="this.src='../images/Cancel_rollover.gif'" 

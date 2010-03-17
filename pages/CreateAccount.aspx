@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="true" CodeFile="CreateAccount.aspx.cs" Inherits="pages_CreateAccount" Title="Simplicity4Business" %>
 <%@ Register src="~/common/CheckBox.ascx" tagname="CheckBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    
     <script src="../js/CheckBox.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" runat="server">
@@ -11,7 +12,7 @@
 		<a href="#">Payment Details ></a>
 	</div>
 	<div id="screenTitle">
-		<div class="heading">Create an Account</div>
+		<div class="heading">Create an Account</div>		
 	</div>		
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -162,7 +163,7 @@
         </div>
         <div class="noFloat"></div>
         <div style="text-align:right;padding-right:10em; padding-top:2em;">
-            <asp:ImageButton ID="btnSave" ImageUrl="../images/Continue.gif" runat="server" onclick="btnSave_Click" onmouseover="this.src='../images/Continue_rollover.gif'" onmouseout="this.src='../images/Continue.gif'"/>
+            <asp:ImageButton ID="btnSave" ImageUrl="../images/Continue.gif" runat="server" onclick="btnSave_Click" onmouseover="this.src='../images/Continue_rollover.gif'" onmouseout="this.src='../images/Continue.gif'" OnClientClick="showProcessingImage();" />
         </div>
         <div class="noFloat" style="height:10px;"></div>
         

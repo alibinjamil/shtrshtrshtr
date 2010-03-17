@@ -5,6 +5,7 @@
     <script type="text/javascript" src="../js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
     <script type="text/javascript">
+        var loadingImg;
 	    function showDialog()
 	    {
             if (typeof(Page_ClientValidate) == 'function')
@@ -23,27 +24,28 @@
                 shimDiv.style.opacity = 0.50;
                 shimDiv.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=50)';
                 document.body.appendChild(shimDiv);
-                var img = document.createElement("img");
-                img.src = "../images/preloader_animated_02.gif";
-                img.style.position = 'absolute';
-                if(img.height < document.body.clientHeight)
+                loadingImg = document.createElement("img");
+                loadingImg.src = "../images/preloader_animated_02.gif";
+                loadingImg.style.position = 'absolute';
+                if(loadingImg.height < document.body.clientHeight)
                 {
-                    img.style.top = Math.floor((document.body.clientHeight - img.height) / 2) + "px";                
+                    loadingImg.style.top = Math.floor((document.body.clientHeight - loadingImg.height) / 2) + "px";                
                 }              
                 else
                 {
-                    img.style.top = 0;
+                    loadingImg.style.top = 0;
                 }
-                if(img.width < document.body.clientWidth)
+                if(loadingImg.width < document.body.clientWidth)
                 {
-                    img.style.left = Math.floor((document.body.clientWidth - img.width) / 2) + "px";                
+                    loadingImg.style.left = Math.floor((document.body.clientWidth - loadingImg.width) / 2) + "px";                
                 }
                 else
                 {
-                    img.style.left = 0;
+                    loadingImg.style.left = 0;
                 }
-                img.style.zIndex = 4;
-                document.body.appendChild(img);            
+                loadingImg.style.zIndex = 4;
+                document.body.appendChild(loadingImg); 
+                setTimeout('loadingImg.src = loadingImg.src',100);           
 	        }
 	    }
     </script>
@@ -64,6 +66,9 @@
 				
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
+    <div style="display:none">
+        <asp:Image ImageUrl="~/images/preloader_animated_02.gif" runat="server" AlternateText="Loading..."/>
+    </div>
 		<div class="paymentDetails">
 			<div class="row">			
 				<div class="col1">Card Type</div>
