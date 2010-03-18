@@ -6,6 +6,7 @@
     <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
     <script type="text/javascript">
 	    function open_train(tar){
+		    //window.open('DemoMovie.aspx?videoId=' + tar, "Simplicity4Business", "width=820,height=620,location=no,toolbar=no,scrollbars=yes,status=no,resizable=1");
 		    $('#demoDialog').load('DemoMovie.aspx?videoId='+tar);   
             jQuery("#demoDialog").dialog('open');      
 	    }
@@ -17,7 +18,7 @@
     <script type="text/javascript">
       jQuery(document).ready(function() {
         jQuery("#demoDialog").dialog({
-          bgiframe: true, autoOpen: false, height: 635, width:845, modal: true,
+          bgiframe: true, autoOpen: false, height: 550, width:700, modal: true,
           close: function(ev, ui) {
              $('#demoDialog').load('Oops.aspx');
         }
