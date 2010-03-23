@@ -53,7 +53,7 @@
 						<a href="ViewDemo.aspx"><img class="button" src="../images/Watch.gif" onmouseover="this.src='../images/Watch_rollover.gif'" onmouseout="this.src='../images/Watch.gif'"></a>
 					</div>					
 					<div style="padding-top:10px;">
-						<a href="#"><img class="button" src="../images/Buy.gif" onmouseover="this.src='../images/Buy_rollover.gif'" onmouseout="this.src='../images/Buy.gif'"></a>
+						<a href="Products.aspx"><img class="button" src="../images/Buy.gif" onmouseover="this.src='../images/Buy_rollover.gif'" onmouseout="this.src='../images/Buy.gif'"></a>
 					</div>					
 					<div style="padding-top:10px;">
 						<a href="CallMePage.aspx"><img class="button" src="../images/Call.gif" onmouseover="this.src='../images/Call_rollover.gif'" onmouseout="this.src='../images/Call.gif'"></a>

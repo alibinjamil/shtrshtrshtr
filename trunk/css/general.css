@@ -903,3 +903,18 @@ div.watchDemo div.watchDemoButtons {
 	margin-left:10px;
 	padding-bottom:20px;
 }
+
+div.homePage div.homePageContent div.content
+{
+	float: left;
+	background-image: url(../images/main_frame.png);
+	width: 697px;
+	height: 397px;
+	background-repeat: no-repeat;
+	margin-left: 20px;
+	padding-top: 20px;
+	font-size: 10pt;
+}
+
+
+
