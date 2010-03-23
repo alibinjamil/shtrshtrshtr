@@ -50,6 +50,9 @@
 				<div class="floatLeft" style="margin-top:20px;">
 				<div class="wishListCell"><asp:Image ID="Image2" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_logo.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
 				<div class="wishListCell"><%# DataBinder.Eval(Container, "DataItem.Product.name")%> [<%# DataBinder.Eval(Container, "DataItem.DurationString")%>]</div>		
+			    <div class="wishListCell"><%# DataBinder.Eval(Container, "DataItem.ProductVersion.name")%></div>		
+			    <div class="wishListCell"><%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%></div>		
+				
 				</div>		
 			</div>
 			<div class="wishListActionsCol3">
@@ -66,7 +69,7 @@
 			</div>		
 			<div class="noFloat"></div>
 		</div>
-		<div class="noFloat" style="padding-bottom:7em;width:925px"><hr/></div>
+		<div class="noFloat" style="width:925px"><hr/></div>
 		</ItemTemplate>
 		</asp:Repeater>
 		

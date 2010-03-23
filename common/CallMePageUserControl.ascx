@@ -58,25 +58,25 @@
 			<div class="row">
 				<div class="col1">SimplicityEAS</div>
 				<div class="col2">
-					<uc1:CheckBox ID="cbEAS" runat="server" Text="" Selected="true"/>	
+					<uc1:CheckBox ID="cbEAS" runat="server" Text="" Selected="false"/>	
 				</div>
 				<div class="col3">SimplicityH&Slive</div>
 				<div class="col4">
-				    <uc1:CheckBox ID="cbHS" runat="server" Text="" Selected="true"/>
+				    <uc1:CheckBox ID="cbHS" runat="server" Text="" Selected="false"/>
 				</div>
 				<div class="col5">SimplicityHandyGas</div>
 				<div class="col6">
-				    <uc1:CheckBox ID="cbHandyGas" runat="server" Text="" Selected="true"/>
+				    <uc1:CheckBox ID="cbHandyGas" runat="server" Text="" Selected="false"/>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col1">SimplicityHandyServe</div>
 				<div class="col2">
-                    <uc1:CheckBox ID="cbHandyServe" runat="server" Text="" Selected="true"/>
+                    <uc1:CheckBox ID="cbHandyServe" runat="server" Text="" Selected="false"/>
 				</div>
 				<div class="col3">SimplicityHandyLEC</div>
 				<div class="col4">
-                    <uc1:CheckBox ID="cbHandyLEC" runat="server" Text="" Selected="true"/>		
+                    <uc1:CheckBox ID="cbHandyLEC" runat="server" Text="" Selected="false"/>		
         		</div>
 			</div>
 			<div class="noFloat"></div>

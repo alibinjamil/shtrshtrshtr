@@ -12,13 +12,13 @@
                 Page_ClientValidate();	    
 	        if (Page_IsValid)
 	        {
-                var shimDiv = document.createElement('div');  
+	            var shimDiv = document.createElement('div');  
                 shimDiv.id = 'shim';  
                 shimDiv.style.position = 'absolute';  
                 shimDiv.style.top = 0;  
                 shimDiv.style.left = 0;  
-                shimDiv.style.width = document.body.clientWidth;
-                shimDiv.style.height = document.body.clientHeight;
+                shimDiv.style.width = document.body.clientWidth + "px";
+                shimDiv.style.height = document.body.clientHeight + "px";
                 shimDiv.style.backgroundColor = '#000'; 
                 shimDiv.style.zIndex = 3;
                 shimDiv.style.opacity = 0.50;

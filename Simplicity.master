@@ -60,7 +60,7 @@
 		        	<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Company.gif" onmouseover="this.src='../images/Company_rollover.gif'" onmouseout="this.src='../images/Company.gif'"></a>
            			<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Services.gif" onmouseover="this.src='../images/Services_rollover.gif'" onmouseout="this.src='../images/Services.gif'"></a>
         			<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Community.gif" onmouseover="this.src='../images/Community_rollover.gif'" onmouseout="this.src='../images/Community.gif'"></a>
-		        	<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Contact.gif" onmouseover="this.src='../images/Contact_rollover.gif'" onmouseout="this.src='../images/Contact.gif'"></a>
+		        	<a href="Contact.aspx"><img class="button" alt="" src="../images/Contact.gif" onmouseover="this.src='../images/Contact_rollover.gif'" onmouseout="this.src='../images/Contact.gif'"></a>
         		</div>		    
         		<div class="noFloat">
                     <div id="processingImageDiv" style="display:none;width:100%;text-align:right;margin-right:40px;">

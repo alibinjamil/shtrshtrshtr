@@ -97,6 +97,10 @@ public partial class pages_PaymentDetails : AuthenticatedPage
                         }
                     }
                 }
+                if (Request[WebConstants.Request.REASON_CODE] != null)
+                {
+                    SetErrorMessage(CyberSourceCS.GetErrorDesc(Request[WebConstants.Request.REASON_CODE]));
+                }
             }
             
         }

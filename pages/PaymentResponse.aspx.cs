@@ -70,8 +70,9 @@ public partial class pages_PaymentResponse : AuthenticatedPage
                 }
                 else
                 {
-                    panelFailure.Visible = true;
-                    hlBack.NavigateUrl = "~/pages/PaymentDetails.aspx?" + WebConstants.Request.TRANSACTION_ID + "=" + transactionId;
+                    Response.Redirect("~/pages/PaymentDetails.aspx?" + WebConstants.Request.TRANSACTION_ID + "=" + transactionId
+                        + "&" + WebConstants.Request.REASON_CODE + "=" + Request.Form.Get("reasonCode"));
+                    //panelFailure.Visible = true;               
                 }
             }
         }

@@ -42,6 +42,7 @@ using System.Xml.Linq;
             public static string TRANSACTION_ID = "transactionId";
             public static string INVALID_FIELDS = "invalidFields";
             public static string MISSING_FIELDS = "missingFields";
+            public static string REASON_CODE = "reasonCode";
         }
         public static class Messages
         {

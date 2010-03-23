@@ -125,7 +125,15 @@ using ShoppingTrolley.Web.Objects;
 
         public static void AddProductDetail(Product product, int productDetailId,int versionId)
         {
-            AddProductDetail(product, productDetailId, versionId, 1);
+            Products.ProductDetailEntityRow productDetail = product.GetLoadedProductDetail(productDetailId);
+            Products.ProductVersionEntityRow version = product.GetLoadedVersion(versionId);
+            ShoppingItem shoppingItem = new ShoppingItem();
+            shoppingItem.Product = product.ProductDS;
+            shoppingItem.ProductDetail = productDetail;
+            shoppingItem.ProductVersion = version;
+            shoppingItem.DurationInMonths = WebConstants.DEFAULT_DURATION;
+            shoppingItem.Quantity = version.min_users;
+            AddShoppingItem(shoppingItem);
         }
         public static void AddProductDetail(Product product, int productDetailId, int versionId, int quantity)
         {

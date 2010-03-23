@@ -58,10 +58,19 @@ public partial class pages_Trolley : GenericPage
                 //Save record for current user
                 WishListTableAdapters.WishListDSTableAdapter ta = new WishListTableAdapters.WishListDSTableAdapter();
 
-                IEnumerator<WishList.WishListDSRow> wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.product_id).GetEnumerator();
+                IEnumerator<WishList.WishListDSRow> wishListRows = null;
+                if (currentItem.ProductDetail != null)
+                {
+                    wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.product_id, currentItem.ProductDetail.product_detail_id, currentItem.ProductVersion.version_id).GetEnumerator();
+                }
+                else
+                {
+                    wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.product_id, null, currentItem.ProductVersion.version_id).GetEnumerator();
+                }
+                    
                 if (wishListRows.MoveNext())
                 {
-                    wishListRows.Current.quantity++;
+                    wishListRows.Current.quantity += currentItem.Quantity;
                     ta.Update(wishListRows.Current);
                 }
                 else
@@ -107,6 +116,7 @@ public partial class pages_Trolley : GenericPage
         if (GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion != null
             && qty < GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion.min_users)
         {
+            txtQty.Text = GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion.min_users.ToString();
             SetErrorMessage("Number of licenses must be atleast " + GetShoppingTrolley()[repeaterItem.ItemIndex].ProductVersion.min_users + ". Changes have not been comitted to the Trolley");
         }
         else
