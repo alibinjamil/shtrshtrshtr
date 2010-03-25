@@ -14,6 +14,12 @@ using System.Xml.Linq;
     {
         public static int DEFAULT_DURATION = 12;
         public static int DEFAULT_ADDONS = 5;
+        public static class TemplateNames
+        {
+            public static string ACTIVATION = "ACTIVATION";
+            public static string PASSWORD = "PASSWORD";
+        }
+
         public static class Session
         {
             public static string USER_ID = "USER_ID";
