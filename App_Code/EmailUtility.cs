@@ -54,21 +54,67 @@ public static class EmailUtility
         }
     }
 
-    public static void SendAccountCreationEmail(string emailAddress,string customerUID,string verificationCode)
+    /*public static string GetAccountCreationHTML(string customerUID, string verificationCode,string html)
     {
         string url = HttpContext.Current.Request.Url.ToString();
         string[] paths = url.Split('/');
-        url = url.Replace(paths[paths.Length-1],"VerifyEmail.aspx");
+        url = url.Replace(paths[paths.Length - 1], "VerifyEmail.aspx");
         url += "?" + WebConstants.Request.USER_UID + "=" + customerUID;
         url += "&" + WebConstants.Request.VERIFICATION_CODE + "=" + Utility.GetMd5Sum(verificationCode);
+        EmailTemplateFactory.Instance.Paramters.Add("##URL##", url);
+        EmailTemplates.EmailTemplateEntityRow emailTemplate = EmailTemplateFactory.Instance.GetEmailContents(WebConstants.TemplateNames.ACTIVATION);
+        if (emailTemplate != null)
+        {
+            html = emailTemplate.html.Replace(
+            html = ReplaceAttributes(html);
+        }
+        else
+        {
+            html = "Thank you for registering with Simplicity4Business. <br/> <br/>"
+                        + " Please click the following URL to activate your account. <br/><br/>"
+                        + " <a href='" + url + "'>" + url + "</a>";
+        }
+        return html;
+    }
+
+    public static string GetAccountCreationHTML(string password, string html)
+    {
+        string url = HttpContext.Current.Request.Url.ToString();
+        string[] paths = url.Split('/');
+        url = url.Replace(paths[paths.Length - 1], "VerifyEmail.aspx");
+        url += "?" + WebConstants.Request.USER_UID + "=" + customerUID;
+        url += "&" + WebConstants.Request.VERIFICATION_CODE + "=" + Utility.GetMd5Sum(verificationCode);
+        html = html.Replace("##URL##", url);
+        html = ReplaceAttributes(html);
+        return html;
+    }*/
+
+
+    public static void SendAccountCreationEmail(string emailAddress,string customerUID,string verificationCode)
+    {
         MailMessage message = new MailMessage();
         message.To.Add(new MailAddress(emailAddress));
-        message.Subject = "Simplicity Account Activation";
-        message.IsBodyHtml = true;
-        message.Body = "Thank you for registering with Simplicity4Business. <br/> <br/>"
+        string url = HttpContext.Current.Request.Url.ToString();
+        string[] paths = url.Split('/');
+        url = url.Replace(paths[paths.Length - 1], "VerifyEmail.aspx");
+        url += "?" + WebConstants.Request.USER_UID + "=" + customerUID;
+        url += "&" + WebConstants.Request.VERIFICATION_CODE + "=" + Utility.GetMd5Sum(verificationCode);
+        EmailTemplateFactory templateFactory = new EmailTemplateFactory();
+        templateFactory.Paramters.Add("##URL##", url);
+        EmailTemplates.EmailTemplateEntityRow emailTemplate = templateFactory.GetEmailContents(WebConstants.TemplateNames.ACTIVATION);
+        if (emailTemplate != null)
+        {
+            message.Body = emailTemplate.html;
+            message.Subject = emailTemplate.subject;
+        }
+        else
+        {
+            message.Body = "Thank you for registering with Simplicity4Business. <br/> <br/>"
                         + " Please click the following URL to activate your account. <br/><br/>"
-                        + " <a href='" + url  + "'>" + url + "</a>";
-                        //+ " Or click on the following link: <br/>" + url;
+                        + " <a href=' " + url + "'>" + url + "</a>";
+            message.Subject = "Activation Code for Simplicity for Business";
+        }
+        message.IsBodyHtml = true;
         SendEmail(message);
     }
 
@@ -76,9 +122,20 @@ public static class EmailUtility
     {
         MailMessage message = new MailMessage();
         message.To.Add(new MailAddress(emailAddress));
-        message.Subject = "Simplicity Account Password";
+        EmailTemplateFactory templateFactory = new EmailTemplateFactory();
+        templateFactory.Paramters.Add("##PASSWORD##", password);
+        EmailTemplates.EmailTemplateEntityRow emailTemplate = templateFactory.GetEmailContents(WebConstants.TemplateNames.PASSWORD);
+        if (emailTemplate != null)
+        {
+            message.Body = emailTemplate.html;
+            message.Subject = emailTemplate.subject;
+        }
+        else
+        {
+            message.Subject = "Simplicity Account Password";
+            message.Body = "Your password is " + password;
+        }
         message.IsBodyHtml = true;
-        message.Body = "Your password is " + password;
         //+ " Or click on the following link: <br/>" + url;
         SendEmail(message);
     }
