@@ -28,7 +28,7 @@ public partial class Simplicity : System.Web.UI.MasterPage
             hlLogout.Visible = true;
         }
 
-        XElement videos = XElement.Load(Server.MapPath("VideoConfiguration.xml"));
+        XElement videos = XElement.Load(Server.MapPath("~/VideoConfiguration.xml"));
 
         IEnumerable<XElement> address =
             from el in videos.Elements("video")

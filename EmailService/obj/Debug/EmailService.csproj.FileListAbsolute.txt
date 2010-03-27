@@ -1,0 +1,12 @@
+E:\MyProjects\ShoppingCart\trunk\WindowsService\bin\Debug\WindowsService.exe
+E:\MyProjects\ShoppingCart\trunk\WindowsService\bin\Debug\WindowsService.pdb
+E:\MyProjects\ShoppingCart\trunk\WindowsService\obj\Debug\ResolveAssemblyReference.cache
+E:\MyProjects\ShoppingCart\trunk\WindowsService\obj\Debug\WindowsService.exe
+E:\MyProjects\ShoppingCart\trunk\WindowsService\obj\Debug\WindowsService.pdb
+E:\MyProjects\ShoppingCart\trunk\EmailService\obj\Debug\ResolveAssemblyReference.cache
+E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.pdb
+E:\MyProjects\ShoppingCart\trunk\EmailService\obj\Debug\EmailService.exe
+E:\MyProjects\ShoppingCart\trunk\EmailService\obj\Debug\EmailService.pdb
+E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\DataAccessLayer.dll
+E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\DataAccessLayer.pdb

@@ -12,6 +12,6 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
 using ShoppingTrolley.Web;
-public partial class pages_UserHome : GenericPage
+public partial class pages_UserHome : System.Web.UI.Page
 {
 }

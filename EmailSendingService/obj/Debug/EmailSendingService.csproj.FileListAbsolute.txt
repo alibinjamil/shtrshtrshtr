@@ -1,0 +1,7 @@
+E:\MyProjects\ShoppingCart\trunk\EmailSendingService\obj\Debug\ResolveAssemblyReference.cache
+E:\MyProjects\ShoppingCart\trunk\EmailSendingService\bin\Debug\EmailSendingService.exe
+E:\MyProjects\ShoppingCart\trunk\EmailSendingService\bin\Debug\EmailSendingService.pdb
+E:\MyProjects\ShoppingCart\trunk\EmailSendingService\bin\Debug\DataAccessLayer.dll
+E:\MyProjects\ShoppingCart\trunk\EmailSendingService\bin\Debug\DataAccessLayer.pdb
+E:\MyProjects\ShoppingCart\trunk\EmailSendingService\obj\Debug\EmailSendingService.exe
+E:\MyProjects\ShoppingCart\trunk\EmailSendingService\obj\Debug\EmailSendingService.pdb
