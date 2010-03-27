@@ -13,6 +13,7 @@ using System.Net.Mail;
 using System.Net;
 
 using System.Collections.Generic;
+using DataAccessLayer.DataSets.EmailQueueTableAdapters;
 /// <summary>
 /// Summary description for EmailUtility
 /// </summary>
@@ -41,12 +42,17 @@ public static class EmailUtility
     {
         try
         {
-            message.From = new MailAddress(FROM_ADDRESS);
-            SmtpClient smtp = new SmtpClient(SMTP_SERVER);
-            NetworkCredential userInfo = new NetworkCredential(USER_NAME, PASSWORD);
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = userInfo;
-            smtp.Send(message);
+            EmailQueueTableAdapter ta = new EmailQueueTableAdapter();
+            string toEmails = "";
+            string toNames = "";
+            foreach(MailAddress address in message.To)
+            {
+                toNames += address.DisplayName + ",";
+                toEmails += address.Address + ",";
+            }
+            ta.Insert(DateTime.Now, 1, "Simplicity4Business", FROM_ADDRESS, toNames.Substring(0, toNames.Length - 1), toEmails.Substring(0, toEmails.Length),
+                message.Subject, message.Body, null);
+
         }
         catch (Exception ex)
         {

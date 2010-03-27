@@ -3,10 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
     <title>Untitled Page</title>
     <link rel="stylesheet" type="text/css" href="~/css/general.css" />
-    <script src="js/swfobject.js" type="text/javascript"></script>
     <script type="text/javascript">
         function showProcessingImage(){
             if (typeof(Page_ClientValidate) == 'function')
@@ -22,30 +21,6 @@
         function changeImageSource(){
             document.getElementById("processingImage").src = document.getElementById("processingImage").src;
         }
-        
-        function onMouseOver(sender,image)
-        {
-           
-            sender.src = "<%=Request.ApplicationPath%>" + '/images/'+image;
-             
-        }
-        
-         function onMouseOut(sender,image)
-        {
-        
-            sender.src = "<%=Request.ApplicationPath%>" + '/images/'+image;
-            
-        }
-        
-        window.onload = function(){
-        var flashvars = {};
-			var params = {};
-			params.play = "true";
-			params.wmode = "opaque";
-			var attributes = {};
-			attributes.id = "vObject";
-			swfobject.embedSWF(path, "video", "750", "340", "9.0.0", "expressInstall.swf", flashvars, params, attributes);
-			}
     </script>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -54,24 +29,24 @@
     <form id="form1" runat="server">
     <div id="layout">
     	<div id="header">
-    		<div id="logo"><img runat="server" src="~/images/Logo.gif" alt="Logo"/></div>
+    		<div id="logo"><img src="../images/Logo.gif" alt="Logo"/></div>
 	    	<div id="navBarButtons">
 	    	    <div style="text-align:left">
-	    	        <a href="WishList.aspx"><asp:Image ID="imgWishList" runat="server" ImageUrl="~/images/Wish_List.gif" AlternateText="Login" onmouseover="onMouseOver(this,'Wish_List_rollover.gif')" onmouseout="onMouseOut(this,'Wish_List.gif')" style="margin-left:40px;" /></a>
+	    	        <a href="WishList.aspx"><asp:Image ID="imgWishList" runat="server" ImageUrl="~/images/Wish_List.gif" AlternateText="Login" onmouseover="this.src='../images/Wish_List_rollover.gif'" onmouseout="this.src='../images/Wish_List.gif'" style="margin-left:40px;" /></a>
                     <asp:HyperLink ID="hlLogout" runat="server" NavigateUrl="~/pages/Logout.aspx" style="margin-left:185px" Visible="false">Sign Out</asp:HyperLink>
 	    	    <div>
 	    	    <div>
 			    <a href="Trolley.aspx">
-			        <asp:Image ID="imgBtnSignup" runat="server" ImageUrl="~/images/Trolley.gif" AlternateText="Signup" onmouseover="onMouseOver(this,'Trolley_rollover.gif')" onmouseout="onMouseOut(this,'Trolley.gif')"/></a>	    	
+			        <asp:Image ID="imgBtnSignup" runat="server" ImageUrl="~/images/Trolley.gif" AlternateText="Signup" onmouseover="this.src='../images/Trolley_rollover.gif'" onmouseout="this.src='../images/Trolley.gif'"/></a>	    	
 		    	<a href="Login.aspx">
-                    <asp:Image ID="imgBtnLogin" runat="server" ImageUrl="~/images/SignUp_login.gif" AlternateText="Login" onmouseover="onMouseOver(this,'SignUp_login_rollover.gif')" onmouseout="onMouseOut(this,'SignUp_login.gif')" style="margin-bottom:13px;"/></a>
+                    <asp:Image ID="imgBtnLogin" runat="server" ImageUrl="~/images/SignUp_login.gif" AlternateText="Login" onmouseover="this.src='../images/SignUp_login_rollover.gif'" onmouseout="this.src='../images/SignUp_login.gif'" style="margin-bottom:13px;"/></a>
 			    <a href="Logout.aspx">
 			        <asp:Image ID="imgBtnLogout" runat="server" 
                     ImageUrl="~/images/Customer_logout.gif" AlternateText="Logout" 
-                    onmouseover="onMouseOver(this,'Customer_logout_rollover.gif')" 
-                    onmouseout="onMouseOut(this,'Customer_logout.gif')" 
+                    onmouseover="this.src='../images/Customer_logout_rollover.gif'" 
+                    onmouseout="this.src='../images/Customer_logout.gif'" 
                      Visible="false" style="margin-bottom:13px"/></a>    
-    			<a href="Faqs.aspx"><img class="button" alt="" runat ="server" src="~/images/FAQs.gif" onmouseover="onMouseOver(this,'FAQs_rollover.gif')" onmouseout="onMouseOut(this,'FAQs.gif')" style="margin-bottom:13px;"/></a>
+    			<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/FAQs.gif" onmouseover="this.src='../images/FAQs_rollover.gif'" onmouseout="this.src='../images/FAQs.gif'" style="margin-bottom:13px;"/></a>
     			</div>
     			</div>
 	    	</div>
@@ -79,14 +54,13 @@
 	    <div id="main">
 		    <div id="content">
         		<div class="topBarButtons">
-        		
-		        	<a href="Default.aspx"><img class="button" alt="" runat="server" src="~/images/Home.gif" onmouseover="onMouseOver(this,'Home_rollover.gif')" onmouseout="onMouseOut(this,'Home.gif')"></a>
-			        <a href="Products.aspx"><img class="button" alt="" runat="server" src="~/images/Products.gif" onmouseover="onMouseOver(this,'Products_rollover.gif')" onmouseout="onMouseOut(this,'Products.gif')"></a>
-        			<a href="Solutions.aspx"><img class="button" alt="" runat="server" src="~/images/Solutions.gif" onmouseover="onMouseOver(this,'Solutions_rollover.gif')" onmouseout="onMouseOut(this,'Solutions.gif')"></a>
-		        	<a href="Company.aspx"><img class="button" alt="" runat="server" src="~/images/Company.gif" onmouseover="onMouseOver(this,'Company_rollover.gif')" onmouseout="onMouseOut(this,'Company.gif')"></a>
-           			<a href="Services.aspx"><img class="button" alt="" runat="server" src="~/images/Services.gif" onmouseover="onMouseOver(this,'Services_rollover.gif')" onmouseout="onMouseOut(this,'Services.gif')"></a>
-        			<a href="Community.aspx"><img class="button" alt="" runat="server" src="~/images/Community.gif" onmouseover="onMouseOver(this,'Community_rollover.gif')" onmouseout="onMouseOut(this,'Community.gif')"></a>
-		        	<a href="Contact.aspx"><img class="button" alt="" runat="server" src="~/images/Contact.gif" onmouseover="onMouseOver(this,'Contact_rollover.gif')" onmouseout="onMouseOut(this,'Contact.gif')"></a>
+		        	<a href="UserHome.aspx"><img class="button" alt="" src="../images/Home.gif" onmouseover="this.src='../images/Home_rollover.gif'" onmouseout="this.src='../images/Home.gif'"></a>
+			        <a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Products.gif" onmouseover="this.src='../images/Products_rollover.gif'" onmouseout="this.src='../images/Products.gif'"></a>
+        			<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Solutions.gif" onmouseover="this.src='../images/Solutions_rollover.gif'" onmouseout="this.src='../images/Solutions.gif'"></a>
+		        	<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Company.gif" onmouseover="this.src='../images/Company_rollover.gif'" onmouseout="this.src='../images/Company.gif'"></a>
+           			<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Services.gif" onmouseover="this.src='../images/Services_rollover.gif'" onmouseout="this.src='../images/Services.gif'"></a>
+        			<a href="<%=ConfigurationSettings.AppSettings[WebConstants.Config.REDIRECT_URL]%>"><img class="button" alt="" src="../images/Community.gif" onmouseover="this.src='../images/Community_rollover.gif'" onmouseout="this.src='../images/Community.gif'"></a>
+		        	<a href="Contact.aspx"><img class="button" alt="" src="../images/Contact.gif" onmouseover="this.src='../images/Contact_rollover.gif'" onmouseout="this.src='../images/Contact.gif'"></a>
         		</div>		    
         		<div class="noFloat">
                     <div id="processingImageDiv" style="display:none;width:100%;text-align:right;margin-right:40px;">
@@ -101,37 +75,10 @@
 		            <div class="infoSummary">
                         <asp:Label ID="lblInfoMessage" runat="server" Text="" Visible="false"></asp:Label>		
 		            </div>
-        		    <div class="homePage">
-			<div class='homePageContent'>
-				<div class="floatLeft" > 
+        		    
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
     
                     </asp:ContentPlaceHolder>
-				</div>
-				<div class="floatRight" style="padding-right:30px;">
-					<div style="padding-top:30px;">
-						<a href="ViewDemo.aspx"><img class="button" runat="server" src="~/images/Watch.gif" onmouseover="onMouseOver(this,'Watch_rollover.gif')" onmouseout="onMouseOut(this,'Watch.gif')"></a>
-					</div>					
-					<div style="padding-top:10px;">
-						<a href="Products.aspx"><img class="button" runat="server" src="~/images/Buy.gif" onmouseover="onMouseOver(this,'Buy_rollover.gif')" onmouseout="onMouseOut(this,'Buy.gif')"></a>
-					</div>					
-					<div style="padding-top:10px;">
-						<a href="CallMePage.aspx"><img class="button" runat="server" src="~/images/Call.gif" onmouseover="onMouseOver(this,'Call_rollover.gif')" onmouseout="onMouseOut(this,'Call.gif')"></a>
-					</div>					
-				</div>			
-			</div>
-			<div class="noFloat"/>
-			<div class="homePageButtons">
-				<a href="SalesMarketing.aspx"><img class="button" runat="server" src="~/images/Sales.gif" onmouseover="onMouseOver(this,'Sales_rollover.gif')" onmouseout="onMouseOut(this,'Sales.gif')"></a>
-				<a href="Operations.aspx"><img class="button" runat="server" src="~/images/Operations.gif" onmouseover="onMouseOver(this,'Operations_rollover.gif')" onmouseout="onMouseOut(this,'Operations.gif')"></a>
-				<a href="HealthSafety.aspx"><img class="button" runat="server" src="~/images/Health.gif" onmouseover="onMouseOver(this,'Health_rollover.gif')" onmouseout="onMouseOut(this,'Health.gif')"></a>
-				<a href="ResourceManagement.aspx"><img class="button" runat="server" src="~/images/Resource.gif" onmouseover="onMouseOver(this,'Resource_rollover.gif')" onmouseout="onMouseOut(this,'Resource.gif')"></a>
-				<a href="FinanceAccounts.aspx"><img class="button" runat="server" src="~/images/Finance.gif" onmouseover="onMouseOver(this,'Finance_rollover.gif')" onmouseout="onMouseOut(this,'Finance.gif')"></a>
-				<a href="MobileApps.aspx"><img class="button" runat="server" src="~/images/Mobile.gif" onmouseover="onMouseOver(this,'Mobile_rollover.gif')" onmouseout="onMouseOut(this,'Mobile.gif')"></a>
-			</div>
-			<div class="noFloat"/>
-		</div>
-                   
                     
                 </div>
             </div>

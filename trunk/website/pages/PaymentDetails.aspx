@@ -25,7 +25,7 @@
                 shimDiv.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=50)';
                 document.body.appendChild(shimDiv);
                 loadingImg = document.createElement("img");
-                loadingImg.src = "../images/preloader_animated_02.gif";
+                loadingImg.src = '<%=this.ResolveClientUrl("~/images/preloader_animated_02.gif")%>';
                 loadingImg.style.position = 'absolute';
                 if(loadingImg.height < document.body.clientHeight)
                 {
