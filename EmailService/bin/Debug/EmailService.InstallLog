@@ -187,3 +187,166 @@ Affected parameters are:
    assemblypath = E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
    i = 
    logfile = E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Uninstalling assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Removing EventLog source Email Service.
+Service Email Service is being removed from the system...
+Service Email Service was successfully removed from the system.
+Installing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Installing service Email Service...
+Service Email Service has been successfully installed.
+Creating EventLog source Email Service in log Application...
+Committing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Uninstalling assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Removing EventLog source Email Service.
+Service Email Service is being removed from the system...
+Service Email Service was successfully removed from the system.
+Attempt to stop service Email Service.
+Installing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Installing service Email Service...
+Service Email Service has been successfully installed.
+Creating EventLog source Email Service in log Application...
+Committing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Uninstalling assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Removing EventLog source Email Service.
+Service Email Service is being removed from the system...
+Service Email Service was successfully removed from the system.
+Attempt to stop service Email Service.
+Installing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Installing service Email Service...
+Service Email Service has been successfully installed.
+Creating EventLog source Email Service in log Application...
+Committing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Uninstalling assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Removing EventLog source Email Service.
+Service Email Service is being removed from the system...
+Service Email Service was successfully removed from the system.
+Installing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Installing service Email Service...
+Service Email Service has been successfully installed.
+Creating EventLog source Email Service in log Application...
+Committing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Uninstalling assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Removing EventLog source Email Service.
+Service Email Service is being removed from the system...
+Service Email Service was successfully removed from the system.
+Installing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Installing service Email Service...
+Service Email Service has been successfully installed.
+Creating EventLog source Email Service in log Application...
+Committing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Uninstalling assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Removing EventLog source Email Service.
+Service Email Service is being removed from the system...
+Service Email Service was successfully removed from the system.
+Installing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Installing service Email Service...
+Service Email Service has been successfully installed.
+Creating EventLog source Email Service in log Application...
+Committing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Uninstalling assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Removing EventLog source Email Service.
+Service Email Service is being removed from the system...
+Service Email Service was successfully removed from the system.
+Installing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog
+Installing service Email Service...
+Service Email Service has been successfully installed.
+Creating EventLog source Email Service in log Application...
+Committing assembly 'e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe
+   i = 
+   logfile = e:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.InstallLog

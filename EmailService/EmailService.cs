@@ -100,44 +100,54 @@ namespace EmailService
 
         private void SendEmails(object state)
         {
-            SmtpClient smtp = new SmtpClient(SMTP_SERVER);
-            NetworkCredential userInfo = new NetworkCredential(USER_NAME, PASSWORD);
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = userInfo;
-
-            EmailQueueTableAdapter ta = new EmailQueueTableAdapter();
-            EmailQueue.EmailQueueEntityDataTable emailQs = ta.GetEmailQueue();
-            for (int i = 0; i < emailQs.Count; i++)
+            try
             {
-                try
+                SmtpClient smtp = new SmtpClient(SMTP_SERVER);
+                NetworkCredential userInfo = new NetworkCredential(USER_NAME, PASSWORD);
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = userInfo;
+
+                EmailQueueTableAdapter ta = new EmailQueueTableAdapter();
+                Log("Connection String:" + System.Configuration.ConfigurationSettings.AppSettings["DataAccessLayer.database.ConnectionString"],EventLogEntryType.Information);
+                ta.Connection = new System.Data.SqlClient.SqlConnection(@"Data Source=270882-WEB2\SQLEXPRESS;Initial Catalog=shop;Integrated Security=False;User Id=sa;password=3400663");
+                EmailQueue.EmailQueueEntityDataTable emailQs = ta.GetEmailQueue();
+                for (int i = 0; i < emailQs.Count; i++)
                 {
-                    MailMessage message = new MailMessage();
-                    message.From = new MailAddress(emailQs[i].from_address, emailQs[i].from_name);
-                    string[] toNames = emailQs[i].to_names.Split(',');
-                    string[] toAddresses = emailQs[i].to_addresses.Split(',');
-                    for (int index = 0; index < toAddresses.Length; index++)
+                    try
                     {
-                        if (toAddresses[index].Length > 0)
+                        MailMessage message = new MailMessage();
+                        message.From = new MailAddress(emailQs[i].from_address, emailQs[i].from_name);
+                        string[] toNames = emailQs[i].to_names.Split(',');
+                        string[] toAddresses = emailQs[i].to_addresses.Split(',');
+                        for (int index = 0; index < toAddresses.Length; index++)
                         {
-                            message.To.Add(new MailAddress(toAddresses[index], toNames[index]));
+                            if (toAddresses[index].Length > 0)
+                            {
+                                message.To.Add(new MailAddress(toAddresses[index], toNames[index]));
+                            }
                         }
+                        message.Subject = emailQs[i].subject;
+                        message.Body = emailQs[i].body;
+                        message.IsBodyHtml = true;
+                        smtp.Send(message);
+                        emailQs[i].sent_time = DateTime.Now;
+                        ta.Update(emailQs[i]);
+
+                        Log("Queue Id:" + emailQs[i].queue_id + " processed.", EventLogEntryType.Information);
                     }
-                    message.Subject = emailQs[i].subject;
-                    message.Body = emailQs[i].body;
-                    message.IsBodyHtml = true;
-                    smtp.Send(message);
-                    emailQs[i].sent_time = DateTime.Now;
-                    ta.Update(emailQs[i]);
-                    
-                    Log("Queue Id:" + emailQs[i].queue_id + " processed.", EventLogEntryType.Information);
+                    catch (Exception ex)
+                    {
+                        Log("Queue Id:" + emailQs[i].queue_id + " errored.", EventLogEntryType.Error);
+                        Log(ex.ToString(), EventLogEntryType.Error);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Log("Queue Id:" + emailQs[i].queue_id + " errored.", EventLogEntryType.Error);
-                    Log(ex.ToString(), EventLogEntryType.Error);
-                }
+                ta.UpdateNumberOfTries();
             }
-            ta.UpdateNumberOfTries();
+            catch (Exception ex)
+            {
+                //Log("Connection String:);
+                Log(ex.ToString(), EventLogEntryType.Error);
+            }
         }
 
         /// <summary>

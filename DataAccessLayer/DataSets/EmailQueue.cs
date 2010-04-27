@@ -13,5 +13,6 @@ namespace DataAccessLayer.DataSets.EmailQueueTableAdapters {
 
     public partial class EmailQueueTableAdapter
     {
+       
     }
 }

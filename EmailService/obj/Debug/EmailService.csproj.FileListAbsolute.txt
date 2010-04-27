@@ -10,3 +10,4 @@ E:\MyProjects\ShoppingCart\trunk\EmailService\obj\Debug\EmailService.exe
 E:\MyProjects\ShoppingCart\trunk\EmailService\obj\Debug\EmailService.pdb
 E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\DataAccessLayer.dll
 E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\DataAccessLayer.pdb
+E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe.config
