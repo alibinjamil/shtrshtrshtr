@@ -50,6 +50,7 @@ public static class EmailUtility
                 toNames += address.DisplayName + ",";
                 toEmails += address.Address + ",";
             }
+            ta.Connection = new System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ShoppingCartConnectionString"].ConnectionString);
             ta.Insert(DateTime.Now, 1, "Simplicity4Business", FROM_ADDRESS, toNames.Substring(0, toNames.Length - 1), toEmails.Substring(0, toEmails.Length),
                 message.Subject, message.Body, null);
 
