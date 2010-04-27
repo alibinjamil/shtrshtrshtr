@@ -34,6 +34,12 @@ public partial class pages_CreateAccount : GenericPage
             SetErrorMessage("Email address already resgistered with Simplicity");
             return false;
         }
+        UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
+        if (userTA.GetUserByEmail(txtEmail.Text).GetEnumerator().MoveNext())
+        {
+            SetErrorMessage("Email address already resgistered with HS");
+            return false;
+        }
         return true;
     }
 
@@ -60,10 +66,30 @@ public partial class pages_CreateAccount : GenericPage
                     addressTA.Insert(false, customer.entity_id, false, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL), null,
                         txtAddressNo.Text, txtAddressLine1.Text, txtAddressLine2.Text, txtAddressLine3.Text, txtAddressLine4.Text, txtAddressLine5.Text, txtPostCode.Text,
                         GetFullAddress(), txtTele1.Text, txtTele2.Text, txtFax.Text, txtMobile.Text, null, DateTime.Now, null, DateTime.Now, txtTown.Text, txtCounty.Text, txtCountry.Text);
+
+
+                    // HS DB Insertion
+                    // User Table Information
+                    UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
+                    //userTA.Insert();
+
+                    // Company Table Information
+                    CompanyTableAdapters.un_co_detailsTableAdapter companyTA = new CompanyTableAdapters.un_co_detailsTableAdapter();
+                    Company.un_co_detailsDataTable companyDT = companyTA.InsertAndReturn(false, "1", "1", "1", "1", "1", "1","1", "1", "1", "1", "1", "1", "1", "1",
+                    "1", "1", "1", "1", "1", 0, 0, false, 1, DateTime.Now, 1,
+                    DateTime.Now, false, "1", "1", false, "1", true, 1, false, DateTime.Now, 1, DateTime.Now, false);
+
+                    if (companyDT.Count > 0)
+                    {
+                        DepartmentTableAdapters.DepartmentSelectCommandTableAdapter departmentTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
+                        //departmentTA.InsertDepartment();
+                    }
+
                     
                     EmailUtility.SendAccountCreationEmail(txtEmail.Text, customer.entity_uid,customer.verification_code);
                     Response.Redirect("~/pages/ConfirmMail.aspx");
-                }
+                }               
+
             }
             /*catch
             {
