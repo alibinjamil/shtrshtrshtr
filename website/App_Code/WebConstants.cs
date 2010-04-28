@@ -80,5 +80,6 @@ using System.Xml.Linq;
             public static string PUBLIC_KEY = "PublicKey";
             public static string PRIVATE_KEY = "PrivateKey";
             public static string SERIAL_NUMBER = "SerialNumber";
+            public static string HS_URL = "HSURL";
         }
     }

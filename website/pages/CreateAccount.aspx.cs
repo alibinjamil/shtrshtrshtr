@@ -35,9 +35,9 @@ public partial class pages_CreateAccount : GenericPage
             return false;
         }
         UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
-        if (userTA.GetUserByEmail(txtEmail.Text).GetEnumerator().MoveNext())
+        if (userTA.GetUserByLogonName(txtEmail.Text,null).GetEnumerator().MoveNext())
         {
-            SetErrorMessage("Email address already resgistered with HS");
+            SetErrorMessage("Email address already resgistered with Health&Safety");
             return false;
         }
         return true;
@@ -67,25 +67,27 @@ public partial class pages_CreateAccount : GenericPage
                         txtAddressNo.Text, txtAddressLine1.Text, txtAddressLine2.Text, txtAddressLine3.Text, txtAddressLine4.Text, txtAddressLine5.Text, txtPostCode.Text,
                         GetFullAddress(), txtTele1.Text, txtTele2.Text, txtFax.Text, txtMobile.Text, null, DateTime.Now, null, DateTime.Now, txtTown.Text, txtCounty.Text, txtCountry.Text);
 
-
-                    // HS DB Insertion
-                    // User Table Information
-                    UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
-                    //userTA.Insert();
-
-                    // Company Table Information
-                    CompanyTableAdapters.un_co_detailsTableAdapter companyTA = new CompanyTableAdapters.un_co_detailsTableAdapter();
-                    Company.un_co_detailsDataTable companyDT = companyTA.InsertAndReturn(false, "1", "1", "1", "1", "1", "1","1", "1", "1", "1", "1", "1", "1", "1",
-                    "1", "1", "1", "1", "1", 0, 0, false, 1, DateTime.Now, 1,
-                    DateTime.Now, false, "1", "1", false, "1", true, 1, false, DateTime.Now, 1, DateTime.Now, false);
-
-                    if (companyDT.Count > 0)
+                    //insert record in HS
+                    /******/
+                    HSCompanyTableAdapters.HSCompanyTableAdapter companyTA = new HSCompanyTableAdapters.HSCompanyTableAdapter();
+                    IEnumerator ieCo = companyTA.InsertAndReturn(false, txtCompanyName.Text, txtCompanyName.Text, txtJobTitle.Text, "", txtFirstName.Text, txtSurname.Text, txtAddressNo.Text, txtAddressLine1.Text,
+                        txtAddressLine2.Text, txtAddressLine3.Text, txtAddressLine4.Text, txtAddressLine5.Text, txtPostCode.Text, GetFullAddress(), txtTele1.Text, txtTele2.Text, txtFax.Text, txtEmail.Text, "Added from Shopping Cart",
+                        null, null, null, null, DateTime.Now, null, DateTime.Now, true, "Fire Warden", "First Aider", false, "Supervisor", false, 1, null, null, null, null, true).GetEnumerator();
+                    if (ieCo.MoveNext())
                     {
-                        DepartmentTableAdapters.DepartmentSelectCommandTableAdapter departmentTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
-                        //departmentTA.InsertDepartment();
-                    }
+                        HSCompany.HSCompanyEntityRow company = (HSCompany.HSCompanyEntityRow)ieCo.Current;
+                        
+                        DepartmentTableAdapters.DepartmentSelectCommandTableAdapter deptTA = new DepartmentTableAdapters.DepartmentSelectCommandTableAdapter();
+                        deptTA.Insert(company.co_id, false, txtCompanyName.Text, txtCompanyName.Text, txtJobTitle.Text, "", txtFirstName.Text, txtSurname.Text, txtAddressNo.Text, txtAddressLine1.Text,
+                        txtAddressLine2.Text, txtAddressLine3.Text, txtAddressLine4.Text, txtAddressLine5.Text, txtPostCode.Text, GetFullAddress(), txtTele1.Text, txtTele2.Text, txtFax.Text, txtEmail.Text,
+                        "Added from Shopping Cart", null, DateTime.Now, null, DateTime.Now);
 
-                    
+                        UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
+                        userTA.Insert(false, company.co_id, 1, txtFirstName.Text, txtEmail.Text, Utility.GetMd5Sum(txtPassword.Text), listForgotPasswordQuestion.SelectedItem.Text, 
+                            txtTele1.Text, "", txtTele2.Text,txtEmail.Text, txtCompanyName.Text, txtCountry.Text, null, DateTime.Now, null, DateTime.Now, "User");
+                    }
+ 
+                    /******/
                     EmailUtility.SendAccountCreationEmail(txtEmail.Text, customer.entity_uid,customer.verification_code);
                     Response.Redirect("~/pages/ConfirmMail.aspx");
                 }               

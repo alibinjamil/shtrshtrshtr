@@ -64,8 +64,13 @@
                         <div class="colfooter">
                             <%# ShoppingCart.GetCurrentCurrency().html_currency_code%><%# GetVersionPrice(DataBinder.Eval(Container.DataItem, "price"))%><br />
                             <a href='<%#GetVersionBuyNowURL(DataBinder.Eval(Container.DataItem, "version_id"))%>'>
-                                <img alt="Buy Now" src="../images/Buy_Now.gif" onmouseover="this.src='../images/Buy_now_rollover.gif'" onmouseout="this.src='../images/Buy_now.gif'" />
+                                <img alt="Buy Now" src="../images/Buy_Now.gif" onmouseover="this.src='../images/Buy_now_rollover.gif'" onmouseout="this.src='../images/Buy_now.gif'" />                                                                                           
                             </a>
+                            <br />                            
+                            <%if(Request[WebConstants.Request.PRODUCT_ID] == "2"){%>
+                            <span style="font-size:10pt;color:Gray">Try it now for</span>
+                            <a href='<%#GetTrialURL()%>' style="font-size:10pt;color:Red">FREE</a>
+                            <%}%>
                         </div>
                         </ItemTemplate>            
                     </asp:Repeater>
@@ -73,6 +78,7 @@
                 </div>            
             </FooterTemplate>
         </asp:Repeater>
+
         <asp:Repeater ID="rptOptional" runat="server" 
             onitemdatabound="rptOptional_ItemDataBound" >
             <HeaderTemplate><div class="headingRow">Add Ons</div>
@@ -87,7 +93,8 @@
                                 <div class="price"><%# ShoppingCart.GetCurrentCurrency().html_currency_code%><%# DataBinder.Eval(Container.DataItem, "Price", "{0:N2}")%></div>    
                                 <div class="buynow">
                                     <a href='<%#GetProductDetailBuyNowURL(DataBinder.Eval(Container.DataItem, "VersionId"),DataBinder.Eval(Container.DataItem, "ProductDetailId"),DataBinder.Eval(Container.DataItem, "Price"))%>'>
-                                        <img alt="Buy Now" src="../images/Buy_now_addon.gif" onmouseover="this.src='../images/Buy_now_addon_rollover.gif'" onmouseout="this.src='../images/Buy_now_addon.gif'" />                                    
+                                        <img alt="Buy Now" src="../images/Buy_now_addon.gif" onmouseover="this.src='../images/Buy_now_addon_rollover.gif'" onmouseout="this.src='../images/Buy_now_addon.gif'" />  
+                                        
                                     </a>                                
                                 </div>
                                 <div style="clear:both"></div>
