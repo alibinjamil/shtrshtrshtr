@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
-<div style="margin-top:25px;">
+    <div style="margin-top:25px;">
     <asp:Panel ID="panelSignature" runat="server" Visible="false">
         <span style='color:red'>Invalid response from Payment gateway. Please Try again</span>
     </asp:Panel>
@@ -14,6 +14,11 @@
         	<div class="heading">Payment Receipt</div>
 			<div class="noFloat"></div>        			
         </div>		
+        <div>
+            <asp:ImageButton ID="hsLogin" runat="server"  
+                ImageUrl="~/images/start_using.png" Visible="false" 
+                onclick="hsLogin_Click"/>
+        </div>
         <div class="receipt">
             <div>
                 <div class="col1">Card holder's name:</div>

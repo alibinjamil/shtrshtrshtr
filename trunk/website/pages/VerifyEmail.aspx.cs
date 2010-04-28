@@ -26,6 +26,16 @@ public partial class pages_VerifyEmail : GenericPage
                 if (verificationCode.Equals(Request[WebConstants.Request.VERIFICATION_CODE]))
                 {
                     customerTA.VerifyCustomer(iEnum.Current.entity_id);
+                    //activate record into HS
+                    UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
+                    IEnumerator ieUser = userTA.GetUserByLogonName(iEnum.Current.email,null).GetEnumerator();
+                    if (ieUser.MoveNext())
+                    {
+                        User.un_co_user_detailsRow user = (User.un_co_user_detailsRow)ieUser.Current;
+                        HSCompanyTableAdapters.HSCompanyTableAdapter coTA = new HSCompanyTableAdapters.HSCompanyTableAdapter();
+                        coTA.UpdateActive(true, user.co_id);
+                    }
+                    //
                     SetInfoMessage(WebConstants.Messages.Information.ACCOUNT_VERIFIED);
                 }
                 else

@@ -11,6 +11,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 
 public partial class pages_PaymentResponse : AuthenticatedPage
 {
@@ -28,6 +30,7 @@ public partial class pages_PaymentResponse : AuthenticatedPage
             {
                 lblAmountText.Text = GetAmountText();
                 panelSuccess.Visible = true;
+
                 tranTA.Update(transactionId, Request.Form.Get("decision"), null, transactionId);
                 CustomerTableAdapters.CustomerTableAdapter customerTA = new CustomerTableAdapters.CustomerTableAdapter();
                 IEnumerator<Customer.CustomerEntityRow> customers =  customerTA.GetCustomerById(LoggedInUserId).GetEnumerator();
@@ -38,6 +41,17 @@ public partial class pages_PaymentResponse : AuthenticatedPage
                     lblAmountText.Text, customers.Current.email);
                 }
                 ShoppingCart.ClearTrolley();
+
+                TransactionsTableAdapters.TransactionDetailTableAdapter detailTA = new TransactionsTableAdapters.TransactionDetailTableAdapter();
+                IEnumerator<Transactions.TransactionDetailEntityRow> details = detailTA.GetDetailsByTransaction(transactionId).GetEnumerator();
+                while (details.MoveNext())
+                {
+                    if (details.Current.product_id == 2)//hs
+                    {
+                        hsLogin.Visible = true;
+                        break;
+                    }
+                }
             }
             else
             {
@@ -101,6 +115,20 @@ public partial class pages_PaymentResponse : AuthenticatedPage
         else
         {
             return "&pound;";
+        }
+    }
+    protected void hsLogin_Click(object sender, ImageClickEventArgs e)
+    {
+        Customer.CustomerEntityRow customer = DatabaseUtility.GetLoggedInCustomer();
+        if(customer != null)
+        {
+            string url = ConfigurationSettings.AppSettings[WebConstants.Config.HS_URL];
+            url += "/111AF690-0002-40D7-A26C-01D35380CE51/CreateSession.aspx?userEmail=" +  customer.email + "&clientIP=" + Request.UserHostAddress 
+                + "&key=CC17DEC2-5727-4FA8-937A-C4D3107BBE8B";
+            Response.Redirect(url);
+            /*HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Response.Redirect(ConfigurationSettings.AppSettings[WebConstants.Config.HS_URL] + "/UserHome.aspx");*/
         }
     }
 }
