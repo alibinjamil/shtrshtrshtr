@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Untitled Page</title>
+    <title>Simplicity4Business</title>
     <link rel="stylesheet" type="text/css" href="~/css/general.css" />
     <script type="text/javascript">
         function showProcessingImage(){
