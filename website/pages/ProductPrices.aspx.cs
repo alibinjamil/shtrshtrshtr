@@ -218,12 +218,4 @@ public partial class pages_ProductPrices : GenericPage
         BindData();
     }
 
-    protected string GetTrialURL()
-    {
-        if (Request[WebConstants.Request.PRODUCT_ID] == "2")
-        {
-            return ConfigurationSettings.AppSettings[WebConstants.Config.HS_URL] + "/Register/AddCompany.aspx";
-        }
-        return "";
-    }
 }
