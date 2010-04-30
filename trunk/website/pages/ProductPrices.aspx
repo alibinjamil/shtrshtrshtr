@@ -69,7 +69,7 @@
                             <br />                            
                             <%if(Request[WebConstants.Request.PRODUCT_ID] == "2"){%>
                             <span style="font-size:10pt;color:Gray">Try it now for</span>
-                            <a href='<%#GetTrialURL()%>' style="font-size:10pt;color:Red">FREE</a>
+                            <a href='RedirectToHS.aspx' style="font-size:10pt;color:Red">FREE</a>
                             <%}%>
                         </div>
                         </ItemTemplate>            

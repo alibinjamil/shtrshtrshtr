@@ -89,4 +89,30 @@ public static class Utility
                                      return " Maestro/Solo ";
         return null;
     }
+
+    public static void AutoLoginIntoHS()
+    {
+        string url = ConfigurationSettings.AppSettings[WebConstants.Config.HS_URL];
+        if (HttpContext.Current.Session[WebConstants.Session.USER_ID] != null)
+        {
+            Customer.CustomerEntityRow customer = DatabaseUtility.GetLoggedInCustomer();
+            if (customer != null)
+            {
+                url += "/111AF690-0002-40D7-A26C-01D35380CE51/CreateSession.aspx?userEmail=" + customer.email + "&clientIP=" + HttpContext.Current.Request.UserHostAddress
+                    + "&key=CC17DEC2-5727-4FA8-937A-C4D3107BBE8B";
+                /*HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    Response.Redirect(ConfigurationSettings.AppSettings[WebConstants.Config.HS_URL] + "/UserHome.aspx");*/
+            }
+            else
+            {
+                url += "/Register/AddCompany.aspx";
+            }
+        }
+        else
+        {
+            url += "/Register/AddCompany.aspx";
+        }
+        HttpContext.Current.Response.Redirect(url);
+    }
 }

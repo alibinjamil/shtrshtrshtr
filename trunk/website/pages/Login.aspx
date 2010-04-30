@@ -11,7 +11,7 @@
 	<div class="login" id="mainLogin">
 	    <div class="loginConnectSimplicity" onclick="javascript:window.open('http://94.236.98.81/')">
 	    </div>		
-	    <div class="loginConnectHnS" onclick="javascript:window.open('http://hands-live.com/')">
+	    <div class="loginConnectHnS" onclick="javascript:window.location.href='<%=this.ResolveClientUrl("~/pages/RedirectToHS.aspx")%>'">
     	</div>        
         <div>
             <asp:Panel ID="PanelAlreadyLoggedIn" runat="server" Visible="false">
