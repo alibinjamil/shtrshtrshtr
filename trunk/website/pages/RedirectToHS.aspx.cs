@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class pages_RedirectToHS : System.Web.UI.Page
+public partial class pages_RedirectToHS : AuthenticatedPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

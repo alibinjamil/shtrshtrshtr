@@ -40,9 +40,12 @@ public class GenericPage : System.Web.UI.Page
     }
     private void SetMessage(Control label,string message,bool visible)
     {
-        Label lbl = (Label)label;
-        lbl.Visible = visible;
-        lbl.Text = message;
+        if (label != null)
+        {
+            Label lbl = (Label)label;
+            lbl.Visible = visible;
+            lbl.Text = message;
+        }
     }
     protected Nullable<int> LoggedIsUser
     {
