@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using ShoppingTrolley.Web;
+using SimplicityCommLib;	//mjaved.sim.CommonLib
 
 public partial class pages_CreateAccount : GenericPage
 {
@@ -34,6 +35,15 @@ public partial class pages_CreateAccount : GenericPage
             SetErrorMessage("Email address already resgistered with Simplicity");
             return false;
         }
+        //mjaved.sim.CommonLib Verifying Email Add
+        CommLibController userOBJ = new CommLibController();
+        if (userOBJ.GetUserByEmail(txtEmail.Text).MoveNext())
+        {
+            SetErrorMessage("Email address already resgistered with Simplicity");
+            return false;        
+        }
+
+        
         UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
         if (userTA.GetUserByLogonName(txtEmail.Text,null).GetEnumerator().MoveNext())
         {
@@ -59,6 +69,13 @@ public partial class pages_CreateAccount : GenericPage
                     Utility.GetMd5Sum(txtPassword.Text),byte.Parse(listForgotPasswordQuestion.SelectedValue), listForgotPasswordQuestion.SelectedItem.Text,Utility.GetMd5Sum(txtForgotPasswordAnswer.Text), null, false, false, 0,
                     false, null, null, DateTime.Now, null, DateTime.Now, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE), ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE.USER)).GetEnumerator();
 
+                //mjaved.sim.CommonLib Insert User
+                CommLibController userOBJ = new CommLibController();
+                userOBJ.InsertAndReturnUser(cbEmails.Selected, false, false, 0, 0, GetFullName(), null, null, txtSurname.Text, txtFirstName.Text, txtJobTitle.Text, txtEmail.Text,
+                    Utility.GetMd5Sum(txtPassword.Text), byte.Parse(listForgotPasswordQuestion.SelectedValue), listForgotPasswordQuestion.SelectedItem.Text, Utility.GetMd5Sum(txtForgotPasswordAnswer.Text), null, false, false, 0,
+                    false, null, 0, DateTime.Now, 0, DateTime.Now, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE), ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE.USER));
+
+               
                 if (ieCustomer.MoveNext())
                 {
                     Customer.CustomerEntityRow customer = (Customer.CustomerEntityRow)ieCustomer.Current;
@@ -88,6 +105,7 @@ public partial class pages_CreateAccount : GenericPage
                     }
  
                     /******/
+                    
                     EmailUtility.SendAccountCreationEmail(txtEmail.Text, customer.entity_uid,customer.verification_code);
                     Response.Redirect("~/pages/ConfirmMail.aspx");
                 }               

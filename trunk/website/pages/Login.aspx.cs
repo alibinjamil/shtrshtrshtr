@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 
 using ShoppingTrolley.Web;
+using SimplicityCommLib;	//mjaved.sim.CommonLib
 public partial class pages_Login : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -39,7 +40,7 @@ public partial class pages_Login : GenericPage
         }
     }
     protected void imgBtnLogin_Click(object sender, ImageClickEventArgs e)
-    {        
+    {
         CustomerTableAdapters.CustomerTableAdapter ta = new CustomerTableAdapters.CustomerTableAdapter();
         IEnumerator<Customer.CustomerEntityRow> iEnum = ta.GetCustomerByEmail(txtEmail.Text).GetEnumerator();
         if (iEnum.MoveNext())
@@ -65,6 +66,47 @@ public partial class pages_Login : GenericPage
         {
             SetErrorMessage();
         }
+        
+        //mjaved.sim.CommonLib Verifying User and creat its cookie
+
+        CommLibController userOBJ = new CommLibController();
+        IEnumerator<LINQSimplicityCommDAL.UserSelectByEmailResult> iEnumUser = userOBJ.GetUserByEmail(txtEmail.Text);
+        if (iEnumUser.MoveNext())
+        {
+            if (iEnumUser.Current.Logon_Enable.Equals(Utility.GetMd5Sum(txtPassword.Text)) && iEnumUser.Current.Flg_verified.Value)
+            {
+
+                CommLibController sessionOBJ = new CommLibController();
+                sessionOBJ.InsertUserSession(iEnumUser.Current.User_Uid, iEnumUser.Current.UserId.Value, DateTime.Now, DateTime.Now.AddMinutes(20), Request.UserHostAddress);                
+         
+                // Cookie Implementation
+                HttpCookie Cookie = new HttpCookie("UserLoginSession");
+                Cookie.Value = iEnumUser.Current.UserId.Value.ToString();
+                Cookie.Expires = DateTime.Now + TimeSpan.FromMinutes(20);
+                Response.Cookies.Add(Cookie);
+
+                //Cache.Insert("UserLoginSession", iEnumUser.Current.UserId, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(20));
+
+                Session[WebConstants.Session.USER_ID] = iEnumUser.Current.UserId;
+                if (Session[WebConstants.Session.RETURN_URL] != null)
+                {
+                    Response.Redirect((string)Session[WebConstants.Session.RETURN_URL]);
+                }
+                else
+                {
+                    Response.Redirect("~/pages/UserHome.aspx");
+                }
+            }
+            else
+            {
+                SetErrorMessage();
+            }
+        }
+        else
+        {
+            SetErrorMessage();
+        }
+
     }
 
     protected void SetErrorMessage()
