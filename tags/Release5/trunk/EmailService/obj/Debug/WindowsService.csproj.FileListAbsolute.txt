@@ -1,5 +1,0 @@
-E:\MyProjects\ShoppingCart\trunk\WindowsService\bin\Debug\WindowsService.exe
-E:\MyProjects\ShoppingCart\trunk\WindowsService\bin\Debug\WindowsService.pdb
-E:\MyProjects\ShoppingCart\trunk\WindowsService\obj\Debug\ResolveAssemblyReference.cache
-E:\MyProjects\ShoppingCart\trunk\WindowsService\obj\Debug\WindowsService.exe
-E:\MyProjects\ShoppingCart\trunk\WindowsService\obj\Debug\WindowsService.pdb
