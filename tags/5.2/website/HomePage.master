@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Simplicity.master" AutoEventWireup="false" CodeFile="HomePage.master.cs" Inherits="HomePage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
+    		<div class="homePage">
+			<div class='homePageContent'>
+				<div class="floatLeft" > 
+                    <asp:ContentPlaceHolder ID="HomeContent" runat="server">
+                    </asp:ContentPlaceHolder>
+				</div>
+				<div class="floatRight" style="padding-right:30px;">
+					<div style="padding-top:30px;">
+						<a href="ViewDemo.aspx"><img class="button" src="../images/Watch.gif" onmouseover="this.src='../images/Watch_rollover.gif'" onmouseout="this.src='../images/Watch.gif'"></a>
+					</div>					
+					<div style="padding-top:10px;">
+						<a href="Products.aspx"><img class="button" src="../images/Buy.gif" onmouseover="this.src='../images/Buy_rollover.gif'" onmouseout="this.src='../images/Buy.gif'"></a>
+					</div>					
+					<div style="padding-top:10px;">
+						<a href="Products.aspx"><img class="button" src="../images/Try_a_solution.gif" onmouseover="this.src='../images/Try_a_solution_rollover.gif'" onmouseout="this.src='../images/Try_a_solution.gif'"></a>
+					</div>					
+					<div style="padding-top:10px;">
+						<a href="CallMePage.aspx"><img class="button" src="../images/Call.gif" onmouseover="this.src='../images/Call_rollover.gif'" onmouseout="this.src='../images/Call.gif'"></a>
+					</div>					
+				</div>		
+					
+			</div>
+			<div class="noFloat"/>
+			<div class="homePageButtons">
+				<a href="UserSales.aspx"><img class="button" src="../images/Sales.gif" onmouseover="this.src='../images/Sales_rollover.gif'" onmouseout="this.src='../images/Sales.gif'"></a>
+				<a href="UserOperations.aspx"><img class="button" src="../images/Operations.gif" onmouseover="this.src='../images/Operations_rollover.gif'" onmouseout="this.src='../images/Operations.gif'"></a>
+				<a href="UserHealth.aspx"><img class="button" src="../images/Health.gif" onmouseover="this.src='../images/Health_rollover.gif'" onmouseout="this.src='../images/Health.gif'"></a>
+				<a href="UserResource.aspx"><img class="button" src="../images/Resource.gif" onmouseover="this.src='../images/Resource_rollover.gif'" onmouseout="this.src='../images/Resource.gif'"></a>
+				<a href="UserFinance.aspx"><img class="button" src="../images/Finance.gif" onmouseover="this.src='../images/Finance_rollover.gif'" onmouseout="this.src='../images/Finance.gif'"></a>
+				<a href="UserMobile.aspx"><img class="button" src="../images/Mobile.gif" onmouseover="this.src='../images/Mobile_rollover.gif'" onmouseout="this.src='../images/Mobile.gif'"></a>
+			</div>
+			<div class="noFloat"/>
+		</div>
+</asp:Content>
+

@@ -1,0 +1,6 @@
+E:\MyProjects\ShoppingCart\trunk\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+E:\MyProjects\ShoppingCart\trunk\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+E:\MyProjects\ShoppingCart\trunk\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+E:\MyProjects\ShoppingCart\trunk\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+E:\MyProjects\ShoppingCart\trunk\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+E:\MyProjects\ShoppingCart\trunk\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
