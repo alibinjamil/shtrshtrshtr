@@ -11,7 +11,6 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
-using SimplicityCommLib;	//mjaved.sim.CommonLib
 
 public partial class pages_ForgotPassword : GenericPage
 {
@@ -43,32 +42,6 @@ public partial class pages_ForgotPassword : GenericPage
         {
             SetErrorMessage();
         }
-
-        //mjaved.sim.CommonLib Verifying Answer and updating password
-        CommLibController userOBJ = new CommLibController();
-        IEnumerator<LINQSimplicityCommDAL.UserSelectByEmailResult> user = userOBJ.GetUserByEmail(txtEmail.Text);
-
-        if (user.MoveNext())
-        {
-            if (user.Current.Enable_reminder_question_id == byte.Parse(listForgotPasswordQuestion.SelectedValue)
-                && user.Current.Enable_reminder_question_answer.Equals(Utility.GetMd5Sum(txtForgotPasswordAnswer.Text)))
-            {
-                string password = Utility.RandomString(8, true);
-
-                userOBJ.UdateUserPassword(Utility.GetMd5Sum(password), user.Current.UserId.Value, user.Current.UserId.Value);
-                EmailUtility.SendPasswordEmail(user.Current.Email, password);
-                Response.Redirect("~/pages/Login.aspx?" + WebConstants.Request.FROM_PAGE + "=ForgotPassword");
-            }
-            else
-            {
-                SetErrorMessage();
-            }
-        }
-        else
-        {
-            SetErrorMessage();
-        }
-        
     }
 
     protected void SetErrorMessage()

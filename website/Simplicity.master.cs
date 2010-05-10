@@ -45,12 +45,6 @@ public partial class Simplicity : System.Web.UI.MasterPage
     }
     protected void btnLogout_Click(object sender, EventArgs e)
     {
-		//mjaved.sim.CommonLib Cookie Destroy
 
-        HttpCookie cookie = Request.Cookies["UserLoginSession"];
-        if (cookie != null)
-        {
-            cookie.Expires = DateTime.Now;        
-        }
     }
 }

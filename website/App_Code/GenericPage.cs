@@ -11,7 +11,6 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
 using ShoppingTrolley.Web;
-using SimplicityCommLib;   //mjaved.sim.CommonLib
 
 /// <summary>
 /// Summary description for GenericPage
@@ -52,21 +51,10 @@ public class GenericPage : System.Web.UI.Page
     {
         get
         {
-			//mjaved.sim.CommonLib  Cookie and Session Handling
-            HttpCookie cookie = Request.Cookies["UserLoginSession"];
-
-            if (cookie != null && !cookie.Value.Equals(""))
+            if (Session[WebConstants.Session.USER_ID] != null)
             {
-                CommLibController sessionOBJ = new CommLibController();
-                if (sessionOBJ.GetUserSessionById(int.Parse(cookie.Value.ToString())).MoveNext())
-                {
-                    return int.Parse(cookie.Value.ToString());
-                }
-            }            
-            //if (Session[WebConstants.Session.USER_ID] != null)
-            //{
-            //    return (int)Session[WebConstants.Session.USER_ID];
-            //}
+                return (int)Session[WebConstants.Session.USER_ID];
+            }
             return null;
         }
     }
@@ -75,16 +63,9 @@ public class GenericPage : System.Web.UI.Page
     {
         get
         {
-			//mjaved.sim.CommonLib Cookie and Session Handling
-            HttpCookie cookie = Request.Cookies["UserLoginSession"];
-
-            if (cookie != null && !cookie.Value.Equals(""))
+            if (Session[WebConstants.Session.USER_ID] != null)
             {
-                CommLibController sessionOBJ = new CommLibController();
-                if (sessionOBJ.GetUserSessionById(int.Parse(cookie.Value.ToString())).MoveNext())
-                {
-                    return int.Parse(cookie.Value.ToString());
-                }
+                return (int)Session[WebConstants.Session.USER_ID];
             }
             return 0;
         }
