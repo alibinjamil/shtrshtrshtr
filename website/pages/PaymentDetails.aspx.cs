@@ -264,7 +264,7 @@ public partial class pages_PaymentDetails : AuthenticatedPage
                         productDetailId = shoppingItem.ProductDetail.product_detail_id;
                         productDetailName = shoppingItem.ProductDetail.product_detail;
                     }
-                    tranDetailTA.Insert(transaciton.Current.transaction_id, shoppingItem.Product.product_id, shoppingItem.Product.name, versionId, versionName,
+                    tranDetailTA.Insert(transaciton.Current.transaction_id, shoppingItem.Product.ProductId, shoppingItem.Product.Name, versionId, versionName,
                         productDetailId, productDetailName, shoppingItem.Quantity, shoppingItem.DurationInMonths, shoppingItem.Price);
                     totalAmount += shoppingItem.Total;
                 }

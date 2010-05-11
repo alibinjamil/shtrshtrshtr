@@ -11,7 +11,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using ShoppingTrolley.Web;
-using SimplicityCommLib;	//mjaved.sim.CommonLib
+using SimplicityCommLib;
+using System.Collections.Generic;	//mjaved.sim.CommonLib
 
 public partial class pages_CreateAccount : GenericPage
 {
@@ -29,12 +30,7 @@ public partial class pages_CreateAccount : GenericPage
             SetErrorMessage("Passwords do not match");
             return false;
         }
-        CustomerTableAdapters.CustomerTableAdapter ta = new CustomerTableAdapters.CustomerTableAdapter();
-        if (ta.GetCustomerByEmail(txtEmail.Text).GetEnumerator().MoveNext())
-        {
-            SetErrorMessage("Email address already resgistered with Simplicity");
-            return false;
-        }
+        
         //mjaved.sim.CommonLib Verifying Email Add
         CommLibController userOBJ = new CommLibController();
         if (userOBJ.GetUserByEmail(txtEmail.Text).MoveNext())
@@ -64,25 +60,24 @@ public partial class pages_CreateAccount : GenericPage
         {
             //try
             {
-                CustomerTableAdapters.CustomerTableAdapter customerTA = new CustomerTableAdapters.CustomerTableAdapter();
-                IEnumerator ieCustomer = customerTA.InsertAndReturn(false, false,cbEmails.Selected, 0, 0, GetFullName(), null, null, txtSurname.Text, txtFirstName.Text, txtJobTitle.Text, txtEmail.Text, 
-                    Utility.GetMd5Sum(txtPassword.Text),byte.Parse(listForgotPasswordQuestion.SelectedValue), listForgotPasswordQuestion.SelectedItem.Text,Utility.GetMd5Sum(txtForgotPasswordAnswer.Text), null, false, false, 0,
-                    false, null, null, DateTime.Now, null, DateTime.Now, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE), ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE.USER)).GetEnumerator();
+                //CustomerTableAdapters.CustomerTableAdapter customerTA = new CustomerTableAdapters.CustomerTableAdapter();
+                //IEnumerator ieCustomer = customerTA.InsertAndReturn(false, false, false, 0, 0, GetFullName(), null, null, txtSurname.Text, txtFirstName.Text, txtJobTitle.Text, txtEmail.Text,
+                //    Utility.GetMd5Sum(txtPassword.Text), byte.Parse(listForgotPasswordQuestion.SelectedValue), listForgotPasswordQuestion.SelectedItem.Text, Utility.GetMd5Sum(txtForgotPasswordAnswer.Text), null, false, false, 0,
+                //    false, null, null, DateTime.Now, null, DateTime.Now, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE), ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE.USER)).GetEnumerator();
 
                 //mjaved.sim.CommonLib Insert User
                 CommLibController userOBJ = new CommLibController();
-                userOBJ.InsertAndReturnUser(cbEmails.Selected, false, false, 0, 0, GetFullName(), null, null, txtSurname.Text, txtFirstName.Text, txtJobTitle.Text, txtEmail.Text,
-                    Utility.GetMd5Sum(txtPassword.Text), byte.Parse(listForgotPasswordQuestion.SelectedValue), listForgotPasswordQuestion.SelectedItem.Text, Utility.GetMd5Sum(txtForgotPasswordAnswer.Text), null, false, false, 0,
+                IEnumerator<UserInsertResult> ieUser = userOBJ.InsertAndReturnUser(cbEmails.Selected, false, false, 0, 0, GetFullName(), null, null, txtSurname.Text, txtFirstName.Text, txtJobTitle.Text, txtEmail.Text,
+                    Utility.GetMd5Sum(txtPassword.Text), byte.Parse(listForgotPasswordQuestion.SelectedValue), listForgotPasswordQuestion.SelectedItem.Text, Utility.GetMd5Sum(txtForgotPasswordAnswer.Text), false, false, 0,
                     false, null, 0, DateTime.Now, 0, DateTime.Now, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE), ShoppingTrolley.Web.utils.Enums.ENTITY_TYPE.USER));
 
-               
-                if (ieCustomer.MoveNext())
+
+                if (ieUser.MoveNext())
                 {
-                    Customer.CustomerEntityRow customer = (Customer.CustomerEntityRow)ieCustomer.Current;
-                    CustomerTableAdapters.AddressTableAdapter addressTA = new CustomerTableAdapters.AddressTableAdapter();
-                    addressTA.Insert(false, customer.entity_id, false, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL), null,
+                    CommLibController addressOBJ = new CommLibController();
+                    addressOBJ.InsertAddress(false,(int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL,ieUser.Current.UserId.Value, false, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL), null,
                         txtAddressNo.Text, txtAddressLine1.Text, txtAddressLine2.Text, txtAddressLine3.Text, txtAddressLine4.Text, txtAddressLine5.Text, txtPostCode.Text,
-                        GetFullAddress(), txtTele1.Text, txtTele2.Text, txtFax.Text, txtMobile.Text, null, DateTime.Now, null, DateTime.Now, txtTown.Text, txtCounty.Text, txtCountry.Text);
+                        GetFullAddress(), txtTele1.Text, txtTele2.Text, txtFax.Text, txtMobile.Text, 0, DateTime.Now, 0, DateTime.Now, txtTown.Text, txtCounty.Text, txtCountry.Text);
 
                     //insert record in HS
                     /******/
@@ -106,7 +101,7 @@ public partial class pages_CreateAccount : GenericPage
  
                     /******/
                     
-                    EmailUtility.SendAccountCreationEmail(txtEmail.Text, customer.entity_uid,customer.verification_code);
+                    EmailUtility.SendAccountCreationEmail(txtEmail.Text, ieUser.Current.UserUid,ieUser.Current.VerificationCode);
                     Response.Redirect("~/pages/ConfirmMail.aspx");
                 }               
 

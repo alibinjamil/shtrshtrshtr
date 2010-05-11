@@ -125,7 +125,7 @@ public partial class pages_ProductPrices : GenericPage
     {
         if (product != null)
         {
-            return "~/images/Buy_" + product.ProductDS.short_name + ".gif";
+            return "~/images/Buy_" + product.ProductDS.ShortName + ".gif";
         }
         return "";
     }
@@ -146,7 +146,7 @@ public partial class pages_ProductPrices : GenericPage
     {
         if (product != null)
         {
-            return "ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + product.ProductDS.product_id + "&" + WebConstants.Request.VERSION_ID + "=" + versionId; 
+            return "ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + product.ProductDS.ProductId + "&" + WebConstants.Request.VERSION_ID + "=" + versionId; 
         }
         return "#";
     }
@@ -155,7 +155,7 @@ public partial class pages_ProductPrices : GenericPage
     {
         if (product != null)
         {
-            return "ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + product.ProductDS.product_id
+            return "ProductPrices.aspx?" + WebConstants.Request.PRODUCT_ID + "=" + product.ProductDS.ProductId
                 + "&" + WebConstants.Request.VERSION_ID + "=" + versionId
                 + "&" + WebConstants.Request.PRODUCT_DETAIL_ID + "=" + productDetailId;
 

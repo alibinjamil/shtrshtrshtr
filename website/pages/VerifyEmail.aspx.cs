@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
+using SimplicityCommLib;
 
 public partial class pages_VerifyEmail : GenericPage
 {
@@ -18,23 +19,23 @@ public partial class pages_VerifyEmail : GenericPage
     {
         if (Request[WebConstants.Request.USER_UID] != null && Request[WebConstants.Request.VERIFICATION_CODE] != null)
         {
-            CustomerTableAdapters.CustomerTableAdapter customerTA = new CustomerTableAdapters.CustomerTableAdapter();
-            IEnumerator<Customer.CustomerEntityRow> iEnum = customerTA.GetCustomerByUID(Request[WebConstants.Request.USER_UID]).GetEnumerator();
+            CommLibController userOBJ = new CommLibController();
+            IEnumerator<UserSelectByUIDResult> iEnum = userOBJ.GetUserByUID(Request[WebConstants.Request.USER_UID]);
             if (iEnum.MoveNext())
             {
-                string verificationCode = Utility.GetMd5Sum(iEnum.Current.verification_code);
+                string verificationCode = Utility.GetMd5Sum(iEnum.Current.VerificationCode);
                 if (verificationCode.Equals(Request[WebConstants.Request.VERIFICATION_CODE]))
                 {
-                    customerTA.VerifyCustomer(iEnum.Current.entity_id);
+                    userOBJ.VerifyUser(iEnum.Current.UserId.Value);
                     //activate record into HS
-                    UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
-                    IEnumerator ieUser = userTA.GetUserByLogonName(iEnum.Current.email,null).GetEnumerator();
-                    if (ieUser.MoveNext())
-                    {
-                        User.un_co_user_detailsRow user = (User.un_co_user_detailsRow)ieUser.Current;
-                        HSCompanyTableAdapters.HSCompanyTableAdapter coTA = new HSCompanyTableAdapters.HSCompanyTableAdapter();
-                        coTA.UpdateActive(true, user.co_id);
-                    }
+                    //UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
+                    //IEnumerator ieUser = userTA.GetUserByLogonName(iEnum.Current.email,null).GetEnumerator();
+                    //if (ieUser.MoveNext())
+                    //{
+                    //    User.un_co_user_detailsRow user = (User.un_co_user_detailsRow)ieUser.Current;
+                    //    HSCompanyTableAdapters.HSCompanyTableAdapter coTA = new HSCompanyTableAdapters.HSCompanyTableAdapter();
+                    //    coTA.UpdateActive(true, user.co_id);
+                    //}
                     //
                     SetInfoMessage(WebConstants.Messages.Information.ACCOUNT_VERIFIED);
                 }

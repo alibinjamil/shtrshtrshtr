@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LINQSimplicityCommDAL
+namespace SimplicityCommLib
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -22,86 +22,92 @@ namespace LINQSimplicityCommDAL
 	using System;
 	
 	
-	[System.Data.Linq.Mapping.DatabaseAttribute(Name="shoptest")]
-	public partial class Shoptest : System.Data.Linq.DataContext
+	public partial class SimplicityCommDB : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertUn_call_me_page(Un_call_me_page instance);
-    partial void UpdateUn_call_me_page(Un_call_me_page instance);
-    partial void DeleteUn_call_me_page(Un_call_me_page instance);
-    partial void InsertUn_call_me_product(Un_call_me_product instance);
-    partial void UpdateUn_call_me_product(Un_call_me_product instance);
-    partial void DeleteUn_call_me_product(Un_call_me_product instance);
-    partial void InsertUn_email_queue(Un_email_queue instance);
-    partial void UpdateUn_email_queue(Un_email_queue instance);
-    partial void DeleteUn_email_queue(Un_email_queue instance);
-    partial void InsertUn_email_template(Un_email_template instance);
-    partial void UpdateUn_email_template(Un_email_template instance);
-    partial void DeleteUn_email_template(Un_email_template instance);
-    partial void InsertUn_entity_details_core(Un_entity_details_core instance);
-    partial void UpdateUn_entity_details_core(Un_entity_details_core instance);
-    partial void DeleteUn_entity_details_core(Un_entity_details_core instance);
-    partial void InsertUn_entity_details_multi_add(Un_entity_details_multi_add instance);
-    partial void UpdateUn_entity_details_multi_add(Un_entity_details_multi_add instance);
-    partial void DeleteUn_entity_details_multi_add(Un_entity_details_multi_add instance);
-    partial void InsertUn_exchange_rate(Un_exchange_rate instance);
-    partial void UpdateUn_exchange_rate(Un_exchange_rate instance);
-    partial void DeleteUn_exchange_rate(Un_exchange_rate instance);
-    partial void InsertUn_product_detail(Un_product_detail instance);
-    partial void UpdateUn_product_detail(Un_product_detail instance);
-    partial void DeleteUn_product_detail(Un_product_detail instance);
-    partial void InsertUn_product_version(Un_product_version instance);
-    partial void UpdateUn_product_version(Un_product_version instance);
-    partial void DeleteUn_product_version(Un_product_version instance);
-    partial void InsertUn_product_video(Un_product_video instance);
-    partial void UpdateUn_product_video(Un_product_video instance);
-    partial void DeleteUn_product_video(Un_product_video instance);
-    partial void InsertUn_product(Un_product instance);
-    partial void UpdateUn_product(Un_product instance);
-    partial void DeleteUn_product(Un_product instance);
-    partial void InsertUn_setting(Un_setting instance);
-    partial void UpdateUn_setting(Un_setting instance);
-    partial void DeleteUn_setting(Un_setting instance);
-    partial void InsertUn_transaction_detail(Un_transaction_detail instance);
-    partial void UpdateUn_transaction_detail(Un_transaction_detail instance);
-    partial void DeleteUn_transaction_detail(Un_transaction_detail instance);
-    partial void InsertUn_transaction(Un_transaction instance);
-    partial void UpdateUn_transaction(Un_transaction instance);
-    partial void DeleteUn_transaction(Un_transaction instance);
-    partial void InsertUn_wish_list(Un_wish_list instance);
-    partial void UpdateUn_wish_list(Un_wish_list instance);
-    partial void DeleteUn_wish_list(Un_wish_list instance);
+    partial void InsertAddress(Address instance);
+    partial void UpdateAddress(Address instance);
+    partial void DeleteAddress(Address instance);
+    partial void InsertCompany(Company instance);
+    partial void UpdateCompany(Company instance);
+    partial void DeleteCompany(Company instance);
+    partial void InsertProduct(Product instance);
+    partial void UpdateProduct(Product instance);
+    partial void DeleteProduct(Product instance);
+    partial void InsertUserProduct(UserProduct instance);
+    partial void UpdateUserProduct(UserProduct instance);
+    partial void DeleteUserProduct(UserProduct instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
     #endregion
 		
-		public Shoptest(string connection) : 
+		public SimplicityCommDB(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public Shoptest(System.Data.IDbConnection connection) : 
+		public SimplicityCommDB(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public Shoptest(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public SimplicityCommDB(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public Shoptest(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public SimplicityCommDB(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Address> Addresses
+		{
+			get
+			{
+				return this.GetTable<Address>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Company> Companies
+		{
+			get
+			{
+				return this.GetTable<Company>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EmailQueue> EmailQueues
+		{
+			get
+			{
+				return this.GetTable<EmailQueue>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EmailTemplate> EmailTemplates
+		{
+			get
+			{
+				return this.GetTable<EmailTemplate>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Product> Products
+		{
+			get
+			{
+				return this.GetTable<Product>();
+			}
 		}
 		
 		public System.Data.Linq.Table<Session> Sessions
@@ -112,123 +118,11 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		public System.Data.Linq.Table<Un_call_me_page> Un_call_me_pages
+		public System.Data.Linq.Table<UserProduct> UserProducts
 		{
 			get
 			{
-				return this.GetTable<Un_call_me_page>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_call_me_product> Un_call_me_products
-		{
-			get
-			{
-				return this.GetTable<Un_call_me_product>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_email_queue> Un_email_queues
-		{
-			get
-			{
-				return this.GetTable<Un_email_queue>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_email_template> Un_email_templates
-		{
-			get
-			{
-				return this.GetTable<Un_email_template>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_entity_details_core> Un_entity_details_cores
-		{
-			get
-			{
-				return this.GetTable<Un_entity_details_core>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_entity_details_multi_add> Un_entity_details_multi_adds
-		{
-			get
-			{
-				return this.GetTable<Un_entity_details_multi_add>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_exchange_rate> Un_exchange_rates
-		{
-			get
-			{
-				return this.GetTable<Un_exchange_rate>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_product_detail> Un_product_details
-		{
-			get
-			{
-				return this.GetTable<Un_product_detail>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_product_version> Un_product_versions
-		{
-			get
-			{
-				return this.GetTable<Un_product_version>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_product_video> Un_product_videos
-		{
-			get
-			{
-				return this.GetTable<Un_product_video>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_product> Un_products
-		{
-			get
-			{
-				return this.GetTable<Un_product>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_setting> Un_settings
-		{
-			get
-			{
-				return this.GetTable<Un_setting>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_transaction_detail> Un_transaction_details
-		{
-			get
-			{
-				return this.GetTable<Un_transaction_detail>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_transaction> Un_transactions
-		{
-			get
-			{
-				return this.GetTable<Un_transaction>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Un_wish_list> Un_wish_lists
-		{
-			get
-			{
-				return this.GetTable<Un_wish_list>();
+				return this.GetTable<UserProduct>();
 			}
 		}
 		
@@ -240,406 +134,94 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Function(Name="dbo.AddressDelete")]
+		[Function(Name="dbo.AddressInsert")]
 		[return: Parameter(DbType="Int")]
-		public int AddressDelete([Parameter(Name="Original_address_id", DbType="Int")] System.Nullable<int> original_address_id)
+		public int AddressInsert(
+					[Parameter(Name="Flg_Deleted", DbType="Bit")] System.Nullable<bool> flg_Deleted, 
+					[Parameter(Name="CatagoryId", DbType="Int")] System.Nullable<int> catagoryId, 
+					[Parameter(Name="TableId", DbType="Int")] System.Nullable<int> tableId, 
+					[Parameter(Name="FlgSameAsCustomer", DbType="Bit")] System.Nullable<bool> flgSameAsCustomer, 
+					[Parameter(Name="FlgSameAsBilling", DbType="Bit")] System.Nullable<bool> flgSameAsBilling, 
+					[Parameter(Name="MultiAddType", DbType="VarChar(10)")] string multiAddType, 
+					[Parameter(Name="AddressName", DbType="VarChar(255)")] string addressName, 
+					[Parameter(Name="AddressNo", DbType="VarChar(32)")] string addressNo, 
+					[Parameter(Name="AddressLine1", DbType="VarChar(60)")] string addressLine1, 
+					[Parameter(Name="AddressLine2", DbType="VarChar(60)")] string addressLine2, 
+					[Parameter(Name="AddressLine3", DbType="VarChar(60)")] string addressLine3, 
+					[Parameter(Name="AddressLine4", DbType="VarChar(60)")] string addressLine4, 
+					[Parameter(Name="AddressLine5", DbType="VarChar(60)")] string addressLine5, 
+					[Parameter(Name="AddressPostCode", DbType="VarChar(9)")] string addressPostCode, 
+					[Parameter(Name="AddressFull", DbType="VarChar(MAX)")] string addressFull, 
+					[Parameter(Name="Telephone1", DbType="VarChar(30)")] string telephone1, 
+					[Parameter(Name="Telephone2", DbType="VarChar(30)")] string telephone2, 
+					[Parameter(Name="Fax", DbType="VarChar(30)")] string fax, 
+					[Parameter(Name="CellNumber", DbType="VarChar(30)")] string cellNumber, 
+					[Parameter(Name="CreatedBy", DbType="Int")] System.Nullable<int> createdBy, 
+					[Parameter(Name="DateCreated", DbType="DateTime")] System.Nullable<System.DateTime> dateCreated, 
+					[Parameter(Name="LastAmendedBy", DbType="Int")] System.Nullable<int> lastAmendedBy, 
+					[Parameter(Name="DateLastAmended", DbType="DateTime")] System.Nullable<System.DateTime> dateLastAmended, 
+					[Parameter(Name="Town", DbType="VarChar(60)")] string town, 
+					[Parameter(Name="County", DbType="VarChar(60)")] string county, 
+					[Parameter(Name="Country", DbType="VarChar(60)")] string country)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_address_id);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flg_Deleted, catagoryId, tableId, flgSameAsCustomer, flgSameAsBilling, multiAddType, addressName, addressNo, addressLine1, addressLine2, addressLine3, addressLine4, addressLine5, addressPostCode, addressFull, telephone1, telephone2, fax, cellNumber, createdBy, dateCreated, lastAmendedBy, dateLastAmended, town, county, country);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.AddressInsert")]
-		public ISingleResult<AddressInsertResult> AddressInsert(
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_deleted, 
-					[Parameter(DbType="Int")] System.Nullable<int> entity_id, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_same_as_customer, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_same_as_billing, 
-					[Parameter(DbType="VarChar(10)")] string multi_add_type, 
-					[Parameter(DbType="VarChar(255)")] string address_name, 
-					[Parameter(DbType="VarChar(32)")] string address_no, 
-					[Parameter(DbType="VarChar(60)")] string address_line1, 
-					[Parameter(DbType="VarChar(60)")] string address_line2, 
-					[Parameter(DbType="VarChar(60)")] string address_line3, 
-					[Parameter(DbType="VarChar(60)")] string address_line4, 
-					[Parameter(DbType="VarChar(60)")] string address_line5, 
-					[Parameter(DbType="VarChar(9)")] string address_post_code, 
-					[Parameter(DbType="VarChar(MAX)")] string address_full, 
-					[Parameter(DbType="VarChar(30)")] string telephone1, 
-					[Parameter(DbType="VarChar(30)")] string telephone2, 
-					[Parameter(DbType="VarChar(30)")] string fax, 
-					[Parameter(DbType="VarChar(30)")] string cell_number, 
-					[Parameter(DbType="Int")] System.Nullable<int> created_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_created, 
-					[Parameter(DbType="Int")] System.Nullable<int> last_amended_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_last_amended, 
-					[Parameter(DbType="VarChar(60)")] string town, 
-					[Parameter(DbType="VarChar(60)")] string county, 
-					[Parameter(DbType="VarChar(60)")] string country)
+		[Function(Name="dbo.AddressSelectByTableId")]
+		public ISingleResult<AddressSelectByTableIdResult> AddressSelectByTableId([Parameter(Name="CatagoryId", DbType="Int")] System.Nullable<int> catagoryId, [Parameter(Name="TableId", DbType="Int")] System.Nullable<int> tableId)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flg_deleted, entity_id, flg_same_as_customer, flg_same_as_billing, multi_add_type, address_name, address_no, address_line1, address_line2, address_line3, address_line4, address_line5, address_post_code, address_full, telephone1, telephone2, fax, cell_number, created_by, date_created, last_amended_by, date_last_amended, town, county, country);
-			return ((ISingleResult<AddressInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.AddressSelect")]
-		public ISingleResult<AddressSelectResult> AddressSelect([Parameter(DbType="Int")] System.Nullable<int> entity_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), entity_id);
-			return ((ISingleResult<AddressSelectResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), catagoryId, tableId);
+			return ((ISingleResult<AddressSelectByTableIdResult>)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.AddressUpdate")]
 		public ISingleResult<AddressUpdateResult> AddressUpdate(
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_deleted, 
-					[Parameter(DbType="Int")] System.Nullable<int> entity_id, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_same_as_customer, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_same_as_billing, 
-					[Parameter(DbType="VarChar(10)")] string multi_add_type, 
-					[Parameter(DbType="VarChar(255)")] string address_name, 
-					[Parameter(DbType="VarChar(32)")] string address_no, 
-					[Parameter(DbType="VarChar(60)")] string address_line1, 
-					[Parameter(DbType="VarChar(60)")] string address_line2, 
-					[Parameter(DbType="VarChar(60)")] string address_line3, 
-					[Parameter(DbType="VarChar(60)")] string address_line4, 
-					[Parameter(DbType="VarChar(60)")] string address_line5, 
-					[Parameter(DbType="VarChar(9)")] string address_post_code, 
-					[Parameter(DbType="VarChar(MAX)")] string address_full, 
-					[Parameter(DbType="VarChar(30)")] string telephone1, 
-					[Parameter(DbType="VarChar(30)")] string telephone2, 
-					[Parameter(DbType="VarChar(30)")] string fax, 
-					[Parameter(DbType="VarChar(30)")] string cell_number, 
-					[Parameter(DbType="Int")] System.Nullable<int> created_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_created, 
-					[Parameter(DbType="Int")] System.Nullable<int> last_amended_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_last_amended, 
-					[Parameter(DbType="VarChar(60)")] string town, 
-					[Parameter(DbType="VarChar(60)")] string county, 
-					[Parameter(DbType="VarChar(60)")] string country, 
-					[Parameter(Name="Original_address_id", DbType="Int")] System.Nullable<int> original_address_id, 
-					[Parameter(DbType="Int")] System.Nullable<int> address_id)
+					[Parameter(Name="Flg_Deleted", DbType="Bit")] System.Nullable<bool> flg_Deleted, 
+					[Parameter(Name="CatagoryId", DbType="Int")] System.Nullable<int> catagoryId, 
+					[Parameter(Name="TableId", DbType="Int")] System.Nullable<int> tableId, 
+					[Parameter(Name="FlgSameAsCustomer", DbType="Bit")] System.Nullable<bool> flgSameAsCustomer, 
+					[Parameter(Name="FlgSameAsBilling", DbType="Bit")] System.Nullable<bool> flgSameAsBilling, 
+					[Parameter(Name="MultiAddType", DbType="VarChar(10)")] string multiAddType, 
+					[Parameter(Name="AddressName", DbType="VarChar(255)")] string addressName, 
+					[Parameter(Name="AddressNo", DbType="VarChar(32)")] string addressNo, 
+					[Parameter(Name="AddressLine1", DbType="VarChar(60)")] string addressLine1, 
+					[Parameter(Name="AddressLine2", DbType="VarChar(60)")] string addressLine2, 
+					[Parameter(Name="AddressLine3", DbType="VarChar(60)")] string addressLine3, 
+					[Parameter(Name="AddressLine4", DbType="VarChar(60)")] string addressLine4, 
+					[Parameter(Name="AddressLine5", DbType="VarChar(60)")] string addressLine5, 
+					[Parameter(Name="AddressPostCode", DbType="VarChar(9)")] string addressPostCode, 
+					[Parameter(Name="AddressFull", DbType="VarChar(MAX)")] string addressFull, 
+					[Parameter(Name="Telephone1", DbType="VarChar(30)")] string telephone1, 
+					[Parameter(Name="Telephone2", DbType="VarChar(30)")] string telephone2, 
+					[Parameter(Name="Fax", DbType="VarChar(30)")] string fax, 
+					[Parameter(Name="CellNumber", DbType="VarChar(30)")] string cellNumber, 
+					[Parameter(Name="CreatedBy", DbType="Int")] System.Nullable<int> createdBy, 
+					[Parameter(Name="DateCreated", DbType="DateTime")] System.Nullable<System.DateTime> dateCreated, 
+					[Parameter(Name="LastAmendedBy", DbType="Int")] System.Nullable<int> lastAmendedBy, 
+					[Parameter(Name="DateLastAmended", DbType="DateTime")] System.Nullable<System.DateTime> dateLastAmended, 
+					[Parameter(Name="Town", DbType="VarChar(60)")] string town, 
+					[Parameter(Name="County", DbType="VarChar(60)")] string county, 
+					[Parameter(Name="Country", DbType="VarChar(60)")] string country, 
+					[Parameter(Name="Original_AddressId", DbType="Int")] System.Nullable<int> original_AddressId)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flg_deleted, entity_id, flg_same_as_customer, flg_same_as_billing, multi_add_type, address_name, address_no, address_line1, address_line2, address_line3, address_line4, address_line5, address_post_code, address_full, telephone1, telephone2, fax, cell_number, created_by, date_created, last_amended_by, date_last_amended, town, county, country, original_address_id, address_id);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flg_Deleted, catagoryId, tableId, flgSameAsCustomer, flgSameAsBilling, multiAddType, addressName, addressNo, addressLine1, addressLine2, addressLine3, addressLine4, addressLine5, addressPostCode, addressFull, telephone1, telephone2, fax, cellNumber, createdBy, dateCreated, lastAmendedBy, dateLastAmended, town, county, country, original_AddressId);
 			return ((ISingleResult<AddressUpdateResult>)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.CallMeDelete")]
+		[Function(Name="dbo.fn_diagramobjects", IsComposable=true)]
 		[return: Parameter(DbType="Int")]
-		public int CallMeDelete([Parameter(Name="Original_call_me_id", DbType="Int")] System.Nullable<int> original_call_me_id)
+		public System.Nullable<int> Fn_diagramobjects()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_call_me_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CallMeInsert")]
-		public ISingleResult<CallMeInsertResult> CallMeInsert([Parameter(DbType="VarChar(60)")] string name_forename, [Parameter(DbType="VarChar(60)")] string name_surname, [Parameter(DbType="VarChar(30)")] string telephone, [Parameter(DbType="VarChar(30)")] string cell_number, [Parameter(DbType="VarChar(60)")] string email, [Parameter(DbType="VarChar(60)")] string company_name, [Parameter(DbType="VarChar(60)")] string company_website, [Parameter(DbType="VarChar(255)")] string postal_adress, [Parameter(DbType="VarChar(9)")] string postal_code, [Parameter(DbType="VarChar(1000)")] string comments, [Parameter(DbType="Bit")] System.Nullable<bool> flg_view_demo, [Parameter(DbType="Bit")] System.Nullable<bool> flg_receive_mails)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name_forename, name_surname, telephone, cell_number, email, company_name, company_website, postal_adress, postal_code, comments, flg_view_demo, flg_receive_mails);
-			return ((ISingleResult<CallMeInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CallMeProductDelete")]
-		[return: Parameter(DbType="Int")]
-		public int CallMeProductDelete([Parameter(Name="Original_call_me_id", DbType="Int")] System.Nullable<int> original_call_me_id, [Parameter(Name="Original_product_name", DbType="VarChar(100)")] string original_product_name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_call_me_id, original_product_name);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CallMeProductInsert")]
-		public ISingleResult<CallMeProductInsertResult> CallMeProductInsert([Parameter(DbType="Int")] System.Nullable<int> call_me_id, [Parameter(DbType="VarChar(100)")] string product_name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), call_me_id, product_name);
-			return ((ISingleResult<CallMeProductInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CallMeProductSelect")]
-		public ISingleResult<CallMeProductSelectResult> CallMeProductSelect()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<CallMeProductSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CallMeProductUpdate")]
-		public ISingleResult<CallMeProductUpdateResult> CallMeProductUpdate([Parameter(DbType="Int")] System.Nullable<int> call_me_id, [Parameter(DbType="VarChar(100)")] string product_name, [Parameter(Name="Original_call_me_id", DbType="Int")] System.Nullable<int> original_call_me_id, [Parameter(Name="Original_product_name", DbType="VarChar(100)")] string original_product_name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), call_me_id, product_name, original_call_me_id, original_product_name);
-			return ((ISingleResult<CallMeProductUpdateResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CallMeSelect")]
-		public ISingleResult<CallMeSelectResult> CallMeSelect([Parameter(DbType="Bit")] System.Nullable<bool> flg_view_demo)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flg_view_demo);
-			return ((ISingleResult<CallMeSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CallMeUpdate")]
-		public ISingleResult<CallMeUpdateResult> CallMeUpdate([Parameter(DbType="VarChar(60)")] string name_forename, [Parameter(DbType="VarChar(60)")] string name_surname, [Parameter(DbType="VarChar(30)")] string telephone, [Parameter(DbType="VarChar(30)")] string cell_number, [Parameter(DbType="VarChar(60)")] string email, [Parameter(DbType="VarChar(60)")] string company_name, [Parameter(DbType="VarChar(60)")] string company_website, [Parameter(DbType="VarChar(255)")] string postal_adress, [Parameter(DbType="VarChar(9)")] string postal_code, [Parameter(DbType="VarChar(1000)")] string comments, [Parameter(DbType="Bit")] System.Nullable<bool> flg_view_demo, [Parameter(Name="Original_call_me_id", DbType="Int")] System.Nullable<int> original_call_me_id, [Parameter(DbType="Int")] System.Nullable<int> call_me_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name_forename, name_surname, telephone, cell_number, email, company_name, company_website, postal_adress, postal_code, comments, flg_view_demo, original_call_me_id, call_me_id);
-			return ((ISingleResult<CallMeUpdateResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CustomerDelete")]
-		[return: Parameter(DbType="Int")]
-		public int CustomerDelete([Parameter(Name="Original_entity_id", DbType="Int")] System.Nullable<int> original_entity_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_entity_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CustomerInsert")]
-		public ISingleResult<CustomerInsertResult> CustomerInsert(
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_deleted, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_entity_on_hold, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_receive_mails, 
-					[Parameter(DbType="Int")] System.Nullable<int> entity_approved_status, 
-					[Parameter(DbType="Int")] System.Nullable<int> entity_pymt_type, 
-					[Parameter(DbType="VarChar(60)")] string name_long, 
-					[Parameter(DbType="VarChar(7)")] string name_title, 
-					[Parameter(DbType="VarChar(3)")] string name_initials, 
-					[Parameter(DbType="VarChar(60)")] string name_forename, 
-					[Parameter(DbType="VarChar(60)")] string name_surname, 
-					[Parameter(DbType="VarChar(255)")] string name_job_title, 
-					[Parameter(DbType="VarChar(60)")] string email, 
-					[Parameter(DbType="VarChar(50)")] string logon_enable, 
-					[Parameter(DbType="TinyInt")] System.Nullable<byte> enable_reminder_question_id, 
-					[Parameter(DbType="VarChar(50)")] string enable_reminder_custom_question, 
-					[Parameter(DbType="VarChar(50)")] string enable_reminder_question_answer, 
-					[Parameter(DbType="VarChar(200)")] string entity_details, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_verified, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_enabled, 
-					[Parameter(DbType="Int")] System.Nullable<int> login_attempts, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_locked, 
-					[Parameter(DbType="VarChar(255)")] string locked_reason, 
-					[Parameter(DbType="Int")] System.Nullable<int> created_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_created, 
-					[Parameter(DbType="Int")] System.Nullable<int> last_amended_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_last_amended, 
-					[Parameter(DbType="Text")] string entity_type)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flg_deleted, flg_entity_on_hold, flg_receive_mails, entity_approved_status, entity_pymt_type, name_long, name_title, name_initials, name_forename, name_surname, name_job_title, email, logon_enable, enable_reminder_question_id, enable_reminder_custom_question, enable_reminder_question_answer, entity_details, flg_verified, flg_enabled, login_attempts, flg_locked, locked_reason, created_by, date_created, last_amended_by, date_last_amended, entity_type);
-			return ((ISingleResult<CustomerInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CustomerSelect")]
-		public ISingleResult<CustomerSelectResult> CustomerSelect()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<CustomerSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CustomerSelectByEmail")]
-		public ISingleResult<CustomerSelectByEmailResult> CustomerSelectByEmail([Parameter(DbType="VarChar(60)")] string email)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email);
-			return ((ISingleResult<CustomerSelectByEmailResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CustomerSelectById")]
-		public ISingleResult<CustomerSelectByIdResult> CustomerSelectById([Parameter(DbType="Int")] System.Nullable<int> entity_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), entity_id);
-			return ((ISingleResult<CustomerSelectByIdResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CustomerSelectByUID")]
-		public ISingleResult<CustomerSelectByUIDResult> CustomerSelectByUID([Parameter(DbType="Char(36)")] string uid)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uid);
-			return ((ISingleResult<CustomerSelectByUIDResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CustomerUpdate")]
-		public ISingleResult<CustomerUpdateResult> CustomerUpdate(
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_deleted, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_entity_on_hold, 
-					[Parameter(DbType="Int")] System.Nullable<int> entity_approved_status, 
-					[Parameter(DbType="Int")] System.Nullable<int> entity_pymt_type, 
-					[Parameter(DbType="VarChar(60)")] string name_long, 
-					[Parameter(DbType="VarChar(7)")] string name_title, 
-					[Parameter(DbType="VarChar(3)")] string name_initials, 
-					[Parameter(DbType="VarChar(60)")] string name_forename, 
-					[Parameter(DbType="VarChar(60)")] string name_surname, 
-					[Parameter(DbType="VarChar(255)")] string name_job_title, 
-					[Parameter(DbType="VarChar(60)")] string email, 
-					[Parameter(DbType="VarChar(50)")] string logon_enable, 
-					[Parameter(DbType="TinyInt")] System.Nullable<byte> enable_reminder_question_id, 
-					[Parameter(DbType="VarChar(50)")] string enable_reminder_custom_question, 
-					[Parameter(DbType="VarChar(50)")] string enable_reminder_question_answer, 
-					[Parameter(DbType="VarChar(200)")] string entity_details, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_verified, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_enabled, 
-					[Parameter(DbType="Int")] System.Nullable<int> login_attempts, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_locked, 
-					[Parameter(DbType="VarChar(255)")] string locked_reason, 
-					[Parameter(DbType="Int")] System.Nullable<int> created_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_created, 
-					[Parameter(DbType="Int")] System.Nullable<int> last_amended_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_last_amended, 
-					[Parameter(DbType="Text")] string entity_type, 
-					[Parameter(Name="Original_entity_id", DbType="Int")] System.Nullable<int> original_entity_id, 
-					[Parameter(DbType="Int")] System.Nullable<int> entity_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flg_deleted, flg_entity_on_hold, entity_approved_status, entity_pymt_type, name_long, name_title, name_initials, name_forename, name_surname, name_job_title, email, logon_enable, enable_reminder_question_id, enable_reminder_custom_question, enable_reminder_question_answer, entity_details, flg_verified, flg_enabled, login_attempts, flg_locked, locked_reason, created_by, date_created, last_amended_by, date_last_amended, entity_type, original_entity_id, entity_id);
-			return ((ISingleResult<CustomerUpdateResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.CustomerUpdatePassword")]
-		public ISingleResult<CustomerUpdatePasswordResult> CustomerUpdatePassword([Parameter(DbType="VarChar(50)")] string logon_enable, [Parameter(Name="Original_entity_id", DbType="Int")] System.Nullable<int> original_entity_id, [Parameter(DbType="Int")] System.Nullable<int> entity_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), logon_enable, original_entity_id, entity_id);
-			return ((ISingleResult<CustomerUpdatePasswordResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailQueueDelete")]
-		[return: Parameter(DbType="Int")]
-		public int EmailQueueDelete([Parameter(Name="Original_queue_id", DbType="Int")] System.Nullable<int> original_queue_id, [Parameter(Name="Original_log_time", DbType="DateTime")] System.Nullable<System.DateTime> original_log_time, [Parameter(Name="Original_num_of_tries", DbType="TinyInt")] System.Nullable<byte> original_num_of_tries, [Parameter(Name="Original_from_name", DbType="VarChar(200)")] string original_from_name, [Parameter(Name="Original_from_address", DbType="VarChar(200)")] string original_from_address, [Parameter(Name="Original_to_names", DbType="VarChar(200)")] string original_to_names, [Parameter(Name="Original_to_addresses", DbType="VarChar(200)")] string original_to_addresses, [Parameter(Name="Original_subject", DbType="VarChar(200)")] string original_subject, [Parameter(Name="IsNull_sent_time", DbType="Int")] System.Nullable<int> isNull_sent_time, [Parameter(Name="Original_sent_time", DbType="DateTime")] System.Nullable<System.DateTime> original_sent_time)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_queue_id, original_log_time, original_num_of_tries, original_from_name, original_from_address, original_to_names, original_to_addresses, original_subject, isNull_sent_time, original_sent_time);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailQueueInsert")]
-		public ISingleResult<EmailQueueInsertResult> EmailQueueInsert([Parameter(DbType="DateTime")] System.Nullable<System.DateTime> log_time, [Parameter(DbType="TinyInt")] System.Nullable<byte> num_of_tries, [Parameter(DbType="VarChar(200)")] string from_name, [Parameter(DbType="VarChar(200)")] string from_address, [Parameter(DbType="VarChar(200)")] string to_names, [Parameter(DbType="VarChar(200)")] string to_addresses, [Parameter(DbType="VarChar(200)")] string subject, [Parameter(DbType="VarChar(MAX)")] string body, [Parameter(DbType="DateTime")] System.Nullable<System.DateTime> sent_time)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), log_time, num_of_tries, from_name, from_address, to_names, to_addresses, subject, body, sent_time);
-			return ((ISingleResult<EmailQueueInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailQueueSelect")]
-		public ISingleResult<EmailQueueSelectResult> EmailQueueSelect()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<EmailQueueSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailQueueUpdate")]
-		public ISingleResult<EmailQueueUpdateResult> EmailQueueUpdate(
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> log_time, 
-					[Parameter(DbType="TinyInt")] System.Nullable<byte> num_of_tries, 
-					[Parameter(DbType="VarChar(200)")] string from_name, 
-					[Parameter(DbType="VarChar(200)")] string from_address, 
-					[Parameter(DbType="VarChar(200)")] string to_names, 
-					[Parameter(DbType="VarChar(200)")] string to_addresses, 
-					[Parameter(DbType="VarChar(200)")] string subject, 
-					[Parameter(DbType="VarChar(MAX)")] string body, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> sent_time, 
-					[Parameter(Name="Original_queue_id", DbType="Int")] System.Nullable<int> original_queue_id, 
-					[Parameter(Name="Original_log_time", DbType="DateTime")] System.Nullable<System.DateTime> original_log_time, 
-					[Parameter(Name="Original_num_of_tries", DbType="TinyInt")] System.Nullable<byte> original_num_of_tries, 
-					[Parameter(Name="Original_from_name", DbType="VarChar(200)")] string original_from_name, 
-					[Parameter(Name="Original_from_address", DbType="VarChar(200)")] string original_from_address, 
-					[Parameter(Name="Original_to_names", DbType="VarChar(200)")] string original_to_names, 
-					[Parameter(Name="Original_to_addresses", DbType="VarChar(200)")] string original_to_addresses, 
-					[Parameter(Name="Original_subject", DbType="VarChar(200)")] string original_subject, 
-					[Parameter(Name="IsNull_sent_time", DbType="Int")] System.Nullable<int> isNull_sent_time, 
-					[Parameter(Name="Original_sent_time", DbType="DateTime")] System.Nullable<System.DateTime> original_sent_time, 
-					[Parameter(DbType="Int")] System.Nullable<int> queue_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), log_time, num_of_tries, from_name, from_address, to_names, to_addresses, subject, body, sent_time, original_queue_id, original_log_time, original_num_of_tries, original_from_name, original_from_address, original_to_names, original_to_addresses, original_subject, isNull_sent_time, original_sent_time, queue_id);
-			return ((ISingleResult<EmailQueueUpdateResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailQueueUpdateNumOfTries")]
-		[return: Parameter(DbType="Int")]
-		public int EmailQueueUpdateNumOfTries()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailTemplateDelete")]
-		[return: Parameter(DbType="Int")]
-		public int EmailTemplateDelete([Parameter(Name="Original_email_template_id", DbType="Int")] System.Nullable<int> original_email_template_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_email_template_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailTemplateInsert")]
-		public ISingleResult<EmailTemplateInsertResult> EmailTemplateInsert([Parameter(DbType="VarChar(100)")] string name, [Parameter(DbType="VarChar(100)")] string subject, [Parameter(DbType="VarChar(MAX)")] string html)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, subject, html);
-			return ((ISingleResult<EmailTemplateInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailTemplateSelect")]
-		public ISingleResult<EmailTemplateSelectResult> EmailTemplateSelect([Parameter(DbType="VarChar(100)")] string name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name);
-			return ((ISingleResult<EmailTemplateSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.EmailTemplateUpdate")]
-		public ISingleResult<EmailTemplateUpdateResult> EmailTemplateUpdate([Parameter(DbType="VarChar(100)")] string name, [Parameter(DbType="VarChar(100)")] string subject, [Parameter(DbType="VarChar(MAX)")] string html, [Parameter(Name="Original_email_template_id", DbType="Int")] System.Nullable<int> original_email_template_id, [Parameter(DbType="Int")] System.Nullable<int> email_template_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, subject, html, original_email_template_id, email_template_id);
-			return ((ISingleResult<EmailTemplateUpdateResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ExchangeRateSelectByCountryCode")]
-		public ISingleResult<ExchangeRateSelectByCountryCodeResult> ExchangeRateSelectByCountryCode([Parameter(DbType="Char(3)")] string countryCode)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), countryCode);
-			return ((ISingleResult<ExchangeRateSelectByCountryCodeResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.GetVersionPrice", IsComposable=true)]
-		[return: Parameter(DbType="Float")]
-		public System.Nullable<double> GetVersionPrice([Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="Int")] System.Nullable<int> version_id, [Parameter(DbType="Float")] System.Nullable<double> discount)
-		{
-			return ((System.Nullable<double>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id, version_id, discount).ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductDelete")]
-		[return: Parameter(DbType="Int")]
-		public int ProductDelete([Parameter(Name="Original_product_id", DbType="Int")] System.Nullable<int> original_product_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_product_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductDetailDelete")]
-		[return: Parameter(DbType="Int")]
-		public int ProductDetailDelete([Parameter(Name="Original_product_detail_id", DbType="Int")] System.Nullable<int> original_product_detail_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_product_detail_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductDetailInsert")]
-		public ISingleResult<ProductDetailInsertResult> ProductDetailInsert([Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="VarChar(100)")] string product_detail, [Parameter(DbType="Bit")] System.Nullable<bool> mandatory, [Parameter(DbType="Int")] System.Nullable<int> sort_order, [Parameter(DbType="Float")] System.Nullable<double> price)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id, product_detail, mandatory, sort_order, price);
-			return ((ISingleResult<ProductDetailInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductDetailSelect")]
-		public ISingleResult<ProductDetailSelectResult> ProductDetailSelect([Parameter(DbType="Int")] System.Nullable<int> product_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id);
-			return ((ISingleResult<ProductDetailSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductDetailSelectById")]
-		public ISingleResult<ProductDetailSelectByIdResult> ProductDetailSelectById([Parameter(DbType="Int")] System.Nullable<int> product_detail_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_detail_id);
-			return ((ISingleResult<ProductDetailSelectByIdResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductDetailUpdate")]
-		public ISingleResult<ProductDetailUpdateResult> ProductDetailUpdate([Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="VarChar(100)")] string product_detail, [Parameter(DbType="Bit")] System.Nullable<bool> mandatory, [Parameter(DbType="Int")] System.Nullable<int> sort_order, [Parameter(DbType="Float")] System.Nullable<double> price, [Parameter(Name="Original_product_detail_id", DbType="Int")] System.Nullable<int> original_product_detail_id, [Parameter(DbType="Int")] System.Nullable<int> product_detail_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id, product_detail, mandatory, sort_order, price, original_product_detail_id, product_detail_id);
-			return ((ISingleResult<ProductDetailUpdateResult>)(result.ReturnValue));
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
 		}
 		
 		[Function(Name="dbo.ProductInsert")]
-		public ISingleResult<ProductInsertResult> ProductInsert([Parameter(DbType="VarChar(100)")] string name, [Parameter(DbType="VarChar(100)")] string description, [Parameter(DbType="VarChar(20)")] string short_name, [Parameter(DbType="VarChar(200)")] string terms_url)
+		[return: Parameter(DbType="Int")]
+		public int ProductInsert([Parameter(Name="Name", DbType="VarChar(100)")] string name, [Parameter(Name="Description", DbType="VarChar(100)")] string description, [Parameter(Name="ShortName", DbType="VarChar(20)")] string shortName, [Parameter(Name="TermsURL", DbType="VarChar(200)")] string termsURL)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, description, short_name, terms_url);
-			return ((ISingleResult<ProductInsertResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, description, shortName, termsURL);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.ProductSelect")]
@@ -650,89 +232,10 @@ namespace LINQSimplicityCommDAL
 		}
 		
 		[Function(Name="dbo.ProductSelectById")]
-		public ISingleResult<ProductSelectByIdResult> ProductSelectById([Parameter(DbType="Int")] System.Nullable<int> product_id)
+		public ISingleResult<ProductSelectByIdResult> ProductSelectById([Parameter(Name="ProductId", DbType="Int")] System.Nullable<int> productId)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productId);
 			return ((ISingleResult<ProductSelectByIdResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductUpdate")]
-		public ISingleResult<ProductUpdateResult> ProductUpdate([Parameter(DbType="VarChar(100)")] string name, [Parameter(DbType="VarChar(100)")] string description, [Parameter(DbType="VarChar(20)")] string short_name, [Parameter(DbType="VarChar(200)")] string terms_url, [Parameter(Name="Original_product_id", DbType="Int")] System.Nullable<int> original_product_id, [Parameter(DbType="Int")] System.Nullable<int> product_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, description, short_name, terms_url, original_product_id, product_id);
-			return ((ISingleResult<ProductUpdateResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVersionDelete")]
-		[return: Parameter(DbType="Int")]
-		public int ProductVersionDelete([Parameter(Name="Original_version_id", DbType="Int")] System.Nullable<int> original_version_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_version_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVersionInsert")]
-		public ISingleResult<ProductVersionInsertResult> ProductVersionInsert([Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="VarChar(50)")] string name, [Parameter(DbType="TinyInt")] System.Nullable<byte> min_users, [Parameter(DbType="TinyInt")] System.Nullable<byte> min_months, [Parameter(DbType="Float")] System.Nullable<double> discount)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id, name, min_users, min_months, discount);
-			return ((ISingleResult<ProductVersionInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVersionSelect")]
-		public ISingleResult<ProductVersionSelectResult> ProductVersionSelect([Parameter(DbType="Int")] System.Nullable<int> product_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id);
-			return ((ISingleResult<ProductVersionSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVersionSelectById")]
-		public ISingleResult<ProductVersionSelectByIdResult> ProductVersionSelectById([Parameter(DbType="Int")] System.Nullable<int> version_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), version_id);
-			return ((ISingleResult<ProductVersionSelectByIdResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVersionUpdate")]
-		public ISingleResult<ProductVersionUpdateResult> ProductVersionUpdate([Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="VarChar(50)")] string name, [Parameter(DbType="TinyInt")] System.Nullable<byte> min_users, [Parameter(DbType="TinyInt")] System.Nullable<byte> min_months, [Parameter(DbType="Float")] System.Nullable<double> discount, [Parameter(Name="Original_version_id", DbType="Int")] System.Nullable<int> original_version_id, [Parameter(DbType="Int")] System.Nullable<int> version_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id, name, min_users, min_months, discount, original_version_id, version_id);
-			return ((ISingleResult<ProductVersionUpdateResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVideoDelete")]
-		[return: Parameter(DbType="Int")]
-		public int ProductVideoDelete([Parameter(Name="Original_video_id", DbType="Int")] System.Nullable<int> original_video_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_video_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVideoInsert")]
-		public ISingleResult<ProductVideoInsertResult> ProductVideoInsert([Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="VarChar(200)")] string text, [Parameter(DbType="VarChar(200)")] string image, [Parameter(DbType="VarChar(200)")] string url)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id, text, image, url);
-			return ((ISingleResult<ProductVideoInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVideoSelect")]
-		public ISingleResult<ProductVideoSelectResult> ProductVideoSelect([Parameter(DbType="Int")] System.Nullable<int> product_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id);
-			return ((ISingleResult<ProductVideoSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVideoSelectById")]
-		public ISingleResult<ProductVideoSelectByIdResult> ProductVideoSelectById([Parameter(DbType="Int")] System.Nullable<int> video_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), video_id);
-			return ((ISingleResult<ProductVideoSelectByIdResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.ProductVideoUpdate")]
-		public ISingleResult<ProductVideoUpdateResult> ProductVideoUpdate([Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="VarChar(200)")] string text, [Parameter(DbType="VarChar(200)")] string image, [Parameter(DbType="VarChar(200)")] string url, [Parameter(Name="Original_video_id", DbType="Int")] System.Nullable<int> original_video_id, [Parameter(DbType="Int")] System.Nullable<int> video_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_id, text, image, url, original_video_id, video_id);
-			return ((ISingleResult<ProductVideoUpdateResult>)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.SessionInsert")]
@@ -741,6 +244,13 @@ namespace LINQSimplicityCommDAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gUID, userId, startTime, endTime, iP);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[Function(Name="dbo.SessionSelectByGUID")]
+		public ISingleResult<SessionSelectByGUIDResult> SessionSelectByGUID([Parameter(Name="GUID", DbType="VarChar(50)")] string gUID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gUID);
+			return ((ISingleResult<SessionSelectByGUIDResult>)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.SessionSelectByIP")]
@@ -757,124 +267,90 @@ namespace LINQSimplicityCommDAL
 			return ((ISingleResult<SessionSelectByUserIdResult>)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.SettingDelete")]
+		[Function(Name="dbo.sp_alterdiagram")]
 		[return: Parameter(DbType="Int")]
-		public int SettingDelete([Parameter(Name="Original_setting_id", DbType="Int")] System.Nullable<int> original_setting_id)
+		public int Sp_alterdiagram([Parameter(DbType="NVarChar(128)")] string diagramname, [Parameter(DbType="Int")] System.Nullable<int> owner_id, [Parameter(DbType="Int")] System.Nullable<int> version, [Parameter(DbType="VarBinary(MAX)")] System.Data.Linq.Binary definition)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_setting_id);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), diagramname, owner_id, version, definition);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.SettingInsert")]
-		public ISingleResult<SettingInsertResult> SettingInsert([Parameter(DbType="VarChar(50)")] string setting_group, [Parameter(DbType="VarChar(50)")] string setting_key, [Parameter(DbType="VarChar(MAX)")] string setting_value)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setting_group, setting_key, setting_value);
-			return ((ISingleResult<SettingInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.SettingSelect")]
-		public ISingleResult<SettingSelectResult> SettingSelect([Parameter(DbType="VarChar(50)")] string setting_group)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setting_group);
-			return ((ISingleResult<SettingSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.SettingUpdate")]
-		public ISingleResult<SettingUpdateResult> SettingUpdate([Parameter(DbType="VarChar(50)")] string setting_group, [Parameter(DbType="VarChar(50)")] string setting_key, [Parameter(DbType="VarChar(MAX)")] string setting_value, [Parameter(Name="Original_setting_id", DbType="Int")] System.Nullable<int> original_setting_id, [Parameter(DbType="Int")] System.Nullable<int> setting_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), setting_group, setting_key, setting_value, original_setting_id, setting_id);
-			return ((ISingleResult<SettingUpdateResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.TransactionDelete")]
+		[Function(Name="dbo.sp_creatediagram")]
 		[return: Parameter(DbType="Int")]
-		public int TransactionDelete([Parameter(Name="Original_transaction_id", DbType="Int")] System.Nullable<int> original_transaction_id)
+		public int Sp_creatediagram([Parameter(DbType="NVarChar(128)")] string diagramname, [Parameter(DbType="Int")] System.Nullable<int> owner_id, [Parameter(DbType="Int")] System.Nullable<int> version, [Parameter(DbType="VarBinary(MAX)")] System.Data.Linq.Binary definition)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_transaction_id);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), diagramname, owner_id, version, definition);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.TransactionDetailDelete")]
+		[Function(Name="dbo.sp_dropdiagram")]
 		[return: Parameter(DbType="Int")]
-		public int TransactionDetailDelete([Parameter(Name="Original_transaction_detail_id", DbType="Int")] System.Nullable<int> original_transaction_detail_id)
+		public int Sp_dropdiagram([Parameter(DbType="NVarChar(128)")] string diagramname, [Parameter(DbType="Int")] System.Nullable<int> owner_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_transaction_detail_id);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), diagramname, owner_id);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.TransactionDetailInsert")]
-		public ISingleResult<TransactionDetailInsertResult> TransactionDetailInsert([Parameter(DbType="Int")] System.Nullable<int> transaction_id, [Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="VarChar(100)")] string product_name, [Parameter(DbType="Int")] System.Nullable<int> version_id, [Parameter(DbType="VarChar(50)")] string version_name, [Parameter(DbType="Int")] System.Nullable<int> product_detail_id, [Parameter(DbType="VarChar(100)")] string product_detail_name, [Parameter(DbType="Int")] System.Nullable<int> quantity, [Parameter(DbType="Int")] System.Nullable<int> duration, [Parameter(DbType="Float")] System.Nullable<double> price)
+		[Function(Name="dbo.sp_helpdiagramdefinition")]
+		public ISingleResult<Sp_helpdiagramdefinitionResult> Sp_helpdiagramdefinition([Parameter(DbType="NVarChar(128)")] string diagramname, [Parameter(DbType="Int")] System.Nullable<int> owner_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transaction_id, product_id, product_name, version_id, version_name, product_detail_id, product_detail_name, quantity, duration, price);
-			return ((ISingleResult<TransactionDetailInsertResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), diagramname, owner_id);
+			return ((ISingleResult<Sp_helpdiagramdefinitionResult>)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.TransactionDetailSelect")]
-		public ISingleResult<TransactionDetailSelectResult> TransactionDetailSelect()
+		[Function(Name="dbo.sp_helpdiagrams")]
+		public ISingleResult<Sp_helpdiagramsResult> Sp_helpdiagrams([Parameter(DbType="NVarChar(128)")] string diagramname, [Parameter(DbType="Int")] System.Nullable<int> owner_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<TransactionDetailSelectResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), diagramname, owner_id);
+			return ((ISingleResult<Sp_helpdiagramsResult>)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.TransactionDetailUpdate")]
-		public ISingleResult<TransactionDetailUpdateResult> TransactionDetailUpdate([Parameter(DbType="Int")] System.Nullable<int> transaction_id, [Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="VarChar(100)")] string product_name, [Parameter(DbType="Int")] System.Nullable<int> version_id, [Parameter(DbType="VarChar(50)")] string version_name, [Parameter(DbType="Int")] System.Nullable<int> product_detail_id, [Parameter(DbType="VarChar(100)")] string product_detail_name, [Parameter(DbType="Int")] System.Nullable<int> quantity, [Parameter(DbType="Int")] System.Nullable<int> duration, [Parameter(DbType="Float")] System.Nullable<double> price, [Parameter(Name="Original_transaction_detail_id", DbType="Int")] System.Nullable<int> original_transaction_detail_id, [Parameter(DbType="Int")] System.Nullable<int> transaction_detail_id)
+		[Function(Name="dbo.sp_renamediagram")]
+		[return: Parameter(DbType="Int")]
+		public int Sp_renamediagram([Parameter(DbType="NVarChar(128)")] string diagramname, [Parameter(DbType="Int")] System.Nullable<int> owner_id, [Parameter(DbType="NVarChar(128)")] string new_diagramname)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), transaction_id, product_id, product_name, version_id, version_name, product_detail_id, product_detail_name, quantity, duration, price, original_transaction_detail_id, transaction_detail_id);
-			return ((ISingleResult<TransactionDetailUpdateResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), diagramname, owner_id, new_diagramname);
+			return ((int)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.TransactionInsert")]
-		public ISingleResult<TransactionInsertResult> TransactionInsert([Parameter(DbType="Int")] System.Nullable<int> user_id, [Parameter(DbType="Char(3)")] string country_code, [Parameter(DbType="Float")] System.Nullable<double> exchange_rate)
+		[Function(Name="dbo.UpdateSession")]
+		[return: Parameter(DbType="Int")]
+		public int UpdateSession([Parameter(Name="StartTime", DbType="DateTime")] System.Nullable<System.DateTime> startTime, [Parameter(Name="EndTime", DbType="DateTime")] System.Nullable<System.DateTime> endTime, [Parameter(Name="GUID", DbType="VarChar(50)")] string gUID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, country_code, exchange_rate);
-			return ((ISingleResult<TransactionInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.TransactionSelect")]
-		public ISingleResult<TransactionSelectResult> TransactionSelect()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<TransactionSelectResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.TransactionUpdate")]
-		public ISingleResult<TransactionUpdateResult> TransactionUpdate([Parameter(DbType="VarChar(50)")] string gateway_id, [Parameter(DbType="VarChar(100)")] string gw_decision, [Parameter(DbType="Int")] System.Nullable<int> gw_reason_code, [Parameter(DbType="Char(36)")] string transaction_unid)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gateway_id, gw_decision, gw_reason_code, transaction_unid);
-			return ((ISingleResult<TransactionUpdateResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), startTime, endTime, gUID);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[Function(Name="dbo.UserInsert")]
 		public ISingleResult<UserInsertResult> UserInsert(
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_receive_mails, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_deleted, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_entity_on_hold, 
-					[Parameter(Name="User_Approved_Status", DbType="Int")] System.Nullable<int> user_Approved_Status, 
-					[Parameter(Name="User_Pymt_Type", DbType="Int")] System.Nullable<int> user_Pymt_Type, 
-					[Parameter(Name="Name_Long", DbType="VarChar(60)")] string name_Long, 
-					[Parameter(Name="Name_Title", DbType="VarChar(7)")] string name_Title, 
-					[Parameter(Name="Name_Initials", DbType="VarChar(3)")] string name_Initials, 
-					[Parameter(Name="Name_Forename", DbType="VarChar(60)")] string name_Forename, 
-					[Parameter(Name="Name_Surname", DbType="VarChar(60)")] string name_Surname, 
-					[Parameter(Name="Name_Job_Title", DbType="VarChar(255)")] string name_Job_Title, 
+					[Parameter(Name="FlgReceiveMails", DbType="Bit")] System.Nullable<bool> flgReceiveMails, 
+					[Parameter(Name="FlgDeleted", DbType="Bit")] System.Nullable<bool> flgDeleted, 
+					[Parameter(Name="FlgEntityOnHold", DbType="Bit")] System.Nullable<bool> flgEntityOnHold, 
+					[Parameter(Name="UserApprovedStatus", DbType="Int")] System.Nullable<int> userApprovedStatus, 
+					[Parameter(Name="UserPymtType", DbType="Int")] System.Nullable<int> userPymtType, 
+					[Parameter(Name="FullName", DbType="VarChar(60)")] string fullName, 
+					[Parameter(Name="Title", DbType="VarChar(7)")] string title, 
+					[Parameter(Name="Initials", DbType="VarChar(3)")] string initials, 
+					[Parameter(Name="NameForename", DbType="VarChar(60)")] string nameForename, 
+					[Parameter(Name="NameSurname", DbType="VarChar(60)")] string nameSurname, 
+					[Parameter(Name="NameJobTitle", DbType="VarChar(255)")] string nameJobTitle, 
 					[Parameter(Name="Email", DbType="VarChar(60)")] string email, 
-					[Parameter(Name="Logon_Enable", DbType="VarChar(50)")] string logon_Enable, 
+					[Parameter(Name="Password", DbType="VarChar(50)")] string password, 
 					[Parameter(DbType="TinyInt")] System.Nullable<byte> enable_reminder_question_id, 
-					[Parameter(DbType="VarChar(50)")] string enable_reminder_custom_question, 
-					[Parameter(DbType="VarChar(50)")] string enable_reminder_question_answer, 
-					[Parameter(Name="User_details", DbType="VarChar(200)")] string user_details, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_verified, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_enabled, 
-					[Parameter(DbType="Int")] System.Nullable<int> login_attempts, 
-					[Parameter(DbType="Bit")] System.Nullable<bool> flg_locked, 
-					[Parameter(DbType="VarChar(255)")] string locked_reason, 
-					[Parameter(DbType="Int")] System.Nullable<int> created_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_created, 
-					[Parameter(DbType="Int")] System.Nullable<int> last_amended_by, 
-					[Parameter(DbType="DateTime")] System.Nullable<System.DateTime> date_last_amended, 
-					[Parameter(Name="User_Type", DbType="Text")] string user_Type)
+					[Parameter(Name="EnableReminderCustomQuestion", DbType="VarChar(50)")] string enableReminderCustomQuestion, 
+					[Parameter(Name="ReminderQuestionAnswer", DbType="VarChar(50)")] string reminderQuestionAnswer, 
+					[Parameter(Name="FlgVerified", DbType="Bit")] System.Nullable<bool> flgVerified, 
+					[Parameter(Name="FlgEnabled", DbType="Bit")] System.Nullable<bool> flgEnabled, 
+					[Parameter(Name="LoginAttempts", DbType="Int")] System.Nullable<int> loginAttempts, 
+					[Parameter(Name="FlgLocked", DbType="Bit")] System.Nullable<bool> flgLocked, 
+					[Parameter(Name="LockedReason", DbType="VarChar(255)")] string lockedReason, 
+					[Parameter(Name="CreatedBy", DbType="Int")] System.Nullable<int> createdBy, 
+					[Parameter(Name="DateCreated", DbType="DateTime")] System.Nullable<System.DateTime> dateCreated, 
+					[Parameter(Name="LastAmendedBy", DbType="Int")] System.Nullable<int> lastAmendedBy, 
+					[Parameter(Name="DateLastAmended", DbType="DateTime")] System.Nullable<System.DateTime> dateLastAmended, 
+					[Parameter(Name="Role", DbType="VarChar(50)")] string role)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flg_receive_mails, flg_deleted, flg_entity_on_hold, user_Approved_Status, user_Pymt_Type, name_Long, name_Title, name_Initials, name_Forename, name_Surname, name_Job_Title, email, logon_Enable, enable_reminder_question_id, enable_reminder_custom_question, enable_reminder_question_answer, user_details, flg_verified, flg_enabled, login_attempts, flg_locked, locked_reason, created_by, date_created, last_amended_by, date_last_amended, user_Type);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), flgReceiveMails, flgDeleted, flgEntityOnHold, userApprovedStatus, userPymtType, fullName, title, initials, nameForename, nameSurname, nameJobTitle, email, password, enable_reminder_question_id, enableReminderCustomQuestion, reminderQuestionAnswer, flgVerified, flgEnabled, loginAttempts, flgLocked, lockedReason, createdBy, dateCreated, lastAmendedBy, dateLastAmended, role);
 			return ((ISingleResult<UserInsertResult>)(result.ReturnValue));
 		}
 		
@@ -907,61 +383,1506 @@ namespace LINQSimplicityCommDAL
 		}
 		
 		[Function(Name="dbo.UserUpdatePassword")]
-		public ISingleResult<UserUpdatePasswordResult> UserUpdatePassword([Parameter(DbType="VarChar(50)")] string logon_enable, [Parameter(Name="Original_entity_id", DbType="Int")] System.Nullable<int> original_entity_id, [Parameter(DbType="Int")] System.Nullable<int> entity_id)
+		public ISingleResult<UserUpdatePasswordResult> UserUpdatePassword([Parameter(Name="Pass", DbType="VarChar(50)")] string pass, [Parameter(Name="Original_User_id", DbType="Int")] System.Nullable<int> original_User_id, [Parameter(Name="User_id", DbType="Int")] System.Nullable<int> user_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), logon_enable, original_entity_id, entity_id);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pass, original_User_id, user_id);
 			return ((ISingleResult<UserUpdatePasswordResult>)(result.ReturnValue));
 		}
 		
-		[Function(Name="dbo.VerifyCustomer")]
+		[Function(Name="dbo.VerifyUser")]
 		[return: Parameter(DbType="Int")]
-		public int VerifyCustomer([Parameter(DbType="Int")] System.Nullable<int> entity_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), entity_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.WishListDelete")]
-		[return: Parameter(DbType="Int")]
-		public int WishListDelete([Parameter(Name="Original_wish_list_id", DbType="Int")] System.Nullable<int> original_wish_list_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_wish_list_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.WishListForUserByProductId")]
-		public ISingleResult<WishListForUserByProductIdResult> WishListForUserByProductId([Parameter(DbType="Int")] System.Nullable<int> user_id, [Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="Int")] System.Nullable<int> product_detail_id, [Parameter(DbType="Int")] System.Nullable<int> version_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, product_id, product_detail_id, version_id);
-			return ((ISingleResult<WishListForUserByProductIdResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.WishListInsert")]
-		public ISingleResult<WishListInsertResult> WishListInsert([Parameter(DbType="Int")] System.Nullable<int> user_id, [Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="Int")] System.Nullable<int> version_id, [Parameter(DbType="Int")] System.Nullable<int> product_detail_id, [Parameter(DbType="Int")] System.Nullable<int> quantity, [Parameter(DbType="Int")] System.Nullable<int> duration)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, product_id, version_id, product_detail_id, quantity, duration);
-			return ((ISingleResult<WishListInsertResult>)(result.ReturnValue));
-		}
-		
-		[Function(Name="dbo.WishListSelect")]
-		public ISingleResult<WishListSelectResult> WishListSelect([Parameter(DbType="Int")] System.Nullable<int> user_id)
+		public int VerifyUser([Parameter(DbType="Int")] System.Nullable<int> user_id)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id);
-			return ((ISingleResult<WishListSelectResult>)(result.ReturnValue));
+			return ((int)(result.ReturnValue));
+		}
+	}
+	
+	[Table(Name="dbo.Address")]
+	public partial class Address : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AddressId;
+		
+		private bool _Flg_Deleted;
+		
+		private int _CatagoryId;
+		
+		private System.Nullable<int> _TableId;
+		
+		private bool _FlgSameAsCustomer;
+		
+		private bool _FlgSameAsBilling;
+		
+		private string _MultiAddType;
+		
+		private string _AddressName;
+		
+		private string _AddressNo;
+		
+		private string _AddressLine1;
+		
+		private string _AddressLine2;
+		
+		private string _AddressLine3;
+		
+		private string _AddressLine4;
+		
+		private string _AddressLine5;
+		
+		private string _AddressPostCode;
+		
+		private string _AddressFull;
+		
+		private string _Telephone1;
+		
+		private string _Telephone2;
+		
+		private string _Fax;
+		
+		private string _CellNumber;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.DateTime _DateCreated;
+		
+		private System.Nullable<int> _LastAmendedBy;
+		
+		private System.Nullable<System.DateTime> _DateLastAmended;
+		
+		private string _Town;
+		
+		private string _County;
+		
+		private string _Country;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAddressIdChanging(int value);
+    partial void OnAddressIdChanged();
+    partial void OnFlg_DeletedChanging(bool value);
+    partial void OnFlg_DeletedChanged();
+    partial void OnCatagoryIdChanging(int value);
+    partial void OnCatagoryIdChanged();
+    partial void OnTableIdChanging(System.Nullable<int> value);
+    partial void OnTableIdChanged();
+    partial void OnFlgSameAsCustomerChanging(bool value);
+    partial void OnFlgSameAsCustomerChanged();
+    partial void OnFlgSameAsBillingChanging(bool value);
+    partial void OnFlgSameAsBillingChanged();
+    partial void OnMultiAddTypeChanging(string value);
+    partial void OnMultiAddTypeChanged();
+    partial void OnAddressNameChanging(string value);
+    partial void OnAddressNameChanged();
+    partial void OnAddressNoChanging(string value);
+    partial void OnAddressNoChanged();
+    partial void OnAddressLine1Changing(string value);
+    partial void OnAddressLine1Changed();
+    partial void OnAddressLine2Changing(string value);
+    partial void OnAddressLine2Changed();
+    partial void OnAddressLine3Changing(string value);
+    partial void OnAddressLine3Changed();
+    partial void OnAddressLine4Changing(string value);
+    partial void OnAddressLine4Changed();
+    partial void OnAddressLine5Changing(string value);
+    partial void OnAddressLine5Changed();
+    partial void OnAddressPostCodeChanging(string value);
+    partial void OnAddressPostCodeChanged();
+    partial void OnAddressFullChanging(string value);
+    partial void OnAddressFullChanged();
+    partial void OnTelephone1Changing(string value);
+    partial void OnTelephone1Changed();
+    partial void OnTelephone2Changing(string value);
+    partial void OnTelephone2Changed();
+    partial void OnFaxChanging(string value);
+    partial void OnFaxChanged();
+    partial void OnCellNumberChanging(string value);
+    partial void OnCellNumberChanged();
+    partial void OnCreatedByChanging(System.Nullable<int> value);
+    partial void OnCreatedByChanged();
+    partial void OnDateCreatedChanging(System.DateTime value);
+    partial void OnDateCreatedChanged();
+    partial void OnLastAmendedByChanging(System.Nullable<int> value);
+    partial void OnLastAmendedByChanged();
+    partial void OnDateLastAmendedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateLastAmendedChanged();
+    partial void OnTownChanging(string value);
+    partial void OnTownChanged();
+    partial void OnCountyChanging(string value);
+    partial void OnCountyChanged();
+    partial void OnCountryChanging(string value);
+    partial void OnCountryChanged();
+    #endregion
+		
+		public Address()
+		{
+			OnCreated();
 		}
 		
-		[Function(Name="dbo.WishListSelectById")]
-		public ISingleResult<WishListSelectByIdResult> WishListSelectById([Parameter(DbType="Int")] System.Nullable<int> wish_list_id)
+		[Column(Storage="_AddressId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AddressId
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), wish_list_id);
-			return ((ISingleResult<WishListSelectByIdResult>)(result.ReturnValue));
+			get
+			{
+				return this._AddressId;
+			}
+			set
+			{
+				if ((this._AddressId != value))
+				{
+					this.OnAddressIdChanging(value);
+					this.SendPropertyChanging();
+					this._AddressId = value;
+					this.SendPropertyChanged("AddressId");
+					this.OnAddressIdChanged();
+				}
+			}
 		}
 		
-		[Function(Name="dbo.WishListUpdate")]
-		public ISingleResult<WishListUpdateResult> WishListUpdate([Parameter(DbType="Int")] System.Nullable<int> user_id, [Parameter(DbType="Int")] System.Nullable<int> product_id, [Parameter(DbType="Int")] System.Nullable<int> version_id, [Parameter(DbType="Int")] System.Nullable<int> product_detail_id, [Parameter(DbType="Int")] System.Nullable<int> quantity, [Parameter(DbType="Int")] System.Nullable<int> duration, [Parameter(Name="Original_wish_list_id", DbType="Int")] System.Nullable<int> original_wish_list_id, [Parameter(DbType="Int")] System.Nullable<int> wish_list_id)
+		[Column(Storage="_Flg_Deleted", DbType="Bit NOT NULL")]
+		public bool Flg_Deleted
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), user_id, product_id, version_id, product_detail_id, quantity, duration, original_wish_list_id, wish_list_id);
-			return ((ISingleResult<WishListUpdateResult>)(result.ReturnValue));
+			get
+			{
+				return this._Flg_Deleted;
+			}
+			set
+			{
+				if ((this._Flg_Deleted != value))
+				{
+					this.OnFlg_DeletedChanging(value);
+					this.SendPropertyChanging();
+					this._Flg_Deleted = value;
+					this.SendPropertyChanged("Flg_Deleted");
+					this.OnFlg_DeletedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CatagoryId", DbType="Int NOT NULL")]
+		public int CatagoryId
+		{
+			get
+			{
+				return this._CatagoryId;
+			}
+			set
+			{
+				if ((this._CatagoryId != value))
+				{
+					this.OnCatagoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._CatagoryId = value;
+					this.SendPropertyChanged("CatagoryId");
+					this.OnCatagoryIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_TableId", DbType="Int")]
+		public System.Nullable<int> TableId
+		{
+			get
+			{
+				return this._TableId;
+			}
+			set
+			{
+				if ((this._TableId != value))
+				{
+					this.OnTableIdChanging(value);
+					this.SendPropertyChanging();
+					this._TableId = value;
+					this.SendPropertyChanged("TableId");
+					this.OnTableIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_FlgSameAsCustomer", DbType="Bit NOT NULL")]
+		public bool FlgSameAsCustomer
+		{
+			get
+			{
+				return this._FlgSameAsCustomer;
+			}
+			set
+			{
+				if ((this._FlgSameAsCustomer != value))
+				{
+					this.OnFlgSameAsCustomerChanging(value);
+					this.SendPropertyChanging();
+					this._FlgSameAsCustomer = value;
+					this.SendPropertyChanged("FlgSameAsCustomer");
+					this.OnFlgSameAsCustomerChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_FlgSameAsBilling", DbType="Bit NOT NULL")]
+		public bool FlgSameAsBilling
+		{
+			get
+			{
+				return this._FlgSameAsBilling;
+			}
+			set
+			{
+				if ((this._FlgSameAsBilling != value))
+				{
+					this.OnFlgSameAsBillingChanging(value);
+					this.SendPropertyChanging();
+					this._FlgSameAsBilling = value;
+					this.SendPropertyChanged("FlgSameAsBilling");
+					this.OnFlgSameAsBillingChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MultiAddType", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MultiAddType
+		{
+			get
+			{
+				return this._MultiAddType;
+			}
+			set
+			{
+				if ((this._MultiAddType != value))
+				{
+					this.OnMultiAddTypeChanging(value);
+					this.SendPropertyChanging();
+					this._MultiAddType = value;
+					this.SendPropertyChanged("MultiAddType");
+					this.OnMultiAddTypeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressName", DbType="VarChar(255)")]
+		public string AddressName
+		{
+			get
+			{
+				return this._AddressName;
+			}
+			set
+			{
+				if ((this._AddressName != value))
+				{
+					this.OnAddressNameChanging(value);
+					this.SendPropertyChanging();
+					this._AddressName = value;
+					this.SendPropertyChanged("AddressName");
+					this.OnAddressNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressNo", DbType="VarChar(32)")]
+		public string AddressNo
+		{
+			get
+			{
+				return this._AddressNo;
+			}
+			set
+			{
+				if ((this._AddressNo != value))
+				{
+					this.OnAddressNoChanging(value);
+					this.SendPropertyChanging();
+					this._AddressNo = value;
+					this.SendPropertyChanged("AddressNo");
+					this.OnAddressNoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressLine1", DbType="VarChar(60)")]
+		public string AddressLine1
+		{
+			get
+			{
+				return this._AddressLine1;
+			}
+			set
+			{
+				if ((this._AddressLine1 != value))
+				{
+					this.OnAddressLine1Changing(value);
+					this.SendPropertyChanging();
+					this._AddressLine1 = value;
+					this.SendPropertyChanged("AddressLine1");
+					this.OnAddressLine1Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressLine2", DbType="VarChar(60)")]
+		public string AddressLine2
+		{
+			get
+			{
+				return this._AddressLine2;
+			}
+			set
+			{
+				if ((this._AddressLine2 != value))
+				{
+					this.OnAddressLine2Changing(value);
+					this.SendPropertyChanging();
+					this._AddressLine2 = value;
+					this.SendPropertyChanged("AddressLine2");
+					this.OnAddressLine2Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressLine3", DbType="VarChar(60)")]
+		public string AddressLine3
+		{
+			get
+			{
+				return this._AddressLine3;
+			}
+			set
+			{
+				if ((this._AddressLine3 != value))
+				{
+					this.OnAddressLine3Changing(value);
+					this.SendPropertyChanging();
+					this._AddressLine3 = value;
+					this.SendPropertyChanged("AddressLine3");
+					this.OnAddressLine3Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressLine4", DbType="VarChar(60)")]
+		public string AddressLine4
+		{
+			get
+			{
+				return this._AddressLine4;
+			}
+			set
+			{
+				if ((this._AddressLine4 != value))
+				{
+					this.OnAddressLine4Changing(value);
+					this.SendPropertyChanging();
+					this._AddressLine4 = value;
+					this.SendPropertyChanged("AddressLine4");
+					this.OnAddressLine4Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressLine5", DbType="VarChar(60)")]
+		public string AddressLine5
+		{
+			get
+			{
+				return this._AddressLine5;
+			}
+			set
+			{
+				if ((this._AddressLine5 != value))
+				{
+					this.OnAddressLine5Changing(value);
+					this.SendPropertyChanging();
+					this._AddressLine5 = value;
+					this.SendPropertyChanged("AddressLine5");
+					this.OnAddressLine5Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressPostCode", DbType="VarChar(9)")]
+		public string AddressPostCode
+		{
+			get
+			{
+				return this._AddressPostCode;
+			}
+			set
+			{
+				if ((this._AddressPostCode != value))
+				{
+					this.OnAddressPostCodeChanging(value);
+					this.SendPropertyChanging();
+					this._AddressPostCode = value;
+					this.SendPropertyChanged("AddressPostCode");
+					this.OnAddressPostCodeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_AddressFull", DbType="VarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string AddressFull
+		{
+			get
+			{
+				return this._AddressFull;
+			}
+			set
+			{
+				if ((this._AddressFull != value))
+				{
+					this.OnAddressFullChanging(value);
+					this.SendPropertyChanging();
+					this._AddressFull = value;
+					this.SendPropertyChanged("AddressFull");
+					this.OnAddressFullChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Telephone1", DbType="VarChar(30)")]
+		public string Telephone1
+		{
+			get
+			{
+				return this._Telephone1;
+			}
+			set
+			{
+				if ((this._Telephone1 != value))
+				{
+					this.OnTelephone1Changing(value);
+					this.SendPropertyChanging();
+					this._Telephone1 = value;
+					this.SendPropertyChanged("Telephone1");
+					this.OnTelephone1Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_Telephone2", DbType="VarChar(30)")]
+		public string Telephone2
+		{
+			get
+			{
+				return this._Telephone2;
+			}
+			set
+			{
+				if ((this._Telephone2 != value))
+				{
+					this.OnTelephone2Changing(value);
+					this.SendPropertyChanging();
+					this._Telephone2 = value;
+					this.SendPropertyChanged("Telephone2");
+					this.OnTelephone2Changed();
+				}
+			}
+		}
+		
+		[Column(Storage="_Fax", DbType="VarChar(30)")]
+		public string Fax
+		{
+			get
+			{
+				return this._Fax;
+			}
+			set
+			{
+				if ((this._Fax != value))
+				{
+					this.OnFaxChanging(value);
+					this.SendPropertyChanging();
+					this._Fax = value;
+					this.SendPropertyChanged("Fax");
+					this.OnFaxChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CellNumber", DbType="VarChar(30)")]
+		public string CellNumber
+		{
+			get
+			{
+				return this._CellNumber;
+			}
+			set
+			{
+				if ((this._CellNumber != value))
+				{
+					this.OnCellNumberChanging(value);
+					this.SendPropertyChanging();
+					this._CellNumber = value;
+					this.SendPropertyChanged("CellNumber");
+					this.OnCellNumberChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DateCreated", DbType="DateTime NOT NULL")]
+		public System.DateTime DateCreated
+		{
+			get
+			{
+				return this._DateCreated;
+			}
+			set
+			{
+				if ((this._DateCreated != value))
+				{
+					this.OnDateCreatedChanging(value);
+					this.SendPropertyChanging();
+					this._DateCreated = value;
+					this.SendPropertyChanged("DateCreated");
+					this.OnDateCreatedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
+		{
+			get
+			{
+				return this._LastAmendedBy;
+			}
+			set
+			{
+				if ((this._LastAmendedBy != value))
+				{
+					this.OnLastAmendedByChanging(value);
+					this.SendPropertyChanging();
+					this._LastAmendedBy = value;
+					this.SendPropertyChanged("LastAmendedBy");
+					this.OnLastAmendedByChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
+		{
+			get
+			{
+				return this._DateLastAmended;
+			}
+			set
+			{
+				if ((this._DateLastAmended != value))
+				{
+					this.OnDateLastAmendedChanging(value);
+					this.SendPropertyChanging();
+					this._DateLastAmended = value;
+					this.SendPropertyChanged("DateLastAmended");
+					this.OnDateLastAmendedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Town", DbType="VarChar(60)")]
+		public string Town
+		{
+			get
+			{
+				return this._Town;
+			}
+			set
+			{
+				if ((this._Town != value))
+				{
+					this.OnTownChanging(value);
+					this.SendPropertyChanging();
+					this._Town = value;
+					this.SendPropertyChanged("Town");
+					this.OnTownChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_County", DbType="VarChar(60)")]
+		public string County
+		{
+			get
+			{
+				return this._County;
+			}
+			set
+			{
+				if ((this._County != value))
+				{
+					this.OnCountyChanging(value);
+					this.SendPropertyChanging();
+					this._County = value;
+					this.SendPropertyChanged("County");
+					this.OnCountyChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Country", DbType="VarChar(60)")]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this.OnCountryChanging(value);
+					this.SendPropertyChanging();
+					this._Country = value;
+					this.SendPropertyChanged("Country");
+					this.OnCountryChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.Company")]
+	public partial class Company : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CompanyId;
+		
+		private bool _FlgDeleted;
+		
+		private string _ShortName;
+		
+		private string _FullName;
+		
+		private string _ContactTitle;
+		
+		private string _ContactInitials;
+		
+		private string _ContactForename;
+		
+		private string _ContactSurname;
+		
+		private string _CompanyNotes;
+		
+		private System.Nullable<bool> _FlgSystemLocked;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _DateCreated;
+		
+		private System.Nullable<int> _LastAmenededBy;
+		
+		private System.Nullable<System.DateTime> _DateLastAmended;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCompanyIdChanging(int value);
+    partial void OnCompanyIdChanged();
+    partial void OnFlgDeletedChanging(bool value);
+    partial void OnFlgDeletedChanged();
+    partial void OnShortNameChanging(string value);
+    partial void OnShortNameChanged();
+    partial void OnFullNameChanging(string value);
+    partial void OnFullNameChanged();
+    partial void OnContactTitleChanging(string value);
+    partial void OnContactTitleChanged();
+    partial void OnContactInitialsChanging(string value);
+    partial void OnContactInitialsChanged();
+    partial void OnContactForenameChanging(string value);
+    partial void OnContactForenameChanged();
+    partial void OnContactSurnameChanging(string value);
+    partial void OnContactSurnameChanged();
+    partial void OnCompanyNotesChanging(string value);
+    partial void OnCompanyNotesChanged();
+    partial void OnFlgSystemLockedChanging(System.Nullable<bool> value);
+    partial void OnFlgSystemLockedChanged();
+    partial void OnCreatedByChanging(System.Nullable<int> value);
+    partial void OnCreatedByChanged();
+    partial void OnDateCreatedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateCreatedChanged();
+    partial void OnLastAmenededByChanging(System.Nullable<int> value);
+    partial void OnLastAmenededByChanged();
+    partial void OnDateLastAmendedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateLastAmendedChanged();
+    #endregion
+		
+		public Company()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_CompanyId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int CompanyId
+		{
+			get
+			{
+				return this._CompanyId;
+			}
+			set
+			{
+				if ((this._CompanyId != value))
+				{
+					this.OnCompanyIdChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyId = value;
+					this.SendPropertyChanged("CompanyId");
+					this.OnCompanyIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_FlgDeleted", DbType="Bit NOT NULL")]
+		public bool FlgDeleted
+		{
+			get
+			{
+				return this._FlgDeleted;
+			}
+			set
+			{
+				if ((this._FlgDeleted != value))
+				{
+					this.OnFlgDeletedChanging(value);
+					this.SendPropertyChanging();
+					this._FlgDeleted = value;
+					this.SendPropertyChanged("FlgDeleted");
+					this.OnFlgDeletedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ShortName", DbType="VarChar(16) NOT NULL", CanBeNull=false)]
+		public string ShortName
+		{
+			get
+			{
+				return this._ShortName;
+			}
+			set
+			{
+				if ((this._ShortName != value))
+				{
+					this.OnShortNameChanging(value);
+					this.SendPropertyChanging();
+					this._ShortName = value;
+					this.SendPropertyChanged("ShortName");
+					this.OnShortNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_FullName", DbType="VarChar(60) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this.OnFullNameChanging(value);
+					this.SendPropertyChanging();
+					this._FullName = value;
+					this.SendPropertyChanged("FullName");
+					this.OnFullNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ContactTitle", DbType="VarChar(7)")]
+		public string ContactTitle
+		{
+			get
+			{
+				return this._ContactTitle;
+			}
+			set
+			{
+				if ((this._ContactTitle != value))
+				{
+					this.OnContactTitleChanging(value);
+					this.SendPropertyChanging();
+					this._ContactTitle = value;
+					this.SendPropertyChanged("ContactTitle");
+					this.OnContactTitleChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ContactInitials", DbType="VarChar(3)")]
+		public string ContactInitials
+		{
+			get
+			{
+				return this._ContactInitials;
+			}
+			set
+			{
+				if ((this._ContactInitials != value))
+				{
+					this.OnContactInitialsChanging(value);
+					this.SendPropertyChanging();
+					this._ContactInitials = value;
+					this.SendPropertyChanged("ContactInitials");
+					this.OnContactInitialsChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ContactForename", DbType="VarChar(60)")]
+		public string ContactForename
+		{
+			get
+			{
+				return this._ContactForename;
+			}
+			set
+			{
+				if ((this._ContactForename != value))
+				{
+					this.OnContactForenameChanging(value);
+					this.SendPropertyChanging();
+					this._ContactForename = value;
+					this.SendPropertyChanged("ContactForename");
+					this.OnContactForenameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ContactSurname", DbType="VarChar(60)")]
+		public string ContactSurname
+		{
+			get
+			{
+				return this._ContactSurname;
+			}
+			set
+			{
+				if ((this._ContactSurname != value))
+				{
+					this.OnContactSurnameChanging(value);
+					this.SendPropertyChanging();
+					this._ContactSurname = value;
+					this.SendPropertyChanged("ContactSurname");
+					this.OnContactSurnameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CompanyNotes", DbType="VarChar(1000)")]
+		public string CompanyNotes
+		{
+			get
+			{
+				return this._CompanyNotes;
+			}
+			set
+			{
+				if ((this._CompanyNotes != value))
+				{
+					this.OnCompanyNotesChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyNotes = value;
+					this.SendPropertyChanged("CompanyNotes");
+					this.OnCompanyNotesChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_FlgSystemLocked", DbType="Bit")]
+		public System.Nullable<bool> FlgSystemLocked
+		{
+			get
+			{
+				return this._FlgSystemLocked;
+			}
+			set
+			{
+				if ((this._FlgSystemLocked != value))
+				{
+					this.OnFlgSystemLockedChanging(value);
+					this.SendPropertyChanging();
+					this._FlgSystemLocked = value;
+					this.SendPropertyChanged("FlgSystemLocked");
+					this.OnFlgSystemLockedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
+		{
+			get
+			{
+				return this._DateCreated;
+			}
+			set
+			{
+				if ((this._DateCreated != value))
+				{
+					this.OnDateCreatedChanging(value);
+					this.SendPropertyChanging();
+					this._DateCreated = value;
+					this.SendPropertyChanged("DateCreated");
+					this.OnDateCreatedChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LastAmenededBy", DbType="Int")]
+		public System.Nullable<int> LastAmenededBy
+		{
+			get
+			{
+				return this._LastAmenededBy;
+			}
+			set
+			{
+				if ((this._LastAmenededBy != value))
+				{
+					this.OnLastAmenededByChanging(value);
+					this.SendPropertyChanging();
+					this._LastAmenededBy = value;
+					this.SendPropertyChanged("LastAmenededBy");
+					this.OnLastAmenededByChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
+		{
+			get
+			{
+				return this._DateLastAmended;
+			}
+			set
+			{
+				if ((this._DateLastAmended != value))
+				{
+					this.OnDateLastAmendedChanging(value);
+					this.SendPropertyChanging();
+					this._DateLastAmended = value;
+					this.SendPropertyChanged("DateLastAmended");
+					this.OnDateLastAmendedChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.EmailQueue")]
+	public partial class EmailQueue
+	{
+		
+		private int _Queue_id;
+		
+		private System.DateTime _Log_time;
+		
+		private byte _Num_of_tries;
+		
+		private string _From_name;
+		
+		private string _From_address;
+		
+		private string _To_names;
+		
+		private string _To_addresses;
+		
+		private string _Subject;
+		
+		private string _Body;
+		
+		private System.Nullable<System.DateTime> _Sent_time;
+		
+		public EmailQueue()
+		{
+		}
+		
+		[Column(Name="queue_id", Storage="_Queue_id", DbType="Int NOT NULL")]
+		public int Queue_id
+		{
+			get
+			{
+				return this._Queue_id;
+			}
+			set
+			{
+				if ((this._Queue_id != value))
+				{
+					this._Queue_id = value;
+				}
+			}
+		}
+		
+		[Column(Name="log_time", Storage="_Log_time", DbType="DateTime NOT NULL")]
+		public System.DateTime Log_time
+		{
+			get
+			{
+				return this._Log_time;
+			}
+			set
+			{
+				if ((this._Log_time != value))
+				{
+					this._Log_time = value;
+				}
+			}
+		}
+		
+		[Column(Name="num_of_tries", Storage="_Num_of_tries", DbType="TinyInt NOT NULL")]
+		public byte Num_of_tries
+		{
+			get
+			{
+				return this._Num_of_tries;
+			}
+			set
+			{
+				if ((this._Num_of_tries != value))
+				{
+					this._Num_of_tries = value;
+				}
+			}
+		}
+		
+		[Column(Name="from_name", Storage="_From_name", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string From_name
+		{
+			get
+			{
+				return this._From_name;
+			}
+			set
+			{
+				if ((this._From_name != value))
+				{
+					this._From_name = value;
+				}
+			}
+		}
+		
+		[Column(Name="from_address", Storage="_From_address", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string From_address
+		{
+			get
+			{
+				return this._From_address;
+			}
+			set
+			{
+				if ((this._From_address != value))
+				{
+					this._From_address = value;
+				}
+			}
+		}
+		
+		[Column(Name="to_names", Storage="_To_names", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string To_names
+		{
+			get
+			{
+				return this._To_names;
+			}
+			set
+			{
+				if ((this._To_names != value))
+				{
+					this._To_names = value;
+				}
+			}
+		}
+		
+		[Column(Name="to_addresses", Storage="_To_addresses", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string To_addresses
+		{
+			get
+			{
+				return this._To_addresses;
+			}
+			set
+			{
+				if ((this._To_addresses != value))
+				{
+					this._To_addresses = value;
+				}
+			}
+		}
+		
+		[Column(Name="subject", Storage="_Subject", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string Subject
+		{
+			get
+			{
+				return this._Subject;
+			}
+			set
+			{
+				if ((this._Subject != value))
+				{
+					this._Subject = value;
+				}
+			}
+		}
+		
+		[Column(Name="body", Storage="_Body", DbType="VarChar(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Body
+		{
+			get
+			{
+				return this._Body;
+			}
+			set
+			{
+				if ((this._Body != value))
+				{
+					this._Body = value;
+				}
+			}
+		}
+		
+		[Column(Name="sent_time", Storage="_Sent_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Sent_time
+		{
+			get
+			{
+				return this._Sent_time;
+			}
+			set
+			{
+				if ((this._Sent_time != value))
+				{
+					this._Sent_time = value;
+				}
+			}
+		}
+	}
+	
+	[Table(Name="dbo.EmailTemplates")]
+	public partial class EmailTemplate
+	{
+		
+		private int _Email_template_id;
+		
+		private string _Name;
+		
+		private string _Subject;
+		
+		private string _Html;
+		
+		public EmailTemplate()
+		{
+		}
+		
+		[Column(Name="email_template_id", Storage="_Email_template_id", DbType="Int NOT NULL")]
+		public int Email_template_id
+		{
+			get
+			{
+				return this._Email_template_id;
+			}
+			set
+			{
+				if ((this._Email_template_id != value))
+				{
+					this._Email_template_id = value;
+				}
+			}
+		}
+		
+		[Column(Name="name", Storage="_Name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[Column(Name="subject", Storage="_Subject", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Subject
+		{
+			get
+			{
+				return this._Subject;
+			}
+			set
+			{
+				if ((this._Subject != value))
+				{
+					this._Subject = value;
+				}
+			}
+		}
+		
+		[Column(Name="html", Storage="_Html", DbType="VarChar(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Html
+		{
+			get
+			{
+				return this._Html;
+			}
+			set
+			{
+				if ((this._Html != value))
+				{
+					this._Html = value;
+				}
+			}
+		}
+	}
+	
+	[Table(Name="dbo.Products")]
+	public partial class Product : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProductId;
+		
+		private string _Name;
+		
+		private string _Description;
+		
+		private string _ShortName;
+		
+		private string _TermsURL;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProductIdChanging(int value);
+    partial void OnProductIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnShortNameChanging(string value);
+    partial void OnShortNameChanged();
+    partial void OnTermsURLChanging(string value);
+    partial void OnTermsURLChanged();
+    #endregion
+		
+		public Product()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_ProductId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProductId
+		{
+			get
+			{
+				return this._ProductId;
+			}
+			set
+			{
+				if ((this._ProductId != value))
+				{
+					this.OnProductIdChanging(value);
+					this.SendPropertyChanging();
+					this._ProductId = value;
+					this.SendPropertyChanged("ProductId");
+					this.OnProductIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Description", DbType="VarChar(100)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ShortName", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string ShortName
+		{
+			get
+			{
+				return this._ShortName;
+			}
+			set
+			{
+				if ((this._ShortName != value))
+				{
+					this.OnShortNameChanging(value);
+					this.SendPropertyChanging();
+					this._ShortName = value;
+					this.SendPropertyChanged("ShortName");
+					this.OnShortNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_TermsURL", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string TermsURL
+		{
+			get
+			{
+				return this._TermsURL;
+			}
+			set
+			{
+				if ((this._TermsURL != value))
+				{
+					this.OnTermsURLChanging(value);
+					this.SendPropertyChanging();
+					this._TermsURL = value;
+					this.SendPropertyChanged("TermsURL");
+					this.OnTermsURLChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -1064,4503 +1985,91 @@ namespace LINQSimplicityCommDAL
 		}
 	}
 	
-	[Table(Name="dbo.un_call_me_page")]
-	public partial class Un_call_me_page : INotifyPropertyChanging, INotifyPropertyChanged
+	[Table(Name="dbo.UserProducts")]
+	public partial class UserProduct : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Call_me_id;
+		private int _UserId;
 		
-		private string _Name_forename;
+		private int _ProductId;
 		
-		private string _Name_surname;
-		
-		private string _Telephone;
-		
-		private string _Cell_number;
-		
-		private string _Email;
-		
-		private string _Company_name;
-		
-		private string _Company_website;
-		
-		private string _Postal_adress;
-		
-		private string _Postal_code;
-		
-		private string _Comments;
-		
-		private bool _Flg_view_demo;
-		
-		private System.Nullable<bool> _Flg_receive_emails;
+		private int _CompanyId;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCall_me_idChanging(int value);
-    partial void OnCall_me_idChanged();
-    partial void OnName_forenameChanging(string value);
-    partial void OnName_forenameChanged();
-    partial void OnName_surnameChanging(string value);
-    partial void OnName_surnameChanged();
-    partial void OnTelephoneChanging(string value);
-    partial void OnTelephoneChanged();
-    partial void OnCell_numberChanging(string value);
-    partial void OnCell_numberChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnCompany_nameChanging(string value);
-    partial void OnCompany_nameChanged();
-    partial void OnCompany_websiteChanging(string value);
-    partial void OnCompany_websiteChanged();
-    partial void OnPostal_adressChanging(string value);
-    partial void OnPostal_adressChanged();
-    partial void OnPostal_codeChanging(string value);
-    partial void OnPostal_codeChanged();
-    partial void OnCommentsChanging(string value);
-    partial void OnCommentsChanged();
-    partial void OnFlg_view_demoChanging(bool value);
-    partial void OnFlg_view_demoChanged();
-    partial void OnFlg_receive_emailsChanging(System.Nullable<bool> value);
-    partial void OnFlg_receive_emailsChanged();
+    partial void OnUserIdChanging(int value);
+    partial void OnUserIdChanged();
+    partial void OnProductIdChanging(int value);
+    partial void OnProductIdChanged();
+    partial void OnCompanyIdChanging(int value);
+    partial void OnCompanyIdChanged();
     #endregion
 		
-		public Un_call_me_page()
+		public UserProduct()
 		{
 			OnCreated();
 		}
 		
-		[Column(Name="call_me_id", Storage="_Call_me_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Call_me_id
+		[Column(Storage="_UserId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int UserId
 		{
 			get
 			{
-				return this._Call_me_id;
+				return this._UserId;
 			}
 			set
 			{
-				if ((this._Call_me_id != value))
+				if ((this._UserId != value))
 				{
-					this.OnCall_me_idChanging(value);
+					this.OnUserIdChanging(value);
 					this.SendPropertyChanging();
-					this._Call_me_id = value;
-					this.SendPropertyChanged("Call_me_id");
-					this.OnCall_me_idChanged();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
 				}
 			}
 		}
 		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60) NOT NULL", CanBeNull=false)]
-		public string Name_forename
+		[Column(Storage="_ProductId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ProductId
 		{
 			get
 			{
-				return this._Name_forename;
+				return this._ProductId;
 			}
 			set
 			{
-				if ((this._Name_forename != value))
+				if ((this._ProductId != value))
 				{
-					this.OnName_forenameChanging(value);
+					this.OnProductIdChanging(value);
 					this.SendPropertyChanging();
-					this._Name_forename = value;
-					this.SendPropertyChanged("Name_forename");
-					this.OnName_forenameChanged();
+					this._ProductId = value;
+					this.SendPropertyChanged("ProductId");
+					this.OnProductIdChanged();
 				}
 			}
 		}
 		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60) NOT NULL", CanBeNull=false)]
-		public string Name_surname
+		[Column(Storage="_CompanyId", DbType="Int NOT NULL")]
+		public int CompanyId
 		{
 			get
 			{
-				return this._Name_surname;
+				return this._CompanyId;
 			}
 			set
 			{
-				if ((this._Name_surname != value))
+				if ((this._CompanyId != value))
 				{
-					this.OnName_surnameChanging(value);
+					this.OnCompanyIdChanging(value);
 					this.SendPropertyChanging();
-					this._Name_surname = value;
-					this.SendPropertyChanged("Name_surname");
-					this.OnName_surnameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="telephone", Storage="_Telephone", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Telephone
-		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this.OnTelephoneChanging(value);
-					this.SendPropertyChanging();
-					this._Telephone = value;
-					this.SendPropertyChanged("Telephone");
-					this.OnTelephoneChanged();
-				}
-			}
-		}
-		
-		[Column(Name="cell_number", Storage="_Cell_number", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Cell_number
-		{
-			get
-			{
-				return this._Cell_number;
-			}
-			set
-			{
-				if ((this._Cell_number != value))
-				{
-					this.OnCell_numberChanging(value);
-					this.SendPropertyChanging();
-					this._Cell_number = value;
-					this.SendPropertyChanged("Cell_number");
-					this.OnCell_numberChanged();
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[Column(Name="company_name", Storage="_Company_name", DbType="VarChar(60)")]
-		public string Company_name
-		{
-			get
-			{
-				return this._Company_name;
-			}
-			set
-			{
-				if ((this._Company_name != value))
-				{
-					this.OnCompany_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Company_name = value;
-					this.SendPropertyChanged("Company_name");
-					this.OnCompany_nameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="company_website", Storage="_Company_website", DbType="VarChar(60)")]
-		public string Company_website
-		{
-			get
-			{
-				return this._Company_website;
-			}
-			set
-			{
-				if ((this._Company_website != value))
-				{
-					this.OnCompany_websiteChanging(value);
-					this.SendPropertyChanging();
-					this._Company_website = value;
-					this.SendPropertyChanged("Company_website");
-					this.OnCompany_websiteChanged();
-				}
-			}
-		}
-		
-		[Column(Name="postal_adress", Storage="_Postal_adress", DbType="VarChar(255)")]
-		public string Postal_adress
-		{
-			get
-			{
-				return this._Postal_adress;
-			}
-			set
-			{
-				if ((this._Postal_adress != value))
-				{
-					this.OnPostal_adressChanging(value);
-					this.SendPropertyChanging();
-					this._Postal_adress = value;
-					this.SendPropertyChanged("Postal_adress");
-					this.OnPostal_adressChanged();
-				}
-			}
-		}
-		
-		[Column(Name="postal_code", Storage="_Postal_code", DbType="VarChar(9)")]
-		public string Postal_code
-		{
-			get
-			{
-				return this._Postal_code;
-			}
-			set
-			{
-				if ((this._Postal_code != value))
-				{
-					this.OnPostal_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Postal_code = value;
-					this.SendPropertyChanged("Postal_code");
-					this.OnPostal_codeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="comments", Storage="_Comments", DbType="VarChar(1000)")]
-		public string Comments
-		{
-			get
-			{
-				return this._Comments;
-			}
-			set
-			{
-				if ((this._Comments != value))
-				{
-					this.OnCommentsChanging(value);
-					this.SendPropertyChanging();
-					this._Comments = value;
-					this.SendPropertyChanged("Comments");
-					this.OnCommentsChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_view_demo", Storage="_Flg_view_demo", DbType="Bit NOT NULL")]
-		public bool Flg_view_demo
-		{
-			get
-			{
-				return this._Flg_view_demo;
-			}
-			set
-			{
-				if ((this._Flg_view_demo != value))
-				{
-					this.OnFlg_view_demoChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_view_demo = value;
-					this.SendPropertyChanged("Flg_view_demo");
-					this.OnFlg_view_demoChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_emails", Storage="_Flg_receive_emails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_emails
-		{
-			get
-			{
-				return this._Flg_receive_emails;
-			}
-			set
-			{
-				if ((this._Flg_receive_emails != value))
-				{
-					this.OnFlg_receive_emailsChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_receive_emails = value;
-					this.SendPropertyChanged("Flg_receive_emails");
-					this.OnFlg_receive_emailsChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_call_me_products")]
-	public partial class Un_call_me_product : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Call_me_id;
-		
-		private string _Product_name;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCall_me_idChanging(int value);
-    partial void OnCall_me_idChanged();
-    partial void OnProduct_nameChanging(string value);
-    partial void OnProduct_nameChanged();
-    #endregion
-		
-		public Un_call_me_product()
-		{
-			OnCreated();
-		}
-		
-		[Column(Name="call_me_id", Storage="_Call_me_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Call_me_id
-		{
-			get
-			{
-				return this._Call_me_id;
-			}
-			set
-			{
-				if ((this._Call_me_id != value))
-				{
-					this.OnCall_me_idChanging(value);
-					this.SendPropertyChanging();
-					this._Call_me_id = value;
-					this.SendPropertyChanged("Call_me_id");
-					this.OnCall_me_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_name", Storage="_Product_name", DbType="VarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this.OnProduct_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Product_name = value;
-					this.SendPropertyChanged("Product_name");
-					this.OnProduct_nameChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_email_queue")]
-	public partial class Un_email_queue : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Queue_id;
-		
-		private System.DateTime _Log_time;
-		
-		private byte _Num_of_tries;
-		
-		private string _From_name;
-		
-		private string _From_address;
-		
-		private string _To_names;
-		
-		private string _To_addresses;
-		
-		private string _Subject;
-		
-		private string _Body;
-		
-		private System.Nullable<System.DateTime> _Sent_time;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnQueue_idChanging(int value);
-    partial void OnQueue_idChanged();
-    partial void OnLog_timeChanging(System.DateTime value);
-    partial void OnLog_timeChanged();
-    partial void OnNum_of_triesChanging(byte value);
-    partial void OnNum_of_triesChanged();
-    partial void OnFrom_nameChanging(string value);
-    partial void OnFrom_nameChanged();
-    partial void OnFrom_addressChanging(string value);
-    partial void OnFrom_addressChanged();
-    partial void OnTo_namesChanging(string value);
-    partial void OnTo_namesChanged();
-    partial void OnTo_addressesChanging(string value);
-    partial void OnTo_addressesChanged();
-    partial void OnSubjectChanging(string value);
-    partial void OnSubjectChanged();
-    partial void OnBodyChanging(string value);
-    partial void OnBodyChanged();
-    partial void OnSent_timeChanging(System.Nullable<System.DateTime> value);
-    partial void OnSent_timeChanged();
-    #endregion
-		
-		public Un_email_queue()
-		{
-			OnCreated();
-		}
-		
-		[Column(Name="queue_id", Storage="_Queue_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Queue_id
-		{
-			get
-			{
-				return this._Queue_id;
-			}
-			set
-			{
-				if ((this._Queue_id != value))
-				{
-					this.OnQueue_idChanging(value);
-					this.SendPropertyChanging();
-					this._Queue_id = value;
-					this.SendPropertyChanged("Queue_id");
-					this.OnQueue_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="log_time", Storage="_Log_time", DbType="DateTime NOT NULL")]
-		public System.DateTime Log_time
-		{
-			get
-			{
-				return this._Log_time;
-			}
-			set
-			{
-				if ((this._Log_time != value))
-				{
-					this.OnLog_timeChanging(value);
-					this.SendPropertyChanging();
-					this._Log_time = value;
-					this.SendPropertyChanged("Log_time");
-					this.OnLog_timeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="num_of_tries", Storage="_Num_of_tries", DbType="TinyInt NOT NULL")]
-		public byte Num_of_tries
-		{
-			get
-			{
-				return this._Num_of_tries;
-			}
-			set
-			{
-				if ((this._Num_of_tries != value))
-				{
-					this.OnNum_of_triesChanging(value);
-					this.SendPropertyChanging();
-					this._Num_of_tries = value;
-					this.SendPropertyChanged("Num_of_tries");
-					this.OnNum_of_triesChanged();
-				}
-			}
-		}
-		
-		[Column(Name="from_name", Storage="_From_name", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string From_name
-		{
-			get
-			{
-				return this._From_name;
-			}
-			set
-			{
-				if ((this._From_name != value))
-				{
-					this.OnFrom_nameChanging(value);
-					this.SendPropertyChanging();
-					this._From_name = value;
-					this.SendPropertyChanged("From_name");
-					this.OnFrom_nameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="from_address", Storage="_From_address", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string From_address
-		{
-			get
-			{
-				return this._From_address;
-			}
-			set
-			{
-				if ((this._From_address != value))
-				{
-					this.OnFrom_addressChanging(value);
-					this.SendPropertyChanging();
-					this._From_address = value;
-					this.SendPropertyChanged("From_address");
-					this.OnFrom_addressChanged();
-				}
-			}
-		}
-		
-		[Column(Name="to_names", Storage="_To_names", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string To_names
-		{
-			get
-			{
-				return this._To_names;
-			}
-			set
-			{
-				if ((this._To_names != value))
-				{
-					this.OnTo_namesChanging(value);
-					this.SendPropertyChanging();
-					this._To_names = value;
-					this.SendPropertyChanged("To_names");
-					this.OnTo_namesChanged();
-				}
-			}
-		}
-		
-		[Column(Name="to_addresses", Storage="_To_addresses", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string To_addresses
-		{
-			get
-			{
-				return this._To_addresses;
-			}
-			set
-			{
-				if ((this._To_addresses != value))
-				{
-					this.OnTo_addressesChanging(value);
-					this.SendPropertyChanging();
-					this._To_addresses = value;
-					this.SendPropertyChanged("To_addresses");
-					this.OnTo_addressesChanged();
-				}
-			}
-		}
-		
-		[Column(Name="subject", Storage="_Subject", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this.OnSubjectChanging(value);
-					this.SendPropertyChanging();
-					this._Subject = value;
-					this.SendPropertyChanged("Subject");
-					this.OnSubjectChanged();
-				}
-			}
-		}
-		
-		[Column(Name="body", Storage="_Body", DbType="VarChar(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Body
-		{
-			get
-			{
-				return this._Body;
-			}
-			set
-			{
-				if ((this._Body != value))
-				{
-					this.OnBodyChanging(value);
-					this.SendPropertyChanging();
-					this._Body = value;
-					this.SendPropertyChanged("Body");
-					this.OnBodyChanged();
-				}
-			}
-		}
-		
-		[Column(Name="sent_time", Storage="_Sent_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Sent_time
-		{
-			get
-			{
-				return this._Sent_time;
-			}
-			set
-			{
-				if ((this._Sent_time != value))
-				{
-					this.OnSent_timeChanging(value);
-					this.SendPropertyChanging();
-					this._Sent_time = value;
-					this.SendPropertyChanged("Sent_time");
-					this.OnSent_timeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_email_templates")]
-	public partial class Un_email_template : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Email_template_id;
-		
-		private string _Name;
-		
-		private string _Subject;
-		
-		private string _Html;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEmail_template_idChanging(int value);
-    partial void OnEmail_template_idChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnSubjectChanging(string value);
-    partial void OnSubjectChanged();
-    partial void OnHtmlChanging(string value);
-    partial void OnHtmlChanged();
-    #endregion
-		
-		public Un_email_template()
-		{
-			OnCreated();
-		}
-		
-		[Column(Name="email_template_id", Storage="_Email_template_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Email_template_id
-		{
-			get
-			{
-				return this._Email_template_id;
-			}
-			set
-			{
-				if ((this._Email_template_id != value))
-				{
-					this.OnEmail_template_idChanging(value);
-					this.SendPropertyChanging();
-					this._Email_template_id = value;
-					this.SendPropertyChanged("Email_template_id");
-					this.OnEmail_template_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="subject", Storage="_Subject", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this.OnSubjectChanging(value);
-					this.SendPropertyChanging();
-					this._Subject = value;
-					this.SendPropertyChanged("Subject");
-					this.OnSubjectChanged();
-				}
-			}
-		}
-		
-		[Column(Name="html", Storage="_Html", DbType="VarChar(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Html
-		{
-			get
-			{
-				return this._Html;
-			}
-			set
-			{
-				if ((this._Html != value))
-				{
-					this.OnHtmlChanging(value);
-					this.SendPropertyChanging();
-					this._Html = value;
-					this.SendPropertyChanged("Html");
-					this.OnHtmlChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_entity_details_core")]
-	public partial class Un_entity_details_core : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Entity_id;
-		
-		private string _Entity_uid;
-		
-		private string _Verification_code;
-		
-		private bool _Flg_receive_mails;
-		
-		private bool _Flg_deleted;
-		
-		private bool _Flg_entity_on_hold;
-		
-		private System.Nullable<int> _Entity_approved_status;
-		
-		private System.Nullable<int> _Entity_pymt_type;
-		
-		private string _Name_long;
-		
-		private string _Name_title;
-		
-		private string _Name_initials;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Name_job_title;
-		
-		private string _Email;
-		
-		private string _Logon_enable;
-		
-		private System.Nullable<byte> _Enable_reminder_question_id;
-		
-		private string _Enable_reminder_custom_question;
-		
-		private string _Enable_reminder_question_answer;
-		
-		private string _Entity_details;
-		
-		private bool _Flg_verified;
-		
-		private bool _Flg_enabled;
-		
-		private System.Nullable<int> _Login_attempts;
-		
-		private bool _Flg_locked;
-		
-		private string _Locked_reason;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.DateTime _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Entity_type;
-		
-		private EntitySet<Un_transaction> _Un_transactions;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEntity_idChanging(int value);
-    partial void OnEntity_idChanged();
-    partial void OnEntity_uidChanging(string value);
-    partial void OnEntity_uidChanged();
-    partial void OnVerification_codeChanging(string value);
-    partial void OnVerification_codeChanged();
-    partial void OnFlg_receive_mailsChanging(bool value);
-    partial void OnFlg_receive_mailsChanged();
-    partial void OnFlg_deletedChanging(bool value);
-    partial void OnFlg_deletedChanged();
-    partial void OnFlg_entity_on_holdChanging(bool value);
-    partial void OnFlg_entity_on_holdChanged();
-    partial void OnEntity_approved_statusChanging(System.Nullable<int> value);
-    partial void OnEntity_approved_statusChanged();
-    partial void OnEntity_pymt_typeChanging(System.Nullable<int> value);
-    partial void OnEntity_pymt_typeChanged();
-    partial void OnName_longChanging(string value);
-    partial void OnName_longChanged();
-    partial void OnName_titleChanging(string value);
-    partial void OnName_titleChanged();
-    partial void OnName_initialsChanging(string value);
-    partial void OnName_initialsChanged();
-    partial void OnName_forenameChanging(string value);
-    partial void OnName_forenameChanged();
-    partial void OnName_surnameChanging(string value);
-    partial void OnName_surnameChanged();
-    partial void OnName_job_titleChanging(string value);
-    partial void OnName_job_titleChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnLogon_enableChanging(string value);
-    partial void OnLogon_enableChanged();
-    partial void OnEnable_reminder_question_idChanging(System.Nullable<byte> value);
-    partial void OnEnable_reminder_question_idChanged();
-    partial void OnEnable_reminder_custom_questionChanging(string value);
-    partial void OnEnable_reminder_custom_questionChanged();
-    partial void OnEnable_reminder_question_answerChanging(string value);
-    partial void OnEnable_reminder_question_answerChanged();
-    partial void OnEntity_detailsChanging(string value);
-    partial void OnEntity_detailsChanged();
-    partial void OnFlg_verifiedChanging(bool value);
-    partial void OnFlg_verifiedChanged();
-    partial void OnFlg_enabledChanging(bool value);
-    partial void OnFlg_enabledChanged();
-    partial void OnLogin_attemptsChanging(System.Nullable<int> value);
-    partial void OnLogin_attemptsChanged();
-    partial void OnFlg_lockedChanging(bool value);
-    partial void OnFlg_lockedChanged();
-    partial void OnLocked_reasonChanging(string value);
-    partial void OnLocked_reasonChanged();
-    partial void OnCreated_byChanging(System.Nullable<int> value);
-    partial void OnCreated_byChanged();
-    partial void OnDate_createdChanging(System.DateTime value);
-    partial void OnDate_createdChanged();
-    partial void OnLast_amended_byChanging(System.Nullable<int> value);
-    partial void OnLast_amended_byChanged();
-    partial void OnDate_last_amendedChanging(System.Nullable<System.DateTime> value);
-    partial void OnDate_last_amendedChanged();
-    partial void OnEntity_typeChanging(string value);
-    partial void OnEntity_typeChanged();
-    #endregion
-		
-		public Un_entity_details_core()
-		{
-			this._Un_transactions = new EntitySet<Un_transaction>(new Action<Un_transaction>(this.attach_Un_transactions), new Action<Un_transaction>(this.detach_Un_transactions));
-			OnCreated();
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this.OnEntity_idChanging(value);
-					this.SendPropertyChanging();
-					this._Entity_id = value;
-					this.SendPropertyChanged("Entity_id");
-					this.OnEntity_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="entity_uid", Storage="_Entity_uid", DbType="Char(36) NOT NULL", CanBeNull=false)]
-		public string Entity_uid
-		{
-			get
-			{
-				return this._Entity_uid;
-			}
-			set
-			{
-				if ((this._Entity_uid != value))
-				{
-					this.OnEntity_uidChanging(value);
-					this.SendPropertyChanging();
-					this._Entity_uid = value;
-					this.SendPropertyChanged("Entity_uid");
-					this.OnEntity_uidChanged();
-				}
-			}
-		}
-		
-		[Column(Name="verification_code", Storage="_Verification_code", DbType="Char(36)")]
-		public string Verification_code
-		{
-			get
-			{
-				return this._Verification_code;
-			}
-			set
-			{
-				if ((this._Verification_code != value))
-				{
-					this.OnVerification_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Verification_code = value;
-					this.SendPropertyChanged("Verification_code");
-					this.OnVerification_codeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit NOT NULL")]
-		public bool Flg_receive_mails
-		{
-			get
-			{
-				return this._Flg_receive_mails;
-			}
-			set
-			{
-				if ((this._Flg_receive_mails != value))
-				{
-					this.OnFlg_receive_mailsChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_receive_mails = value;
-					this.SendPropertyChanged("Flg_receive_mails");
-					this.OnFlg_receive_mailsChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit NOT NULL")]
-		public bool Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this.OnFlg_deletedChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_deleted = value;
-					this.SendPropertyChanged("Flg_deleted");
-					this.OnFlg_deletedChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit NOT NULL")]
-		public bool Flg_entity_on_hold
-		{
-			get
-			{
-				return this._Flg_entity_on_hold;
-			}
-			set
-			{
-				if ((this._Flg_entity_on_hold != value))
-				{
-					this.OnFlg_entity_on_holdChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_entity_on_hold = value;
-					this.SendPropertyChanged("Flg_entity_on_hold");
-					this.OnFlg_entity_on_holdChanged();
-				}
-			}
-		}
-		
-		[Column(Name="entity_approved_status", Storage="_Entity_approved_status", DbType="Int")]
-		public System.Nullable<int> Entity_approved_status
-		{
-			get
-			{
-				return this._Entity_approved_status;
-			}
-			set
-			{
-				if ((this._Entity_approved_status != value))
-				{
-					this.OnEntity_approved_statusChanging(value);
-					this.SendPropertyChanging();
-					this._Entity_approved_status = value;
-					this.SendPropertyChanged("Entity_approved_status");
-					this.OnEntity_approved_statusChanged();
-				}
-			}
-		}
-		
-		[Column(Name="entity_pymt_type", Storage="_Entity_pymt_type", DbType="Int")]
-		public System.Nullable<int> Entity_pymt_type
-		{
-			get
-			{
-				return this._Entity_pymt_type;
-			}
-			set
-			{
-				if ((this._Entity_pymt_type != value))
-				{
-					this.OnEntity_pymt_typeChanging(value);
-					this.SendPropertyChanging();
-					this._Entity_pymt_type = value;
-					this.SendPropertyChanged("Entity_pymt_type");
-					this.OnEntity_pymt_typeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name_long", Storage="_Name_long", DbType="VarChar(60)")]
-		public string Name_long
-		{
-			get
-			{
-				return this._Name_long;
-			}
-			set
-			{
-				if ((this._Name_long != value))
-				{
-					this.OnName_longChanging(value);
-					this.SendPropertyChanging();
-					this._Name_long = value;
-					this.SendPropertyChanged("Name_long");
-					this.OnName_longChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name_title", Storage="_Name_title", DbType="VarChar(7)")]
-		public string Name_title
-		{
-			get
-			{
-				return this._Name_title;
-			}
-			set
-			{
-				if ((this._Name_title != value))
-				{
-					this.OnName_titleChanging(value);
-					this.SendPropertyChanging();
-					this._Name_title = value;
-					this.SendPropertyChanged("Name_title");
-					this.OnName_titleChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name_initials", Storage="_Name_initials", DbType="VarChar(3)")]
-		public string Name_initials
-		{
-			get
-			{
-				return this._Name_initials;
-			}
-			set
-			{
-				if ((this._Name_initials != value))
-				{
-					this.OnName_initialsChanging(value);
-					this.SendPropertyChanging();
-					this._Name_initials = value;
-					this.SendPropertyChanged("Name_initials");
-					this.OnName_initialsChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this.OnName_forenameChanging(value);
-					this.SendPropertyChanging();
-					this._Name_forename = value;
-					this.SendPropertyChanged("Name_forename");
-					this.OnName_forenameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this.OnName_surnameChanging(value);
-					this.SendPropertyChanging();
-					this._Name_surname = value;
-					this.SendPropertyChanged("Name_surname");
-					this.OnName_surnameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name_job_title", Storage="_Name_job_title", DbType="VarChar(255)")]
-		public string Name_job_title
-		{
-			get
-			{
-				return this._Name_job_title;
-			}
-			set
-			{
-				if ((this._Name_job_title != value))
-				{
-					this.OnName_job_titleChanging(value);
-					this.SendPropertyChanging();
-					this._Name_job_title = value;
-					this.SendPropertyChanged("Name_job_title");
-					this.OnName_job_titleChanged();
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[Column(Name="logon_enable", Storage="_Logon_enable", DbType="VarChar(50)")]
-		public string Logon_enable
-		{
-			get
-			{
-				return this._Logon_enable;
-			}
-			set
-			{
-				if ((this._Logon_enable != value))
-				{
-					this.OnLogon_enableChanging(value);
-					this.SendPropertyChanging();
-					this._Logon_enable = value;
-					this.SendPropertyChanged("Logon_enable");
-					this.OnLogon_enableChanged();
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
-		{
-			get
-			{
-				return this._Enable_reminder_question_id;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_id != value))
-				{
-					this.OnEnable_reminder_question_idChanging(value);
-					this.SendPropertyChanging();
-					this._Enable_reminder_question_id = value;
-					this.SendPropertyChanged("Enable_reminder_question_id");
-					this.OnEnable_reminder_question_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
-		{
-			get
-			{
-				return this._Enable_reminder_custom_question;
-			}
-			set
-			{
-				if ((this._Enable_reminder_custom_question != value))
-				{
-					this.OnEnable_reminder_custom_questionChanging(value);
-					this.SendPropertyChanging();
-					this._Enable_reminder_custom_question = value;
-					this.SendPropertyChanged("Enable_reminder_custom_question");
-					this.OnEnable_reminder_custom_questionChanged();
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
-		{
-			get
-			{
-				return this._Enable_reminder_question_answer;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_answer != value))
-				{
-					this.OnEnable_reminder_question_answerChanging(value);
-					this.SendPropertyChanging();
-					this._Enable_reminder_question_answer = value;
-					this.SendPropertyChanged("Enable_reminder_question_answer");
-					this.OnEnable_reminder_question_answerChanged();
-				}
-			}
-		}
-		
-		[Column(Name="entity_details", Storage="_Entity_details", DbType="VarChar(200)")]
-		public string Entity_details
-		{
-			get
-			{
-				return this._Entity_details;
-			}
-			set
-			{
-				if ((this._Entity_details != value))
-				{
-					this.OnEntity_detailsChanging(value);
-					this.SendPropertyChanging();
-					this._Entity_details = value;
-					this.SendPropertyChanged("Entity_details");
-					this.OnEntity_detailsChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit NOT NULL")]
-		public bool Flg_verified
-		{
-			get
-			{
-				return this._Flg_verified;
-			}
-			set
-			{
-				if ((this._Flg_verified != value))
-				{
-					this.OnFlg_verifiedChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_verified = value;
-					this.SendPropertyChanged("Flg_verified");
-					this.OnFlg_verifiedChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit NOT NULL")]
-		public bool Flg_enabled
-		{
-			get
-			{
-				return this._Flg_enabled;
-			}
-			set
-			{
-				if ((this._Flg_enabled != value))
-				{
-					this.OnFlg_enabledChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_enabled = value;
-					this.SendPropertyChanged("Flg_enabled");
-					this.OnFlg_enabledChanged();
-				}
-			}
-		}
-		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
-		{
-			get
-			{
-				return this._Login_attempts;
-			}
-			set
-			{
-				if ((this._Login_attempts != value))
-				{
-					this.OnLogin_attemptsChanging(value);
-					this.SendPropertyChanging();
-					this._Login_attempts = value;
-					this.SendPropertyChanged("Login_attempts");
-					this.OnLogin_attemptsChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit NOT NULL")]
-		public bool Flg_locked
-		{
-			get
-			{
-				return this._Flg_locked;
-			}
-			set
-			{
-				if ((this._Flg_locked != value))
-				{
-					this.OnFlg_lockedChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_locked = value;
-					this.SendPropertyChanged("Flg_locked");
-					this.OnFlg_lockedChanged();
-				}
-			}
-		}
-		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
-		{
-			get
-			{
-				return this._Locked_reason;
-			}
-			set
-			{
-				if ((this._Locked_reason != value))
-				{
-					this.OnLocked_reasonChanging(value);
-					this.SendPropertyChanging();
-					this._Locked_reason = value;
-					this.SendPropertyChanged("Locked_reason");
-					this.OnLocked_reasonChanged();
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this.OnCreated_byChanging(value);
-					this.SendPropertyChanging();
-					this._Created_by = value;
-					this.SendPropertyChanged("Created_by");
-					this.OnCreated_byChanged();
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime NOT NULL")]
-		public System.DateTime Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this.OnDate_createdChanging(value);
-					this.SendPropertyChanging();
-					this._Date_created = value;
-					this.SendPropertyChanged("Date_created");
-					this.OnDate_createdChanged();
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this.OnLast_amended_byChanging(value);
-					this.SendPropertyChanging();
-					this._Last_amended_by = value;
-					this.SendPropertyChanged("Last_amended_by");
-					this.OnLast_amended_byChanged();
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this.OnDate_last_amendedChanging(value);
-					this.SendPropertyChanging();
-					this._Date_last_amended = value;
-					this.SendPropertyChanged("Date_last_amended");
-					this.OnDate_last_amendedChanged();
-				}
-			}
-		}
-		
-		[Column(Name="entity_type", Storage="_Entity_type", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Entity_type
-		{
-			get
-			{
-				return this._Entity_type;
-			}
-			set
-			{
-				if ((this._Entity_type != value))
-				{
-					this.OnEntity_typeChanging(value);
-					this.SendPropertyChanging();
-					this._Entity_type = value;
-					this.SendPropertyChanged("Entity_type");
-					this.OnEntity_typeChanged();
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_transactions_un_entity_details_core", Storage="_Un_transactions", ThisKey="Entity_id", OtherKey="User_id", DeleteRule="NO ACTION")]
-		public EntitySet<Un_transaction> Un_transactions
-		{
-			get
-			{
-				return this._Un_transactions;
-			}
-			set
-			{
-				this._Un_transactions.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Un_transactions(Un_transaction entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_entity_details_core = this;
-		}
-		
-		private void detach_Un_transactions(Un_transaction entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_entity_details_core = null;
-		}
-	}
-	
-	[Table(Name="dbo.un_entity_details_multi_add")]
-	public partial class Un_entity_details_multi_add : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Address_id;
-		
-		private bool _Flg_deleted;
-		
-		private int _Entity_id;
-		
-		private bool _Flg_same_as_customer;
-		
-		private bool _Flg_same_as_billing;
-		
-		private string _Multi_add_type;
-		
-		private string _Address_name;
-		
-		private string _Address_no;
-		
-		private string _Address_line1;
-		
-		private string _Address_line2;
-		
-		private string _Address_line3;
-		
-		private string _Address_line4;
-		
-		private string _Address_line5;
-		
-		private string _Address_post_code;
-		
-		private string _Address_full;
-		
-		private string _Telephone1;
-		
-		private string _Telephone2;
-		
-		private string _Fax;
-		
-		private string _Cell_number;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.DateTime _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Town;
-		
-		private string _County;
-		
-		private string _Country;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAddress_idChanging(int value);
-    partial void OnAddress_idChanged();
-    partial void OnFlg_deletedChanging(bool value);
-    partial void OnFlg_deletedChanged();
-    partial void OnEntity_idChanging(int value);
-    partial void OnEntity_idChanged();
-    partial void OnFlg_same_as_customerChanging(bool value);
-    partial void OnFlg_same_as_customerChanged();
-    partial void OnFlg_same_as_billingChanging(bool value);
-    partial void OnFlg_same_as_billingChanged();
-    partial void OnMulti_add_typeChanging(string value);
-    partial void OnMulti_add_typeChanged();
-    partial void OnAddress_nameChanging(string value);
-    partial void OnAddress_nameChanged();
-    partial void OnAddress_noChanging(string value);
-    partial void OnAddress_noChanged();
-    partial void OnAddress_line1Changing(string value);
-    partial void OnAddress_line1Changed();
-    partial void OnAddress_line2Changing(string value);
-    partial void OnAddress_line2Changed();
-    partial void OnAddress_line3Changing(string value);
-    partial void OnAddress_line3Changed();
-    partial void OnAddress_line4Changing(string value);
-    partial void OnAddress_line4Changed();
-    partial void OnAddress_line5Changing(string value);
-    partial void OnAddress_line5Changed();
-    partial void OnAddress_post_codeChanging(string value);
-    partial void OnAddress_post_codeChanged();
-    partial void OnAddress_fullChanging(string value);
-    partial void OnAddress_fullChanged();
-    partial void OnTelephone1Changing(string value);
-    partial void OnTelephone1Changed();
-    partial void OnTelephone2Changing(string value);
-    partial void OnTelephone2Changed();
-    partial void OnFaxChanging(string value);
-    partial void OnFaxChanged();
-    partial void OnCell_numberChanging(string value);
-    partial void OnCell_numberChanged();
-    partial void OnCreated_byChanging(System.Nullable<int> value);
-    partial void OnCreated_byChanged();
-    partial void OnDate_createdChanging(System.DateTime value);
-    partial void OnDate_createdChanged();
-    partial void OnLast_amended_byChanging(System.Nullable<int> value);
-    partial void OnLast_amended_byChanged();
-    partial void OnDate_last_amendedChanging(System.Nullable<System.DateTime> value);
-    partial void OnDate_last_amendedChanged();
-    partial void OnTownChanging(string value);
-    partial void OnTownChanged();
-    partial void OnCountyChanging(string value);
-    partial void OnCountyChanged();
-    partial void OnCountryChanging(string value);
-    partial void OnCountryChanged();
-    #endregion
-		
-		public Un_entity_details_multi_add()
-		{
-			OnCreated();
-		}
-		
-		[Column(Name="address_id", Storage="_Address_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Address_id
-		{
-			get
-			{
-				return this._Address_id;
-			}
-			set
-			{
-				if ((this._Address_id != value))
-				{
-					this.OnAddress_idChanging(value);
-					this.SendPropertyChanging();
-					this._Address_id = value;
-					this.SendPropertyChanged("Address_id");
-					this.OnAddress_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit NOT NULL")]
-		public bool Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this.OnFlg_deletedChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_deleted = value;
-					this.SendPropertyChanged("Flg_deleted");
-					this.OnFlg_deletedChanged();
-				}
-			}
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int NOT NULL")]
-		public int Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this.OnEntity_idChanging(value);
-					this.SendPropertyChanging();
-					this._Entity_id = value;
-					this.SendPropertyChanged("Entity_id");
-					this.OnEntity_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_same_as_customer", Storage="_Flg_same_as_customer", DbType="Bit NOT NULL")]
-		public bool Flg_same_as_customer
-		{
-			get
-			{
-				return this._Flg_same_as_customer;
-			}
-			set
-			{
-				if ((this._Flg_same_as_customer != value))
-				{
-					this.OnFlg_same_as_customerChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_same_as_customer = value;
-					this.SendPropertyChanged("Flg_same_as_customer");
-					this.OnFlg_same_as_customerChanged();
-				}
-			}
-		}
-		
-		[Column(Name="flg_same_as_billing", Storage="_Flg_same_as_billing", DbType="Bit NOT NULL")]
-		public bool Flg_same_as_billing
-		{
-			get
-			{
-				return this._Flg_same_as_billing;
-			}
-			set
-			{
-				if ((this._Flg_same_as_billing != value))
-				{
-					this.OnFlg_same_as_billingChanging(value);
-					this.SendPropertyChanging();
-					this._Flg_same_as_billing = value;
-					this.SendPropertyChanged("Flg_same_as_billing");
-					this.OnFlg_same_as_billingChanged();
-				}
-			}
-		}
-		
-		[Column(Name="multi_add_type", Storage="_Multi_add_type", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string Multi_add_type
-		{
-			get
-			{
-				return this._Multi_add_type;
-			}
-			set
-			{
-				if ((this._Multi_add_type != value))
-				{
-					this.OnMulti_add_typeChanging(value);
-					this.SendPropertyChanging();
-					this._Multi_add_type = value;
-					this.SendPropertyChanged("Multi_add_type");
-					this.OnMulti_add_typeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="address_name", Storage="_Address_name", DbType="VarChar(255)")]
-		public string Address_name
-		{
-			get
-			{
-				return this._Address_name;
-			}
-			set
-			{
-				if ((this._Address_name != value))
-				{
-					this.OnAddress_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Address_name = value;
-					this.SendPropertyChanged("Address_name");
-					this.OnAddress_nameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="address_no", Storage="_Address_no", DbType="VarChar(32)")]
-		public string Address_no
-		{
-			get
-			{
-				return this._Address_no;
-			}
-			set
-			{
-				if ((this._Address_no != value))
-				{
-					this.OnAddress_noChanging(value);
-					this.SendPropertyChanging();
-					this._Address_no = value;
-					this.SendPropertyChanged("Address_no");
-					this.OnAddress_noChanged();
-				}
-			}
-		}
-		
-		[Column(Name="address_line1", Storage="_Address_line1", DbType="VarChar(60)")]
-		public string Address_line1
-		{
-			get
-			{
-				return this._Address_line1;
-			}
-			set
-			{
-				if ((this._Address_line1 != value))
-				{
-					this.OnAddress_line1Changing(value);
-					this.SendPropertyChanging();
-					this._Address_line1 = value;
-					this.SendPropertyChanged("Address_line1");
-					this.OnAddress_line1Changed();
-				}
-			}
-		}
-		
-		[Column(Name="address_line2", Storage="_Address_line2", DbType="VarChar(60)")]
-		public string Address_line2
-		{
-			get
-			{
-				return this._Address_line2;
-			}
-			set
-			{
-				if ((this._Address_line2 != value))
-				{
-					this.OnAddress_line2Changing(value);
-					this.SendPropertyChanging();
-					this._Address_line2 = value;
-					this.SendPropertyChanged("Address_line2");
-					this.OnAddress_line2Changed();
-				}
-			}
-		}
-		
-		[Column(Name="address_line3", Storage="_Address_line3", DbType="VarChar(60)")]
-		public string Address_line3
-		{
-			get
-			{
-				return this._Address_line3;
-			}
-			set
-			{
-				if ((this._Address_line3 != value))
-				{
-					this.OnAddress_line3Changing(value);
-					this.SendPropertyChanging();
-					this._Address_line3 = value;
-					this.SendPropertyChanged("Address_line3");
-					this.OnAddress_line3Changed();
-				}
-			}
-		}
-		
-		[Column(Name="address_line4", Storage="_Address_line4", DbType="VarChar(60)")]
-		public string Address_line4
-		{
-			get
-			{
-				return this._Address_line4;
-			}
-			set
-			{
-				if ((this._Address_line4 != value))
-				{
-					this.OnAddress_line4Changing(value);
-					this.SendPropertyChanging();
-					this._Address_line4 = value;
-					this.SendPropertyChanged("Address_line4");
-					this.OnAddress_line4Changed();
-				}
-			}
-		}
-		
-		[Column(Name="address_line5", Storage="_Address_line5", DbType="VarChar(60)")]
-		public string Address_line5
-		{
-			get
-			{
-				return this._Address_line5;
-			}
-			set
-			{
-				if ((this._Address_line5 != value))
-				{
-					this.OnAddress_line5Changing(value);
-					this.SendPropertyChanging();
-					this._Address_line5 = value;
-					this.SendPropertyChanged("Address_line5");
-					this.OnAddress_line5Changed();
-				}
-			}
-		}
-		
-		[Column(Name="address_post_code", Storage="_Address_post_code", DbType="VarChar(9)")]
-		public string Address_post_code
-		{
-			get
-			{
-				return this._Address_post_code;
-			}
-			set
-			{
-				if ((this._Address_post_code != value))
-				{
-					this.OnAddress_post_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Address_post_code = value;
-					this.SendPropertyChanged("Address_post_code");
-					this.OnAddress_post_codeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="address_full", Storage="_Address_full", DbType="VarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public string Address_full
-		{
-			get
-			{
-				return this._Address_full;
-			}
-			set
-			{
-				if ((this._Address_full != value))
-				{
-					this.OnAddress_fullChanging(value);
-					this.SendPropertyChanging();
-					this._Address_full = value;
-					this.SendPropertyChanged("Address_full");
-					this.OnAddress_fullChanged();
-				}
-			}
-		}
-		
-		[Column(Name="telephone1", Storage="_Telephone1", DbType="VarChar(30)")]
-		public string Telephone1
-		{
-			get
-			{
-				return this._Telephone1;
-			}
-			set
-			{
-				if ((this._Telephone1 != value))
-				{
-					this.OnTelephone1Changing(value);
-					this.SendPropertyChanging();
-					this._Telephone1 = value;
-					this.SendPropertyChanged("Telephone1");
-					this.OnTelephone1Changed();
-				}
-			}
-		}
-		
-		[Column(Name="telephone2", Storage="_Telephone2", DbType="VarChar(30)")]
-		public string Telephone2
-		{
-			get
-			{
-				return this._Telephone2;
-			}
-			set
-			{
-				if ((this._Telephone2 != value))
-				{
-					this.OnTelephone2Changing(value);
-					this.SendPropertyChanging();
-					this._Telephone2 = value;
-					this.SendPropertyChanged("Telephone2");
-					this.OnTelephone2Changed();
-				}
-			}
-		}
-		
-		[Column(Name="fax", Storage="_Fax", DbType="VarChar(30)")]
-		public string Fax
-		{
-			get
-			{
-				return this._Fax;
-			}
-			set
-			{
-				if ((this._Fax != value))
-				{
-					this.OnFaxChanging(value);
-					this.SendPropertyChanging();
-					this._Fax = value;
-					this.SendPropertyChanged("Fax");
-					this.OnFaxChanged();
-				}
-			}
-		}
-		
-		[Column(Name="cell_number", Storage="_Cell_number", DbType="VarChar(30)")]
-		public string Cell_number
-		{
-			get
-			{
-				return this._Cell_number;
-			}
-			set
-			{
-				if ((this._Cell_number != value))
-				{
-					this.OnCell_numberChanging(value);
-					this.SendPropertyChanging();
-					this._Cell_number = value;
-					this.SendPropertyChanged("Cell_number");
-					this.OnCell_numberChanged();
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this.OnCreated_byChanging(value);
-					this.SendPropertyChanging();
-					this._Created_by = value;
-					this.SendPropertyChanged("Created_by");
-					this.OnCreated_byChanged();
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime NOT NULL")]
-		public System.DateTime Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this.OnDate_createdChanging(value);
-					this.SendPropertyChanging();
-					this._Date_created = value;
-					this.SendPropertyChanged("Date_created");
-					this.OnDate_createdChanged();
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this.OnLast_amended_byChanging(value);
-					this.SendPropertyChanging();
-					this._Last_amended_by = value;
-					this.SendPropertyChanged("Last_amended_by");
-					this.OnLast_amended_byChanged();
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this.OnDate_last_amendedChanging(value);
-					this.SendPropertyChanging();
-					this._Date_last_amended = value;
-					this.SendPropertyChanged("Date_last_amended");
-					this.OnDate_last_amendedChanged();
-				}
-			}
-		}
-		
-		[Column(Name="town", Storage="_Town", DbType="VarChar(60)")]
-		public string Town
-		{
-			get
-			{
-				return this._Town;
-			}
-			set
-			{
-				if ((this._Town != value))
-				{
-					this.OnTownChanging(value);
-					this.SendPropertyChanging();
-					this._Town = value;
-					this.SendPropertyChanged("Town");
-					this.OnTownChanged();
-				}
-			}
-		}
-		
-		[Column(Name="county", Storage="_County", DbType="VarChar(60)")]
-		public string County
-		{
-			get
-			{
-				return this._County;
-			}
-			set
-			{
-				if ((this._County != value))
-				{
-					this.OnCountyChanging(value);
-					this.SendPropertyChanging();
-					this._County = value;
-					this.SendPropertyChanged("County");
-					this.OnCountyChanged();
-				}
-			}
-		}
-		
-		[Column(Name="country", Storage="_Country", DbType="VarChar(60)")]
-		public string Country
-		{
-			get
-			{
-				return this._Country;
-			}
-			set
-			{
-				if ((this._Country != value))
-				{
-					this.OnCountryChanging(value);
-					this.SendPropertyChanging();
-					this._Country = value;
-					this.SendPropertyChanged("Country");
-					this.OnCountryChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_exchange_rates")]
-	public partial class Un_exchange_rate : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Country_code;
-		
-		private System.DateTime _Rate_time;
-		
-		private double _Exchange_rate;
-		
-		private string _Html_currency_code;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCountry_codeChanging(string value);
-    partial void OnCountry_codeChanged();
-    partial void OnRate_timeChanging(System.DateTime value);
-    partial void OnRate_timeChanged();
-    partial void OnExchange_rateChanging(double value);
-    partial void OnExchange_rateChanged();
-    partial void OnHtml_currency_codeChanging(string value);
-    partial void OnHtml_currency_codeChanged();
-    #endregion
-		
-		public Un_exchange_rate()
-		{
-			OnCreated();
-		}
-		
-		[Column(Name="country_code", Storage="_Country_code", DbType="Char(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Country_code
-		{
-			get
-			{
-				return this._Country_code;
-			}
-			set
-			{
-				if ((this._Country_code != value))
-				{
-					this.OnCountry_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Country_code = value;
-					this.SendPropertyChanged("Country_code");
-					this.OnCountry_codeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="rate_time", Storage="_Rate_time", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
-		public System.DateTime Rate_time
-		{
-			get
-			{
-				return this._Rate_time;
-			}
-			set
-			{
-				if ((this._Rate_time != value))
-				{
-					this.OnRate_timeChanging(value);
-					this.SendPropertyChanging();
-					this._Rate_time = value;
-					this.SendPropertyChanged("Rate_time");
-					this.OnRate_timeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="exchange_rate", Storage="_Exchange_rate", DbType="Float NOT NULL")]
-		public double Exchange_rate
-		{
-			get
-			{
-				return this._Exchange_rate;
-			}
-			set
-			{
-				if ((this._Exchange_rate != value))
-				{
-					this.OnExchange_rateChanging(value);
-					this.SendPropertyChanging();
-					this._Exchange_rate = value;
-					this.SendPropertyChanged("Exchange_rate");
-					this.OnExchange_rateChanged();
-				}
-			}
-		}
-		
-		[Column(Name="html_currency_code", Storage="_Html_currency_code", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string Html_currency_code
-		{
-			get
-			{
-				return this._Html_currency_code;
-			}
-			set
-			{
-				if ((this._Html_currency_code != value))
-				{
-					this.OnHtml_currency_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Html_currency_code = value;
-					this.SendPropertyChanged("Html_currency_code");
-					this.OnHtml_currency_codeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_product_details")]
-	public partial class Un_product_detail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Product_detail_id;
-		
-		private int _Product_id;
-		
-		private string _Product_detail;
-		
-		private bool _Mandatory;
-		
-		private int _Sort_order;
-		
-		private double _Price;
-		
-		private EntityRef<Un_product> _Un_product;
-		
-		private EntitySet<Un_transaction_detail> _Un_transaction_details;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnProduct_detail_idChanging(int value);
-    partial void OnProduct_detail_idChanged();
-    partial void OnProduct_idChanging(int value);
-    partial void OnProduct_idChanged();
-    partial void OnProduct_detailChanging(string value);
-    partial void OnProduct_detailChanged();
-    partial void OnMandatoryChanging(bool value);
-    partial void OnMandatoryChanged();
-    partial void OnSort_orderChanging(int value);
-    partial void OnSort_orderChanged();
-    partial void OnPriceChanging(double value);
-    partial void OnPriceChanged();
-    #endregion
-		
-		public Un_product_detail()
-		{
-			this._Un_product = default(EntityRef<Un_product>);
-			this._Un_transaction_details = new EntitySet<Un_transaction_detail>(new Action<Un_transaction_detail>(this.attach_Un_transaction_details), new Action<Un_transaction_detail>(this.detach_Un_transaction_details));
-			OnCreated();
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this.OnProduct_detail_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_detail_id = value;
-					this.SendPropertyChanged("Product_detail_id");
-					this.OnProduct_detail_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int NOT NULL")]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this.OnProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_id = value;
-					this.SendPropertyChanged("Product_id");
-					this.OnProduct_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_detail", Storage="_Product_detail", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Product_detail
-		{
-			get
-			{
-				return this._Product_detail;
-			}
-			set
-			{
-				if ((this._Product_detail != value))
-				{
-					this.OnProduct_detailChanging(value);
-					this.SendPropertyChanging();
-					this._Product_detail = value;
-					this.SendPropertyChanged("Product_detail");
-					this.OnProduct_detailChanged();
-				}
-			}
-		}
-		
-		[Column(Name="mandatory", Storage="_Mandatory", DbType="Bit NOT NULL")]
-		public bool Mandatory
-		{
-			get
-			{
-				return this._Mandatory;
-			}
-			set
-			{
-				if ((this._Mandatory != value))
-				{
-					this.OnMandatoryChanging(value);
-					this.SendPropertyChanging();
-					this._Mandatory = value;
-					this.SendPropertyChanged("Mandatory");
-					this.OnMandatoryChanged();
-				}
-			}
-		}
-		
-		[Column(Name="sort_order", Storage="_Sort_order", DbType="Int NOT NULL")]
-		public int Sort_order
-		{
-			get
-			{
-				return this._Sort_order;
-			}
-			set
-			{
-				if ((this._Sort_order != value))
-				{
-					this.OnSort_orderChanging(value);
-					this.SendPropertyChanging();
-					this._Sort_order = value;
-					this.SendPropertyChanged("Sort_order");
-					this.OnSort_orderChanged();
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float NOT NULL")]
-		public double Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_product_details_un_products", Storage="_Un_product", ThisKey="Product_id", OtherKey="Product_id", IsForeignKey=true)]
-		public Un_product Un_product
-		{
-			get
-			{
-				return this._Un_product.Entity;
-			}
-			set
-			{
-				Un_product previousValue = this._Un_product.Entity;
-				if (((previousValue != value) 
-							|| (this._Un_product.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Un_product.Entity = null;
-						previousValue.Un_product_details.Remove(this);
-					}
-					this._Un_product.Entity = value;
-					if ((value != null))
-					{
-						value.Un_product_details.Add(this);
-						this._Product_id = value.Product_id;
-					}
-					else
-					{
-						this._Product_id = default(int);
-					}
-					this.SendPropertyChanged("Un_product");
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_transaction_details_un_product_details", Storage="_Un_transaction_details", ThisKey="Product_detail_id", OtherKey="Product_detail_id", DeleteRule="NO ACTION")]
-		public EntitySet<Un_transaction_detail> Un_transaction_details
-		{
-			get
-			{
-				return this._Un_transaction_details;
-			}
-			set
-			{
-				this._Un_transaction_details.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Un_transaction_details(Un_transaction_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product_detail = this;
-		}
-		
-		private void detach_Un_transaction_details(Un_transaction_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product_detail = null;
-		}
-	}
-	
-	[Table(Name="dbo.un_product_versions")]
-	public partial class Un_product_version : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Version_id;
-		
-		private int _Product_id;
-		
-		private string _Name;
-		
-		private byte _Min_users;
-		
-		private System.Nullable<byte> _Min_months;
-		
-		private System.Nullable<double> _Discount;
-		
-		private EntityRef<Un_product> _Un_product;
-		
-		private EntitySet<Un_transaction_detail> _Un_transaction_details;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnVersion_idChanging(int value);
-    partial void OnVersion_idChanged();
-    partial void OnProduct_idChanging(int value);
-    partial void OnProduct_idChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnMin_usersChanging(byte value);
-    partial void OnMin_usersChanged();
-    partial void OnMin_monthsChanging(System.Nullable<byte> value);
-    partial void OnMin_monthsChanged();
-    partial void OnDiscountChanging(System.Nullable<double> value);
-    partial void OnDiscountChanged();
-    #endregion
-		
-		public Un_product_version()
-		{
-			this._Un_product = default(EntityRef<Un_product>);
-			this._Un_transaction_details = new EntitySet<Un_transaction_detail>(new Action<Un_transaction_detail>(this.attach_Un_transaction_details), new Action<Un_transaction_detail>(this.detach_Un_transaction_details));
-			OnCreated();
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this.OnVersion_idChanging(value);
-					this.SendPropertyChanging();
-					this._Version_id = value;
-					this.SendPropertyChanged("Version_id");
-					this.OnVersion_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int NOT NULL")]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this.OnProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_id = value;
-					this.SendPropertyChanged("Product_id");
-					this.OnProduct_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="min_users", Storage="_Min_users", DbType="TinyInt NOT NULL")]
-		public byte Min_users
-		{
-			get
-			{
-				return this._Min_users;
-			}
-			set
-			{
-				if ((this._Min_users != value))
-				{
-					this.OnMin_usersChanging(value);
-					this.SendPropertyChanging();
-					this._Min_users = value;
-					this.SendPropertyChanged("Min_users");
-					this.OnMin_usersChanged();
-				}
-			}
-		}
-		
-		[Column(Name="min_months", Storage="_Min_months", DbType="TinyInt")]
-		public System.Nullable<byte> Min_months
-		{
-			get
-			{
-				return this._Min_months;
-			}
-			set
-			{
-				if ((this._Min_months != value))
-				{
-					this.OnMin_monthsChanging(value);
-					this.SendPropertyChanging();
-					this._Min_months = value;
-					this.SendPropertyChanged("Min_months");
-					this.OnMin_monthsChanged();
-				}
-			}
-		}
-		
-		[Column(Name="discount", Storage="_Discount", DbType="Float")]
-		public System.Nullable<double> Discount
-		{
-			get
-			{
-				return this._Discount;
-			}
-			set
-			{
-				if ((this._Discount != value))
-				{
-					this.OnDiscountChanging(value);
-					this.SendPropertyChanging();
-					this._Discount = value;
-					this.SendPropertyChanged("Discount");
-					this.OnDiscountChanged();
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_product_versions_un_products", Storage="_Un_product", ThisKey="Product_id", OtherKey="Product_id", IsForeignKey=true)]
-		public Un_product Un_product
-		{
-			get
-			{
-				return this._Un_product.Entity;
-			}
-			set
-			{
-				Un_product previousValue = this._Un_product.Entity;
-				if (((previousValue != value) 
-							|| (this._Un_product.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Un_product.Entity = null;
-						previousValue.Un_product_versions.Remove(this);
-					}
-					this._Un_product.Entity = value;
-					if ((value != null))
-					{
-						value.Un_product_versions.Add(this);
-						this._Product_id = value.Product_id;
-					}
-					else
-					{
-						this._Product_id = default(int);
-					}
-					this.SendPropertyChanged("Un_product");
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_transaction_details_un_product_versions", Storage="_Un_transaction_details", ThisKey="Version_id", OtherKey="Version_id", DeleteRule="NO ACTION")]
-		public EntitySet<Un_transaction_detail> Un_transaction_details
-		{
-			get
-			{
-				return this._Un_transaction_details;
-			}
-			set
-			{
-				this._Un_transaction_details.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Un_transaction_details(Un_transaction_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product_version = this;
-		}
-		
-		private void detach_Un_transaction_details(Un_transaction_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product_version = null;
-		}
-	}
-	
-	[Table(Name="dbo.un_product_videos")]
-	public partial class Un_product_video : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Video_id;
-		
-		private int _Product_id;
-		
-		private string _Text;
-		
-		private string _Image;
-		
-		private string _Url;
-		
-		private EntityRef<Un_product> _Un_product;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnVideo_idChanging(int value);
-    partial void OnVideo_idChanged();
-    partial void OnProduct_idChanging(int value);
-    partial void OnProduct_idChanged();
-    partial void OnTextChanging(string value);
-    partial void OnTextChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnUrlChanging(string value);
-    partial void OnUrlChanged();
-    #endregion
-		
-		public Un_product_video()
-		{
-			this._Un_product = default(EntityRef<Un_product>);
-			OnCreated();
-		}
-		
-		[Column(Name="video_id", Storage="_Video_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Video_id
-		{
-			get
-			{
-				return this._Video_id;
-			}
-			set
-			{
-				if ((this._Video_id != value))
-				{
-					this.OnVideo_idChanging(value);
-					this.SendPropertyChanging();
-					this._Video_id = value;
-					this.SendPropertyChanged("Video_id");
-					this.OnVideo_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int NOT NULL")]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this.OnProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_id = value;
-					this.SendPropertyChanged("Product_id");
-					this.OnProduct_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="text", Storage="_Text", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string Text
-		{
-			get
-			{
-				return this._Text;
-			}
-			set
-			{
-				if ((this._Text != value))
-				{
-					this.OnTextChanging(value);
-					this.SendPropertyChanging();
-					this._Text = value;
-					this.SendPropertyChanged("Text");
-					this.OnTextChanged();
-				}
-			}
-		}
-		
-		[Column(Name="image", Storage="_Image", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[Column(Name="url", Storage="_Url", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string Url
-		{
-			get
-			{
-				return this._Url;
-			}
-			set
-			{
-				if ((this._Url != value))
-				{
-					this.OnUrlChanging(value);
-					this.SendPropertyChanging();
-					this._Url = value;
-					this.SendPropertyChanged("Url");
-					this.OnUrlChanged();
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_product_videos_un_products", Storage="_Un_product", ThisKey="Product_id", OtherKey="Product_id", IsForeignKey=true)]
-		public Un_product Un_product
-		{
-			get
-			{
-				return this._Un_product.Entity;
-			}
-			set
-			{
-				Un_product previousValue = this._Un_product.Entity;
-				if (((previousValue != value) 
-							|| (this._Un_product.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Un_product.Entity = null;
-						previousValue.Un_product_videos.Remove(this);
-					}
-					this._Un_product.Entity = value;
-					if ((value != null))
-					{
-						value.Un_product_videos.Add(this);
-						this._Product_id = value.Product_id;
-					}
-					else
-					{
-						this._Product_id = default(int);
-					}
-					this.SendPropertyChanged("Un_product");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_products")]
-	public partial class Un_product : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Product_id;
-		
-		private string _Name;
-		
-		private string _Description;
-		
-		private string _Short_name;
-		
-		private string _Terms_url;
-		
-		private EntitySet<Un_product_detail> _Un_product_details;
-		
-		private EntitySet<Un_product_version> _Un_product_versions;
-		
-		private EntitySet<Un_product_video> _Un_product_videos;
-		
-		private EntitySet<Un_transaction_detail> _Un_transaction_details;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnProduct_idChanging(int value);
-    partial void OnProduct_idChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnShort_nameChanging(string value);
-    partial void OnShort_nameChanged();
-    partial void OnTerms_urlChanging(string value);
-    partial void OnTerms_urlChanged();
-    #endregion
-		
-		public Un_product()
-		{
-			this._Un_product_details = new EntitySet<Un_product_detail>(new Action<Un_product_detail>(this.attach_Un_product_details), new Action<Un_product_detail>(this.detach_Un_product_details));
-			this._Un_product_versions = new EntitySet<Un_product_version>(new Action<Un_product_version>(this.attach_Un_product_versions), new Action<Un_product_version>(this.detach_Un_product_versions));
-			this._Un_product_videos = new EntitySet<Un_product_video>(new Action<Un_product_video>(this.attach_Un_product_videos), new Action<Un_product_video>(this.detach_Un_product_videos));
-			this._Un_transaction_details = new EntitySet<Un_transaction_detail>(new Action<Un_transaction_detail>(this.attach_Un_transaction_details), new Action<Un_transaction_detail>(this.detach_Un_transaction_details));
-			OnCreated();
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this.OnProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_id = value;
-					this.SendPropertyChanged("Product_id");
-					this.OnProduct_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="description", Storage="_Description", DbType="VarChar(100)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[Column(Name="short_name", Storage="_Short_name", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Short_name
-		{
-			get
-			{
-				return this._Short_name;
-			}
-			set
-			{
-				if ((this._Short_name != value))
-				{
-					this.OnShort_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Short_name = value;
-					this.SendPropertyChanged("Short_name");
-					this.OnShort_nameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="terms_url", Storage="_Terms_url", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string Terms_url
-		{
-			get
-			{
-				return this._Terms_url;
-			}
-			set
-			{
-				if ((this._Terms_url != value))
-				{
-					this.OnTerms_urlChanging(value);
-					this.SendPropertyChanging();
-					this._Terms_url = value;
-					this.SendPropertyChanged("Terms_url");
-					this.OnTerms_urlChanged();
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_product_details_un_products", Storage="_Un_product_details", ThisKey="Product_id", OtherKey="Product_id", DeleteRule="NO ACTION")]
-		public EntitySet<Un_product_detail> Un_product_details
-		{
-			get
-			{
-				return this._Un_product_details;
-			}
-			set
-			{
-				this._Un_product_details.Assign(value);
-			}
-		}
-		
-		[Association(Name="FK_un_product_versions_un_products", Storage="_Un_product_versions", ThisKey="Product_id", OtherKey="Product_id", DeleteRule="NO ACTION")]
-		public EntitySet<Un_product_version> Un_product_versions
-		{
-			get
-			{
-				return this._Un_product_versions;
-			}
-			set
-			{
-				this._Un_product_versions.Assign(value);
-			}
-		}
-		
-		[Association(Name="FK_un_product_videos_un_products", Storage="_Un_product_videos", ThisKey="Product_id", OtherKey="Product_id", DeleteRule="NO ACTION")]
-		public EntitySet<Un_product_video> Un_product_videos
-		{
-			get
-			{
-				return this._Un_product_videos;
-			}
-			set
-			{
-				this._Un_product_videos.Assign(value);
-			}
-		}
-		
-		[Association(Name="FK_un_transaction_details_un_products", Storage="_Un_transaction_details", ThisKey="Product_id", OtherKey="Product_id", DeleteRule="NO ACTION")]
-		public EntitySet<Un_transaction_detail> Un_transaction_details
-		{
-			get
-			{
-				return this._Un_transaction_details;
-			}
-			set
-			{
-				this._Un_transaction_details.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Un_product_details(Un_product_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product = this;
-		}
-		
-		private void detach_Un_product_details(Un_product_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product = null;
-		}
-		
-		private void attach_Un_product_versions(Un_product_version entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product = this;
-		}
-		
-		private void detach_Un_product_versions(Un_product_version entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product = null;
-		}
-		
-		private void attach_Un_product_videos(Un_product_video entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product = this;
-		}
-		
-		private void detach_Un_product_videos(Un_product_video entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product = null;
-		}
-		
-		private void attach_Un_transaction_details(Un_transaction_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product = this;
-		}
-		
-		private void detach_Un_transaction_details(Un_transaction_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_product = null;
-		}
-	}
-	
-	[Table(Name="dbo.un_settings")]
-	public partial class Un_setting : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Setting_id;
-		
-		private string _Setting_group;
-		
-		private string _Setting_key;
-		
-		private string _Setting_value;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSetting_idChanging(int value);
-    partial void OnSetting_idChanged();
-    partial void OnSetting_groupChanging(string value);
-    partial void OnSetting_groupChanged();
-    partial void OnSetting_keyChanging(string value);
-    partial void OnSetting_keyChanged();
-    partial void OnSetting_valueChanging(string value);
-    partial void OnSetting_valueChanged();
-    #endregion
-		
-		public Un_setting()
-		{
-			OnCreated();
-		}
-		
-		[Column(Name="setting_id", Storage="_Setting_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Setting_id
-		{
-			get
-			{
-				return this._Setting_id;
-			}
-			set
-			{
-				if ((this._Setting_id != value))
-				{
-					this.OnSetting_idChanging(value);
-					this.SendPropertyChanging();
-					this._Setting_id = value;
-					this.SendPropertyChanged("Setting_id");
-					this.OnSetting_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="setting_group", Storage="_Setting_group", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Setting_group
-		{
-			get
-			{
-				return this._Setting_group;
-			}
-			set
-			{
-				if ((this._Setting_group != value))
-				{
-					this.OnSetting_groupChanging(value);
-					this.SendPropertyChanging();
-					this._Setting_group = value;
-					this.SendPropertyChanged("Setting_group");
-					this.OnSetting_groupChanged();
-				}
-			}
-		}
-		
-		[Column(Name="setting_key", Storage="_Setting_key", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Setting_key
-		{
-			get
-			{
-				return this._Setting_key;
-			}
-			set
-			{
-				if ((this._Setting_key != value))
-				{
-					this.OnSetting_keyChanging(value);
-					this.SendPropertyChanging();
-					this._Setting_key = value;
-					this.SendPropertyChanged("Setting_key");
-					this.OnSetting_keyChanged();
-				}
-			}
-		}
-		
-		[Column(Name="setting_value", Storage="_Setting_value", DbType="VarChar(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Setting_value
-		{
-			get
-			{
-				return this._Setting_value;
-			}
-			set
-			{
-				if ((this._Setting_value != value))
-				{
-					this.OnSetting_valueChanging(value);
-					this.SendPropertyChanging();
-					this._Setting_value = value;
-					this.SendPropertyChanged("Setting_value");
-					this.OnSetting_valueChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_transaction_details")]
-	public partial class Un_transaction_detail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Transaction_detail_id;
-		
-		private int _Transaction_id;
-		
-		private int _Product_id;
-		
-		private string _Product_name;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private string _Version_name;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private string _Product_detail_name;
-		
-		private int _Quantity;
-		
-		private int _Duration;
-		
-		private double _Price;
-		
-		private EntityRef<Un_product_detail> _Un_product_detail;
-		
-		private EntityRef<Un_product_version> _Un_product_version;
-		
-		private EntityRef<Un_product> _Un_product;
-		
-		private EntityRef<Un_transaction> _Un_transaction;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTransaction_detail_idChanging(int value);
-    partial void OnTransaction_detail_idChanged();
-    partial void OnTransaction_idChanging(int value);
-    partial void OnTransaction_idChanged();
-    partial void OnProduct_idChanging(int value);
-    partial void OnProduct_idChanged();
-    partial void OnProduct_nameChanging(string value);
-    partial void OnProduct_nameChanged();
-    partial void OnVersion_idChanging(System.Nullable<int> value);
-    partial void OnVersion_idChanged();
-    partial void OnVersion_nameChanging(string value);
-    partial void OnVersion_nameChanged();
-    partial void OnProduct_detail_idChanging(System.Nullable<int> value);
-    partial void OnProduct_detail_idChanged();
-    partial void OnProduct_detail_nameChanging(string value);
-    partial void OnProduct_detail_nameChanged();
-    partial void OnQuantityChanging(int value);
-    partial void OnQuantityChanged();
-    partial void OnDurationChanging(int value);
-    partial void OnDurationChanged();
-    partial void OnPriceChanging(double value);
-    partial void OnPriceChanged();
-    #endregion
-		
-		public Un_transaction_detail()
-		{
-			this._Un_product_detail = default(EntityRef<Un_product_detail>);
-			this._Un_product_version = default(EntityRef<Un_product_version>);
-			this._Un_product = default(EntityRef<Un_product>);
-			this._Un_transaction = default(EntityRef<Un_transaction>);
-			OnCreated();
-		}
-		
-		[Column(Name="transaction_detail_id", Storage="_Transaction_detail_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Transaction_detail_id
-		{
-			get
-			{
-				return this._Transaction_detail_id;
-			}
-			set
-			{
-				if ((this._Transaction_detail_id != value))
-				{
-					this.OnTransaction_detail_idChanging(value);
-					this.SendPropertyChanging();
-					this._Transaction_detail_id = value;
-					this.SendPropertyChanged("Transaction_detail_id");
-					this.OnTransaction_detail_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="transaction_id", Storage="_Transaction_id", DbType="Int NOT NULL")]
-		public int Transaction_id
-		{
-			get
-			{
-				return this._Transaction_id;
-			}
-			set
-			{
-				if ((this._Transaction_id != value))
-				{
-					this.OnTransaction_idChanging(value);
-					this.SendPropertyChanging();
-					this._Transaction_id = value;
-					this.SendPropertyChanged("Transaction_id");
-					this.OnTransaction_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int NOT NULL")]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this.OnProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_id = value;
-					this.SendPropertyChanged("Product_id");
-					this.OnProduct_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_name", Storage="_Product_name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this.OnProduct_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Product_name = value;
-					this.SendPropertyChanged("Product_name");
-					this.OnProduct_nameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this.OnVersion_idChanging(value);
-					this.SendPropertyChanging();
-					this._Version_id = value;
-					this.SendPropertyChanged("Version_id");
-					this.OnVersion_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="version_name", Storage="_Version_name", DbType="VarChar(50)")]
-		public string Version_name
-		{
-			get
-			{
-				return this._Version_name;
-			}
-			set
-			{
-				if ((this._Version_name != value))
-				{
-					this.OnVersion_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Version_name = value;
-					this.SendPropertyChanged("Version_name");
-					this.OnVersion_nameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this.OnProduct_detail_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_detail_id = value;
-					this.SendPropertyChanged("Product_detail_id");
-					this.OnProduct_detail_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_name", Storage="_Product_detail_name", DbType="VarChar(100)")]
-		public string Product_detail_name
-		{
-			get
-			{
-				return this._Product_detail_name;
-			}
-			set
-			{
-				if ((this._Product_detail_name != value))
-				{
-					this.OnProduct_detail_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Product_detail_name = value;
-					this.SendPropertyChanged("Product_detail_name");
-					this.OnProduct_detail_nameChanged();
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int NOT NULL")]
-		public int Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this.OnDurationChanging(value);
-					this.SendPropertyChanging();
-					this._Duration = value;
-					this.SendPropertyChanged("Duration");
-					this.OnDurationChanged();
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float NOT NULL")]
-		public double Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_transaction_details_un_product_details", Storage="_Un_product_detail", ThisKey="Product_detail_id", OtherKey="Product_detail_id", IsForeignKey=true)]
-		public Un_product_detail Un_product_detail
-		{
-			get
-			{
-				return this._Un_product_detail.Entity;
-			}
-			set
-			{
-				Un_product_detail previousValue = this._Un_product_detail.Entity;
-				if (((previousValue != value) 
-							|| (this._Un_product_detail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Un_product_detail.Entity = null;
-						previousValue.Un_transaction_details.Remove(this);
-					}
-					this._Un_product_detail.Entity = value;
-					if ((value != null))
-					{
-						value.Un_transaction_details.Add(this);
-						this._Product_detail_id = value.Product_detail_id;
-					}
-					else
-					{
-						this._Product_detail_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Un_product_detail");
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_transaction_details_un_product_versions", Storage="_Un_product_version", ThisKey="Version_id", OtherKey="Version_id", IsForeignKey=true)]
-		public Un_product_version Un_product_version
-		{
-			get
-			{
-				return this._Un_product_version.Entity;
-			}
-			set
-			{
-				Un_product_version previousValue = this._Un_product_version.Entity;
-				if (((previousValue != value) 
-							|| (this._Un_product_version.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Un_product_version.Entity = null;
-						previousValue.Un_transaction_details.Remove(this);
-					}
-					this._Un_product_version.Entity = value;
-					if ((value != null))
-					{
-						value.Un_transaction_details.Add(this);
-						this._Version_id = value.Version_id;
-					}
-					else
-					{
-						this._Version_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Un_product_version");
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_transaction_details_un_products", Storage="_Un_product", ThisKey="Product_id", OtherKey="Product_id", IsForeignKey=true)]
-		public Un_product Un_product
-		{
-			get
-			{
-				return this._Un_product.Entity;
-			}
-			set
-			{
-				Un_product previousValue = this._Un_product.Entity;
-				if (((previousValue != value) 
-							|| (this._Un_product.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Un_product.Entity = null;
-						previousValue.Un_transaction_details.Remove(this);
-					}
-					this._Un_product.Entity = value;
-					if ((value != null))
-					{
-						value.Un_transaction_details.Add(this);
-						this._Product_id = value.Product_id;
-					}
-					else
-					{
-						this._Product_id = default(int);
-					}
-					this.SendPropertyChanged("Un_product");
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_transaction_details_un_transactions", Storage="_Un_transaction", ThisKey="Transaction_id", OtherKey="Transaction_id", IsForeignKey=true)]
-		public Un_transaction Un_transaction
-		{
-			get
-			{
-				return this._Un_transaction.Entity;
-			}
-			set
-			{
-				Un_transaction previousValue = this._Un_transaction.Entity;
-				if (((previousValue != value) 
-							|| (this._Un_transaction.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Un_transaction.Entity = null;
-						previousValue.Un_transaction_details.Remove(this);
-					}
-					this._Un_transaction.Entity = value;
-					if ((value != null))
-					{
-						value.Un_transaction_details.Add(this);
-						this._Transaction_id = value.Transaction_id;
-					}
-					else
-					{
-						this._Transaction_id = default(int);
-					}
-					this.SendPropertyChanged("Un_transaction");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.un_transactions")]
-	public partial class Un_transaction : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Transaction_id;
-		
-		private int _User_id;
-		
-		private string _Gateway_id;
-		
-		private System.DateTime _Created_time;
-		
-		private System.Nullable<System.DateTime> _Completed_time;
-		
-		private string _Transaction_unid;
-		
-		private string _Gw_decision;
-		
-		private System.Nullable<int> _Gw_reason_code;
-		
-		private string _Country_code;
-		
-		private double _Exchange_rate;
-		
-		private EntitySet<Un_transaction_detail> _Un_transaction_details;
-		
-		private EntityRef<Un_entity_details_core> _Un_entity_details_core;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTransaction_idChanging(int value);
-    partial void OnTransaction_idChanged();
-    partial void OnUser_idChanging(int value);
-    partial void OnUser_idChanged();
-    partial void OnGateway_idChanging(string value);
-    partial void OnGateway_idChanged();
-    partial void OnCreated_timeChanging(System.DateTime value);
-    partial void OnCreated_timeChanged();
-    partial void OnCompleted_timeChanging(System.Nullable<System.DateTime> value);
-    partial void OnCompleted_timeChanged();
-    partial void OnTransaction_unidChanging(string value);
-    partial void OnTransaction_unidChanged();
-    partial void OnGw_decisionChanging(string value);
-    partial void OnGw_decisionChanged();
-    partial void OnGw_reason_codeChanging(System.Nullable<int> value);
-    partial void OnGw_reason_codeChanged();
-    partial void OnCountry_codeChanging(string value);
-    partial void OnCountry_codeChanged();
-    partial void OnExchange_rateChanging(double value);
-    partial void OnExchange_rateChanged();
-    #endregion
-		
-		public Un_transaction()
-		{
-			this._Un_transaction_details = new EntitySet<Un_transaction_detail>(new Action<Un_transaction_detail>(this.attach_Un_transaction_details), new Action<Un_transaction_detail>(this.detach_Un_transaction_details));
-			this._Un_entity_details_core = default(EntityRef<Un_entity_details_core>);
-			OnCreated();
-		}
-		
-		[Column(Name="transaction_id", Storage="_Transaction_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Transaction_id
-		{
-			get
-			{
-				return this._Transaction_id;
-			}
-			set
-			{
-				if ((this._Transaction_id != value))
-				{
-					this.OnTransaction_idChanging(value);
-					this.SendPropertyChanging();
-					this._Transaction_id = value;
-					this.SendPropertyChanged("Transaction_id");
-					this.OnTransaction_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int NOT NULL")]
-		public int User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this.OnUser_idChanging(value);
-					this.SendPropertyChanging();
-					this._User_id = value;
-					this.SendPropertyChanged("User_id");
-					this.OnUser_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="gateway_id", Storage="_Gateway_id", DbType="VarChar(50)")]
-		public string Gateway_id
-		{
-			get
-			{
-				return this._Gateway_id;
-			}
-			set
-			{
-				if ((this._Gateway_id != value))
-				{
-					this.OnGateway_idChanging(value);
-					this.SendPropertyChanging();
-					this._Gateway_id = value;
-					this.SendPropertyChanged("Gateway_id");
-					this.OnGateway_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="created_time", Storage="_Created_time", DbType="DateTime NOT NULL")]
-		public System.DateTime Created_time
-		{
-			get
-			{
-				return this._Created_time;
-			}
-			set
-			{
-				if ((this._Created_time != value))
-				{
-					this.OnCreated_timeChanging(value);
-					this.SendPropertyChanging();
-					this._Created_time = value;
-					this.SendPropertyChanged("Created_time");
-					this.OnCreated_timeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="completed_time", Storage="_Completed_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Completed_time
-		{
-			get
-			{
-				return this._Completed_time;
-			}
-			set
-			{
-				if ((this._Completed_time != value))
-				{
-					this.OnCompleted_timeChanging(value);
-					this.SendPropertyChanging();
-					this._Completed_time = value;
-					this.SendPropertyChanged("Completed_time");
-					this.OnCompleted_timeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="transaction_unid", Storage="_Transaction_unid", DbType="Char(36) NOT NULL", CanBeNull=false)]
-		public string Transaction_unid
-		{
-			get
-			{
-				return this._Transaction_unid;
-			}
-			set
-			{
-				if ((this._Transaction_unid != value))
-				{
-					this.OnTransaction_unidChanging(value);
-					this.SendPropertyChanging();
-					this._Transaction_unid = value;
-					this.SendPropertyChanged("Transaction_unid");
-					this.OnTransaction_unidChanged();
-				}
-			}
-		}
-		
-		[Column(Name="gw_decision", Storage="_Gw_decision", DbType="VarChar(100)")]
-		public string Gw_decision
-		{
-			get
-			{
-				return this._Gw_decision;
-			}
-			set
-			{
-				if ((this._Gw_decision != value))
-				{
-					this.OnGw_decisionChanging(value);
-					this.SendPropertyChanging();
-					this._Gw_decision = value;
-					this.SendPropertyChanged("Gw_decision");
-					this.OnGw_decisionChanged();
-				}
-			}
-		}
-		
-		[Column(Name="gw_reason_code", Storage="_Gw_reason_code", DbType="Int")]
-		public System.Nullable<int> Gw_reason_code
-		{
-			get
-			{
-				return this._Gw_reason_code;
-			}
-			set
-			{
-				if ((this._Gw_reason_code != value))
-				{
-					this.OnGw_reason_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Gw_reason_code = value;
-					this.SendPropertyChanged("Gw_reason_code");
-					this.OnGw_reason_codeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="country_code", Storage="_Country_code", DbType="Char(3) NOT NULL", CanBeNull=false)]
-		public string Country_code
-		{
-			get
-			{
-				return this._Country_code;
-			}
-			set
-			{
-				if ((this._Country_code != value))
-				{
-					this.OnCountry_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Country_code = value;
-					this.SendPropertyChanged("Country_code");
-					this.OnCountry_codeChanged();
-				}
-			}
-		}
-		
-		[Column(Name="exchange_rate", Storage="_Exchange_rate", DbType="Float NOT NULL")]
-		public double Exchange_rate
-		{
-			get
-			{
-				return this._Exchange_rate;
-			}
-			set
-			{
-				if ((this._Exchange_rate != value))
-				{
-					this.OnExchange_rateChanging(value);
-					this.SendPropertyChanging();
-					this._Exchange_rate = value;
-					this.SendPropertyChanged("Exchange_rate");
-					this.OnExchange_rateChanged();
-				}
-			}
-		}
-		
-		[Association(Name="FK_un_transaction_details_un_transactions", Storage="_Un_transaction_details", ThisKey="Transaction_id", OtherKey="Transaction_id", DeleteRule="NO ACTION")]
-		public EntitySet<Un_transaction_detail> Un_transaction_details
-		{
-			get
-			{
-				return this._Un_transaction_details;
-			}
-			set
-			{
-				this._Un_transaction_details.Assign(value);
-			}
-		}
-		
-		[Association(Name="FK_un_transactions_un_entity_details_core", Storage="_Un_entity_details_core", ThisKey="User_id", OtherKey="Entity_id", IsForeignKey=true)]
-		public Un_entity_details_core Un_entity_details_core
-		{
-			get
-			{
-				return this._Un_entity_details_core.Entity;
-			}
-			set
-			{
-				Un_entity_details_core previousValue = this._Un_entity_details_core.Entity;
-				if (((previousValue != value) 
-							|| (this._Un_entity_details_core.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Un_entity_details_core.Entity = null;
-						previousValue.Un_transactions.Remove(this);
-					}
-					this._Un_entity_details_core.Entity = value;
-					if ((value != null))
-					{
-						value.Un_transactions.Add(this);
-						this._User_id = value.Entity_id;
-					}
-					else
-					{
-						this._User_id = default(int);
-					}
-					this.SendPropertyChanged("Un_entity_details_core");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Un_transaction_details(Un_transaction_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_transaction = this;
-		}
-		
-		private void detach_Un_transaction_details(Un_transaction_detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Un_transaction = null;
-		}
-	}
-	
-	[Table(Name="dbo.un_wish_list")]
-	public partial class Un_wish_list : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Wish_list_id;
-		
-		private int _User_id;
-		
-		private int _Product_id;
-		
-		private int _Quantity;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private int _Duration;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnWish_list_idChanging(int value);
-    partial void OnWish_list_idChanged();
-    partial void OnUser_idChanging(int value);
-    partial void OnUser_idChanged();
-    partial void OnProduct_idChanging(int value);
-    partial void OnProduct_idChanged();
-    partial void OnQuantityChanging(int value);
-    partial void OnQuantityChanged();
-    partial void OnVersion_idChanging(System.Nullable<int> value);
-    partial void OnVersion_idChanged();
-    partial void OnProduct_detail_idChanging(System.Nullable<int> value);
-    partial void OnProduct_detail_idChanged();
-    partial void OnDurationChanging(int value);
-    partial void OnDurationChanged();
-    #endregion
-		
-		public Un_wish_list()
-		{
-			OnCreated();
-		}
-		
-		[Column(Name="wish_list_id", Storage="_Wish_list_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Wish_list_id
-		{
-			get
-			{
-				return this._Wish_list_id;
-			}
-			set
-			{
-				if ((this._Wish_list_id != value))
-				{
-					this.OnWish_list_idChanging(value);
-					this.SendPropertyChanging();
-					this._Wish_list_id = value;
-					this.SendPropertyChanged("Wish_list_id");
-					this.OnWish_list_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int NOT NULL")]
-		public int User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this.OnUser_idChanging(value);
-					this.SendPropertyChanging();
-					this._User_id = value;
-					this.SendPropertyChanged("User_id");
-					this.OnUser_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int NOT NULL")]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this.OnProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_id = value;
-					this.SendPropertyChanged("Product_id");
-					this.OnProduct_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this.OnVersion_idChanging(value);
-					this.SendPropertyChanging();
-					this._Version_id = value;
-					this.SendPropertyChanged("Version_id");
-					this.OnVersion_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this.OnProduct_detail_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_detail_id = value;
-					this.SendPropertyChanged("Product_detail_id");
-					this.OnProduct_detail_idChanged();
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int NOT NULL")]
-		public int Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this.OnDurationChanging(value);
-					this.SendPropertyChanging();
-					this._Duration = value;
-					this.SendPropertyChanged("Duration");
-					this.OnDurationChanged();
+					this._CompanyId = value;
+					this.SendPropertyChanged("CompanyId");
+					this.OnCompanyIdChanged();
 				}
 			}
 		}
@@ -5594,63 +2103,61 @@ namespace LINQSimplicityCommDAL
 		
 		private int _UserId;
 		
-		private string _User_Uid;
+		private string _UserUid;
 		
-		private string _Verification_Code;
+		private string _VerificationCode;
 		
-		private bool _Flg_receive_mails;
+		private bool _FlgReceiveMails;
 		
-		private bool _Flg_deleted;
+		private bool _FlgDeleted;
 		
-		private bool _Flg_entity_on_hold;
+		private bool _FlgEntityOnHold;
 		
-		private System.Nullable<int> _User_Approved_Status;
+		private System.Nullable<int> _UserApprovedStatus;
 		
-		private System.Nullable<int> _User_Pymt_Type;
+		private System.Nullable<int> _UserPymtType;
 		
-		private string _Name_Long;
+		private string _FullName;
 		
-		private string _Name_Title;
+		private string _Title;
 		
-		private string _Name_Initials;
+		private string _Initials;
 		
-		private string _Name_Forename;
+		private string _NameForename;
 		
-		private string _Name_Surname;
+		private string _NameSurname;
 		
-		private string _Name_Job_Title;
+		private string _NameJobTitle;
 		
 		private string _Email;
 		
-		private string _Logon_Enable;
+		private string _Password;
 		
-		private System.Nullable<byte> _Enable_reminder_question_id;
+		private System.Nullable<byte> _ReminderQuestionId;
 		
-		private string _Enable_reminder_custom_question;
+		private string _ReminderCustomQuestion;
 		
-		private string _Enable_reminder_question_answer;
+		private string _ReminderQuestionAnswer;
 		
-		private string _User_details;
+		private bool _FlgVerified;
 		
-		private bool _Flg_verified;
+		private bool _FlgEnabled;
 		
-		private bool _Flg_enabled;
+		private System.Nullable<int> _LoginAttempts;
 		
-		private System.Nullable<int> _Login_attempts;
+		private bool _FlgLocked;
 		
-		private bool _Flg_locked;
+		private string _LockedReason;
 		
-		private string _Locked_reason;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<int> _Created_by;
+		private System.DateTime _DateCreated;
 		
-		private System.DateTime _Date_created;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _User_Type;
+		private string _Role;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5658,64 +2165,62 @@ namespace LINQSimplicityCommDAL
     partial void OnCreated();
     partial void OnUserIdChanging(int value);
     partial void OnUserIdChanged();
-    partial void OnUser_UidChanging(string value);
-    partial void OnUser_UidChanged();
-    partial void OnVerification_CodeChanging(string value);
-    partial void OnVerification_CodeChanged();
-    partial void OnFlg_receive_mailsChanging(bool value);
-    partial void OnFlg_receive_mailsChanged();
-    partial void OnFlg_deletedChanging(bool value);
-    partial void OnFlg_deletedChanged();
-    partial void OnFlg_entity_on_holdChanging(bool value);
-    partial void OnFlg_entity_on_holdChanged();
-    partial void OnUser_Approved_StatusChanging(System.Nullable<int> value);
-    partial void OnUser_Approved_StatusChanged();
-    partial void OnUser_Pymt_TypeChanging(System.Nullable<int> value);
-    partial void OnUser_Pymt_TypeChanged();
-    partial void OnName_LongChanging(string value);
-    partial void OnName_LongChanged();
-    partial void OnName_TitleChanging(string value);
-    partial void OnName_TitleChanged();
-    partial void OnName_InitialsChanging(string value);
-    partial void OnName_InitialsChanged();
-    partial void OnName_ForenameChanging(string value);
-    partial void OnName_ForenameChanged();
-    partial void OnName_SurnameChanging(string value);
-    partial void OnName_SurnameChanged();
-    partial void OnName_Job_TitleChanging(string value);
-    partial void OnName_Job_TitleChanged();
+    partial void OnUserUidChanging(string value);
+    partial void OnUserUidChanged();
+    partial void OnVerificationCodeChanging(string value);
+    partial void OnVerificationCodeChanged();
+    partial void OnFlgReceiveMailsChanging(bool value);
+    partial void OnFlgReceiveMailsChanged();
+    partial void OnFlgDeletedChanging(bool value);
+    partial void OnFlgDeletedChanged();
+    partial void OnFlgEntityOnHoldChanging(bool value);
+    partial void OnFlgEntityOnHoldChanged();
+    partial void OnUserApprovedStatusChanging(System.Nullable<int> value);
+    partial void OnUserApprovedStatusChanged();
+    partial void OnUserPymtTypeChanging(System.Nullable<int> value);
+    partial void OnUserPymtTypeChanged();
+    partial void OnFullNameChanging(string value);
+    partial void OnFullNameChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnInitialsChanging(string value);
+    partial void OnInitialsChanged();
+    partial void OnNameForenameChanging(string value);
+    partial void OnNameForenameChanged();
+    partial void OnNameSurnameChanging(string value);
+    partial void OnNameSurnameChanged();
+    partial void OnNameJobTitleChanging(string value);
+    partial void OnNameJobTitleChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnLogon_EnableChanging(string value);
-    partial void OnLogon_EnableChanged();
-    partial void OnEnable_reminder_question_idChanging(System.Nullable<byte> value);
-    partial void OnEnable_reminder_question_idChanged();
-    partial void OnEnable_reminder_custom_questionChanging(string value);
-    partial void OnEnable_reminder_custom_questionChanged();
-    partial void OnEnable_reminder_question_answerChanging(string value);
-    partial void OnEnable_reminder_question_answerChanged();
-    partial void OnUser_detailsChanging(string value);
-    partial void OnUser_detailsChanged();
-    partial void OnFlg_verifiedChanging(bool value);
-    partial void OnFlg_verifiedChanged();
-    partial void OnFlg_enabledChanging(bool value);
-    partial void OnFlg_enabledChanged();
-    partial void OnLogin_attemptsChanging(System.Nullable<int> value);
-    partial void OnLogin_attemptsChanged();
-    partial void OnFlg_lockedChanging(bool value);
-    partial void OnFlg_lockedChanged();
-    partial void OnLocked_reasonChanging(string value);
-    partial void OnLocked_reasonChanged();
-    partial void OnCreated_byChanging(System.Nullable<int> value);
-    partial void OnCreated_byChanged();
-    partial void OnDate_createdChanging(System.DateTime value);
-    partial void OnDate_createdChanged();
-    partial void OnLast_amended_byChanging(System.Nullable<int> value);
-    partial void OnLast_amended_byChanged();
-    partial void OnDate_last_amendedChanging(System.Nullable<System.DateTime> value);
-    partial void OnDate_last_amendedChanged();
-    partial void OnUser_TypeChanging(string value);
-    partial void OnUser_TypeChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnReminderQuestionIdChanging(System.Nullable<byte> value);
+    partial void OnReminderQuestionIdChanged();
+    partial void OnReminderCustomQuestionChanging(string value);
+    partial void OnReminderCustomQuestionChanged();
+    partial void OnReminderQuestionAnswerChanging(string value);
+    partial void OnReminderQuestionAnswerChanged();
+    partial void OnFlgVerifiedChanging(bool value);
+    partial void OnFlgVerifiedChanged();
+    partial void OnFlgEnabledChanging(bool value);
+    partial void OnFlgEnabledChanged();
+    partial void OnLoginAttemptsChanging(System.Nullable<int> value);
+    partial void OnLoginAttemptsChanged();
+    partial void OnFlgLockedChanging(bool value);
+    partial void OnFlgLockedChanged();
+    partial void OnLockedReasonChanging(string value);
+    partial void OnLockedReasonChanged();
+    partial void OnCreatedByChanging(System.Nullable<int> value);
+    partial void OnCreatedByChanged();
+    partial void OnDateCreatedChanging(System.DateTime value);
+    partial void OnDateCreatedChanged();
+    partial void OnLastAmendedByChanging(System.Nullable<int> value);
+    partial void OnLastAmendedByChanged();
+    partial void OnDateLastAmendedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateLastAmendedChanged();
+    partial void OnRoleChanging(string value);
+    partial void OnRoleChanged();
     #endregion
 		
 		public User()
@@ -5743,262 +2248,262 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_User_Uid", DbType="Char(36) NOT NULL", CanBeNull=false)]
-		public string User_Uid
+		[Column(Storage="_UserUid", DbType="Char(36) NOT NULL", CanBeNull=false)]
+		public string UserUid
 		{
 			get
 			{
-				return this._User_Uid;
+				return this._UserUid;
 			}
 			set
 			{
-				if ((this._User_Uid != value))
+				if ((this._UserUid != value))
 				{
-					this.OnUser_UidChanging(value);
+					this.OnUserUidChanging(value);
 					this.SendPropertyChanging();
-					this._User_Uid = value;
-					this.SendPropertyChanged("User_Uid");
-					this.OnUser_UidChanged();
+					this._UserUid = value;
+					this.SendPropertyChanged("UserUid");
+					this.OnUserUidChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Verification_Code", DbType="Char(36)")]
-		public string Verification_Code
+		[Column(Storage="_VerificationCode", DbType="Char(36)")]
+		public string VerificationCode
 		{
 			get
 			{
-				return this._Verification_Code;
+				return this._VerificationCode;
 			}
 			set
 			{
-				if ((this._Verification_Code != value))
+				if ((this._VerificationCode != value))
 				{
-					this.OnVerification_CodeChanging(value);
+					this.OnVerificationCodeChanging(value);
 					this.SendPropertyChanging();
-					this._Verification_Code = value;
-					this.SendPropertyChanged("Verification_Code");
-					this.OnVerification_CodeChanged();
+					this._VerificationCode = value;
+					this.SendPropertyChanged("VerificationCode");
+					this.OnVerificationCodeChanged();
 				}
 			}
 		}
 		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit NOT NULL")]
-		public bool Flg_receive_mails
+		[Column(Storage="_FlgReceiveMails", DbType="Bit NOT NULL")]
+		public bool FlgReceiveMails
 		{
 			get
 			{
-				return this._Flg_receive_mails;
+				return this._FlgReceiveMails;
 			}
 			set
 			{
-				if ((this._Flg_receive_mails != value))
+				if ((this._FlgReceiveMails != value))
 				{
-					this.OnFlg_receive_mailsChanging(value);
+					this.OnFlgReceiveMailsChanging(value);
 					this.SendPropertyChanging();
-					this._Flg_receive_mails = value;
-					this.SendPropertyChanged("Flg_receive_mails");
-					this.OnFlg_receive_mailsChanged();
+					this._FlgReceiveMails = value;
+					this.SendPropertyChanged("FlgReceiveMails");
+					this.OnFlgReceiveMailsChanged();
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit NOT NULL")]
-		public bool Flg_deleted
+		[Column(Storage="_FlgDeleted", DbType="Bit NOT NULL")]
+		public bool FlgDeleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._FlgDeleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._FlgDeleted != value))
 				{
-					this.OnFlg_deletedChanging(value);
+					this.OnFlgDeletedChanging(value);
 					this.SendPropertyChanging();
-					this._Flg_deleted = value;
-					this.SendPropertyChanged("Flg_deleted");
-					this.OnFlg_deletedChanged();
+					this._FlgDeleted = value;
+					this.SendPropertyChanged("FlgDeleted");
+					this.OnFlgDeletedChanged();
 				}
 			}
 		}
 		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit NOT NULL")]
-		public bool Flg_entity_on_hold
+		[Column(Storage="_FlgEntityOnHold", DbType="Bit NOT NULL")]
+		public bool FlgEntityOnHold
 		{
 			get
 			{
-				return this._Flg_entity_on_hold;
+				return this._FlgEntityOnHold;
 			}
 			set
 			{
-				if ((this._Flg_entity_on_hold != value))
+				if ((this._FlgEntityOnHold != value))
 				{
-					this.OnFlg_entity_on_holdChanging(value);
+					this.OnFlgEntityOnHoldChanging(value);
 					this.SendPropertyChanging();
-					this._Flg_entity_on_hold = value;
-					this.SendPropertyChanged("Flg_entity_on_hold");
-					this.OnFlg_entity_on_holdChanged();
+					this._FlgEntityOnHold = value;
+					this.SendPropertyChanged("FlgEntityOnHold");
+					this.OnFlgEntityOnHoldChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Approved_Status", DbType="Int")]
-		public System.Nullable<int> User_Approved_Status
+		[Column(Storage="_UserApprovedStatus", DbType="Int")]
+		public System.Nullable<int> UserApprovedStatus
 		{
 			get
 			{
-				return this._User_Approved_Status;
+				return this._UserApprovedStatus;
 			}
 			set
 			{
-				if ((this._User_Approved_Status != value))
+				if ((this._UserApprovedStatus != value))
 				{
-					this.OnUser_Approved_StatusChanging(value);
+					this.OnUserApprovedStatusChanging(value);
 					this.SendPropertyChanging();
-					this._User_Approved_Status = value;
-					this.SendPropertyChanged("User_Approved_Status");
-					this.OnUser_Approved_StatusChanged();
+					this._UserApprovedStatus = value;
+					this.SendPropertyChanged("UserApprovedStatus");
+					this.OnUserApprovedStatusChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Pymt_Type", DbType="Int")]
-		public System.Nullable<int> User_Pymt_Type
+		[Column(Storage="_UserPymtType", DbType="Int")]
+		public System.Nullable<int> UserPymtType
 		{
 			get
 			{
-				return this._User_Pymt_Type;
+				return this._UserPymtType;
 			}
 			set
 			{
-				if ((this._User_Pymt_Type != value))
+				if ((this._UserPymtType != value))
 				{
-					this.OnUser_Pymt_TypeChanging(value);
+					this.OnUserPymtTypeChanging(value);
 					this.SendPropertyChanging();
-					this._User_Pymt_Type = value;
-					this.SendPropertyChanged("User_Pymt_Type");
-					this.OnUser_Pymt_TypeChanged();
+					this._UserPymtType = value;
+					this.SendPropertyChanged("UserPymtType");
+					this.OnUserPymtTypeChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Long", DbType="VarChar(60)")]
-		public string Name_Long
+		[Column(Storage="_FullName", DbType="VarChar(60)")]
+		public string FullName
 		{
 			get
 			{
-				return this._Name_Long;
+				return this._FullName;
 			}
 			set
 			{
-				if ((this._Name_Long != value))
+				if ((this._FullName != value))
 				{
-					this.OnName_LongChanging(value);
+					this.OnFullNameChanging(value);
 					this.SendPropertyChanging();
-					this._Name_Long = value;
-					this.SendPropertyChanged("Name_Long");
-					this.OnName_LongChanged();
+					this._FullName = value;
+					this.SendPropertyChanged("FullName");
+					this.OnFullNameChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Title", DbType="VarChar(7)")]
-		public string Name_Title
+		[Column(Storage="_Title", DbType="VarChar(7)")]
+		public string Title
 		{
 			get
 			{
-				return this._Name_Title;
+				return this._Title;
 			}
 			set
 			{
-				if ((this._Name_Title != value))
+				if ((this._Title != value))
 				{
-					this.OnName_TitleChanging(value);
+					this.OnTitleChanging(value);
 					this.SendPropertyChanging();
-					this._Name_Title = value;
-					this.SendPropertyChanged("Name_Title");
-					this.OnName_TitleChanged();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Initials", DbType="VarChar(3)")]
-		public string Name_Initials
+		[Column(Storage="_Initials", DbType="VarChar(3)")]
+		public string Initials
 		{
 			get
 			{
-				return this._Name_Initials;
+				return this._Initials;
 			}
 			set
 			{
-				if ((this._Name_Initials != value))
+				if ((this._Initials != value))
 				{
-					this.OnName_InitialsChanging(value);
+					this.OnInitialsChanging(value);
 					this.SendPropertyChanging();
-					this._Name_Initials = value;
-					this.SendPropertyChanged("Name_Initials");
-					this.OnName_InitialsChanged();
+					this._Initials = value;
+					this.SendPropertyChanged("Initials");
+					this.OnInitialsChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Forename", DbType="VarChar(60)")]
-		public string Name_Forename
+		[Column(Storage="_NameForename", DbType="VarChar(60)")]
+		public string NameForename
 		{
 			get
 			{
-				return this._Name_Forename;
+				return this._NameForename;
 			}
 			set
 			{
-				if ((this._Name_Forename != value))
+				if ((this._NameForename != value))
 				{
-					this.OnName_ForenameChanging(value);
+					this.OnNameForenameChanging(value);
 					this.SendPropertyChanging();
-					this._Name_Forename = value;
-					this.SendPropertyChanged("Name_Forename");
-					this.OnName_ForenameChanged();
+					this._NameForename = value;
+					this.SendPropertyChanged("NameForename");
+					this.OnNameForenameChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Surname", DbType="VarChar(60)")]
-		public string Name_Surname
+		[Column(Storage="_NameSurname", DbType="VarChar(60)")]
+		public string NameSurname
 		{
 			get
 			{
-				return this._Name_Surname;
+				return this._NameSurname;
 			}
 			set
 			{
-				if ((this._Name_Surname != value))
+				if ((this._NameSurname != value))
 				{
-					this.OnName_SurnameChanging(value);
+					this.OnNameSurnameChanging(value);
 					this.SendPropertyChanging();
-					this._Name_Surname = value;
-					this.SendPropertyChanged("Name_Surname");
-					this.OnName_SurnameChanged();
+					this._NameSurname = value;
+					this.SendPropertyChanged("NameSurname");
+					this.OnNameSurnameChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Job_Title", DbType="VarChar(255)")]
-		public string Name_Job_Title
+		[Column(Storage="_NameJobTitle", DbType="VarChar(255)")]
+		public string NameJobTitle
 		{
 			get
 			{
-				return this._Name_Job_Title;
+				return this._NameJobTitle;
 			}
 			set
 			{
-				if ((this._Name_Job_Title != value))
+				if ((this._NameJobTitle != value))
 				{
-					this.OnName_Job_TitleChanging(value);
+					this.OnNameJobTitleChanging(value);
 					this.SendPropertyChanging();
-					this._Name_Job_Title = value;
-					this.SendPropertyChanged("Name_Job_Title");
-					this.OnName_Job_TitleChanged();
+					this._NameJobTitle = value;
+					this.SendPropertyChanged("NameJobTitle");
+					this.OnNameJobTitleChanged();
 				}
 			}
 		}
@@ -6023,302 +2528,282 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_Logon_Enable", DbType="VarChar(50)")]
-		public string Logon_Enable
+		[Column(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
 		{
 			get
 			{
-				return this._Logon_Enable;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._Logon_Enable != value))
+				if ((this._Password != value))
 				{
-					this.OnLogon_EnableChanging(value);
+					this.OnPasswordChanging(value);
 					this.SendPropertyChanging();
-					this._Logon_Enable = value;
-					this.SendPropertyChanged("Logon_Enable");
-					this.OnLogon_EnableChanged();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
+		[Column(Storage="_ReminderQuestionId", DbType="TinyInt")]
+		public System.Nullable<byte> ReminderQuestionId
 		{
 			get
 			{
-				return this._Enable_reminder_question_id;
+				return this._ReminderQuestionId;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_id != value))
+				if ((this._ReminderQuestionId != value))
 				{
-					this.OnEnable_reminder_question_idChanging(value);
+					this.OnReminderQuestionIdChanging(value);
 					this.SendPropertyChanging();
-					this._Enable_reminder_question_id = value;
-					this.SendPropertyChanged("Enable_reminder_question_id");
-					this.OnEnable_reminder_question_idChanged();
+					this._ReminderQuestionId = value;
+					this.SendPropertyChanged("ReminderQuestionId");
+					this.OnReminderQuestionIdChanged();
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
+		[Column(Storage="_ReminderCustomQuestion", DbType="VarChar(50)")]
+		public string ReminderCustomQuestion
 		{
 			get
 			{
-				return this._Enable_reminder_custom_question;
+				return this._ReminderCustomQuestion;
 			}
 			set
 			{
-				if ((this._Enable_reminder_custom_question != value))
+				if ((this._ReminderCustomQuestion != value))
 				{
-					this.OnEnable_reminder_custom_questionChanging(value);
+					this.OnReminderCustomQuestionChanging(value);
 					this.SendPropertyChanging();
-					this._Enable_reminder_custom_question = value;
-					this.SendPropertyChanged("Enable_reminder_custom_question");
-					this.OnEnable_reminder_custom_questionChanged();
+					this._ReminderCustomQuestion = value;
+					this.SendPropertyChanged("ReminderCustomQuestion");
+					this.OnReminderCustomQuestionChanged();
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
+		[Column(Storage="_ReminderQuestionAnswer", DbType="VarChar(50)")]
+		public string ReminderQuestionAnswer
 		{
 			get
 			{
-				return this._Enable_reminder_question_answer;
+				return this._ReminderQuestionAnswer;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_answer != value))
+				if ((this._ReminderQuestionAnswer != value))
 				{
-					this.OnEnable_reminder_question_answerChanging(value);
+					this.OnReminderQuestionAnswerChanging(value);
 					this.SendPropertyChanging();
-					this._Enable_reminder_question_answer = value;
-					this.SendPropertyChanged("Enable_reminder_question_answer");
-					this.OnEnable_reminder_question_answerChanged();
+					this._ReminderQuestionAnswer = value;
+					this.SendPropertyChanged("ReminderQuestionAnswer");
+					this.OnReminderQuestionAnswerChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_User_details", DbType="VarChar(200)")]
-		public string User_details
+		[Column(Storage="_FlgVerified", DbType="Bit NOT NULL")]
+		public bool FlgVerified
 		{
 			get
 			{
-				return this._User_details;
+				return this._FlgVerified;
 			}
 			set
 			{
-				if ((this._User_details != value))
+				if ((this._FlgVerified != value))
 				{
-					this.OnUser_detailsChanging(value);
+					this.OnFlgVerifiedChanging(value);
 					this.SendPropertyChanging();
-					this._User_details = value;
-					this.SendPropertyChanged("User_details");
-					this.OnUser_detailsChanged();
+					this._FlgVerified = value;
+					this.SendPropertyChanged("FlgVerified");
+					this.OnFlgVerifiedChanged();
 				}
 			}
 		}
 		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit NOT NULL")]
-		public bool Flg_verified
+		[Column(Storage="_FlgEnabled", DbType="Bit NOT NULL")]
+		public bool FlgEnabled
 		{
 			get
 			{
-				return this._Flg_verified;
+				return this._FlgEnabled;
 			}
 			set
 			{
-				if ((this._Flg_verified != value))
+				if ((this._FlgEnabled != value))
 				{
-					this.OnFlg_verifiedChanging(value);
+					this.OnFlgEnabledChanging(value);
 					this.SendPropertyChanging();
-					this._Flg_verified = value;
-					this.SendPropertyChanged("Flg_verified");
-					this.OnFlg_verifiedChanged();
+					this._FlgEnabled = value;
+					this.SendPropertyChanged("FlgEnabled");
+					this.OnFlgEnabledChanged();
 				}
 			}
 		}
 		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit NOT NULL")]
-		public bool Flg_enabled
+		[Column(Storage="_LoginAttempts", DbType="Int")]
+		public System.Nullable<int> LoginAttempts
 		{
 			get
 			{
-				return this._Flg_enabled;
+				return this._LoginAttempts;
 			}
 			set
 			{
-				if ((this._Flg_enabled != value))
+				if ((this._LoginAttempts != value))
 				{
-					this.OnFlg_enabledChanging(value);
+					this.OnLoginAttemptsChanging(value);
 					this.SendPropertyChanging();
-					this._Flg_enabled = value;
-					this.SendPropertyChanged("Flg_enabled");
-					this.OnFlg_enabledChanged();
+					this._LoginAttempts = value;
+					this.SendPropertyChanged("LoginAttempts");
+					this.OnLoginAttemptsChanged();
 				}
 			}
 		}
 		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
+		[Column(Storage="_FlgLocked", DbType="Bit NOT NULL")]
+		public bool FlgLocked
 		{
 			get
 			{
-				return this._Login_attempts;
+				return this._FlgLocked;
 			}
 			set
 			{
-				if ((this._Login_attempts != value))
+				if ((this._FlgLocked != value))
 				{
-					this.OnLogin_attemptsChanging(value);
+					this.OnFlgLockedChanging(value);
 					this.SendPropertyChanging();
-					this._Login_attempts = value;
-					this.SendPropertyChanged("Login_attempts");
-					this.OnLogin_attemptsChanged();
+					this._FlgLocked = value;
+					this.SendPropertyChanged("FlgLocked");
+					this.OnFlgLockedChanged();
 				}
 			}
 		}
 		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit NOT NULL")]
-		public bool Flg_locked
+		[Column(Storage="_LockedReason", DbType="VarChar(255)")]
+		public string LockedReason
 		{
 			get
 			{
-				return this._Flg_locked;
+				return this._LockedReason;
 			}
 			set
 			{
-				if ((this._Flg_locked != value))
+				if ((this._LockedReason != value))
 				{
-					this.OnFlg_lockedChanging(value);
+					this.OnLockedReasonChanging(value);
 					this.SendPropertyChanging();
-					this._Flg_locked = value;
-					this.SendPropertyChanged("Flg_locked");
-					this.OnFlg_lockedChanged();
+					this._LockedReason = value;
+					this.SendPropertyChanged("LockedReason");
+					this.OnLockedReasonChanged();
 				}
 			}
 		}
 		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Locked_reason;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Locked_reason != value))
+				if ((this._CreatedBy != value))
 				{
-					this.OnLocked_reasonChanging(value);
+					this.OnCreatedByChanging(value);
 					this.SendPropertyChanging();
-					this._Locked_reason = value;
-					this.SendPropertyChanged("Locked_reason");
-					this.OnLocked_reasonChanged();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_DateCreated", DbType="DateTime NOT NULL")]
+		public System.DateTime DateCreated
 		{
 			get
 			{
-				return this._Created_by;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._DateCreated != value))
 				{
-					this.OnCreated_byChanging(value);
+					this.OnDateCreatedChanging(value);
 					this.SendPropertyChanging();
-					this._Created_by = value;
-					this.SendPropertyChanged("Created_by");
-					this.OnCreated_byChanged();
+					this._DateCreated = value;
+					this.SendPropertyChanged("DateCreated");
+					this.OnDateCreatedChanged();
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime NOT NULL")]
-		public System.DateTime Date_created
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Date_created;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this.OnDate_createdChanging(value);
+					this.OnLastAmendedByChanging(value);
 					this.SendPropertyChanging();
-					this._Date_created = value;
-					this.SendPropertyChanged("Date_created");
-					this.OnDate_createdChanged();
+					this._LastAmendedBy = value;
+					this.SendPropertyChanged("LastAmendedBy");
+					this.OnLastAmendedByChanged();
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._DateLastAmended != value))
 				{
-					this.OnLast_amended_byChanging(value);
+					this.OnDateLastAmendedChanging(value);
 					this.SendPropertyChanging();
-					this._Last_amended_by = value;
-					this.SendPropertyChanged("Last_amended_by");
-					this.OnLast_amended_byChanged();
+					this._DateLastAmended = value;
+					this.SendPropertyChanged("DateLastAmended");
+					this.OnDateLastAmendedChanged();
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_Role", DbType="VarChar(50)")]
+		public string Role
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._Role != value))
 				{
-					this.OnDate_last_amendedChanging(value);
+					this.OnRoleChanging(value);
 					this.SendPropertyChanging();
-					this._Date_last_amended = value;
-					this.SendPropertyChanged("Date_last_amended");
-					this.OnDate_last_amendedChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_User_Type", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this.OnUser_TypeChanging(value);
-					this.SendPropertyChanging();
-					this._User_Type = value;
-					this.SendPropertyChanged("User_Type");
-					this.OnUser_TypeChanged();
+					this._Role = value;
+					this.SendPropertyChanged("Role");
+					this.OnRoleChanged();
 				}
 			}
 		}
@@ -6344,38 +2829,40 @@ namespace LINQSimplicityCommDAL
 		}
 	}
 	
-	public partial class AddressInsertResult
+	public partial class AddressSelectByTableIdResult
 	{
 		
-		private System.Nullable<int> _Address_id;
+		private System.Nullable<int> _AddressId;
 		
-		private System.Nullable<bool> _Flg_deleted;
+		private System.Nullable<bool> _Flg_Deleted;
 		
-		private System.Nullable<int> _Entity_id;
+		private System.Nullable<int> _CatagoryId;
 		
-		private System.Nullable<bool> _Flg_same_as_customer;
+		private System.Nullable<int> _TableId;
 		
-		private System.Nullable<bool> _Flg_same_as_billing;
+		private System.Nullable<bool> _FlgSameAsCustomer;
 		
-		private string _Multi_add_type;
+		private System.Nullable<bool> _FlgSameAsBilling;
 		
-		private string _Address_name;
+		private string _MultiAddType;
 		
-		private string _Address_no;
+		private string _AddressName;
 		
-		private string _Address_line1;
+		private string _AddressNo;
 		
-		private string _Address_line2;
+		private string _AddressLine1;
 		
-		private string _Address_line3;
+		private string _AddressLine2;
 		
-		private string _Address_line4;
+		private string _AddressLine3;
 		
-		private string _Address_line5;
+		private string _AddressLine4;
 		
-		private string _Address_post_code;
+		private string _AddressLine5;
 		
-		private string _Address_full;
+		private string _AddressPostCode;
+		
+		private string _AddressFull;
 		
 		private string _Telephone1;
 		
@@ -6383,15 +2870,15 @@ namespace LINQSimplicityCommDAL
 		
 		private string _Fax;
 		
-		private string _Cell_number;
+		private string _CellNumber;
 		
-		private System.Nullable<int> _Created_by;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<System.DateTime> _Date_created;
+		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
 		private string _Town;
 		
@@ -6399,251 +2886,267 @@ namespace LINQSimplicityCommDAL
 		
 		private string _Country;
 		
-		public AddressInsertResult()
+		public AddressSelectByTableIdResult()
 		{
 		}
 		
-		[Column(Name="address_id", Storage="_Address_id", DbType="Int")]
-		public System.Nullable<int> Address_id
+		[Column(Storage="_AddressId", DbType="Int")]
+		public System.Nullable<int> AddressId
 		{
 			get
 			{
-				return this._Address_id;
+				return this._AddressId;
 			}
 			set
 			{
-				if ((this._Address_id != value))
+				if ((this._AddressId != value))
 				{
-					this._Address_id = value;
+					this._AddressId = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
+		[Column(Storage="_Flg_Deleted", DbType="Bit")]
+		public System.Nullable<bool> Flg_Deleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._Flg_Deleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._Flg_Deleted != value))
 				{
-					this._Flg_deleted = value;
+					this._Flg_Deleted = value;
 				}
 			}
 		}
 		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
+		[Column(Storage="_CatagoryId", DbType="Int")]
+		public System.Nullable<int> CatagoryId
 		{
 			get
 			{
-				return this._Entity_id;
+				return this._CatagoryId;
 			}
 			set
 			{
-				if ((this._Entity_id != value))
+				if ((this._CatagoryId != value))
 				{
-					this._Entity_id = value;
+					this._CatagoryId = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_same_as_customer", Storage="_Flg_same_as_customer", DbType="Bit")]
-		public System.Nullable<bool> Flg_same_as_customer
+		[Column(Storage="_TableId", DbType="Int")]
+		public System.Nullable<int> TableId
 		{
 			get
 			{
-				return this._Flg_same_as_customer;
+				return this._TableId;
 			}
 			set
 			{
-				if ((this._Flg_same_as_customer != value))
+				if ((this._TableId != value))
 				{
-					this._Flg_same_as_customer = value;
+					this._TableId = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_same_as_billing", Storage="_Flg_same_as_billing", DbType="Bit")]
-		public System.Nullable<bool> Flg_same_as_billing
+		[Column(Storage="_FlgSameAsCustomer", DbType="Bit")]
+		public System.Nullable<bool> FlgSameAsCustomer
 		{
 			get
 			{
-				return this._Flg_same_as_billing;
+				return this._FlgSameAsCustomer;
 			}
 			set
 			{
-				if ((this._Flg_same_as_billing != value))
+				if ((this._FlgSameAsCustomer != value))
 				{
-					this._Flg_same_as_billing = value;
+					this._FlgSameAsCustomer = value;
 				}
 			}
 		}
 		
-		[Column(Name="multi_add_type", Storage="_Multi_add_type", DbType="VarChar(10)")]
-		public string Multi_add_type
+		[Column(Storage="_FlgSameAsBilling", DbType="Bit")]
+		public System.Nullable<bool> FlgSameAsBilling
 		{
 			get
 			{
-				return this._Multi_add_type;
+				return this._FlgSameAsBilling;
 			}
 			set
 			{
-				if ((this._Multi_add_type != value))
+				if ((this._FlgSameAsBilling != value))
 				{
-					this._Multi_add_type = value;
+					this._FlgSameAsBilling = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_name", Storage="_Address_name", DbType="VarChar(255)")]
-		public string Address_name
+		[Column(Storage="_MultiAddType", DbType="VarChar(10)")]
+		public string MultiAddType
 		{
 			get
 			{
-				return this._Address_name;
+				return this._MultiAddType;
 			}
 			set
 			{
-				if ((this._Address_name != value))
+				if ((this._MultiAddType != value))
 				{
-					this._Address_name = value;
+					this._MultiAddType = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_no", Storage="_Address_no", DbType="VarChar(32)")]
-		public string Address_no
+		[Column(Storage="_AddressName", DbType="VarChar(255)")]
+		public string AddressName
 		{
 			get
 			{
-				return this._Address_no;
+				return this._AddressName;
 			}
 			set
 			{
-				if ((this._Address_no != value))
+				if ((this._AddressName != value))
 				{
-					this._Address_no = value;
+					this._AddressName = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line1", Storage="_Address_line1", DbType="VarChar(60)")]
-		public string Address_line1
+		[Column(Storage="_AddressNo", DbType="VarChar(32)")]
+		public string AddressNo
 		{
 			get
 			{
-				return this._Address_line1;
+				return this._AddressNo;
 			}
 			set
 			{
-				if ((this._Address_line1 != value))
+				if ((this._AddressNo != value))
 				{
-					this._Address_line1 = value;
+					this._AddressNo = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line2", Storage="_Address_line2", DbType="VarChar(60)")]
-		public string Address_line2
+		[Column(Storage="_AddressLine1", DbType="VarChar(60)")]
+		public string AddressLine1
 		{
 			get
 			{
-				return this._Address_line2;
+				return this._AddressLine1;
 			}
 			set
 			{
-				if ((this._Address_line2 != value))
+				if ((this._AddressLine1 != value))
 				{
-					this._Address_line2 = value;
+					this._AddressLine1 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line3", Storage="_Address_line3", DbType="VarChar(60)")]
-		public string Address_line3
+		[Column(Storage="_AddressLine2", DbType="VarChar(60)")]
+		public string AddressLine2
 		{
 			get
 			{
-				return this._Address_line3;
+				return this._AddressLine2;
 			}
 			set
 			{
-				if ((this._Address_line3 != value))
+				if ((this._AddressLine2 != value))
 				{
-					this._Address_line3 = value;
+					this._AddressLine2 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line4", Storage="_Address_line4", DbType="VarChar(60)")]
-		public string Address_line4
+		[Column(Storage="_AddressLine3", DbType="VarChar(60)")]
+		public string AddressLine3
 		{
 			get
 			{
-				return this._Address_line4;
+				return this._AddressLine3;
 			}
 			set
 			{
-				if ((this._Address_line4 != value))
+				if ((this._AddressLine3 != value))
 				{
-					this._Address_line4 = value;
+					this._AddressLine3 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line5", Storage="_Address_line5", DbType="VarChar(60)")]
-		public string Address_line5
+		[Column(Storage="_AddressLine4", DbType="VarChar(60)")]
+		public string AddressLine4
 		{
 			get
 			{
-				return this._Address_line5;
+				return this._AddressLine4;
 			}
 			set
 			{
-				if ((this._Address_line5 != value))
+				if ((this._AddressLine4 != value))
 				{
-					this._Address_line5 = value;
+					this._AddressLine4 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_post_code", Storage="_Address_post_code", DbType="VarChar(9)")]
-		public string Address_post_code
+		[Column(Storage="_AddressLine5", DbType="VarChar(60)")]
+		public string AddressLine5
 		{
 			get
 			{
-				return this._Address_post_code;
+				return this._AddressLine5;
 			}
 			set
 			{
-				if ((this._Address_post_code != value))
+				if ((this._AddressLine5 != value))
 				{
-					this._Address_post_code = value;
+					this._AddressLine5 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_full", Storage="_Address_full", DbType="VarChar(MAX)")]
-		public string Address_full
+		[Column(Storage="_AddressPostCode", DbType="VarChar(9)")]
+		public string AddressPostCode
 		{
 			get
 			{
-				return this._Address_full;
+				return this._AddressPostCode;
 			}
 			set
 			{
-				if ((this._Address_full != value))
+				if ((this._AddressPostCode != value))
 				{
-					this._Address_full = value;
+					this._AddressPostCode = value;
 				}
 			}
 		}
 		
-		[Column(Name="telephone1", Storage="_Telephone1", DbType="VarChar(30)")]
+		[Column(Storage="_AddressFull", DbType="VarChar(MAX)")]
+		public string AddressFull
+		{
+			get
+			{
+				return this._AddressFull;
+			}
+			set
+			{
+				if ((this._AddressFull != value))
+				{
+					this._AddressFull = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Telephone1", DbType="VarChar(30)")]
 		public string Telephone1
 		{
 			get
@@ -6659,7 +3162,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="telephone2", Storage="_Telephone2", DbType="VarChar(30)")]
+		[Column(Storage="_Telephone2", DbType="VarChar(30)")]
 		public string Telephone2
 		{
 			get
@@ -6675,7 +3178,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="fax", Storage="_Fax", DbType="VarChar(30)")]
+		[Column(Storage="_Fax", DbType="VarChar(30)")]
 		public string Fax
 		{
 			get
@@ -6691,87 +3194,87 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="cell_number", Storage="_Cell_number", DbType="VarChar(30)")]
-		public string Cell_number
+		[Column(Storage="_CellNumber", DbType="VarChar(30)")]
+		public string CellNumber
 		{
 			get
 			{
-				return this._Cell_number;
+				return this._CellNumber;
 			}
 			set
 			{
-				if ((this._Cell_number != value))
+				if ((this._CellNumber != value))
 				{
-					this._Cell_number = value;
+					this._CellNumber = value;
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Created_by;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._CreatedBy != value))
 				{
-					this._Created_by = value;
+					this._CreatedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
 		{
 			get
 			{
-				return this._Date_created;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._DateCreated != value))
 				{
-					this._Date_created = value;
+					this._DateCreated = value;
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this._Last_amended_by = value;
+					this._LastAmendedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._DateLastAmended != value))
 				{
-					this._Date_last_amended = value;
+					this._DateLastAmended = value;
 				}
 			}
 		}
 		
-		[Column(Name="town", Storage="_Town", DbType="VarChar(60)")]
+		[Column(Storage="_Town", DbType="VarChar(60)")]
 		public string Town
 		{
 			get
@@ -6787,7 +3290,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="county", Storage="_County", DbType="VarChar(60)")]
+		[Column(Storage="_County", DbType="VarChar(60)")]
 		public string County
 		{
 			get
@@ -6803,483 +3306,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="country", Storage="_Country", DbType="VarChar(60)")]
-		public string Country
-		{
-			get
-			{
-				return this._Country;
-			}
-			set
-			{
-				if ((this._Country != value))
-				{
-					this._Country = value;
-				}
-			}
-		}
-	}
-	
-	public partial class AddressSelectResult
-	{
-		
-		private System.Nullable<int> _Address_id;
-		
-		private System.Nullable<bool> _Flg_deleted;
-		
-		private System.Nullable<int> _Entity_id;
-		
-		private System.Nullable<bool> _Flg_same_as_customer;
-		
-		private System.Nullable<bool> _Flg_same_as_billing;
-		
-		private string _Multi_add_type;
-		
-		private string _Address_name;
-		
-		private string _Address_no;
-		
-		private string _Address_line1;
-		
-		private string _Address_line2;
-		
-		private string _Address_line3;
-		
-		private string _Address_line4;
-		
-		private string _Address_line5;
-		
-		private string _Address_post_code;
-		
-		private string _Address_full;
-		
-		private string _Telephone1;
-		
-		private string _Telephone2;
-		
-		private string _Fax;
-		
-		private string _Cell_number;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.Nullable<System.DateTime> _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Town;
-		
-		private string _County;
-		
-		private string _Country;
-		
-		public AddressSelectResult()
-		{
-		}
-		
-		[Column(Name="address_id", Storage="_Address_id", DbType="Int")]
-		public System.Nullable<int> Address_id
-		{
-			get
-			{
-				return this._Address_id;
-			}
-			set
-			{
-				if ((this._Address_id != value))
-				{
-					this._Address_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this._Flg_deleted = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this._Entity_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_same_as_customer", Storage="_Flg_same_as_customer", DbType="Bit")]
-		public System.Nullable<bool> Flg_same_as_customer
-		{
-			get
-			{
-				return this._Flg_same_as_customer;
-			}
-			set
-			{
-				if ((this._Flg_same_as_customer != value))
-				{
-					this._Flg_same_as_customer = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_same_as_billing", Storage="_Flg_same_as_billing", DbType="Bit")]
-		public System.Nullable<bool> Flg_same_as_billing
-		{
-			get
-			{
-				return this._Flg_same_as_billing;
-			}
-			set
-			{
-				if ((this._Flg_same_as_billing != value))
-				{
-					this._Flg_same_as_billing = value;
-				}
-			}
-		}
-		
-		[Column(Name="multi_add_type", Storage="_Multi_add_type", DbType="VarChar(10)")]
-		public string Multi_add_type
-		{
-			get
-			{
-				return this._Multi_add_type;
-			}
-			set
-			{
-				if ((this._Multi_add_type != value))
-				{
-					this._Multi_add_type = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_name", Storage="_Address_name", DbType="VarChar(255)")]
-		public string Address_name
-		{
-			get
-			{
-				return this._Address_name;
-			}
-			set
-			{
-				if ((this._Address_name != value))
-				{
-					this._Address_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_no", Storage="_Address_no", DbType="VarChar(32)")]
-		public string Address_no
-		{
-			get
-			{
-				return this._Address_no;
-			}
-			set
-			{
-				if ((this._Address_no != value))
-				{
-					this._Address_no = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_line1", Storage="_Address_line1", DbType="VarChar(60)")]
-		public string Address_line1
-		{
-			get
-			{
-				return this._Address_line1;
-			}
-			set
-			{
-				if ((this._Address_line1 != value))
-				{
-					this._Address_line1 = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_line2", Storage="_Address_line2", DbType="VarChar(60)")]
-		public string Address_line2
-		{
-			get
-			{
-				return this._Address_line2;
-			}
-			set
-			{
-				if ((this._Address_line2 != value))
-				{
-					this._Address_line2 = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_line3", Storage="_Address_line3", DbType="VarChar(60)")]
-		public string Address_line3
-		{
-			get
-			{
-				return this._Address_line3;
-			}
-			set
-			{
-				if ((this._Address_line3 != value))
-				{
-					this._Address_line3 = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_line4", Storage="_Address_line4", DbType="VarChar(60)")]
-		public string Address_line4
-		{
-			get
-			{
-				return this._Address_line4;
-			}
-			set
-			{
-				if ((this._Address_line4 != value))
-				{
-					this._Address_line4 = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_line5", Storage="_Address_line5", DbType="VarChar(60)")]
-		public string Address_line5
-		{
-			get
-			{
-				return this._Address_line5;
-			}
-			set
-			{
-				if ((this._Address_line5 != value))
-				{
-					this._Address_line5 = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_post_code", Storage="_Address_post_code", DbType="VarChar(9)")]
-		public string Address_post_code
-		{
-			get
-			{
-				return this._Address_post_code;
-			}
-			set
-			{
-				if ((this._Address_post_code != value))
-				{
-					this._Address_post_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="address_full", Storage="_Address_full", DbType="VarChar(MAX)")]
-		public string Address_full
-		{
-			get
-			{
-				return this._Address_full;
-			}
-			set
-			{
-				if ((this._Address_full != value))
-				{
-					this._Address_full = value;
-				}
-			}
-		}
-		
-		[Column(Name="telephone1", Storage="_Telephone1", DbType="VarChar(30)")]
-		public string Telephone1
-		{
-			get
-			{
-				return this._Telephone1;
-			}
-			set
-			{
-				if ((this._Telephone1 != value))
-				{
-					this._Telephone1 = value;
-				}
-			}
-		}
-		
-		[Column(Name="telephone2", Storage="_Telephone2", DbType="VarChar(30)")]
-		public string Telephone2
-		{
-			get
-			{
-				return this._Telephone2;
-			}
-			set
-			{
-				if ((this._Telephone2 != value))
-				{
-					this._Telephone2 = value;
-				}
-			}
-		}
-		
-		[Column(Name="fax", Storage="_Fax", DbType="VarChar(30)")]
-		public string Fax
-		{
-			get
-			{
-				return this._Fax;
-			}
-			set
-			{
-				if ((this._Fax != value))
-				{
-					this._Fax = value;
-				}
-			}
-		}
-		
-		[Column(Name="cell_number", Storage="_Cell_number", DbType="VarChar(30)")]
-		public string Cell_number
-		{
-			get
-			{
-				return this._Cell_number;
-			}
-			set
-			{
-				if ((this._Cell_number != value))
-				{
-					this._Cell_number = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this._Created_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this._Date_created = value;
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this._Last_amended_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Name="town", Storage="_Town", DbType="VarChar(60)")]
-		public string Town
-		{
-			get
-			{
-				return this._Town;
-			}
-			set
-			{
-				if ((this._Town != value))
-				{
-					this._Town = value;
-				}
-			}
-		}
-		
-		[Column(Name="county", Storage="_County", DbType="VarChar(60)")]
-		public string County
-		{
-			get
-			{
-				return this._County;
-			}
-			set
-			{
-				if ((this._County != value))
-				{
-					this._County = value;
-				}
-			}
-		}
-		
-		[Column(Name="country", Storage="_Country", DbType="VarChar(60)")]
+		[Column(Storage="_Country", DbType="VarChar(60)")]
 		public string Country
 		{
 			get
@@ -7299,35 +3326,37 @@ namespace LINQSimplicityCommDAL
 	public partial class AddressUpdateResult
 	{
 		
-		private System.Nullable<int> _Address_id;
+		private System.Nullable<int> _AddressId;
 		
-		private System.Nullable<bool> _Flg_deleted;
+		private System.Nullable<bool> _Flg_Deleted;
 		
-		private System.Nullable<int> _Entity_id;
+		private System.Nullable<int> _CatagoryId;
 		
-		private System.Nullable<bool> _Flg_same_as_customer;
+		private System.Nullable<int> _TableId;
 		
-		private System.Nullable<bool> _Flg_same_as_billing;
+		private System.Nullable<bool> _FlgSameAsCustomer;
 		
-		private string _Multi_add_type;
+		private System.Nullable<bool> _FlgSameAsBilling;
 		
-		private string _Address_name;
+		private string _MultiAddType;
 		
-		private string _Address_no;
+		private string _AddressName;
 		
-		private string _Address_line1;
+		private string _AddressNo;
 		
-		private string _Address_line2;
+		private string _AddressLine1;
 		
-		private string _Address_line3;
+		private string _AddressLine2;
 		
-		private string _Address_line4;
+		private string _AddressLine3;
 		
-		private string _Address_line5;
+		private string _AddressLine4;
 		
-		private string _Address_post_code;
+		private string _AddressLine5;
 		
-		private string _Address_full;
+		private string _AddressPostCode;
+		
+		private string _AddressFull;
 		
 		private string _Telephone1;
 		
@@ -7335,15 +3364,15 @@ namespace LINQSimplicityCommDAL
 		
 		private string _Fax;
 		
-		private string _Cell_number;
+		private string _CellNumber;
 		
-		private System.Nullable<int> _Created_by;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<System.DateTime> _Date_created;
+		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
 		private string _Town;
 		
@@ -7355,247 +3384,263 @@ namespace LINQSimplicityCommDAL
 		{
 		}
 		
-		[Column(Name="address_id", Storage="_Address_id", DbType="Int")]
-		public System.Nullable<int> Address_id
+		[Column(Storage="_AddressId", DbType="Int")]
+		public System.Nullable<int> AddressId
 		{
 			get
 			{
-				return this._Address_id;
+				return this._AddressId;
 			}
 			set
 			{
-				if ((this._Address_id != value))
+				if ((this._AddressId != value))
 				{
-					this._Address_id = value;
+					this._AddressId = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
+		[Column(Storage="_Flg_Deleted", DbType="Bit")]
+		public System.Nullable<bool> Flg_Deleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._Flg_Deleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._Flg_Deleted != value))
 				{
-					this._Flg_deleted = value;
+					this._Flg_Deleted = value;
 				}
 			}
 		}
 		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
+		[Column(Storage="_CatagoryId", DbType="Int")]
+		public System.Nullable<int> CatagoryId
 		{
 			get
 			{
-				return this._Entity_id;
+				return this._CatagoryId;
 			}
 			set
 			{
-				if ((this._Entity_id != value))
+				if ((this._CatagoryId != value))
 				{
-					this._Entity_id = value;
+					this._CatagoryId = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_same_as_customer", Storage="_Flg_same_as_customer", DbType="Bit")]
-		public System.Nullable<bool> Flg_same_as_customer
+		[Column(Storage="_TableId", DbType="Int")]
+		public System.Nullable<int> TableId
 		{
 			get
 			{
-				return this._Flg_same_as_customer;
+				return this._TableId;
 			}
 			set
 			{
-				if ((this._Flg_same_as_customer != value))
+				if ((this._TableId != value))
 				{
-					this._Flg_same_as_customer = value;
+					this._TableId = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_same_as_billing", Storage="_Flg_same_as_billing", DbType="Bit")]
-		public System.Nullable<bool> Flg_same_as_billing
+		[Column(Storage="_FlgSameAsCustomer", DbType="Bit")]
+		public System.Nullable<bool> FlgSameAsCustomer
 		{
 			get
 			{
-				return this._Flg_same_as_billing;
+				return this._FlgSameAsCustomer;
 			}
 			set
 			{
-				if ((this._Flg_same_as_billing != value))
+				if ((this._FlgSameAsCustomer != value))
 				{
-					this._Flg_same_as_billing = value;
+					this._FlgSameAsCustomer = value;
 				}
 			}
 		}
 		
-		[Column(Name="multi_add_type", Storage="_Multi_add_type", DbType="VarChar(10)")]
-		public string Multi_add_type
+		[Column(Storage="_FlgSameAsBilling", DbType="Bit")]
+		public System.Nullable<bool> FlgSameAsBilling
 		{
 			get
 			{
-				return this._Multi_add_type;
+				return this._FlgSameAsBilling;
 			}
 			set
 			{
-				if ((this._Multi_add_type != value))
+				if ((this._FlgSameAsBilling != value))
 				{
-					this._Multi_add_type = value;
+					this._FlgSameAsBilling = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_name", Storage="_Address_name", DbType="VarChar(255)")]
-		public string Address_name
+		[Column(Storage="_MultiAddType", DbType="VarChar(10)")]
+		public string MultiAddType
 		{
 			get
 			{
-				return this._Address_name;
+				return this._MultiAddType;
 			}
 			set
 			{
-				if ((this._Address_name != value))
+				if ((this._MultiAddType != value))
 				{
-					this._Address_name = value;
+					this._MultiAddType = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_no", Storage="_Address_no", DbType="VarChar(32)")]
-		public string Address_no
+		[Column(Storage="_AddressName", DbType="VarChar(255)")]
+		public string AddressName
 		{
 			get
 			{
-				return this._Address_no;
+				return this._AddressName;
 			}
 			set
 			{
-				if ((this._Address_no != value))
+				if ((this._AddressName != value))
 				{
-					this._Address_no = value;
+					this._AddressName = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line1", Storage="_Address_line1", DbType="VarChar(60)")]
-		public string Address_line1
+		[Column(Storage="_AddressNo", DbType="VarChar(32)")]
+		public string AddressNo
 		{
 			get
 			{
-				return this._Address_line1;
+				return this._AddressNo;
 			}
 			set
 			{
-				if ((this._Address_line1 != value))
+				if ((this._AddressNo != value))
 				{
-					this._Address_line1 = value;
+					this._AddressNo = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line2", Storage="_Address_line2", DbType="VarChar(60)")]
-		public string Address_line2
+		[Column(Storage="_AddressLine1", DbType="VarChar(60)")]
+		public string AddressLine1
 		{
 			get
 			{
-				return this._Address_line2;
+				return this._AddressLine1;
 			}
 			set
 			{
-				if ((this._Address_line2 != value))
+				if ((this._AddressLine1 != value))
 				{
-					this._Address_line2 = value;
+					this._AddressLine1 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line3", Storage="_Address_line3", DbType="VarChar(60)")]
-		public string Address_line3
+		[Column(Storage="_AddressLine2", DbType="VarChar(60)")]
+		public string AddressLine2
 		{
 			get
 			{
-				return this._Address_line3;
+				return this._AddressLine2;
 			}
 			set
 			{
-				if ((this._Address_line3 != value))
+				if ((this._AddressLine2 != value))
 				{
-					this._Address_line3 = value;
+					this._AddressLine2 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line4", Storage="_Address_line4", DbType="VarChar(60)")]
-		public string Address_line4
+		[Column(Storage="_AddressLine3", DbType="VarChar(60)")]
+		public string AddressLine3
 		{
 			get
 			{
-				return this._Address_line4;
+				return this._AddressLine3;
 			}
 			set
 			{
-				if ((this._Address_line4 != value))
+				if ((this._AddressLine3 != value))
 				{
-					this._Address_line4 = value;
+					this._AddressLine3 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_line5", Storage="_Address_line5", DbType="VarChar(60)")]
-		public string Address_line5
+		[Column(Storage="_AddressLine4", DbType="VarChar(60)")]
+		public string AddressLine4
 		{
 			get
 			{
-				return this._Address_line5;
+				return this._AddressLine4;
 			}
 			set
 			{
-				if ((this._Address_line5 != value))
+				if ((this._AddressLine4 != value))
 				{
-					this._Address_line5 = value;
+					this._AddressLine4 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_post_code", Storage="_Address_post_code", DbType="VarChar(9)")]
-		public string Address_post_code
+		[Column(Storage="_AddressLine5", DbType="VarChar(60)")]
+		public string AddressLine5
 		{
 			get
 			{
-				return this._Address_post_code;
+				return this._AddressLine5;
 			}
 			set
 			{
-				if ((this._Address_post_code != value))
+				if ((this._AddressLine5 != value))
 				{
-					this._Address_post_code = value;
+					this._AddressLine5 = value;
 				}
 			}
 		}
 		
-		[Column(Name="address_full", Storage="_Address_full", DbType="VarChar(MAX)")]
-		public string Address_full
+		[Column(Storage="_AddressPostCode", DbType="VarChar(9)")]
+		public string AddressPostCode
 		{
 			get
 			{
-				return this._Address_full;
+				return this._AddressPostCode;
 			}
 			set
 			{
-				if ((this._Address_full != value))
+				if ((this._AddressPostCode != value))
 				{
-					this._Address_full = value;
+					this._AddressPostCode = value;
 				}
 			}
 		}
 		
-		[Column(Name="telephone1", Storage="_Telephone1", DbType="VarChar(30)")]
+		[Column(Storage="_AddressFull", DbType="VarChar(MAX)")]
+		public string AddressFull
+		{
+			get
+			{
+				return this._AddressFull;
+			}
+			set
+			{
+				if ((this._AddressFull != value))
+				{
+					this._AddressFull = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Telephone1", DbType="VarChar(30)")]
 		public string Telephone1
 		{
 			get
@@ -7611,7 +3656,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="telephone2", Storage="_Telephone2", DbType="VarChar(30)")]
+		[Column(Storage="_Telephone2", DbType="VarChar(30)")]
 		public string Telephone2
 		{
 			get
@@ -7627,7 +3672,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="fax", Storage="_Fax", DbType="VarChar(30)")]
+		[Column(Storage="_Fax", DbType="VarChar(30)")]
 		public string Fax
 		{
 			get
@@ -7643,87 +3688,87 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="cell_number", Storage="_Cell_number", DbType="VarChar(30)")]
-		public string Cell_number
+		[Column(Storage="_CellNumber", DbType="VarChar(30)")]
+		public string CellNumber
 		{
 			get
 			{
-				return this._Cell_number;
+				return this._CellNumber;
 			}
 			set
 			{
-				if ((this._Cell_number != value))
+				if ((this._CellNumber != value))
 				{
-					this._Cell_number = value;
+					this._CellNumber = value;
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Created_by;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._CreatedBy != value))
 				{
-					this._Created_by = value;
+					this._CreatedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
 		{
 			get
 			{
-				return this._Date_created;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._DateCreated != value))
 				{
-					this._Date_created = value;
+					this._DateCreated = value;
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this._Last_amended_by = value;
+					this._LastAmendedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._DateLastAmended != value))
 				{
-					this._Date_last_amended = value;
+					this._DateLastAmended = value;
 				}
 			}
 		}
 		
-		[Column(Name="town", Storage="_Town", DbType="VarChar(60)")]
+		[Column(Storage="_Town", DbType="VarChar(60)")]
 		public string Town
 		{
 			get
@@ -7739,7 +3784,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="county", Storage="_County", DbType="VarChar(60)")]
+		[Column(Storage="_County", DbType="VarChar(60)")]
 		public string County
 		{
 			get
@@ -7755,7 +3800,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="country", Storage="_Country", DbType="VarChar(60)")]
+		[Column(Storage="_Country", DbType="VarChar(60)")]
 		public string Country
 		{
 			get
@@ -7772,6108 +3817,40 @@ namespace LINQSimplicityCommDAL
 		}
 	}
 	
-	public partial class CallMeInsertResult
-	{
-		
-		private System.Nullable<int> _Call_me_id;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Telephone;
-		
-		private string _Cell_number;
-		
-		private string _Email;
-		
-		private string _Company_name;
-		
-		private string _Company_website;
-		
-		private string _Postal_adress;
-		
-		private string _Postal_code;
-		
-		private string _Comments;
-		
-		private System.Nullable<bool> _Flg_view_demo;
-		
-		private System.Nullable<bool> _Flg_receive_emails;
-		
-		public CallMeInsertResult()
-		{
-		}
-		
-		[Column(Name="call_me_id", Storage="_Call_me_id", DbType="Int")]
-		public System.Nullable<int> Call_me_id
-		{
-			get
-			{
-				return this._Call_me_id;
-			}
-			set
-			{
-				if ((this._Call_me_id != value))
-				{
-					this._Call_me_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="telephone", Storage="_Telephone", DbType="VarChar(30)")]
-		public string Telephone
-		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this._Telephone = value;
-				}
-			}
-		}
-		
-		[Column(Name="cell_number", Storage="_Cell_number", DbType="VarChar(30)")]
-		public string Cell_number
-		{
-			get
-			{
-				return this._Cell_number;
-			}
-			set
-			{
-				if ((this._Cell_number != value))
-				{
-					this._Cell_number = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="company_name", Storage="_Company_name", DbType="VarChar(60)")]
-		public string Company_name
-		{
-			get
-			{
-				return this._Company_name;
-			}
-			set
-			{
-				if ((this._Company_name != value))
-				{
-					this._Company_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="company_website", Storage="_Company_website", DbType="VarChar(60)")]
-		public string Company_website
-		{
-			get
-			{
-				return this._Company_website;
-			}
-			set
-			{
-				if ((this._Company_website != value))
-				{
-					this._Company_website = value;
-				}
-			}
-		}
-		
-		[Column(Name="postal_adress", Storage="_Postal_adress", DbType="VarChar(255)")]
-		public string Postal_adress
-		{
-			get
-			{
-				return this._Postal_adress;
-			}
-			set
-			{
-				if ((this._Postal_adress != value))
-				{
-					this._Postal_adress = value;
-				}
-			}
-		}
-		
-		[Column(Name="postal_code", Storage="_Postal_code", DbType="VarChar(9)")]
-		public string Postal_code
-		{
-			get
-			{
-				return this._Postal_code;
-			}
-			set
-			{
-				if ((this._Postal_code != value))
-				{
-					this._Postal_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="comments", Storage="_Comments", DbType="VarChar(1000)")]
-		public string Comments
-		{
-			get
-			{
-				return this._Comments;
-			}
-			set
-			{
-				if ((this._Comments != value))
-				{
-					this._Comments = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_view_demo", Storage="_Flg_view_demo", DbType="Bit")]
-		public System.Nullable<bool> Flg_view_demo
-		{
-			get
-			{
-				return this._Flg_view_demo;
-			}
-			set
-			{
-				if ((this._Flg_view_demo != value))
-				{
-					this._Flg_view_demo = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_emails", Storage="_Flg_receive_emails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_emails
-		{
-			get
-			{
-				return this._Flg_receive_emails;
-			}
-			set
-			{
-				if ((this._Flg_receive_emails != value))
-				{
-					this._Flg_receive_emails = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CallMeProductInsertResult
-	{
-		
-		private System.Nullable<int> _Call_me_id;
-		
-		private string _Product_name;
-		
-		public CallMeProductInsertResult()
-		{
-		}
-		
-		[Column(Name="call_me_id", Storage="_Call_me_id", DbType="Int")]
-		public System.Nullable<int> Call_me_id
-		{
-			get
-			{
-				return this._Call_me_id;
-			}
-			set
-			{
-				if ((this._Call_me_id != value))
-				{
-					this._Call_me_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_name", Storage="_Product_name", DbType="VarChar(100)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CallMeProductSelectResult
-	{
-		
-		private System.Nullable<int> _Call_me_id;
-		
-		private string _Product_name;
-		
-		public CallMeProductSelectResult()
-		{
-		}
-		
-		[Column(Name="call_me_id", Storage="_Call_me_id", DbType="Int")]
-		public System.Nullable<int> Call_me_id
-		{
-			get
-			{
-				return this._Call_me_id;
-			}
-			set
-			{
-				if ((this._Call_me_id != value))
-				{
-					this._Call_me_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_name", Storage="_Product_name", DbType="VarChar(100)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CallMeProductUpdateResult
-	{
-		
-		private System.Nullable<int> _Call_me_id;
-		
-		private string _Product_name;
-		
-		public CallMeProductUpdateResult()
-		{
-		}
-		
-		[Column(Name="call_me_id", Storage="_Call_me_id", DbType="Int")]
-		public System.Nullable<int> Call_me_id
-		{
-			get
-			{
-				return this._Call_me_id;
-			}
-			set
-			{
-				if ((this._Call_me_id != value))
-				{
-					this._Call_me_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_name", Storage="_Product_name", DbType="VarChar(100)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CallMeSelectResult
-	{
-		
-		private System.Nullable<int> _Call_me_id;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Telephone;
-		
-		private string _Cell_number;
-		
-		private string _Email;
-		
-		private string _Company_name;
-		
-		private string _Company_website;
-		
-		private string _Postal_adress;
-		
-		private string _Postal_code;
-		
-		private string _Comments;
-		
-		private System.Nullable<bool> _Flg_view_demo;
-		
-		private System.Nullable<bool> _Flg_receive_emails;
-		
-		public CallMeSelectResult()
-		{
-		}
-		
-		[Column(Name="call_me_id", Storage="_Call_me_id", DbType="Int")]
-		public System.Nullable<int> Call_me_id
-		{
-			get
-			{
-				return this._Call_me_id;
-			}
-			set
-			{
-				if ((this._Call_me_id != value))
-				{
-					this._Call_me_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="telephone", Storage="_Telephone", DbType="VarChar(30)")]
-		public string Telephone
-		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this._Telephone = value;
-				}
-			}
-		}
-		
-		[Column(Name="cell_number", Storage="_Cell_number", DbType="VarChar(30)")]
-		public string Cell_number
-		{
-			get
-			{
-				return this._Cell_number;
-			}
-			set
-			{
-				if ((this._Cell_number != value))
-				{
-					this._Cell_number = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="company_name", Storage="_Company_name", DbType="VarChar(60)")]
-		public string Company_name
-		{
-			get
-			{
-				return this._Company_name;
-			}
-			set
-			{
-				if ((this._Company_name != value))
-				{
-					this._Company_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="company_website", Storage="_Company_website", DbType="VarChar(60)")]
-		public string Company_website
-		{
-			get
-			{
-				return this._Company_website;
-			}
-			set
-			{
-				if ((this._Company_website != value))
-				{
-					this._Company_website = value;
-				}
-			}
-		}
-		
-		[Column(Name="postal_adress", Storage="_Postal_adress", DbType="VarChar(255)")]
-		public string Postal_adress
-		{
-			get
-			{
-				return this._Postal_adress;
-			}
-			set
-			{
-				if ((this._Postal_adress != value))
-				{
-					this._Postal_adress = value;
-				}
-			}
-		}
-		
-		[Column(Name="postal_code", Storage="_Postal_code", DbType="VarChar(9)")]
-		public string Postal_code
-		{
-			get
-			{
-				return this._Postal_code;
-			}
-			set
-			{
-				if ((this._Postal_code != value))
-				{
-					this._Postal_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="comments", Storage="_Comments", DbType="VarChar(1000)")]
-		public string Comments
-		{
-			get
-			{
-				return this._Comments;
-			}
-			set
-			{
-				if ((this._Comments != value))
-				{
-					this._Comments = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_view_demo", Storage="_Flg_view_demo", DbType="Bit")]
-		public System.Nullable<bool> Flg_view_demo
-		{
-			get
-			{
-				return this._Flg_view_demo;
-			}
-			set
-			{
-				if ((this._Flg_view_demo != value))
-				{
-					this._Flg_view_demo = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_emails", Storage="_Flg_receive_emails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_emails
-		{
-			get
-			{
-				return this._Flg_receive_emails;
-			}
-			set
-			{
-				if ((this._Flg_receive_emails != value))
-				{
-					this._Flg_receive_emails = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CallMeUpdateResult
-	{
-		
-		private System.Nullable<int> _Call_me_id;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Telephone;
-		
-		private string _Cell_number;
-		
-		private string _Email;
-		
-		private string _Company_name;
-		
-		private string _Company_website;
-		
-		private string _Postal_adress;
-		
-		private string _Postal_code;
-		
-		private string _Comments;
-		
-		private System.Nullable<bool> _Flg_view_demo;
-		
-		public CallMeUpdateResult()
-		{
-		}
-		
-		[Column(Name="call_me_id", Storage="_Call_me_id", DbType="Int")]
-		public System.Nullable<int> Call_me_id
-		{
-			get
-			{
-				return this._Call_me_id;
-			}
-			set
-			{
-				if ((this._Call_me_id != value))
-				{
-					this._Call_me_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="telephone", Storage="_Telephone", DbType="VarChar(30)")]
-		public string Telephone
-		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this._Telephone = value;
-				}
-			}
-		}
-		
-		[Column(Name="cell_number", Storage="_Cell_number", DbType="VarChar(30)")]
-		public string Cell_number
-		{
-			get
-			{
-				return this._Cell_number;
-			}
-			set
-			{
-				if ((this._Cell_number != value))
-				{
-					this._Cell_number = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="company_name", Storage="_Company_name", DbType="VarChar(60)")]
-		public string Company_name
-		{
-			get
-			{
-				return this._Company_name;
-			}
-			set
-			{
-				if ((this._Company_name != value))
-				{
-					this._Company_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="company_website", Storage="_Company_website", DbType="VarChar(60)")]
-		public string Company_website
-		{
-			get
-			{
-				return this._Company_website;
-			}
-			set
-			{
-				if ((this._Company_website != value))
-				{
-					this._Company_website = value;
-				}
-			}
-		}
-		
-		[Column(Name="postal_adress", Storage="_Postal_adress", DbType="VarChar(255)")]
-		public string Postal_adress
-		{
-			get
-			{
-				return this._Postal_adress;
-			}
-			set
-			{
-				if ((this._Postal_adress != value))
-				{
-					this._Postal_adress = value;
-				}
-			}
-		}
-		
-		[Column(Name="postal_code", Storage="_Postal_code", DbType="VarChar(9)")]
-		public string Postal_code
-		{
-			get
-			{
-				return this._Postal_code;
-			}
-			set
-			{
-				if ((this._Postal_code != value))
-				{
-					this._Postal_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="comments", Storage="_Comments", DbType="VarChar(1000)")]
-		public string Comments
-		{
-			get
-			{
-				return this._Comments;
-			}
-			set
-			{
-				if ((this._Comments != value))
-				{
-					this._Comments = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_view_demo", Storage="_Flg_view_demo", DbType="Bit")]
-		public System.Nullable<bool> Flg_view_demo
-		{
-			get
-			{
-				return this._Flg_view_demo;
-			}
-			set
-			{
-				if ((this._Flg_view_demo != value))
-				{
-					this._Flg_view_demo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CustomerInsertResult
-	{
-		
-		private System.Nullable<int> _Entity_id;
-		
-		private string _Entity_uid;
-		
-		private string _Verification_code;
-		
-		private System.Nullable<bool> _Flg_receive_mails;
-		
-		private System.Nullable<bool> _Flg_deleted;
-		
-		private System.Nullable<bool> _Flg_entity_on_hold;
-		
-		private System.Nullable<int> _Entity_approved_status;
-		
-		private System.Nullable<int> _Entity_pymt_type;
-		
-		private string _Name_long;
-		
-		private string _Name_title;
-		
-		private string _Name_initials;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Name_job_title;
-		
-		private string _Email;
-		
-		private string _Logon_enable;
-		
-		private System.Nullable<byte> _Enable_reminder_question_id;
-		
-		private string _Enable_reminder_custom_question;
-		
-		private string _Enable_reminder_question_answer;
-		
-		private string _Entity_details;
-		
-		private System.Nullable<bool> _Flg_verified;
-		
-		private System.Nullable<bool> _Flg_enabled;
-		
-		private System.Nullable<int> _Login_attempts;
-		
-		private System.Nullable<bool> _Flg_locked;
-		
-		private string _Locked_reason;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.Nullable<System.DateTime> _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Entity_type;
-		
-		public CustomerInsertResult()
-		{
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this._Entity_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_uid", Storage="_Entity_uid", DbType="Char(36)")]
-		public string Entity_uid
-		{
-			get
-			{
-				return this._Entity_uid;
-			}
-			set
-			{
-				if ((this._Entity_uid != value))
-				{
-					this._Entity_uid = value;
-				}
-			}
-		}
-		
-		[Column(Name="verification_code", Storage="_Verification_code", DbType="Char(36)")]
-		public string Verification_code
-		{
-			get
-			{
-				return this._Verification_code;
-			}
-			set
-			{
-				if ((this._Verification_code != value))
-				{
-					this._Verification_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
-		{
-			get
-			{
-				return this._Flg_receive_mails;
-			}
-			set
-			{
-				if ((this._Flg_receive_mails != value))
-				{
-					this._Flg_receive_mails = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this._Flg_deleted = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
-		{
-			get
-			{
-				return this._Flg_entity_on_hold;
-			}
-			set
-			{
-				if ((this._Flg_entity_on_hold != value))
-				{
-					this._Flg_entity_on_hold = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_approved_status", Storage="_Entity_approved_status", DbType="Int")]
-		public System.Nullable<int> Entity_approved_status
-		{
-			get
-			{
-				return this._Entity_approved_status;
-			}
-			set
-			{
-				if ((this._Entity_approved_status != value))
-				{
-					this._Entity_approved_status = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_pymt_type", Storage="_Entity_pymt_type", DbType="Int")]
-		public System.Nullable<int> Entity_pymt_type
-		{
-			get
-			{
-				return this._Entity_pymt_type;
-			}
-			set
-			{
-				if ((this._Entity_pymt_type != value))
-				{
-					this._Entity_pymt_type = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_long", Storage="_Name_long", DbType="VarChar(60)")]
-		public string Name_long
-		{
-			get
-			{
-				return this._Name_long;
-			}
-			set
-			{
-				if ((this._Name_long != value))
-				{
-					this._Name_long = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_title", Storage="_Name_title", DbType="VarChar(7)")]
-		public string Name_title
-		{
-			get
-			{
-				return this._Name_title;
-			}
-			set
-			{
-				if ((this._Name_title != value))
-				{
-					this._Name_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_initials", Storage="_Name_initials", DbType="VarChar(3)")]
-		public string Name_initials
-		{
-			get
-			{
-				return this._Name_initials;
-			}
-			set
-			{
-				if ((this._Name_initials != value))
-				{
-					this._Name_initials = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_job_title", Storage="_Name_job_title", DbType="VarChar(255)")]
-		public string Name_job_title
-		{
-			get
-			{
-				return this._Name_job_title;
-			}
-			set
-			{
-				if ((this._Name_job_title != value))
-				{
-					this._Name_job_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="logon_enable", Storage="_Logon_enable", DbType="VarChar(50)")]
-		public string Logon_enable
-		{
-			get
-			{
-				return this._Logon_enable;
-			}
-			set
-			{
-				if ((this._Logon_enable != value))
-				{
-					this._Logon_enable = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
-		{
-			get
-			{
-				return this._Enable_reminder_question_id;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_id != value))
-				{
-					this._Enable_reminder_question_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
-		{
-			get
-			{
-				return this._Enable_reminder_custom_question;
-			}
-			set
-			{
-				if ((this._Enable_reminder_custom_question != value))
-				{
-					this._Enable_reminder_custom_question = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
-		{
-			get
-			{
-				return this._Enable_reminder_question_answer;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_answer != value))
-				{
-					this._Enable_reminder_question_answer = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_details", Storage="_Entity_details", DbType="VarChar(200)")]
-		public string Entity_details
-		{
-			get
-			{
-				return this._Entity_details;
-			}
-			set
-			{
-				if ((this._Entity_details != value))
-				{
-					this._Entity_details = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
-		{
-			get
-			{
-				return this._Flg_verified;
-			}
-			set
-			{
-				if ((this._Flg_verified != value))
-				{
-					this._Flg_verified = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
-		{
-			get
-			{
-				return this._Flg_enabled;
-			}
-			set
-			{
-				if ((this._Flg_enabled != value))
-				{
-					this._Flg_enabled = value;
-				}
-			}
-		}
-		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
-		{
-			get
-			{
-				return this._Login_attempts;
-			}
-			set
-			{
-				if ((this._Login_attempts != value))
-				{
-					this._Login_attempts = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
-		{
-			get
-			{
-				return this._Flg_locked;
-			}
-			set
-			{
-				if ((this._Flg_locked != value))
-				{
-					this._Flg_locked = value;
-				}
-			}
-		}
-		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
-		{
-			get
-			{
-				return this._Locked_reason;
-			}
-			set
-			{
-				if ((this._Locked_reason != value))
-				{
-					this._Locked_reason = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this._Created_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this._Date_created = value;
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this._Last_amended_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_type", Storage="_Entity_type", DbType="Text")]
-		public string Entity_type
-		{
-			get
-			{
-				return this._Entity_type;
-			}
-			set
-			{
-				if ((this._Entity_type != value))
-				{
-					this._Entity_type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CustomerSelectResult
-	{
-		
-		private System.Nullable<int> _Entity_id;
-		
-		private string _Entity_uid;
-		
-		private string _Verification_code;
-		
-		private System.Nullable<bool> _Flg_receive_mails;
-		
-		private System.Nullable<bool> _Flg_deleted;
-		
-		private System.Nullable<bool> _Flg_entity_on_hold;
-		
-		private System.Nullable<int> _Entity_approved_status;
-		
-		private System.Nullable<int> _Entity_pymt_type;
-		
-		private string _Name_long;
-		
-		private string _Name_title;
-		
-		private string _Name_initials;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Name_job_title;
-		
-		private string _Email;
-		
-		private string _Logon_enable;
-		
-		private System.Nullable<byte> _Enable_reminder_question_id;
-		
-		private string _Enable_reminder_custom_question;
-		
-		private string _Enable_reminder_question_answer;
-		
-		private string _Entity_details;
-		
-		private System.Nullable<bool> _Flg_verified;
-		
-		private System.Nullable<bool> _Flg_enabled;
-		
-		private System.Nullable<int> _Login_attempts;
-		
-		private System.Nullable<bool> _Flg_locked;
-		
-		private string _Locked_reason;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.Nullable<System.DateTime> _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Entity_type;
-		
-		public CustomerSelectResult()
-		{
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this._Entity_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_uid", Storage="_Entity_uid", DbType="Char(36)")]
-		public string Entity_uid
-		{
-			get
-			{
-				return this._Entity_uid;
-			}
-			set
-			{
-				if ((this._Entity_uid != value))
-				{
-					this._Entity_uid = value;
-				}
-			}
-		}
-		
-		[Column(Name="verification_code", Storage="_Verification_code", DbType="Char(36)")]
-		public string Verification_code
-		{
-			get
-			{
-				return this._Verification_code;
-			}
-			set
-			{
-				if ((this._Verification_code != value))
-				{
-					this._Verification_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
-		{
-			get
-			{
-				return this._Flg_receive_mails;
-			}
-			set
-			{
-				if ((this._Flg_receive_mails != value))
-				{
-					this._Flg_receive_mails = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this._Flg_deleted = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
-		{
-			get
-			{
-				return this._Flg_entity_on_hold;
-			}
-			set
-			{
-				if ((this._Flg_entity_on_hold != value))
-				{
-					this._Flg_entity_on_hold = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_approved_status", Storage="_Entity_approved_status", DbType="Int")]
-		public System.Nullable<int> Entity_approved_status
-		{
-			get
-			{
-				return this._Entity_approved_status;
-			}
-			set
-			{
-				if ((this._Entity_approved_status != value))
-				{
-					this._Entity_approved_status = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_pymt_type", Storage="_Entity_pymt_type", DbType="Int")]
-		public System.Nullable<int> Entity_pymt_type
-		{
-			get
-			{
-				return this._Entity_pymt_type;
-			}
-			set
-			{
-				if ((this._Entity_pymt_type != value))
-				{
-					this._Entity_pymt_type = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_long", Storage="_Name_long", DbType="VarChar(60)")]
-		public string Name_long
-		{
-			get
-			{
-				return this._Name_long;
-			}
-			set
-			{
-				if ((this._Name_long != value))
-				{
-					this._Name_long = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_title", Storage="_Name_title", DbType="VarChar(7)")]
-		public string Name_title
-		{
-			get
-			{
-				return this._Name_title;
-			}
-			set
-			{
-				if ((this._Name_title != value))
-				{
-					this._Name_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_initials", Storage="_Name_initials", DbType="VarChar(3)")]
-		public string Name_initials
-		{
-			get
-			{
-				return this._Name_initials;
-			}
-			set
-			{
-				if ((this._Name_initials != value))
-				{
-					this._Name_initials = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_job_title", Storage="_Name_job_title", DbType="VarChar(255)")]
-		public string Name_job_title
-		{
-			get
-			{
-				return this._Name_job_title;
-			}
-			set
-			{
-				if ((this._Name_job_title != value))
-				{
-					this._Name_job_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="logon_enable", Storage="_Logon_enable", DbType="VarChar(50)")]
-		public string Logon_enable
-		{
-			get
-			{
-				return this._Logon_enable;
-			}
-			set
-			{
-				if ((this._Logon_enable != value))
-				{
-					this._Logon_enable = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
-		{
-			get
-			{
-				return this._Enable_reminder_question_id;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_id != value))
-				{
-					this._Enable_reminder_question_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
-		{
-			get
-			{
-				return this._Enable_reminder_custom_question;
-			}
-			set
-			{
-				if ((this._Enable_reminder_custom_question != value))
-				{
-					this._Enable_reminder_custom_question = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
-		{
-			get
-			{
-				return this._Enable_reminder_question_answer;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_answer != value))
-				{
-					this._Enable_reminder_question_answer = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_details", Storage="_Entity_details", DbType="VarChar(200)")]
-		public string Entity_details
-		{
-			get
-			{
-				return this._Entity_details;
-			}
-			set
-			{
-				if ((this._Entity_details != value))
-				{
-					this._Entity_details = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
-		{
-			get
-			{
-				return this._Flg_verified;
-			}
-			set
-			{
-				if ((this._Flg_verified != value))
-				{
-					this._Flg_verified = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
-		{
-			get
-			{
-				return this._Flg_enabled;
-			}
-			set
-			{
-				if ((this._Flg_enabled != value))
-				{
-					this._Flg_enabled = value;
-				}
-			}
-		}
-		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
-		{
-			get
-			{
-				return this._Login_attempts;
-			}
-			set
-			{
-				if ((this._Login_attempts != value))
-				{
-					this._Login_attempts = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
-		{
-			get
-			{
-				return this._Flg_locked;
-			}
-			set
-			{
-				if ((this._Flg_locked != value))
-				{
-					this._Flg_locked = value;
-				}
-			}
-		}
-		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
-		{
-			get
-			{
-				return this._Locked_reason;
-			}
-			set
-			{
-				if ((this._Locked_reason != value))
-				{
-					this._Locked_reason = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this._Created_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this._Date_created = value;
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this._Last_amended_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_type", Storage="_Entity_type", DbType="Text")]
-		public string Entity_type
-		{
-			get
-			{
-				return this._Entity_type;
-			}
-			set
-			{
-				if ((this._Entity_type != value))
-				{
-					this._Entity_type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CustomerSelectByEmailResult
-	{
-		
-		private System.Nullable<int> _Entity_id;
-		
-		private string _Entity_uid;
-		
-		private string _Verification_code;
-		
-		private System.Nullable<bool> _Flg_receive_mails;
-		
-		private System.Nullable<bool> _Flg_deleted;
-		
-		private System.Nullable<bool> _Flg_entity_on_hold;
-		
-		private System.Nullable<int> _Entity_approved_status;
-		
-		private System.Nullable<int> _Entity_pymt_type;
-		
-		private string _Name_long;
-		
-		private string _Name_title;
-		
-		private string _Name_initials;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Name_job_title;
-		
-		private string _Email;
-		
-		private string _Logon_enable;
-		
-		private System.Nullable<byte> _Enable_reminder_question_id;
-		
-		private string _Enable_reminder_custom_question;
-		
-		private string _Enable_reminder_question_answer;
-		
-		private string _Entity_details;
-		
-		private System.Nullable<bool> _Flg_verified;
-		
-		private System.Nullable<bool> _Flg_enabled;
-		
-		private System.Nullable<int> _Login_attempts;
-		
-		private System.Nullable<bool> _Flg_locked;
-		
-		private string _Locked_reason;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.Nullable<System.DateTime> _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Entity_type;
-		
-		public CustomerSelectByEmailResult()
-		{
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this._Entity_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_uid", Storage="_Entity_uid", DbType="Char(36)")]
-		public string Entity_uid
-		{
-			get
-			{
-				return this._Entity_uid;
-			}
-			set
-			{
-				if ((this._Entity_uid != value))
-				{
-					this._Entity_uid = value;
-				}
-			}
-		}
-		
-		[Column(Name="verification_code", Storage="_Verification_code", DbType="Char(36)")]
-		public string Verification_code
-		{
-			get
-			{
-				return this._Verification_code;
-			}
-			set
-			{
-				if ((this._Verification_code != value))
-				{
-					this._Verification_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
-		{
-			get
-			{
-				return this._Flg_receive_mails;
-			}
-			set
-			{
-				if ((this._Flg_receive_mails != value))
-				{
-					this._Flg_receive_mails = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this._Flg_deleted = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
-		{
-			get
-			{
-				return this._Flg_entity_on_hold;
-			}
-			set
-			{
-				if ((this._Flg_entity_on_hold != value))
-				{
-					this._Flg_entity_on_hold = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_approved_status", Storage="_Entity_approved_status", DbType="Int")]
-		public System.Nullable<int> Entity_approved_status
-		{
-			get
-			{
-				return this._Entity_approved_status;
-			}
-			set
-			{
-				if ((this._Entity_approved_status != value))
-				{
-					this._Entity_approved_status = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_pymt_type", Storage="_Entity_pymt_type", DbType="Int")]
-		public System.Nullable<int> Entity_pymt_type
-		{
-			get
-			{
-				return this._Entity_pymt_type;
-			}
-			set
-			{
-				if ((this._Entity_pymt_type != value))
-				{
-					this._Entity_pymt_type = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_long", Storage="_Name_long", DbType="VarChar(60)")]
-		public string Name_long
-		{
-			get
-			{
-				return this._Name_long;
-			}
-			set
-			{
-				if ((this._Name_long != value))
-				{
-					this._Name_long = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_title", Storage="_Name_title", DbType="VarChar(7)")]
-		public string Name_title
-		{
-			get
-			{
-				return this._Name_title;
-			}
-			set
-			{
-				if ((this._Name_title != value))
-				{
-					this._Name_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_initials", Storage="_Name_initials", DbType="VarChar(3)")]
-		public string Name_initials
-		{
-			get
-			{
-				return this._Name_initials;
-			}
-			set
-			{
-				if ((this._Name_initials != value))
-				{
-					this._Name_initials = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_job_title", Storage="_Name_job_title", DbType="VarChar(255)")]
-		public string Name_job_title
-		{
-			get
-			{
-				return this._Name_job_title;
-			}
-			set
-			{
-				if ((this._Name_job_title != value))
-				{
-					this._Name_job_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="logon_enable", Storage="_Logon_enable", DbType="VarChar(50)")]
-		public string Logon_enable
-		{
-			get
-			{
-				return this._Logon_enable;
-			}
-			set
-			{
-				if ((this._Logon_enable != value))
-				{
-					this._Logon_enable = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
-		{
-			get
-			{
-				return this._Enable_reminder_question_id;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_id != value))
-				{
-					this._Enable_reminder_question_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
-		{
-			get
-			{
-				return this._Enable_reminder_custom_question;
-			}
-			set
-			{
-				if ((this._Enable_reminder_custom_question != value))
-				{
-					this._Enable_reminder_custom_question = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
-		{
-			get
-			{
-				return this._Enable_reminder_question_answer;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_answer != value))
-				{
-					this._Enable_reminder_question_answer = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_details", Storage="_Entity_details", DbType="VarChar(200)")]
-		public string Entity_details
-		{
-			get
-			{
-				return this._Entity_details;
-			}
-			set
-			{
-				if ((this._Entity_details != value))
-				{
-					this._Entity_details = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
-		{
-			get
-			{
-				return this._Flg_verified;
-			}
-			set
-			{
-				if ((this._Flg_verified != value))
-				{
-					this._Flg_verified = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
-		{
-			get
-			{
-				return this._Flg_enabled;
-			}
-			set
-			{
-				if ((this._Flg_enabled != value))
-				{
-					this._Flg_enabled = value;
-				}
-			}
-		}
-		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
-		{
-			get
-			{
-				return this._Login_attempts;
-			}
-			set
-			{
-				if ((this._Login_attempts != value))
-				{
-					this._Login_attempts = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
-		{
-			get
-			{
-				return this._Flg_locked;
-			}
-			set
-			{
-				if ((this._Flg_locked != value))
-				{
-					this._Flg_locked = value;
-				}
-			}
-		}
-		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
-		{
-			get
-			{
-				return this._Locked_reason;
-			}
-			set
-			{
-				if ((this._Locked_reason != value))
-				{
-					this._Locked_reason = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this._Created_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this._Date_created = value;
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this._Last_amended_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_type", Storage="_Entity_type", DbType="Text")]
-		public string Entity_type
-		{
-			get
-			{
-				return this._Entity_type;
-			}
-			set
-			{
-				if ((this._Entity_type != value))
-				{
-					this._Entity_type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CustomerSelectByIdResult
-	{
-		
-		private System.Nullable<int> _Entity_id;
-		
-		private string _Entity_uid;
-		
-		private string _Verification_code;
-		
-		private System.Nullable<bool> _Flg_receive_mails;
-		
-		private System.Nullable<bool> _Flg_deleted;
-		
-		private System.Nullable<bool> _Flg_entity_on_hold;
-		
-		private System.Nullable<int> _Entity_approved_status;
-		
-		private System.Nullable<int> _Entity_pymt_type;
-		
-		private string _Name_long;
-		
-		private string _Name_title;
-		
-		private string _Name_initials;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Name_job_title;
-		
-		private string _Email;
-		
-		private string _Logon_enable;
-		
-		private System.Nullable<byte> _Enable_reminder_question_id;
-		
-		private string _Enable_reminder_custom_question;
-		
-		private string _Enable_reminder_question_answer;
-		
-		private string _Entity_details;
-		
-		private System.Nullable<bool> _Flg_verified;
-		
-		private System.Nullable<bool> _Flg_enabled;
-		
-		private System.Nullable<int> _Login_attempts;
-		
-		private System.Nullable<bool> _Flg_locked;
-		
-		private string _Locked_reason;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.Nullable<System.DateTime> _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Entity_type;
-		
-		public CustomerSelectByIdResult()
-		{
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this._Entity_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_uid", Storage="_Entity_uid", DbType="Char(36)")]
-		public string Entity_uid
-		{
-			get
-			{
-				return this._Entity_uid;
-			}
-			set
-			{
-				if ((this._Entity_uid != value))
-				{
-					this._Entity_uid = value;
-				}
-			}
-		}
-		
-		[Column(Name="verification_code", Storage="_Verification_code", DbType="Char(36)")]
-		public string Verification_code
-		{
-			get
-			{
-				return this._Verification_code;
-			}
-			set
-			{
-				if ((this._Verification_code != value))
-				{
-					this._Verification_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
-		{
-			get
-			{
-				return this._Flg_receive_mails;
-			}
-			set
-			{
-				if ((this._Flg_receive_mails != value))
-				{
-					this._Flg_receive_mails = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this._Flg_deleted = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
-		{
-			get
-			{
-				return this._Flg_entity_on_hold;
-			}
-			set
-			{
-				if ((this._Flg_entity_on_hold != value))
-				{
-					this._Flg_entity_on_hold = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_approved_status", Storage="_Entity_approved_status", DbType="Int")]
-		public System.Nullable<int> Entity_approved_status
-		{
-			get
-			{
-				return this._Entity_approved_status;
-			}
-			set
-			{
-				if ((this._Entity_approved_status != value))
-				{
-					this._Entity_approved_status = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_pymt_type", Storage="_Entity_pymt_type", DbType="Int")]
-		public System.Nullable<int> Entity_pymt_type
-		{
-			get
-			{
-				return this._Entity_pymt_type;
-			}
-			set
-			{
-				if ((this._Entity_pymt_type != value))
-				{
-					this._Entity_pymt_type = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_long", Storage="_Name_long", DbType="VarChar(60)")]
-		public string Name_long
-		{
-			get
-			{
-				return this._Name_long;
-			}
-			set
-			{
-				if ((this._Name_long != value))
-				{
-					this._Name_long = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_title", Storage="_Name_title", DbType="VarChar(7)")]
-		public string Name_title
-		{
-			get
-			{
-				return this._Name_title;
-			}
-			set
-			{
-				if ((this._Name_title != value))
-				{
-					this._Name_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_initials", Storage="_Name_initials", DbType="VarChar(3)")]
-		public string Name_initials
-		{
-			get
-			{
-				return this._Name_initials;
-			}
-			set
-			{
-				if ((this._Name_initials != value))
-				{
-					this._Name_initials = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_job_title", Storage="_Name_job_title", DbType="VarChar(255)")]
-		public string Name_job_title
-		{
-			get
-			{
-				return this._Name_job_title;
-			}
-			set
-			{
-				if ((this._Name_job_title != value))
-				{
-					this._Name_job_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="logon_enable", Storage="_Logon_enable", DbType="VarChar(50)")]
-		public string Logon_enable
-		{
-			get
-			{
-				return this._Logon_enable;
-			}
-			set
-			{
-				if ((this._Logon_enable != value))
-				{
-					this._Logon_enable = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
-		{
-			get
-			{
-				return this._Enable_reminder_question_id;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_id != value))
-				{
-					this._Enable_reminder_question_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
-		{
-			get
-			{
-				return this._Enable_reminder_custom_question;
-			}
-			set
-			{
-				if ((this._Enable_reminder_custom_question != value))
-				{
-					this._Enable_reminder_custom_question = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
-		{
-			get
-			{
-				return this._Enable_reminder_question_answer;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_answer != value))
-				{
-					this._Enable_reminder_question_answer = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_details", Storage="_Entity_details", DbType="VarChar(200)")]
-		public string Entity_details
-		{
-			get
-			{
-				return this._Entity_details;
-			}
-			set
-			{
-				if ((this._Entity_details != value))
-				{
-					this._Entity_details = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
-		{
-			get
-			{
-				return this._Flg_verified;
-			}
-			set
-			{
-				if ((this._Flg_verified != value))
-				{
-					this._Flg_verified = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
-		{
-			get
-			{
-				return this._Flg_enabled;
-			}
-			set
-			{
-				if ((this._Flg_enabled != value))
-				{
-					this._Flg_enabled = value;
-				}
-			}
-		}
-		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
-		{
-			get
-			{
-				return this._Login_attempts;
-			}
-			set
-			{
-				if ((this._Login_attempts != value))
-				{
-					this._Login_attempts = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
-		{
-			get
-			{
-				return this._Flg_locked;
-			}
-			set
-			{
-				if ((this._Flg_locked != value))
-				{
-					this._Flg_locked = value;
-				}
-			}
-		}
-		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
-		{
-			get
-			{
-				return this._Locked_reason;
-			}
-			set
-			{
-				if ((this._Locked_reason != value))
-				{
-					this._Locked_reason = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this._Created_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this._Date_created = value;
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this._Last_amended_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_type", Storage="_Entity_type", DbType="Text")]
-		public string Entity_type
-		{
-			get
-			{
-				return this._Entity_type;
-			}
-			set
-			{
-				if ((this._Entity_type != value))
-				{
-					this._Entity_type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CustomerSelectByUIDResult
-	{
-		
-		private System.Nullable<int> _Entity_id;
-		
-		private string _Entity_uid;
-		
-		private string _Verification_code;
-		
-		private System.Nullable<bool> _Flg_receive_mails;
-		
-		private System.Nullable<bool> _Flg_deleted;
-		
-		private System.Nullable<bool> _Flg_entity_on_hold;
-		
-		private System.Nullable<int> _Entity_approved_status;
-		
-		private System.Nullable<int> _Entity_pymt_type;
-		
-		private string _Name_long;
-		
-		private string _Name_title;
-		
-		private string _Name_initials;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Name_job_title;
-		
-		private string _Email;
-		
-		private string _Logon_enable;
-		
-		private System.Nullable<byte> _Enable_reminder_question_id;
-		
-		private string _Enable_reminder_custom_question;
-		
-		private string _Enable_reminder_question_answer;
-		
-		private string _Entity_details;
-		
-		private System.Nullable<bool> _Flg_verified;
-		
-		private System.Nullable<bool> _Flg_enabled;
-		
-		private System.Nullable<int> _Login_attempts;
-		
-		private System.Nullable<bool> _Flg_locked;
-		
-		private string _Locked_reason;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.Nullable<System.DateTime> _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Entity_type;
-		
-		public CustomerSelectByUIDResult()
-		{
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this._Entity_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_uid", Storage="_Entity_uid", DbType="Char(36)")]
-		public string Entity_uid
-		{
-			get
-			{
-				return this._Entity_uid;
-			}
-			set
-			{
-				if ((this._Entity_uid != value))
-				{
-					this._Entity_uid = value;
-				}
-			}
-		}
-		
-		[Column(Name="verification_code", Storage="_Verification_code", DbType="Char(36)")]
-		public string Verification_code
-		{
-			get
-			{
-				return this._Verification_code;
-			}
-			set
-			{
-				if ((this._Verification_code != value))
-				{
-					this._Verification_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
-		{
-			get
-			{
-				return this._Flg_receive_mails;
-			}
-			set
-			{
-				if ((this._Flg_receive_mails != value))
-				{
-					this._Flg_receive_mails = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this._Flg_deleted = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
-		{
-			get
-			{
-				return this._Flg_entity_on_hold;
-			}
-			set
-			{
-				if ((this._Flg_entity_on_hold != value))
-				{
-					this._Flg_entity_on_hold = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_approved_status", Storage="_Entity_approved_status", DbType="Int")]
-		public System.Nullable<int> Entity_approved_status
-		{
-			get
-			{
-				return this._Entity_approved_status;
-			}
-			set
-			{
-				if ((this._Entity_approved_status != value))
-				{
-					this._Entity_approved_status = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_pymt_type", Storage="_Entity_pymt_type", DbType="Int")]
-		public System.Nullable<int> Entity_pymt_type
-		{
-			get
-			{
-				return this._Entity_pymt_type;
-			}
-			set
-			{
-				if ((this._Entity_pymt_type != value))
-				{
-					this._Entity_pymt_type = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_long", Storage="_Name_long", DbType="VarChar(60)")]
-		public string Name_long
-		{
-			get
-			{
-				return this._Name_long;
-			}
-			set
-			{
-				if ((this._Name_long != value))
-				{
-					this._Name_long = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_title", Storage="_Name_title", DbType="VarChar(7)")]
-		public string Name_title
-		{
-			get
-			{
-				return this._Name_title;
-			}
-			set
-			{
-				if ((this._Name_title != value))
-				{
-					this._Name_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_initials", Storage="_Name_initials", DbType="VarChar(3)")]
-		public string Name_initials
-		{
-			get
-			{
-				return this._Name_initials;
-			}
-			set
-			{
-				if ((this._Name_initials != value))
-				{
-					this._Name_initials = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_job_title", Storage="_Name_job_title", DbType="VarChar(255)")]
-		public string Name_job_title
-		{
-			get
-			{
-				return this._Name_job_title;
-			}
-			set
-			{
-				if ((this._Name_job_title != value))
-				{
-					this._Name_job_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="logon_enable", Storage="_Logon_enable", DbType="VarChar(50)")]
-		public string Logon_enable
-		{
-			get
-			{
-				return this._Logon_enable;
-			}
-			set
-			{
-				if ((this._Logon_enable != value))
-				{
-					this._Logon_enable = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
-		{
-			get
-			{
-				return this._Enable_reminder_question_id;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_id != value))
-				{
-					this._Enable_reminder_question_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
-		{
-			get
-			{
-				return this._Enable_reminder_custom_question;
-			}
-			set
-			{
-				if ((this._Enable_reminder_custom_question != value))
-				{
-					this._Enable_reminder_custom_question = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
-		{
-			get
-			{
-				return this._Enable_reminder_question_answer;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_answer != value))
-				{
-					this._Enable_reminder_question_answer = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_details", Storage="_Entity_details", DbType="VarChar(200)")]
-		public string Entity_details
-		{
-			get
-			{
-				return this._Entity_details;
-			}
-			set
-			{
-				if ((this._Entity_details != value))
-				{
-					this._Entity_details = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
-		{
-			get
-			{
-				return this._Flg_verified;
-			}
-			set
-			{
-				if ((this._Flg_verified != value))
-				{
-					this._Flg_verified = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
-		{
-			get
-			{
-				return this._Flg_enabled;
-			}
-			set
-			{
-				if ((this._Flg_enabled != value))
-				{
-					this._Flg_enabled = value;
-				}
-			}
-		}
-		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
-		{
-			get
-			{
-				return this._Login_attempts;
-			}
-			set
-			{
-				if ((this._Login_attempts != value))
-				{
-					this._Login_attempts = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
-		{
-			get
-			{
-				return this._Flg_locked;
-			}
-			set
-			{
-				if ((this._Flg_locked != value))
-				{
-					this._Flg_locked = value;
-				}
-			}
-		}
-		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
-		{
-			get
-			{
-				return this._Locked_reason;
-			}
-			set
-			{
-				if ((this._Locked_reason != value))
-				{
-					this._Locked_reason = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this._Created_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this._Date_created = value;
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this._Last_amended_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_type", Storage="_Entity_type", DbType="Text")]
-		public string Entity_type
-		{
-			get
-			{
-				return this._Entity_type;
-			}
-			set
-			{
-				if ((this._Entity_type != value))
-				{
-					this._Entity_type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CustomerUpdateResult
-	{
-		
-		private System.Nullable<int> _Entity_id;
-		
-		private System.Nullable<bool> _Flg_deleted;
-		
-		private System.Nullable<bool> _Flg_entity_on_hold;
-		
-		private System.Nullable<int> _Entity_approved_status;
-		
-		private System.Nullable<int> _Entity_pymt_type;
-		
-		private string _Name_long;
-		
-		private string _Name_title;
-		
-		private string _Name_initials;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Name_job_title;
-		
-		private string _Email;
-		
-		private string _Logon_enable;
-		
-		private System.Nullable<byte> _Enable_reminder_question_id;
-		
-		private string _Enable_reminder_custom_question;
-		
-		private string _Enable_reminder_question_answer;
-		
-		private string _Entity_details;
-		
-		private System.Nullable<bool> _Flg_verified;
-		
-		private System.Nullable<bool> _Flg_enabled;
-		
-		private System.Nullable<int> _Login_attempts;
-		
-		private System.Nullable<bool> _Flg_locked;
-		
-		private string _Locked_reason;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.Nullable<System.DateTime> _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Entity_type;
-		
-		public CustomerUpdateResult()
-		{
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this._Entity_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this._Flg_deleted = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
-		{
-			get
-			{
-				return this._Flg_entity_on_hold;
-			}
-			set
-			{
-				if ((this._Flg_entity_on_hold != value))
-				{
-					this._Flg_entity_on_hold = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_approved_status", Storage="_Entity_approved_status", DbType="Int")]
-		public System.Nullable<int> Entity_approved_status
-		{
-			get
-			{
-				return this._Entity_approved_status;
-			}
-			set
-			{
-				if ((this._Entity_approved_status != value))
-				{
-					this._Entity_approved_status = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_pymt_type", Storage="_Entity_pymt_type", DbType="Int")]
-		public System.Nullable<int> Entity_pymt_type
-		{
-			get
-			{
-				return this._Entity_pymt_type;
-			}
-			set
-			{
-				if ((this._Entity_pymt_type != value))
-				{
-					this._Entity_pymt_type = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_long", Storage="_Name_long", DbType="VarChar(60)")]
-		public string Name_long
-		{
-			get
-			{
-				return this._Name_long;
-			}
-			set
-			{
-				if ((this._Name_long != value))
-				{
-					this._Name_long = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_title", Storage="_Name_title", DbType="VarChar(7)")]
-		public string Name_title
-		{
-			get
-			{
-				return this._Name_title;
-			}
-			set
-			{
-				if ((this._Name_title != value))
-				{
-					this._Name_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_initials", Storage="_Name_initials", DbType="VarChar(3)")]
-		public string Name_initials
-		{
-			get
-			{
-				return this._Name_initials;
-			}
-			set
-			{
-				if ((this._Name_initials != value))
-				{
-					this._Name_initials = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_job_title", Storage="_Name_job_title", DbType="VarChar(255)")]
-		public string Name_job_title
-		{
-			get
-			{
-				return this._Name_job_title;
-			}
-			set
-			{
-				if ((this._Name_job_title != value))
-				{
-					this._Name_job_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="logon_enable", Storage="_Logon_enable", DbType="VarChar(50)")]
-		public string Logon_enable
-		{
-			get
-			{
-				return this._Logon_enable;
-			}
-			set
-			{
-				if ((this._Logon_enable != value))
-				{
-					this._Logon_enable = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
-		{
-			get
-			{
-				return this._Enable_reminder_question_id;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_id != value))
-				{
-					this._Enable_reminder_question_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
-		{
-			get
-			{
-				return this._Enable_reminder_custom_question;
-			}
-			set
-			{
-				if ((this._Enable_reminder_custom_question != value))
-				{
-					this._Enable_reminder_custom_question = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
-		{
-			get
-			{
-				return this._Enable_reminder_question_answer;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_answer != value))
-				{
-					this._Enable_reminder_question_answer = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_details", Storage="_Entity_details", DbType="VarChar(200)")]
-		public string Entity_details
-		{
-			get
-			{
-				return this._Entity_details;
-			}
-			set
-			{
-				if ((this._Entity_details != value))
-				{
-					this._Entity_details = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
-		{
-			get
-			{
-				return this._Flg_verified;
-			}
-			set
-			{
-				if ((this._Flg_verified != value))
-				{
-					this._Flg_verified = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
-		{
-			get
-			{
-				return this._Flg_enabled;
-			}
-			set
-			{
-				if ((this._Flg_enabled != value))
-				{
-					this._Flg_enabled = value;
-				}
-			}
-		}
-		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
-		{
-			get
-			{
-				return this._Login_attempts;
-			}
-			set
-			{
-				if ((this._Login_attempts != value))
-				{
-					this._Login_attempts = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
-		{
-			get
-			{
-				return this._Flg_locked;
-			}
-			set
-			{
-				if ((this._Flg_locked != value))
-				{
-					this._Flg_locked = value;
-				}
-			}
-		}
-		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
-		{
-			get
-			{
-				return this._Locked_reason;
-			}
-			set
-			{
-				if ((this._Locked_reason != value))
-				{
-					this._Locked_reason = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this._Created_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this._Date_created = value;
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this._Last_amended_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_type", Storage="_Entity_type", DbType="Text")]
-		public string Entity_type
-		{
-			get
-			{
-				return this._Entity_type;
-			}
-			set
-			{
-				if ((this._Entity_type != value))
-				{
-					this._Entity_type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CustomerUpdatePasswordResult
-	{
-		
-		private System.Nullable<int> _Entity_id;
-		
-		private string _Entity_uid;
-		
-		private string _Verification_code;
-		
-		private System.Nullable<bool> _Flg_receive_mails;
-		
-		private System.Nullable<bool> _Flg_deleted;
-		
-		private System.Nullable<bool> _Flg_entity_on_hold;
-		
-		private System.Nullable<int> _Entity_approved_status;
-		
-		private System.Nullable<int> _Entity_pymt_type;
-		
-		private string _Name_long;
-		
-		private string _Name_title;
-		
-		private string _Name_initials;
-		
-		private string _Name_forename;
-		
-		private string _Name_surname;
-		
-		private string _Name_job_title;
-		
-		private string _Email;
-		
-		private string _Logon_enable;
-		
-		private System.Nullable<byte> _Enable_reminder_question_id;
-		
-		private string _Enable_reminder_custom_question;
-		
-		private string _Enable_reminder_question_answer;
-		
-		private string _Entity_details;
-		
-		private System.Nullable<bool> _Flg_verified;
-		
-		private System.Nullable<bool> _Flg_enabled;
-		
-		private System.Nullable<int> _Login_attempts;
-		
-		private System.Nullable<bool> _Flg_locked;
-		
-		private string _Locked_reason;
-		
-		private System.Nullable<int> _Created_by;
-		
-		private System.Nullable<System.DateTime> _Date_created;
-		
-		private System.Nullable<int> _Last_amended_by;
-		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _Entity_type;
-		
-		public CustomerUpdatePasswordResult()
-		{
-		}
-		
-		[Column(Name="entity_id", Storage="_Entity_id", DbType="Int")]
-		public System.Nullable<int> Entity_id
-		{
-			get
-			{
-				return this._Entity_id;
-			}
-			set
-			{
-				if ((this._Entity_id != value))
-				{
-					this._Entity_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_uid", Storage="_Entity_uid", DbType="Char(36)")]
-		public string Entity_uid
-		{
-			get
-			{
-				return this._Entity_uid;
-			}
-			set
-			{
-				if ((this._Entity_uid != value))
-				{
-					this._Entity_uid = value;
-				}
-			}
-		}
-		
-		[Column(Name="verification_code", Storage="_Verification_code", DbType="Char(36)")]
-		public string Verification_code
-		{
-			get
-			{
-				return this._Verification_code;
-			}
-			set
-			{
-				if ((this._Verification_code != value))
-				{
-					this._Verification_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
-		{
-			get
-			{
-				return this._Flg_receive_mails;
-			}
-			set
-			{
-				if ((this._Flg_receive_mails != value))
-				{
-					this._Flg_receive_mails = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
-		{
-			get
-			{
-				return this._Flg_deleted;
-			}
-			set
-			{
-				if ((this._Flg_deleted != value))
-				{
-					this._Flg_deleted = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
-		{
-			get
-			{
-				return this._Flg_entity_on_hold;
-			}
-			set
-			{
-				if ((this._Flg_entity_on_hold != value))
-				{
-					this._Flg_entity_on_hold = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_approved_status", Storage="_Entity_approved_status", DbType="Int")]
-		public System.Nullable<int> Entity_approved_status
-		{
-			get
-			{
-				return this._Entity_approved_status;
-			}
-			set
-			{
-				if ((this._Entity_approved_status != value))
-				{
-					this._Entity_approved_status = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_pymt_type", Storage="_Entity_pymt_type", DbType="Int")]
-		public System.Nullable<int> Entity_pymt_type
-		{
-			get
-			{
-				return this._Entity_pymt_type;
-			}
-			set
-			{
-				if ((this._Entity_pymt_type != value))
-				{
-					this._Entity_pymt_type = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_long", Storage="_Name_long", DbType="VarChar(60)")]
-		public string Name_long
-		{
-			get
-			{
-				return this._Name_long;
-			}
-			set
-			{
-				if ((this._Name_long != value))
-				{
-					this._Name_long = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_title", Storage="_Name_title", DbType="VarChar(7)")]
-		public string Name_title
-		{
-			get
-			{
-				return this._Name_title;
-			}
-			set
-			{
-				if ((this._Name_title != value))
-				{
-					this._Name_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_initials", Storage="_Name_initials", DbType="VarChar(3)")]
-		public string Name_initials
-		{
-			get
-			{
-				return this._Name_initials;
-			}
-			set
-			{
-				if ((this._Name_initials != value))
-				{
-					this._Name_initials = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_forename", Storage="_Name_forename", DbType="VarChar(60)")]
-		public string Name_forename
-		{
-			get
-			{
-				return this._Name_forename;
-			}
-			set
-			{
-				if ((this._Name_forename != value))
-				{
-					this._Name_forename = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_surname", Storage="_Name_surname", DbType="VarChar(60)")]
-		public string Name_surname
-		{
-			get
-			{
-				return this._Name_surname;
-			}
-			set
-			{
-				if ((this._Name_surname != value))
-				{
-					this._Name_surname = value;
-				}
-			}
-		}
-		
-		[Column(Name="name_job_title", Storage="_Name_job_title", DbType="VarChar(255)")]
-		public string Name_job_title
-		{
-			get
-			{
-				return this._Name_job_title;
-			}
-			set
-			{
-				if ((this._Name_job_title != value))
-				{
-					this._Name_job_title = value;
-				}
-			}
-		}
-		
-		[Column(Name="email", Storage="_Email", DbType="VarChar(60)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[Column(Name="logon_enable", Storage="_Logon_enable", DbType="VarChar(50)")]
-		public string Logon_enable
-		{
-			get
-			{
-				return this._Logon_enable;
-			}
-			set
-			{
-				if ((this._Logon_enable != value))
-				{
-					this._Logon_enable = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
-		{
-			get
-			{
-				return this._Enable_reminder_question_id;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_id != value))
-				{
-					this._Enable_reminder_question_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
-		{
-			get
-			{
-				return this._Enable_reminder_custom_question;
-			}
-			set
-			{
-				if ((this._Enable_reminder_custom_question != value))
-				{
-					this._Enable_reminder_custom_question = value;
-				}
-			}
-		}
-		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
-		{
-			get
-			{
-				return this._Enable_reminder_question_answer;
-			}
-			set
-			{
-				if ((this._Enable_reminder_question_answer != value))
-				{
-					this._Enable_reminder_question_answer = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_details", Storage="_Entity_details", DbType="VarChar(200)")]
-		public string Entity_details
-		{
-			get
-			{
-				return this._Entity_details;
-			}
-			set
-			{
-				if ((this._Entity_details != value))
-				{
-					this._Entity_details = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
-		{
-			get
-			{
-				return this._Flg_verified;
-			}
-			set
-			{
-				if ((this._Flg_verified != value))
-				{
-					this._Flg_verified = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
-		{
-			get
-			{
-				return this._Flg_enabled;
-			}
-			set
-			{
-				if ((this._Flg_enabled != value))
-				{
-					this._Flg_enabled = value;
-				}
-			}
-		}
-		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
-		{
-			get
-			{
-				return this._Login_attempts;
-			}
-			set
-			{
-				if ((this._Login_attempts != value))
-				{
-					this._Login_attempts = value;
-				}
-			}
-		}
-		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
-		{
-			get
-			{
-				return this._Flg_locked;
-			}
-			set
-			{
-				if ((this._Flg_locked != value))
-				{
-					this._Flg_locked = value;
-				}
-			}
-		}
-		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
-		{
-			get
-			{
-				return this._Locked_reason;
-			}
-			set
-			{
-				if ((this._Locked_reason != value))
-				{
-					this._Locked_reason = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
-		{
-			get
-			{
-				return this._Created_by;
-			}
-			set
-			{
-				if ((this._Created_by != value))
-				{
-					this._Created_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
-		{
-			get
-			{
-				return this._Date_created;
-			}
-			set
-			{
-				if ((this._Date_created != value))
-				{
-					this._Date_created = value;
-				}
-			}
-		}
-		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
-		{
-			get
-			{
-				return this._Last_amended_by;
-			}
-			set
-			{
-				if ((this._Last_amended_by != value))
-				{
-					this._Last_amended_by = value;
-				}
-			}
-		}
-		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
-		{
-			get
-			{
-				return this._Date_last_amended;
-			}
-			set
-			{
-				if ((this._Date_last_amended != value))
-				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Name="entity_type", Storage="_Entity_type", DbType="Text")]
-		public string Entity_type
-		{
-			get
-			{
-				return this._Entity_type;
-			}
-			set
-			{
-				if ((this._Entity_type != value))
-				{
-					this._Entity_type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class EmailQueueInsertResult
-	{
-		
-		private System.Nullable<int> _Queue_id;
-		
-		private System.Nullable<System.DateTime> _Log_time;
-		
-		private System.Nullable<byte> _Num_of_tries;
-		
-		private string _From_name;
-		
-		private string _From_address;
-		
-		private string _To_names;
-		
-		private string _To_addresses;
-		
-		private string _Subject;
-		
-		private string _Body;
-		
-		private System.Nullable<System.DateTime> _Sent_time;
-		
-		public EmailQueueInsertResult()
-		{
-		}
-		
-		[Column(Name="queue_id", Storage="_Queue_id", DbType="Int")]
-		public System.Nullable<int> Queue_id
-		{
-			get
-			{
-				return this._Queue_id;
-			}
-			set
-			{
-				if ((this._Queue_id != value))
-				{
-					this._Queue_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="log_time", Storage="_Log_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Log_time
-		{
-			get
-			{
-				return this._Log_time;
-			}
-			set
-			{
-				if ((this._Log_time != value))
-				{
-					this._Log_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="num_of_tries", Storage="_Num_of_tries", DbType="TinyInt")]
-		public System.Nullable<byte> Num_of_tries
-		{
-			get
-			{
-				return this._Num_of_tries;
-			}
-			set
-			{
-				if ((this._Num_of_tries != value))
-				{
-					this._Num_of_tries = value;
-				}
-			}
-		}
-		
-		[Column(Name="from_name", Storage="_From_name", DbType="VarChar(200)")]
-		public string From_name
-		{
-			get
-			{
-				return this._From_name;
-			}
-			set
-			{
-				if ((this._From_name != value))
-				{
-					this._From_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="from_address", Storage="_From_address", DbType="VarChar(200)")]
-		public string From_address
-		{
-			get
-			{
-				return this._From_address;
-			}
-			set
-			{
-				if ((this._From_address != value))
-				{
-					this._From_address = value;
-				}
-			}
-		}
-		
-		[Column(Name="to_names", Storage="_To_names", DbType="VarChar(200)")]
-		public string To_names
-		{
-			get
-			{
-				return this._To_names;
-			}
-			set
-			{
-				if ((this._To_names != value))
-				{
-					this._To_names = value;
-				}
-			}
-		}
-		
-		[Column(Name="to_addresses", Storage="_To_addresses", DbType="VarChar(200)")]
-		public string To_addresses
-		{
-			get
-			{
-				return this._To_addresses;
-			}
-			set
-			{
-				if ((this._To_addresses != value))
-				{
-					this._To_addresses = value;
-				}
-			}
-		}
-		
-		[Column(Name="subject", Storage="_Subject", DbType="VarChar(200)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
-				}
-			}
-		}
-		
-		[Column(Name="body", Storage="_Body", DbType="VarChar(MAX)")]
-		public string Body
-		{
-			get
-			{
-				return this._Body;
-			}
-			set
-			{
-				if ((this._Body != value))
-				{
-					this._Body = value;
-				}
-			}
-		}
-		
-		[Column(Name="sent_time", Storage="_Sent_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Sent_time
-		{
-			get
-			{
-				return this._Sent_time;
-			}
-			set
-			{
-				if ((this._Sent_time != value))
-				{
-					this._Sent_time = value;
-				}
-			}
-		}
-	}
-	
-	public partial class EmailQueueSelectResult
-	{
-		
-		private System.Nullable<int> _Queue_id;
-		
-		private System.Nullable<System.DateTime> _Log_time;
-		
-		private System.Nullable<byte> _Num_of_tries;
-		
-		private string _From_name;
-		
-		private string _From_address;
-		
-		private string _To_names;
-		
-		private string _To_addresses;
-		
-		private string _Subject;
-		
-		private string _Body;
-		
-		private System.Nullable<System.DateTime> _Sent_time;
-		
-		public EmailQueueSelectResult()
-		{
-		}
-		
-		[Column(Name="queue_id", Storage="_Queue_id", DbType="Int")]
-		public System.Nullable<int> Queue_id
-		{
-			get
-			{
-				return this._Queue_id;
-			}
-			set
-			{
-				if ((this._Queue_id != value))
-				{
-					this._Queue_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="log_time", Storage="_Log_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Log_time
-		{
-			get
-			{
-				return this._Log_time;
-			}
-			set
-			{
-				if ((this._Log_time != value))
-				{
-					this._Log_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="num_of_tries", Storage="_Num_of_tries", DbType="TinyInt")]
-		public System.Nullable<byte> Num_of_tries
-		{
-			get
-			{
-				return this._Num_of_tries;
-			}
-			set
-			{
-				if ((this._Num_of_tries != value))
-				{
-					this._Num_of_tries = value;
-				}
-			}
-		}
-		
-		[Column(Name="from_name", Storage="_From_name", DbType="VarChar(200)")]
-		public string From_name
-		{
-			get
-			{
-				return this._From_name;
-			}
-			set
-			{
-				if ((this._From_name != value))
-				{
-					this._From_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="from_address", Storage="_From_address", DbType="VarChar(200)")]
-		public string From_address
-		{
-			get
-			{
-				return this._From_address;
-			}
-			set
-			{
-				if ((this._From_address != value))
-				{
-					this._From_address = value;
-				}
-			}
-		}
-		
-		[Column(Name="to_names", Storage="_To_names", DbType="VarChar(200)")]
-		public string To_names
-		{
-			get
-			{
-				return this._To_names;
-			}
-			set
-			{
-				if ((this._To_names != value))
-				{
-					this._To_names = value;
-				}
-			}
-		}
-		
-		[Column(Name="to_addresses", Storage="_To_addresses", DbType="VarChar(200)")]
-		public string To_addresses
-		{
-			get
-			{
-				return this._To_addresses;
-			}
-			set
-			{
-				if ((this._To_addresses != value))
-				{
-					this._To_addresses = value;
-				}
-			}
-		}
-		
-		[Column(Name="subject", Storage="_Subject", DbType="VarChar(200)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
-				}
-			}
-		}
-		
-		[Column(Name="body", Storage="_Body", DbType="VarChar(MAX)")]
-		public string Body
-		{
-			get
-			{
-				return this._Body;
-			}
-			set
-			{
-				if ((this._Body != value))
-				{
-					this._Body = value;
-				}
-			}
-		}
-		
-		[Column(Name="sent_time", Storage="_Sent_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Sent_time
-		{
-			get
-			{
-				return this._Sent_time;
-			}
-			set
-			{
-				if ((this._Sent_time != value))
-				{
-					this._Sent_time = value;
-				}
-			}
-		}
-	}
-	
-	public partial class EmailQueueUpdateResult
-	{
-		
-		private System.Nullable<int> _Queue_id;
-		
-		private System.Nullable<System.DateTime> _Log_time;
-		
-		private System.Nullable<byte> _Num_of_tries;
-		
-		private string _From_name;
-		
-		private string _From_address;
-		
-		private string _To_names;
-		
-		private string _To_addresses;
-		
-		private string _Subject;
-		
-		private string _Body;
-		
-		private System.Nullable<System.DateTime> _Sent_time;
-		
-		public EmailQueueUpdateResult()
-		{
-		}
-		
-		[Column(Name="queue_id", Storage="_Queue_id", DbType="Int")]
-		public System.Nullable<int> Queue_id
-		{
-			get
-			{
-				return this._Queue_id;
-			}
-			set
-			{
-				if ((this._Queue_id != value))
-				{
-					this._Queue_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="log_time", Storage="_Log_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Log_time
-		{
-			get
-			{
-				return this._Log_time;
-			}
-			set
-			{
-				if ((this._Log_time != value))
-				{
-					this._Log_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="num_of_tries", Storage="_Num_of_tries", DbType="TinyInt")]
-		public System.Nullable<byte> Num_of_tries
-		{
-			get
-			{
-				return this._Num_of_tries;
-			}
-			set
-			{
-				if ((this._Num_of_tries != value))
-				{
-					this._Num_of_tries = value;
-				}
-			}
-		}
-		
-		[Column(Name="from_name", Storage="_From_name", DbType="VarChar(200)")]
-		public string From_name
-		{
-			get
-			{
-				return this._From_name;
-			}
-			set
-			{
-				if ((this._From_name != value))
-				{
-					this._From_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="from_address", Storage="_From_address", DbType="VarChar(200)")]
-		public string From_address
-		{
-			get
-			{
-				return this._From_address;
-			}
-			set
-			{
-				if ((this._From_address != value))
-				{
-					this._From_address = value;
-				}
-			}
-		}
-		
-		[Column(Name="to_names", Storage="_To_names", DbType="VarChar(200)")]
-		public string To_names
-		{
-			get
-			{
-				return this._To_names;
-			}
-			set
-			{
-				if ((this._To_names != value))
-				{
-					this._To_names = value;
-				}
-			}
-		}
-		
-		[Column(Name="to_addresses", Storage="_To_addresses", DbType="VarChar(200)")]
-		public string To_addresses
-		{
-			get
-			{
-				return this._To_addresses;
-			}
-			set
-			{
-				if ((this._To_addresses != value))
-				{
-					this._To_addresses = value;
-				}
-			}
-		}
-		
-		[Column(Name="subject", Storage="_Subject", DbType="VarChar(200)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
-				}
-			}
-		}
-		
-		[Column(Name="body", Storage="_Body", DbType="VarChar(MAX)")]
-		public string Body
-		{
-			get
-			{
-				return this._Body;
-			}
-			set
-			{
-				if ((this._Body != value))
-				{
-					this._Body = value;
-				}
-			}
-		}
-		
-		[Column(Name="sent_time", Storage="_Sent_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Sent_time
-		{
-			get
-			{
-				return this._Sent_time;
-			}
-			set
-			{
-				if ((this._Sent_time != value))
-				{
-					this._Sent_time = value;
-				}
-			}
-		}
-	}
-	
-	public partial class EmailTemplateInsertResult
-	{
-		
-		private System.Nullable<int> _Email_template_id;
-		
-		private string _Name;
-		
-		private string _Subject;
-		
-		private string _Html;
-		
-		public EmailTemplateInsertResult()
-		{
-		}
-		
-		[Column(Name="email_template_id", Storage="_Email_template_id", DbType="Int")]
-		public System.Nullable<int> Email_template_id
-		{
-			get
-			{
-				return this._Email_template_id;
-			}
-			set
-			{
-				if ((this._Email_template_id != value))
-				{
-					this._Email_template_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[Column(Name="subject", Storage="_Subject", DbType="VarChar(100)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
-				}
-			}
-		}
-		
-		[Column(Name="html", Storage="_Html", DbType="VarChar(MAX)")]
-		public string Html
-		{
-			get
-			{
-				return this._Html;
-			}
-			set
-			{
-				if ((this._Html != value))
-				{
-					this._Html = value;
-				}
-			}
-		}
-	}
-	
-	public partial class EmailTemplateSelectResult
-	{
-		
-		private System.Nullable<int> _Email_template_id;
-		
-		private string _Name;
-		
-		private string _Subject;
-		
-		private string _Html;
-		
-		public EmailTemplateSelectResult()
-		{
-		}
-		
-		[Column(Name="email_template_id", Storage="_Email_template_id", DbType="Int")]
-		public System.Nullable<int> Email_template_id
-		{
-			get
-			{
-				return this._Email_template_id;
-			}
-			set
-			{
-				if ((this._Email_template_id != value))
-				{
-					this._Email_template_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[Column(Name="subject", Storage="_Subject", DbType="VarChar(100)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
-				}
-			}
-		}
-		
-		[Column(Name="html", Storage="_Html", DbType="VarChar(MAX)")]
-		public string Html
-		{
-			get
-			{
-				return this._Html;
-			}
-			set
-			{
-				if ((this._Html != value))
-				{
-					this._Html = value;
-				}
-			}
-		}
-	}
-	
-	public partial class EmailTemplateUpdateResult
-	{
-		
-		private System.Nullable<int> _Email_template_id;
-		
-		private string _Name;
-		
-		private string _Subject;
-		
-		private string _Html;
-		
-		public EmailTemplateUpdateResult()
-		{
-		}
-		
-		[Column(Name="email_template_id", Storage="_Email_template_id", DbType="Int")]
-		public System.Nullable<int> Email_template_id
-		{
-			get
-			{
-				return this._Email_template_id;
-			}
-			set
-			{
-				if ((this._Email_template_id != value))
-				{
-					this._Email_template_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[Column(Name="subject", Storage="_Subject", DbType="VarChar(100)")]
-		public string Subject
-		{
-			get
-			{
-				return this._Subject;
-			}
-			set
-			{
-				if ((this._Subject != value))
-				{
-					this._Subject = value;
-				}
-			}
-		}
-		
-		[Column(Name="html", Storage="_Html", DbType="VarChar(MAX)")]
-		public string Html
-		{
-			get
-			{
-				return this._Html;
-			}
-			set
-			{
-				if ((this._Html != value))
-				{
-					this._Html = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ExchangeRateSelectByCountryCodeResult
-	{
-		
-		private string _Country_code;
-		
-		private System.Nullable<System.DateTime> _Rate_time;
-		
-		private System.Nullable<double> _Exchange_rate;
-		
-		private string _Html_currency_code;
-		
-		public ExchangeRateSelectByCountryCodeResult()
-		{
-		}
-		
-		[Column(Name="country_code", Storage="_Country_code", DbType="Char(3)")]
-		public string Country_code
-		{
-			get
-			{
-				return this._Country_code;
-			}
-			set
-			{
-				if ((this._Country_code != value))
-				{
-					this._Country_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="rate_time", Storage="_Rate_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Rate_time
-		{
-			get
-			{
-				return this._Rate_time;
-			}
-			set
-			{
-				if ((this._Rate_time != value))
-				{
-					this._Rate_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="exchange_rate", Storage="_Exchange_rate", DbType="Float")]
-		public System.Nullable<double> Exchange_rate
-		{
-			get
-			{
-				return this._Exchange_rate;
-			}
-			set
-			{
-				if ((this._Exchange_rate != value))
-				{
-					this._Exchange_rate = value;
-				}
-			}
-		}
-		
-		[Column(Name="html_currency_code", Storage="_Html_currency_code", DbType="VarChar(10)")]
-		public string Html_currency_code
-		{
-			get
-			{
-				return this._Html_currency_code;
-			}
-			set
-			{
-				if ((this._Html_currency_code != value))
-				{
-					this._Html_currency_code = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductDetailInsertResult
-	{
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Product_detail;
-		
-		private System.Nullable<bool> _Mandatory;
-		
-		private System.Nullable<int> _Sort_order;
-		
-		private System.Nullable<double> _Price;
-		
-		public ProductDetailInsertResult()
-		{
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail", Storage="_Product_detail", DbType="VarChar(100)")]
-		public string Product_detail
-		{
-			get
-			{
-				return this._Product_detail;
-			}
-			set
-			{
-				if ((this._Product_detail != value))
-				{
-					this._Product_detail = value;
-				}
-			}
-		}
-		
-		[Column(Name="mandatory", Storage="_Mandatory", DbType="Bit")]
-		public System.Nullable<bool> Mandatory
-		{
-			get
-			{
-				return this._Mandatory;
-			}
-			set
-			{
-				if ((this._Mandatory != value))
-				{
-					this._Mandatory = value;
-				}
-			}
-		}
-		
-		[Column(Name="sort_order", Storage="_Sort_order", DbType="Int")]
-		public System.Nullable<int> Sort_order
-		{
-			get
-			{
-				return this._Sort_order;
-			}
-			set
-			{
-				if ((this._Sort_order != value))
-				{
-					this._Sort_order = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductDetailSelectResult
-	{
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Product_detail;
-		
-		private System.Nullable<bool> _Mandatory;
-		
-		private System.Nullable<int> _Sort_order;
-		
-		private System.Nullable<double> _Price;
-		
-		public ProductDetailSelectResult()
-		{
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail", Storage="_Product_detail", DbType="VarChar(100)")]
-		public string Product_detail
-		{
-			get
-			{
-				return this._Product_detail;
-			}
-			set
-			{
-				if ((this._Product_detail != value))
-				{
-					this._Product_detail = value;
-				}
-			}
-		}
-		
-		[Column(Name="mandatory", Storage="_Mandatory", DbType="Bit")]
-		public System.Nullable<bool> Mandatory
-		{
-			get
-			{
-				return this._Mandatory;
-			}
-			set
-			{
-				if ((this._Mandatory != value))
-				{
-					this._Mandatory = value;
-				}
-			}
-		}
-		
-		[Column(Name="sort_order", Storage="_Sort_order", DbType="Int")]
-		public System.Nullable<int> Sort_order
-		{
-			get
-			{
-				return this._Sort_order;
-			}
-			set
-			{
-				if ((this._Sort_order != value))
-				{
-					this._Sort_order = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductDetailSelectByIdResult
-	{
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Product_detail;
-		
-		private System.Nullable<bool> _Mandatory;
-		
-		private System.Nullable<int> _Sort_order;
-		
-		private System.Nullable<double> _Price;
-		
-		public ProductDetailSelectByIdResult()
-		{
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail", Storage="_Product_detail", DbType="VarChar(100)")]
-		public string Product_detail
-		{
-			get
-			{
-				return this._Product_detail;
-			}
-			set
-			{
-				if ((this._Product_detail != value))
-				{
-					this._Product_detail = value;
-				}
-			}
-		}
-		
-		[Column(Name="mandatory", Storage="_Mandatory", DbType="Bit")]
-		public System.Nullable<bool> Mandatory
-		{
-			get
-			{
-				return this._Mandatory;
-			}
-			set
-			{
-				if ((this._Mandatory != value))
-				{
-					this._Mandatory = value;
-				}
-			}
-		}
-		
-		[Column(Name="sort_order", Storage="_Sort_order", DbType="Int")]
-		public System.Nullable<int> Sort_order
-		{
-			get
-			{
-				return this._Sort_order;
-			}
-			set
-			{
-				if ((this._Sort_order != value))
-				{
-					this._Sort_order = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductDetailUpdateResult
-	{
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Product_detail;
-		
-		private System.Nullable<bool> _Mandatory;
-		
-		private System.Nullable<int> _Sort_order;
-		
-		private System.Nullable<double> _Price;
-		
-		public ProductDetailUpdateResult()
-		{
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail", Storage="_Product_detail", DbType="VarChar(100)")]
-		public string Product_detail
-		{
-			get
-			{
-				return this._Product_detail;
-			}
-			set
-			{
-				if ((this._Product_detail != value))
-				{
-					this._Product_detail = value;
-				}
-			}
-		}
-		
-		[Column(Name="mandatory", Storage="_Mandatory", DbType="Bit")]
-		public System.Nullable<bool> Mandatory
-		{
-			get
-			{
-				return this._Mandatory;
-			}
-			set
-			{
-				if ((this._Mandatory != value))
-				{
-					this._Mandatory = value;
-				}
-			}
-		}
-		
-		[Column(Name="sort_order", Storage="_Sort_order", DbType="Int")]
-		public System.Nullable<int> Sort_order
-		{
-			get
-			{
-				return this._Sort_order;
-			}
-			set
-			{
-				if ((this._Sort_order != value))
-				{
-					this._Sort_order = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductInsertResult
-	{
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Name;
-		
-		private string _Description;
-		
-		private string _Short_name;
-		
-		private string _Terms_url;
-		
-		public ProductInsertResult()
-		{
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[Column(Name="description", Storage="_Description", DbType="VarChar(100)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
-			}
-		}
-		
-		[Column(Name="short_name", Storage="_Short_name", DbType="VarChar(20)")]
-		public string Short_name
-		{
-			get
-			{
-				return this._Short_name;
-			}
-			set
-			{
-				if ((this._Short_name != value))
-				{
-					this._Short_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="terms_url", Storage="_Terms_url", DbType="VarChar(200)")]
-		public string Terms_url
-		{
-			get
-			{
-				return this._Terms_url;
-			}
-			set
-			{
-				if ((this._Terms_url != value))
-				{
-					this._Terms_url = value;
-				}
-			}
-		}
-	}
-	
 	public partial class ProductSelectResult
 	{
 		
-		private System.Nullable<int> _Product_id;
+		private System.Nullable<int> _ProductId;
 		
 		private string _Name;
 		
 		private string _Description;
 		
-		private string _Short_name;
+		private string _ShortName;
 		
-		private string _Terms_url;
+		private string _TermsURL;
 		
 		public ProductSelectResult()
 		{
 		}
 		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
+		[Column(Storage="_ProductId", DbType="Int")]
+		public System.Nullable<int> ProductId
 		{
 			get
 			{
-				return this._Product_id;
+				return this._ProductId;
 			}
 			set
 			{
-				if ((this._Product_id != value))
+				if ((this._ProductId != value))
 				{
-					this._Product_id = value;
+					this._ProductId = value;
 				}
 			}
 		}
 		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100)")]
+		[Column(Storage="_Name", DbType="VarChar(100)")]
 		public string Name
 		{
 			get
@@ -13889,7 +3866,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="description", Storage="_Description", DbType="VarChar(100)")]
+		[Column(Storage="_Description", DbType="VarChar(100)")]
 		public string Description
 		{
 			get
@@ -13905,34 +3882,34 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="short_name", Storage="_Short_name", DbType="VarChar(20)")]
-		public string Short_name
+		[Column(Storage="_ShortName", DbType="VarChar(20)")]
+		public string ShortName
 		{
 			get
 			{
-				return this._Short_name;
+				return this._ShortName;
 			}
 			set
 			{
-				if ((this._Short_name != value))
+				if ((this._ShortName != value))
 				{
-					this._Short_name = value;
+					this._ShortName = value;
 				}
 			}
 		}
 		
-		[Column(Name="terms_url", Storage="_Terms_url", DbType="VarChar(200)")]
-		public string Terms_url
+		[Column(Storage="_TermsURL", DbType="VarChar(200)")]
+		public string TermsURL
 		{
 			get
 			{
-				return this._Terms_url;
+				return this._TermsURL;
 			}
 			set
 			{
-				if ((this._Terms_url != value))
+				if ((this._TermsURL != value))
 				{
-					this._Terms_url = value;
+					this._TermsURL = value;
 				}
 			}
 		}
@@ -13941,37 +3918,37 @@ namespace LINQSimplicityCommDAL
 	public partial class ProductSelectByIdResult
 	{
 		
-		private System.Nullable<int> _Product_id;
+		private System.Nullable<int> _ProductId;
 		
 		private string _Name;
 		
 		private string _Description;
 		
-		private string _Short_name;
+		private string _ShortName;
 		
-		private string _Terms_url;
+		private string _TermsURL;
 		
 		public ProductSelectByIdResult()
 		{
 		}
 		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
+		[Column(Storage="_ProductId", DbType="Int")]
+		public System.Nullable<int> ProductId
 		{
 			get
 			{
-				return this._Product_id;
+				return this._ProductId;
 			}
 			set
 			{
-				if ((this._Product_id != value))
+				if ((this._ProductId != value))
 				{
-					this._Product_id = value;
+					this._ProductId = value;
 				}
 			}
 		}
 		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100)")]
+		[Column(Storage="_Name", DbType="VarChar(100)")]
 		public string Name
 		{
 			get
@@ -13987,7 +3964,7 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="description", Storage="_Description", DbType="VarChar(100)")]
+		[Column(Storage="_Description", DbType="VarChar(100)")]
 		public string Description
 		{
 			get
@@ -14003,1024 +3980,132 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Name="short_name", Storage="_Short_name", DbType="VarChar(20)")]
-		public string Short_name
+		[Column(Storage="_ShortName", DbType="VarChar(20)")]
+		public string ShortName
 		{
 			get
 			{
-				return this._Short_name;
+				return this._ShortName;
 			}
 			set
 			{
-				if ((this._Short_name != value))
+				if ((this._ShortName != value))
 				{
-					this._Short_name = value;
+					this._ShortName = value;
 				}
 			}
 		}
 		
-		[Column(Name="terms_url", Storage="_Terms_url", DbType="VarChar(200)")]
-		public string Terms_url
+		[Column(Storage="_TermsURL", DbType="VarChar(200)")]
+		public string TermsURL
 		{
 			get
 			{
-				return this._Terms_url;
+				return this._TermsURL;
 			}
 			set
 			{
-				if ((this._Terms_url != value))
+				if ((this._TermsURL != value))
 				{
-					this._Terms_url = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductUpdateResult
-	{
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Name;
-		
-		private string _Description;
-		
-		private string _Short_name;
-		
-		private string _Terms_url;
-		
-		public ProductUpdateResult()
-		{
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(100)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[Column(Name="description", Storage="_Description", DbType="VarChar(100)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
-			}
-		}
-		
-		[Column(Name="short_name", Storage="_Short_name", DbType="VarChar(20)")]
-		public string Short_name
-		{
-			get
-			{
-				return this._Short_name;
-			}
-			set
-			{
-				if ((this._Short_name != value))
-				{
-					this._Short_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="terms_url", Storage="_Terms_url", DbType="VarChar(200)")]
-		public string Terms_url
-		{
-			get
-			{
-				return this._Terms_url;
-			}
-			set
-			{
-				if ((this._Terms_url != value))
-				{
-					this._Terms_url = value;
+					this._TermsURL = value;
 				}
 			}
 		}
 	}
 	
-	public partial class ProductVersionInsertResult
+	public partial class SessionSelectByGUIDResult
 	{
 		
-		private System.Nullable<int> _Version_id;
+		private string _GUID;
 		
-		private System.Nullable<int> _Product_id;
+		private System.Nullable<int> _UserId;
 		
-		private string _Name;
+		private System.Nullable<System.DateTime> _StartTime;
 		
-		private System.Nullable<byte> _Min_users;
+		private System.Nullable<System.DateTime> _EndTime;
 		
-		private System.Nullable<byte> _Min_months;
+		private string _IP;
 		
-		private System.Nullable<double> _Discount;
-		
-		public ProductVersionInsertResult()
+		public SessionSelectByGUIDResult()
 		{
 		}
 		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
+		[Column(Storage="_GUID", DbType="VarChar(50)")]
+		public string GUID
 		{
 			get
 			{
-				return this._Version_id;
+				return this._GUID;
 			}
 			set
 			{
-				if ((this._Version_id != value))
+				if ((this._GUID != value))
 				{
-					this._Version_id = value;
+					this._GUID = value;
 				}
 			}
 		}
 		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
+		[Column(Storage="_UserId", DbType="Int")]
+		public System.Nullable<int> UserId
 		{
 			get
 			{
-				return this._Product_id;
+				return this._UserId;
 			}
 			set
 			{
-				if ((this._Product_id != value))
+				if ((this._UserId != value))
 				{
-					this._Product_id = value;
+					this._UserId = value;
 				}
 			}
 		}
 		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(50)")]
-		public string Name
+		[Column(Storage="_StartTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartTime
 		{
 			get
 			{
-				return this._Name;
+				return this._StartTime;
 			}
 			set
 			{
-				if ((this._Name != value))
+				if ((this._StartTime != value))
 				{
-					this._Name = value;
+					this._StartTime = value;
 				}
 			}
 		}
 		
-		[Column(Name="min_users", Storage="_Min_users", DbType="TinyInt")]
-		public System.Nullable<byte> Min_users
+		[Column(Storage="_EndTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EndTime
 		{
 			get
 			{
-				return this._Min_users;
+				return this._EndTime;
 			}
 			set
 			{
-				if ((this._Min_users != value))
+				if ((this._EndTime != value))
 				{
-					this._Min_users = value;
+					this._EndTime = value;
 				}
 			}
 		}
 		
-		[Column(Name="min_months", Storage="_Min_months", DbType="TinyInt")]
-		public System.Nullable<byte> Min_months
+		[Column(Storage="_IP", DbType="VarChar(50)")]
+		public string IP
 		{
 			get
 			{
-				return this._Min_months;
+				return this._IP;
 			}
 			set
 			{
-				if ((this._Min_months != value))
+				if ((this._IP != value))
 				{
-					this._Min_months = value;
-				}
-			}
-		}
-		
-		[Column(Name="discount", Storage="_Discount", DbType="Float")]
-		public System.Nullable<double> Discount
-		{
-			get
-			{
-				return this._Discount;
-			}
-			set
-			{
-				if ((this._Discount != value))
-				{
-					this._Discount = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductVersionSelectResult
-	{
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Name;
-		
-		private System.Nullable<byte> _Min_users;
-		
-		private System.Nullable<byte> _Min_months;
-		
-		private System.Nullable<double> _Discount;
-		
-		private System.Nullable<double> _Price;
-		
-		public ProductVersionSelectResult()
-		{
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(50)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[Column(Name="min_users", Storage="_Min_users", DbType="TinyInt")]
-		public System.Nullable<byte> Min_users
-		{
-			get
-			{
-				return this._Min_users;
-			}
-			set
-			{
-				if ((this._Min_users != value))
-				{
-					this._Min_users = value;
-				}
-			}
-		}
-		
-		[Column(Name="min_months", Storage="_Min_months", DbType="TinyInt")]
-		public System.Nullable<byte> Min_months
-		{
-			get
-			{
-				return this._Min_months;
-			}
-			set
-			{
-				if ((this._Min_months != value))
-				{
-					this._Min_months = value;
-				}
-			}
-		}
-		
-		[Column(Name="discount", Storage="_Discount", DbType="Float")]
-		public System.Nullable<double> Discount
-		{
-			get
-			{
-				return this._Discount;
-			}
-			set
-			{
-				if ((this._Discount != value))
-				{
-					this._Discount = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductVersionSelectByIdResult
-	{
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Name;
-		
-		private System.Nullable<byte> _Min_users;
-		
-		private System.Nullable<byte> _Min_months;
-		
-		private System.Nullable<double> _Discount;
-		
-		private System.Nullable<double> _Price;
-		
-		public ProductVersionSelectByIdResult()
-		{
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(50)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[Column(Name="min_users", Storage="_Min_users", DbType="TinyInt")]
-		public System.Nullable<byte> Min_users
-		{
-			get
-			{
-				return this._Min_users;
-			}
-			set
-			{
-				if ((this._Min_users != value))
-				{
-					this._Min_users = value;
-				}
-			}
-		}
-		
-		[Column(Name="min_months", Storage="_Min_months", DbType="TinyInt")]
-		public System.Nullable<byte> Min_months
-		{
-			get
-			{
-				return this._Min_months;
-			}
-			set
-			{
-				if ((this._Min_months != value))
-				{
-					this._Min_months = value;
-				}
-			}
-		}
-		
-		[Column(Name="discount", Storage="_Discount", DbType="Float")]
-		public System.Nullable<double> Discount
-		{
-			get
-			{
-				return this._Discount;
-			}
-			set
-			{
-				if ((this._Discount != value))
-				{
-					this._Discount = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductVersionUpdateResult
-	{
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Name;
-		
-		private System.Nullable<byte> _Min_users;
-		
-		private System.Nullable<byte> _Min_months;
-		
-		private System.Nullable<double> _Discount;
-		
-		public ProductVersionUpdateResult()
-		{
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="name", Storage="_Name", DbType="VarChar(50)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[Column(Name="min_users", Storage="_Min_users", DbType="TinyInt")]
-		public System.Nullable<byte> Min_users
-		{
-			get
-			{
-				return this._Min_users;
-			}
-			set
-			{
-				if ((this._Min_users != value))
-				{
-					this._Min_users = value;
-				}
-			}
-		}
-		
-		[Column(Name="min_months", Storage="_Min_months", DbType="TinyInt")]
-		public System.Nullable<byte> Min_months
-		{
-			get
-			{
-				return this._Min_months;
-			}
-			set
-			{
-				if ((this._Min_months != value))
-				{
-					this._Min_months = value;
-				}
-			}
-		}
-		
-		[Column(Name="discount", Storage="_Discount", DbType="Float")]
-		public System.Nullable<double> Discount
-		{
-			get
-			{
-				return this._Discount;
-			}
-			set
-			{
-				if ((this._Discount != value))
-				{
-					this._Discount = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductVideoInsertResult
-	{
-		
-		private System.Nullable<int> _Video_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Text;
-		
-		private string _Image;
-		
-		private string _Url;
-		
-		public ProductVideoInsertResult()
-		{
-		}
-		
-		[Column(Name="video_id", Storage="_Video_id", DbType="Int")]
-		public System.Nullable<int> Video_id
-		{
-			get
-			{
-				return this._Video_id;
-			}
-			set
-			{
-				if ((this._Video_id != value))
-				{
-					this._Video_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="text", Storage="_Text", DbType="VarChar(200)")]
-		public string Text
-		{
-			get
-			{
-				return this._Text;
-			}
-			set
-			{
-				if ((this._Text != value))
-				{
-					this._Text = value;
-				}
-			}
-		}
-		
-		[Column(Name="image", Storage="_Image", DbType="VarChar(200)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this._Image = value;
-				}
-			}
-		}
-		
-		[Column(Name="url", Storage="_Url", DbType="VarChar(200)")]
-		public string Url
-		{
-			get
-			{
-				return this._Url;
-			}
-			set
-			{
-				if ((this._Url != value))
-				{
-					this._Url = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductVideoSelectResult
-	{
-		
-		private System.Nullable<int> _Video_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Text;
-		
-		private string _Image;
-		
-		private string _Url;
-		
-		public ProductVideoSelectResult()
-		{
-		}
-		
-		[Column(Name="video_id", Storage="_Video_id", DbType="Int")]
-		public System.Nullable<int> Video_id
-		{
-			get
-			{
-				return this._Video_id;
-			}
-			set
-			{
-				if ((this._Video_id != value))
-				{
-					this._Video_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="text", Storage="_Text", DbType="VarChar(200)")]
-		public string Text
-		{
-			get
-			{
-				return this._Text;
-			}
-			set
-			{
-				if ((this._Text != value))
-				{
-					this._Text = value;
-				}
-			}
-		}
-		
-		[Column(Name="image", Storage="_Image", DbType="VarChar(200)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this._Image = value;
-				}
-			}
-		}
-		
-		[Column(Name="url", Storage="_Url", DbType="VarChar(200)")]
-		public string Url
-		{
-			get
-			{
-				return this._Url;
-			}
-			set
-			{
-				if ((this._Url != value))
-				{
-					this._Url = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductVideoSelectByIdResult
-	{
-		
-		private System.Nullable<int> _Video_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Text;
-		
-		private string _Image;
-		
-		private string _Url;
-		
-		public ProductVideoSelectByIdResult()
-		{
-		}
-		
-		[Column(Name="video_id", Storage="_Video_id", DbType="Int")]
-		public System.Nullable<int> Video_id
-		{
-			get
-			{
-				return this._Video_id;
-			}
-			set
-			{
-				if ((this._Video_id != value))
-				{
-					this._Video_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="text", Storage="_Text", DbType="VarChar(200)")]
-		public string Text
-		{
-			get
-			{
-				return this._Text;
-			}
-			set
-			{
-				if ((this._Text != value))
-				{
-					this._Text = value;
-				}
-			}
-		}
-		
-		[Column(Name="image", Storage="_Image", DbType="VarChar(200)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this._Image = value;
-				}
-			}
-		}
-		
-		[Column(Name="url", Storage="_Url", DbType="VarChar(200)")]
-		public string Url
-		{
-			get
-			{
-				return this._Url;
-			}
-			set
-			{
-				if ((this._Url != value))
-				{
-					this._Url = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ProductVideoUpdateResult
-	{
-		
-		private System.Nullable<int> _Video_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Text;
-		
-		private string _Image;
-		
-		private string _Url;
-		
-		public ProductVideoUpdateResult()
-		{
-		}
-		
-		[Column(Name="video_id", Storage="_Video_id", DbType="Int")]
-		public System.Nullable<int> Video_id
-		{
-			get
-			{
-				return this._Video_id;
-			}
-			set
-			{
-				if ((this._Video_id != value))
-				{
-					this._Video_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="text", Storage="_Text", DbType="VarChar(200)")]
-		public string Text
-		{
-			get
-			{
-				return this._Text;
-			}
-			set
-			{
-				if ((this._Text != value))
-				{
-					this._Text = value;
-				}
-			}
-		}
-		
-		[Column(Name="image", Storage="_Image", DbType="VarChar(200)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this._Image = value;
-				}
-			}
-		}
-		
-		[Column(Name="url", Storage="_Url", DbType="VarChar(200)")]
-		public string Url
-		{
-			get
-			{
-				return this._Url;
-			}
-			set
-			{
-				if ((this._Url != value))
-				{
-					this._Url = value;
+					this._IP = value;
 				}
 			}
 		}
@@ -15222,1423 +4307,143 @@ namespace LINQSimplicityCommDAL
 		}
 	}
 	
-	public partial class SettingInsertResult
+	public partial class Sp_helpdiagramdefinitionResult
 	{
 		
-		private System.Nullable<int> _Setting_id;
+		private System.Nullable<int> _Version;
 		
-		private string _Setting_group;
+		private System.Data.Linq.Binary _Definition;
 		
-		private string _Setting_key;
-		
-		private string _Setting_value;
-		
-		public SettingInsertResult()
+		public Sp_helpdiagramdefinitionResult()
 		{
 		}
 		
-		[Column(Name="setting_id", Storage="_Setting_id", DbType="Int")]
-		public System.Nullable<int> Setting_id
+		[Column(Name="version", Storage="_Version", DbType="Int")]
+		public System.Nullable<int> Version
 		{
 			get
 			{
-				return this._Setting_id;
+				return this._Version;
 			}
 			set
 			{
-				if ((this._Setting_id != value))
+				if ((this._Version != value))
 				{
-					this._Setting_id = value;
+					this._Version = value;
 				}
 			}
 		}
 		
-		[Column(Name="setting_group", Storage="_Setting_group", DbType="VarChar(50)")]
-		public string Setting_group
+		[Column(Name="definition", Storage="_Definition", DbType="VarBinary(MAX)", CanBeNull=true)]
+		public System.Data.Linq.Binary Definition
 		{
 			get
 			{
-				return this._Setting_group;
+				return this._Definition;
 			}
 			set
 			{
-				if ((this._Setting_group != value))
+				if ((this._Definition != value))
 				{
-					this._Setting_group = value;
-				}
-			}
-		}
-		
-		[Column(Name="setting_key", Storage="_Setting_key", DbType="VarChar(50)")]
-		public string Setting_key
-		{
-			get
-			{
-				return this._Setting_key;
-			}
-			set
-			{
-				if ((this._Setting_key != value))
-				{
-					this._Setting_key = value;
-				}
-			}
-		}
-		
-		[Column(Name="setting_value", Storage="_Setting_value", DbType="VarChar(MAX)")]
-		public string Setting_value
-		{
-			get
-			{
-				return this._Setting_value;
-			}
-			set
-			{
-				if ((this._Setting_value != value))
-				{
-					this._Setting_value = value;
+					this._Definition = value;
 				}
 			}
 		}
 	}
 	
-	public partial class SettingSelectResult
+	public partial class Sp_helpdiagramsResult
 	{
 		
-		private System.Nullable<int> _Setting_id;
+		private string _Database;
 		
-		private string _Setting_group;
+		private string _Name;
 		
-		private string _Setting_key;
+		private System.Nullable<int> _ID;
 		
-		private string _Setting_value;
+		private string _Owner;
 		
-		public SettingSelectResult()
-		{
-		}
-		
-		[Column(Name="setting_id", Storage="_Setting_id", DbType="Int")]
-		public System.Nullable<int> Setting_id
-		{
-			get
-			{
-				return this._Setting_id;
-			}
-			set
-			{
-				if ((this._Setting_id != value))
-				{
-					this._Setting_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="setting_group", Storage="_Setting_group", DbType="VarChar(50)")]
-		public string Setting_group
-		{
-			get
-			{
-				return this._Setting_group;
-			}
-			set
-			{
-				if ((this._Setting_group != value))
-				{
-					this._Setting_group = value;
-				}
-			}
-		}
-		
-		[Column(Name="setting_key", Storage="_Setting_key", DbType="VarChar(50)")]
-		public string Setting_key
-		{
-			get
-			{
-				return this._Setting_key;
-			}
-			set
-			{
-				if ((this._Setting_key != value))
-				{
-					this._Setting_key = value;
-				}
-			}
-		}
-		
-		[Column(Name="setting_value", Storage="_Setting_value", DbType="VarChar(MAX)")]
-		public string Setting_value
-		{
-			get
-			{
-				return this._Setting_value;
-			}
-			set
-			{
-				if ((this._Setting_value != value))
-				{
-					this._Setting_value = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SettingUpdateResult
-	{
-		
-		private System.Nullable<int> _Setting_id;
-		
-		private string _Setting_group;
-		
-		private string _Setting_key;
-		
-		private string _Setting_value;
-		
-		public SettingUpdateResult()
-		{
-		}
-		
-		[Column(Name="setting_id", Storage="_Setting_id", DbType="Int")]
-		public System.Nullable<int> Setting_id
-		{
-			get
-			{
-				return this._Setting_id;
-			}
-			set
-			{
-				if ((this._Setting_id != value))
-				{
-					this._Setting_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="setting_group", Storage="_Setting_group", DbType="VarChar(50)")]
-		public string Setting_group
-		{
-			get
-			{
-				return this._Setting_group;
-			}
-			set
-			{
-				if ((this._Setting_group != value))
-				{
-					this._Setting_group = value;
-				}
-			}
-		}
-		
-		[Column(Name="setting_key", Storage="_Setting_key", DbType="VarChar(50)")]
-		public string Setting_key
-		{
-			get
-			{
-				return this._Setting_key;
-			}
-			set
-			{
-				if ((this._Setting_key != value))
-				{
-					this._Setting_key = value;
-				}
-			}
-		}
-		
-		[Column(Name="setting_value", Storage="_Setting_value", DbType="VarChar(MAX)")]
-		public string Setting_value
-		{
-			get
-			{
-				return this._Setting_value;
-			}
-			set
-			{
-				if ((this._Setting_value != value))
-				{
-					this._Setting_value = value;
-				}
-			}
-		}
-	}
-	
-	public partial class TransactionDetailInsertResult
-	{
-		
-		private System.Nullable<int> _Transaction_detail_id;
-		
-		private System.Nullable<int> _Transaction_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Product_name;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private string _Version_name;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private string _Product_detail_name;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<int> _Duration;
-		
-		private System.Nullable<double> _Price;
-		
-		public TransactionDetailInsertResult()
-		{
-		}
-		
-		[Column(Name="transaction_detail_id", Storage="_Transaction_detail_id", DbType="Int")]
-		public System.Nullable<int> Transaction_detail_id
-		{
-			get
-			{
-				return this._Transaction_detail_id;
-			}
-			set
-			{
-				if ((this._Transaction_detail_id != value))
-				{
-					this._Transaction_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="transaction_id", Storage="_Transaction_id", DbType="Int")]
-		public System.Nullable<int> Transaction_id
-		{
-			get
-			{
-				return this._Transaction_id;
-			}
-			set
-			{
-				if ((this._Transaction_id != value))
-				{
-					this._Transaction_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_name", Storage="_Product_name", DbType="VarChar(100)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_name", Storage="_Version_name", DbType="VarChar(50)")]
-		public string Version_name
-		{
-			get
-			{
-				return this._Version_name;
-			}
-			set
-			{
-				if ((this._Version_name != value))
-				{
-					this._Version_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_name", Storage="_Product_detail_name", DbType="VarChar(100)")]
-		public string Product_detail_name
-		{
-			get
-			{
-				return this._Product_detail_name;
-			}
-			set
-			{
-				if ((this._Product_detail_name != value))
-				{
-					this._Product_detail_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int")]
-		public System.Nullable<int> Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this._Duration = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class TransactionDetailSelectResult
-	{
-		
-		private System.Nullable<int> _Transaction_detail_id;
-		
-		private System.Nullable<int> _Transaction_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Product_name;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private string _Version_name;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private string _Product_detail_name;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<int> _Duration;
-		
-		private System.Nullable<double> _Price;
-		
-		public TransactionDetailSelectResult()
-		{
-		}
-		
-		[Column(Name="transaction_detail_id", Storage="_Transaction_detail_id", DbType="Int")]
-		public System.Nullable<int> Transaction_detail_id
-		{
-			get
-			{
-				return this._Transaction_detail_id;
-			}
-			set
-			{
-				if ((this._Transaction_detail_id != value))
-				{
-					this._Transaction_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="transaction_id", Storage="_Transaction_id", DbType="Int")]
-		public System.Nullable<int> Transaction_id
-		{
-			get
-			{
-				return this._Transaction_id;
-			}
-			set
-			{
-				if ((this._Transaction_id != value))
-				{
-					this._Transaction_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_name", Storage="_Product_name", DbType="VarChar(100)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_name", Storage="_Version_name", DbType="VarChar(50)")]
-		public string Version_name
-		{
-			get
-			{
-				return this._Version_name;
-			}
-			set
-			{
-				if ((this._Version_name != value))
-				{
-					this._Version_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_name", Storage="_Product_detail_name", DbType="VarChar(100)")]
-		public string Product_detail_name
-		{
-			get
-			{
-				return this._Product_detail_name;
-			}
-			set
-			{
-				if ((this._Product_detail_name != value))
-				{
-					this._Product_detail_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int")]
-		public System.Nullable<int> Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this._Duration = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class TransactionDetailUpdateResult
-	{
-		
-		private System.Nullable<int> _Transaction_detail_id;
-		
-		private System.Nullable<int> _Transaction_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private string _Product_name;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private string _Version_name;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private string _Product_detail_name;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<int> _Duration;
-		
-		private System.Nullable<double> _Price;
-		
-		public TransactionDetailUpdateResult()
-		{
-		}
-		
-		[Column(Name="transaction_detail_id", Storage="_Transaction_detail_id", DbType="Int")]
-		public System.Nullable<int> Transaction_detail_id
-		{
-			get
-			{
-				return this._Transaction_detail_id;
-			}
-			set
-			{
-				if ((this._Transaction_detail_id != value))
-				{
-					this._Transaction_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="transaction_id", Storage="_Transaction_id", DbType="Int")]
-		public System.Nullable<int> Transaction_id
-		{
-			get
-			{
-				return this._Transaction_id;
-			}
-			set
-			{
-				if ((this._Transaction_id != value))
-				{
-					this._Transaction_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_name", Storage="_Product_name", DbType="VarChar(100)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_name", Storage="_Version_name", DbType="VarChar(50)")]
-		public string Version_name
-		{
-			get
-			{
-				return this._Version_name;
-			}
-			set
-			{
-				if ((this._Version_name != value))
-				{
-					this._Version_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_name", Storage="_Product_detail_name", DbType="VarChar(100)")]
-		public string Product_detail_name
-		{
-			get
-			{
-				return this._Product_detail_name;
-			}
-			set
-			{
-				if ((this._Product_detail_name != value))
-				{
-					this._Product_detail_name = value;
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int")]
-		public System.Nullable<int> Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this._Duration = value;
-				}
-			}
-		}
-		
-		[Column(Name="price", Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-	}
-	
-	public partial class TransactionInsertResult
-	{
-		
-		private System.Nullable<int> _Transaction_id;
-		
-		private System.Nullable<int> _User_id;
-		
-		private string _Gateway_id;
-		
-		private System.Nullable<System.DateTime> _Created_time;
-		
-		private System.Nullable<System.DateTime> _Completed_time;
-		
-		private string _Transaction_unid;
-		
-		private string _Gw_decision;
-		
-		private System.Nullable<int> _Gw_reason_code;
-		
-		private string _Country_code;
-		
-		private System.Nullable<double> _Exchange_rate;
-		
-		public TransactionInsertResult()
-		{
-		}
-		
-		[Column(Name="transaction_id", Storage="_Transaction_id", DbType="Int")]
-		public System.Nullable<int> Transaction_id
-		{
-			get
-			{
-				return this._Transaction_id;
-			}
-			set
-			{
-				if ((this._Transaction_id != value))
-				{
-					this._Transaction_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int")]
-		public System.Nullable<int> User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this._User_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="gateway_id", Storage="_Gateway_id", DbType="VarChar(50)")]
-		public string Gateway_id
-		{
-			get
-			{
-				return this._Gateway_id;
-			}
-			set
-			{
-				if ((this._Gateway_id != value))
-				{
-					this._Gateway_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_time", Storage="_Created_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Created_time
-		{
-			get
-			{
-				return this._Created_time;
-			}
-			set
-			{
-				if ((this._Created_time != value))
-				{
-					this._Created_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="completed_time", Storage="_Completed_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Completed_time
-		{
-			get
-			{
-				return this._Completed_time;
-			}
-			set
-			{
-				if ((this._Completed_time != value))
-				{
-					this._Completed_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="transaction_unid", Storage="_Transaction_unid", DbType="Char(36)")]
-		public string Transaction_unid
-		{
-			get
-			{
-				return this._Transaction_unid;
-			}
-			set
-			{
-				if ((this._Transaction_unid != value))
-				{
-					this._Transaction_unid = value;
-				}
-			}
-		}
-		
-		[Column(Name="gw_decision", Storage="_Gw_decision", DbType="VarChar(100)")]
-		public string Gw_decision
-		{
-			get
-			{
-				return this._Gw_decision;
-			}
-			set
-			{
-				if ((this._Gw_decision != value))
-				{
-					this._Gw_decision = value;
-				}
-			}
-		}
-		
-		[Column(Name="gw_reason_code", Storage="_Gw_reason_code", DbType="Int")]
-		public System.Nullable<int> Gw_reason_code
-		{
-			get
-			{
-				return this._Gw_reason_code;
-			}
-			set
-			{
-				if ((this._Gw_reason_code != value))
-				{
-					this._Gw_reason_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="country_code", Storage="_Country_code", DbType="Char(3)")]
-		public string Country_code
-		{
-			get
-			{
-				return this._Country_code;
-			}
-			set
-			{
-				if ((this._Country_code != value))
-				{
-					this._Country_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="exchange_rate", Storage="_Exchange_rate", DbType="Float")]
-		public System.Nullable<double> Exchange_rate
-		{
-			get
-			{
-				return this._Exchange_rate;
-			}
-			set
-			{
-				if ((this._Exchange_rate != value))
-				{
-					this._Exchange_rate = value;
-				}
-			}
-		}
-	}
-	
-	public partial class TransactionSelectResult
-	{
-		
-		private System.Nullable<int> _Transaction_id;
-		
-		private System.Nullable<int> _User_id;
-		
-		private string _Gateway_id;
-		
-		private System.Nullable<System.DateTime> _Created_time;
-		
-		private System.Nullable<System.DateTime> _Completed_time;
-		
-		private string _Transaction_unid;
-		
-		private string _Gw_decision;
-		
-		private System.Nullable<int> _Gw_reason_code;
-		
-		private string _Country_code;
-		
-		private System.Nullable<double> _Exchange_rate;
-		
-		public TransactionSelectResult()
-		{
-		}
-		
-		[Column(Name="transaction_id", Storage="_Transaction_id", DbType="Int")]
-		public System.Nullable<int> Transaction_id
-		{
-			get
-			{
-				return this._Transaction_id;
-			}
-			set
-			{
-				if ((this._Transaction_id != value))
-				{
-					this._Transaction_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int")]
-		public System.Nullable<int> User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this._User_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="gateway_id", Storage="_Gateway_id", DbType="VarChar(50)")]
-		public string Gateway_id
-		{
-			get
-			{
-				return this._Gateway_id;
-			}
-			set
-			{
-				if ((this._Gateway_id != value))
-				{
-					this._Gateway_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_time", Storage="_Created_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Created_time
-		{
-			get
-			{
-				return this._Created_time;
-			}
-			set
-			{
-				if ((this._Created_time != value))
-				{
-					this._Created_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="completed_time", Storage="_Completed_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Completed_time
-		{
-			get
-			{
-				return this._Completed_time;
-			}
-			set
-			{
-				if ((this._Completed_time != value))
-				{
-					this._Completed_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="transaction_unid", Storage="_Transaction_unid", DbType="Char(36)")]
-		public string Transaction_unid
-		{
-			get
-			{
-				return this._Transaction_unid;
-			}
-			set
-			{
-				if ((this._Transaction_unid != value))
-				{
-					this._Transaction_unid = value;
-				}
-			}
-		}
-		
-		[Column(Name="gw_decision", Storage="_Gw_decision", DbType="VarChar(100)")]
-		public string Gw_decision
-		{
-			get
-			{
-				return this._Gw_decision;
-			}
-			set
-			{
-				if ((this._Gw_decision != value))
-				{
-					this._Gw_decision = value;
-				}
-			}
-		}
-		
-		[Column(Name="gw_reason_code", Storage="_Gw_reason_code", DbType="Int")]
-		public System.Nullable<int> Gw_reason_code
-		{
-			get
-			{
-				return this._Gw_reason_code;
-			}
-			set
-			{
-				if ((this._Gw_reason_code != value))
-				{
-					this._Gw_reason_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="country_code", Storage="_Country_code", DbType="Char(3)")]
-		public string Country_code
-		{
-			get
-			{
-				return this._Country_code;
-			}
-			set
-			{
-				if ((this._Country_code != value))
-				{
-					this._Country_code = value;
-				}
-			}
-		}
-		
-		[Column(Name="exchange_rate", Storage="_Exchange_rate", DbType="Float")]
-		public System.Nullable<double> Exchange_rate
-		{
-			get
-			{
-				return this._Exchange_rate;
-			}
-			set
-			{
-				if ((this._Exchange_rate != value))
-				{
-					this._Exchange_rate = value;
-				}
-			}
-		}
-	}
-	
-	public partial class TransactionUpdateResult
-	{
+		private System.Nullable<int> _OwnerID;
 		
-		private System.Nullable<int> _Transaction_id;
-		
-		private System.Nullable<int> _User_id;
-		
-		private string _Gateway_id;
-		
-		private System.Nullable<System.DateTime> _Created_time;
-		
-		private System.Nullable<System.DateTime> _Completed_time;
-		
-		private string _Transaction_unid;
-		
-		private string _Gw_decision;
-		
-		private System.Nullable<int> _Gw_reason_code;
-		
-		private string _Country_code;
-		
-		private System.Nullable<double> _Exchange_rate;
-		
-		public TransactionUpdateResult()
-		{
-		}
-		
-		[Column(Name="transaction_id", Storage="_Transaction_id", DbType="Int")]
-		public System.Nullable<int> Transaction_id
-		{
-			get
-			{
-				return this._Transaction_id;
-			}
-			set
-			{
-				if ((this._Transaction_id != value))
-				{
-					this._Transaction_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int")]
-		public System.Nullable<int> User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this._User_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="gateway_id", Storage="_Gateway_id", DbType="VarChar(50)")]
-		public string Gateway_id
-		{
-			get
-			{
-				return this._Gateway_id;
-			}
-			set
-			{
-				if ((this._Gateway_id != value))
-				{
-					this._Gateway_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="created_time", Storage="_Created_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Created_time
-		{
-			get
-			{
-				return this._Created_time;
-			}
-			set
-			{
-				if ((this._Created_time != value))
-				{
-					this._Created_time = value;
-				}
-			}
-		}
-		
-		[Column(Name="completed_time", Storage="_Completed_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Completed_time
+		public Sp_helpdiagramsResult()
 		{
-			get
-			{
-				return this._Completed_time;
-			}
-			set
-			{
-				if ((this._Completed_time != value))
-				{
-					this._Completed_time = value;
-				}
-			}
 		}
 		
-		[Column(Name="transaction_unid", Storage="_Transaction_unid", DbType="Char(36)")]
-		public string Transaction_unid
+		[Column(Storage="_Database", DbType="NVarChar(128)")]
+		public string Database
 		{
 			get
 			{
-				return this._Transaction_unid;
+				return this._Database;
 			}
 			set
 			{
-				if ((this._Transaction_unid != value))
+				if ((this._Database != value))
 				{
-					this._Transaction_unid = value;
+					this._Database = value;
 				}
 			}
 		}
 		
-		[Column(Name="gw_decision", Storage="_Gw_decision", DbType="VarChar(100)")]
-		public string Gw_decision
+		[Column(Storage="_Name", DbType="NVarChar(128)")]
+		public string Name
 		{
 			get
 			{
-				return this._Gw_decision;
+				return this._Name;
 			}
 			set
 			{
-				if ((this._Gw_decision != value))
+				if ((this._Name != value))
 				{
-					this._Gw_decision = value;
+					this._Name = value;
 				}
 			}
 		}
 		
-		[Column(Name="gw_reason_code", Storage="_Gw_reason_code", DbType="Int")]
-		public System.Nullable<int> Gw_reason_code
+		[Column(Storage="_ID", DbType="Int")]
+		public System.Nullable<int> ID
 		{
 			get
 			{
-				return this._Gw_reason_code;
+				return this._ID;
 			}
 			set
 			{
-				if ((this._Gw_reason_code != value))
+				if ((this._ID != value))
 				{
-					this._Gw_reason_code = value;
+					this._ID = value;
 				}
 			}
 		}
 		
-		[Column(Name="country_code", Storage="_Country_code", DbType="Char(3)")]
-		public string Country_code
+		[Column(Storage="_Owner", DbType="NVarChar(128)")]
+		public string Owner
 		{
 			get
 			{
-				return this._Country_code;
+				return this._Owner;
 			}
 			set
 			{
-				if ((this._Country_code != value))
+				if ((this._Owner != value))
 				{
-					this._Country_code = value;
+					this._Owner = value;
 				}
 			}
 		}
 		
-		[Column(Name="exchange_rate", Storage="_Exchange_rate", DbType="Float")]
-		public System.Nullable<double> Exchange_rate
+		[Column(Storage="_OwnerID", DbType="Int")]
+		public System.Nullable<int> OwnerID
 		{
 			get
 			{
-				return this._Exchange_rate;
+				return this._OwnerID;
 			}
 			set
 			{
-				if ((this._Exchange_rate != value))
+				if ((this._OwnerID != value))
 				{
-					this._Exchange_rate = value;
+					this._OwnerID = value;
 				}
 			}
 		}
@@ -16649,63 +4454,61 @@ namespace LINQSimplicityCommDAL
 		
 		private System.Nullable<int> _UserId;
 		
-		private string _User_Uid;
+		private string _UserUid;
 		
-		private string _Verification_Code;
+		private string _VerificationCode;
 		
-		private System.Nullable<bool> _Flg_receive_mails;
+		private System.Nullable<bool> _FlgReceiveMails;
 		
-		private System.Nullable<bool> _Flg_deleted;
+		private System.Nullable<bool> _FlgDeleted;
 		
-		private System.Nullable<bool> _Flg_entity_on_hold;
+		private System.Nullable<bool> _FlgEntityOnHold;
 		
-		private System.Nullable<int> _User_Approved_Status;
+		private System.Nullable<int> _UserApprovedStatus;
 		
-		private System.Nullable<int> _User_Pymt_Type;
+		private System.Nullable<int> _UserPymtType;
 		
-		private string _Name_Long;
+		private string _FullName;
 		
-		private string _Name_Title;
+		private string _Title;
 		
-		private string _Name_Initials;
+		private string _Initials;
 		
-		private string _Name_Forename;
+		private string _NameForename;
 		
-		private string _Name_Surname;
+		private string _NameSurname;
 		
-		private string _Name_Job_Title;
+		private string _NameJobTitle;
 		
 		private string _Email;
 		
-		private string _Logon_Enable;
+		private string _Password;
 		
-		private System.Nullable<byte> _Enable_reminder_question_id;
+		private System.Nullable<byte> _ReminderQuestionId;
 		
-		private string _Enable_reminder_custom_question;
+		private string _ReminderCustomQuestion;
 		
-		private string _Enable_reminder_question_answer;
+		private string _ReminderQuestionAnswer;
 		
-		private string _User_details;
+		private System.Nullable<bool> _FlgVerified;
 		
-		private System.Nullable<bool> _Flg_verified;
+		private System.Nullable<bool> _FlgEnabled;
 		
-		private System.Nullable<bool> _Flg_enabled;
+		private System.Nullable<int> _LoginAttempts;
 		
-		private System.Nullable<int> _Login_attempts;
+		private System.Nullable<bool> _FlgLocked;
 		
-		private System.Nullable<bool> _Flg_locked;
+		private string _LockedReason;
 		
-		private string _Locked_reason;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<int> _Created_by;
+		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private System.Nullable<System.DateTime> _Date_created;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _User_Type;
+		private string _Role;
 		
 		public UserInsertResult()
 		{
@@ -16727,210 +4530,210 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_User_Uid", DbType="Char(36)")]
-		public string User_Uid
+		[Column(Storage="_UserUid", DbType="Char(36)")]
+		public string UserUid
 		{
 			get
 			{
-				return this._User_Uid;
+				return this._UserUid;
 			}
 			set
 			{
-				if ((this._User_Uid != value))
+				if ((this._UserUid != value))
 				{
-					this._User_Uid = value;
+					this._UserUid = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Verification_Code", DbType="Char(36)")]
-		public string Verification_Code
+		[Column(Storage="_VerificationCode", DbType="Char(36)")]
+		public string VerificationCode
 		{
 			get
 			{
-				return this._Verification_Code;
+				return this._VerificationCode;
 			}
 			set
 			{
-				if ((this._Verification_Code != value))
+				if ((this._VerificationCode != value))
 				{
-					this._Verification_Code = value;
+					this._VerificationCode = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
+		[Column(Storage="_FlgReceiveMails", DbType="Bit")]
+		public System.Nullable<bool> FlgReceiveMails
 		{
 			get
 			{
-				return this._Flg_receive_mails;
+				return this._FlgReceiveMails;
 			}
 			set
 			{
-				if ((this._Flg_receive_mails != value))
+				if ((this._FlgReceiveMails != value))
 				{
-					this._Flg_receive_mails = value;
+					this._FlgReceiveMails = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
+		[Column(Storage="_FlgDeleted", DbType="Bit")]
+		public System.Nullable<bool> FlgDeleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._FlgDeleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._FlgDeleted != value))
 				{
-					this._Flg_deleted = value;
+					this._FlgDeleted = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
+		[Column(Storage="_FlgEntityOnHold", DbType="Bit")]
+		public System.Nullable<bool> FlgEntityOnHold
 		{
 			get
 			{
-				return this._Flg_entity_on_hold;
+				return this._FlgEntityOnHold;
 			}
 			set
 			{
-				if ((this._Flg_entity_on_hold != value))
+				if ((this._FlgEntityOnHold != value))
 				{
-					this._Flg_entity_on_hold = value;
+					this._FlgEntityOnHold = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Approved_Status", DbType="Int")]
-		public System.Nullable<int> User_Approved_Status
+		[Column(Storage="_UserApprovedStatus", DbType="Int")]
+		public System.Nullable<int> UserApprovedStatus
 		{
 			get
 			{
-				return this._User_Approved_Status;
+				return this._UserApprovedStatus;
 			}
 			set
 			{
-				if ((this._User_Approved_Status != value))
+				if ((this._UserApprovedStatus != value))
 				{
-					this._User_Approved_Status = value;
+					this._UserApprovedStatus = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Pymt_Type", DbType="Int")]
-		public System.Nullable<int> User_Pymt_Type
+		[Column(Storage="_UserPymtType", DbType="Int")]
+		public System.Nullable<int> UserPymtType
 		{
 			get
 			{
-				return this._User_Pymt_Type;
+				return this._UserPymtType;
 			}
 			set
 			{
-				if ((this._User_Pymt_Type != value))
+				if ((this._UserPymtType != value))
 				{
-					this._User_Pymt_Type = value;
+					this._UserPymtType = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Long", DbType="VarChar(60)")]
-		public string Name_Long
+		[Column(Storage="_FullName", DbType="VarChar(60)")]
+		public string FullName
 		{
 			get
 			{
-				return this._Name_Long;
+				return this._FullName;
 			}
 			set
 			{
-				if ((this._Name_Long != value))
+				if ((this._FullName != value))
 				{
-					this._Name_Long = value;
+					this._FullName = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Title", DbType="VarChar(7)")]
-		public string Name_Title
+		[Column(Storage="_Title", DbType="VarChar(7)")]
+		public string Title
 		{
 			get
 			{
-				return this._Name_Title;
+				return this._Title;
 			}
 			set
 			{
-				if ((this._Name_Title != value))
+				if ((this._Title != value))
 				{
-					this._Name_Title = value;
+					this._Title = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Initials", DbType="VarChar(3)")]
-		public string Name_Initials
+		[Column(Storage="_Initials", DbType="VarChar(3)")]
+		public string Initials
 		{
 			get
 			{
-				return this._Name_Initials;
+				return this._Initials;
 			}
 			set
 			{
-				if ((this._Name_Initials != value))
+				if ((this._Initials != value))
 				{
-					this._Name_Initials = value;
+					this._Initials = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Forename", DbType="VarChar(60)")]
-		public string Name_Forename
+		[Column(Storage="_NameForename", DbType="VarChar(60)")]
+		public string NameForename
 		{
 			get
 			{
-				return this._Name_Forename;
+				return this._NameForename;
 			}
 			set
 			{
-				if ((this._Name_Forename != value))
+				if ((this._NameForename != value))
 				{
-					this._Name_Forename = value;
+					this._NameForename = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Surname", DbType="VarChar(60)")]
-		public string Name_Surname
+		[Column(Storage="_NameSurname", DbType="VarChar(60)")]
+		public string NameSurname
 		{
 			get
 			{
-				return this._Name_Surname;
+				return this._NameSurname;
 			}
 			set
 			{
-				if ((this._Name_Surname != value))
+				if ((this._NameSurname != value))
 				{
-					this._Name_Surname = value;
+					this._NameSurname = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Job_Title", DbType="VarChar(255)")]
-		public string Name_Job_Title
+		[Column(Storage="_NameJobTitle", DbType="VarChar(255)")]
+		public string NameJobTitle
 		{
 			get
 			{
-				return this._Name_Job_Title;
+				return this._NameJobTitle;
 			}
 			set
 			{
-				if ((this._Name_Job_Title != value))
+				if ((this._NameJobTitle != value))
 				{
-					this._Name_Job_Title = value;
+					this._NameJobTitle = value;
 				}
 			}
 		}
@@ -16951,242 +4754,226 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_Logon_Enable", DbType="VarChar(50)")]
-		public string Logon_Enable
+		[Column(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
 		{
 			get
 			{
-				return this._Logon_Enable;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._Logon_Enable != value))
+				if ((this._Password != value))
 				{
-					this._Logon_Enable = value;
+					this._Password = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
+		[Column(Storage="_ReminderQuestionId", DbType="TinyInt")]
+		public System.Nullable<byte> ReminderQuestionId
 		{
 			get
 			{
-				return this._Enable_reminder_question_id;
+				return this._ReminderQuestionId;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_id != value))
+				if ((this._ReminderQuestionId != value))
 				{
-					this._Enable_reminder_question_id = value;
+					this._ReminderQuestionId = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
+		[Column(Storage="_ReminderCustomQuestion", DbType="VarChar(50)")]
+		public string ReminderCustomQuestion
 		{
 			get
 			{
-				return this._Enable_reminder_custom_question;
+				return this._ReminderCustomQuestion;
 			}
 			set
 			{
-				if ((this._Enable_reminder_custom_question != value))
+				if ((this._ReminderCustomQuestion != value))
 				{
-					this._Enable_reminder_custom_question = value;
+					this._ReminderCustomQuestion = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
+		[Column(Storage="_ReminderQuestionAnswer", DbType="VarChar(50)")]
+		public string ReminderQuestionAnswer
 		{
 			get
 			{
-				return this._Enable_reminder_question_answer;
+				return this._ReminderQuestionAnswer;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_answer != value))
+				if ((this._ReminderQuestionAnswer != value))
 				{
-					this._Enable_reminder_question_answer = value;
+					this._ReminderQuestionAnswer = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_details", DbType="VarChar(200)")]
-		public string User_details
+		[Column(Storage="_FlgVerified", DbType="Bit")]
+		public System.Nullable<bool> FlgVerified
 		{
 			get
 			{
-				return this._User_details;
+				return this._FlgVerified;
 			}
 			set
 			{
-				if ((this._User_details != value))
+				if ((this._FlgVerified != value))
 				{
-					this._User_details = value;
+					this._FlgVerified = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
+		[Column(Storage="_FlgEnabled", DbType="Bit")]
+		public System.Nullable<bool> FlgEnabled
 		{
 			get
 			{
-				return this._Flg_verified;
+				return this._FlgEnabled;
 			}
 			set
 			{
-				if ((this._Flg_verified != value))
+				if ((this._FlgEnabled != value))
 				{
-					this._Flg_verified = value;
+					this._FlgEnabled = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
+		[Column(Storage="_LoginAttempts", DbType="Int")]
+		public System.Nullable<int> LoginAttempts
 		{
 			get
 			{
-				return this._Flg_enabled;
+				return this._LoginAttempts;
 			}
 			set
 			{
-				if ((this._Flg_enabled != value))
+				if ((this._LoginAttempts != value))
 				{
-					this._Flg_enabled = value;
+					this._LoginAttempts = value;
 				}
 			}
 		}
 		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
+		[Column(Storage="_FlgLocked", DbType="Bit")]
+		public System.Nullable<bool> FlgLocked
 		{
 			get
 			{
-				return this._Login_attempts;
+				return this._FlgLocked;
 			}
 			set
 			{
-				if ((this._Login_attempts != value))
+				if ((this._FlgLocked != value))
 				{
-					this._Login_attempts = value;
+					this._FlgLocked = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
+		[Column(Storage="_LockedReason", DbType="VarChar(255)")]
+		public string LockedReason
 		{
 			get
 			{
-				return this._Flg_locked;
+				return this._LockedReason;
 			}
 			set
 			{
-				if ((this._Flg_locked != value))
+				if ((this._LockedReason != value))
 				{
-					this._Flg_locked = value;
+					this._LockedReason = value;
 				}
 			}
 		}
 		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Locked_reason;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Locked_reason != value))
+				if ((this._CreatedBy != value))
 				{
-					this._Locked_reason = value;
+					this._CreatedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
 		{
 			get
 			{
-				return this._Created_by;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._DateCreated != value))
 				{
-					this._Created_by = value;
+					this._DateCreated = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Date_created;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this._Date_created = value;
+					this._LastAmendedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._DateLastAmended != value))
 				{
-					this._Last_amended_by = value;
+					this._DateLastAmended = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_Role", DbType="VarChar(50)")]
+		public string Role
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._Role != value))
 				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_User_Type", DbType="Text")]
-		public string User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this._User_Type = value;
+					this._Role = value;
 				}
 			}
 		}
@@ -17197,63 +4984,61 @@ namespace LINQSimplicityCommDAL
 		
 		private System.Nullable<int> _UserId;
 		
-		private string _User_Uid;
+		private string _UserUid;
 		
-		private string _Verification_Code;
+		private string _VerificationCode;
 		
-		private System.Nullable<bool> _Flg_receive_mails;
+		private System.Nullable<bool> _FlgReceiveMails;
 		
-		private System.Nullable<bool> _Flg_deleted;
+		private System.Nullable<bool> _FlgDeleted;
 		
-		private System.Nullable<bool> _Flg_entity_on_hold;
+		private System.Nullable<bool> _FlgEntityOnHold;
 		
-		private System.Nullable<int> _User_Approved_Status;
+		private System.Nullable<int> _UserApprovedStatus;
 		
-		private System.Nullable<int> _User_Pymt_Type;
+		private System.Nullable<int> _UserPymtType;
 		
-		private string _Name_Long;
+		private string _FullName;
 		
-		private string _Name_Title;
+		private string _Title;
 		
-		private string _Name_Initials;
+		private string _Initials;
 		
-		private string _Name_Forename;
+		private string _NameForename;
 		
-		private string _Name_Surname;
+		private string _NameSurname;
 		
-		private string _Name_Job_Title;
+		private string _NameJobTitle;
 		
 		private string _Email;
 		
-		private string _Logon_Enable;
+		private string _Password;
 		
-		private System.Nullable<byte> _Enable_reminder_question_id;
+		private System.Nullable<byte> _ReminderQuestionId;
 		
-		private string _Enable_reminder_custom_question;
+		private string _ReminderCustomQuestion;
 		
-		private string _Enable_reminder_question_answer;
+		private string _ReminderQuestionAnswer;
 		
-		private string _User_details;
+		private System.Nullable<bool> _FlgVerified;
 		
-		private System.Nullable<bool> _Flg_verified;
+		private System.Nullable<bool> _FlgEnabled;
 		
-		private System.Nullable<bool> _Flg_enabled;
+		private System.Nullable<int> _LoginAttempts;
 		
-		private System.Nullable<int> _Login_attempts;
+		private System.Nullable<bool> _FlgLocked;
 		
-		private System.Nullable<bool> _Flg_locked;
+		private string _LockedReason;
 		
-		private string _Locked_reason;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<int> _Created_by;
+		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private System.Nullable<System.DateTime> _Date_created;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _User_Type;
+		private string _Role;
 		
 		public UserSelectResult()
 		{
@@ -17275,210 +5060,210 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_User_Uid", DbType="Char(36)")]
-		public string User_Uid
+		[Column(Storage="_UserUid", DbType="Char(36)")]
+		public string UserUid
 		{
 			get
 			{
-				return this._User_Uid;
+				return this._UserUid;
 			}
 			set
 			{
-				if ((this._User_Uid != value))
+				if ((this._UserUid != value))
 				{
-					this._User_Uid = value;
+					this._UserUid = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Verification_Code", DbType="Char(36)")]
-		public string Verification_Code
+		[Column(Storage="_VerificationCode", DbType="Char(36)")]
+		public string VerificationCode
 		{
 			get
 			{
-				return this._Verification_Code;
+				return this._VerificationCode;
 			}
 			set
 			{
-				if ((this._Verification_Code != value))
+				if ((this._VerificationCode != value))
 				{
-					this._Verification_Code = value;
+					this._VerificationCode = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
+		[Column(Storage="_FlgReceiveMails", DbType="Bit")]
+		public System.Nullable<bool> FlgReceiveMails
 		{
 			get
 			{
-				return this._Flg_receive_mails;
+				return this._FlgReceiveMails;
 			}
 			set
 			{
-				if ((this._Flg_receive_mails != value))
+				if ((this._FlgReceiveMails != value))
 				{
-					this._Flg_receive_mails = value;
+					this._FlgReceiveMails = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
+		[Column(Storage="_FlgDeleted", DbType="Bit")]
+		public System.Nullable<bool> FlgDeleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._FlgDeleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._FlgDeleted != value))
 				{
-					this._Flg_deleted = value;
+					this._FlgDeleted = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
+		[Column(Storage="_FlgEntityOnHold", DbType="Bit")]
+		public System.Nullable<bool> FlgEntityOnHold
 		{
 			get
 			{
-				return this._Flg_entity_on_hold;
+				return this._FlgEntityOnHold;
 			}
 			set
 			{
-				if ((this._Flg_entity_on_hold != value))
+				if ((this._FlgEntityOnHold != value))
 				{
-					this._Flg_entity_on_hold = value;
+					this._FlgEntityOnHold = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Approved_Status", DbType="Int")]
-		public System.Nullable<int> User_Approved_Status
+		[Column(Storage="_UserApprovedStatus", DbType="Int")]
+		public System.Nullable<int> UserApprovedStatus
 		{
 			get
 			{
-				return this._User_Approved_Status;
+				return this._UserApprovedStatus;
 			}
 			set
 			{
-				if ((this._User_Approved_Status != value))
+				if ((this._UserApprovedStatus != value))
 				{
-					this._User_Approved_Status = value;
+					this._UserApprovedStatus = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Pymt_Type", DbType="Int")]
-		public System.Nullable<int> User_Pymt_Type
+		[Column(Storage="_UserPymtType", DbType="Int")]
+		public System.Nullable<int> UserPymtType
 		{
 			get
 			{
-				return this._User_Pymt_Type;
+				return this._UserPymtType;
 			}
 			set
 			{
-				if ((this._User_Pymt_Type != value))
+				if ((this._UserPymtType != value))
 				{
-					this._User_Pymt_Type = value;
+					this._UserPymtType = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Long", DbType="VarChar(60)")]
-		public string Name_Long
+		[Column(Storage="_FullName", DbType="VarChar(60)")]
+		public string FullName
 		{
 			get
 			{
-				return this._Name_Long;
+				return this._FullName;
 			}
 			set
 			{
-				if ((this._Name_Long != value))
+				if ((this._FullName != value))
 				{
-					this._Name_Long = value;
+					this._FullName = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Title", DbType="VarChar(7)")]
-		public string Name_Title
+		[Column(Storage="_Title", DbType="VarChar(7)")]
+		public string Title
 		{
 			get
 			{
-				return this._Name_Title;
+				return this._Title;
 			}
 			set
 			{
-				if ((this._Name_Title != value))
+				if ((this._Title != value))
 				{
-					this._Name_Title = value;
+					this._Title = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Initials", DbType="VarChar(3)")]
-		public string Name_Initials
+		[Column(Storage="_Initials", DbType="VarChar(3)")]
+		public string Initials
 		{
 			get
 			{
-				return this._Name_Initials;
+				return this._Initials;
 			}
 			set
 			{
-				if ((this._Name_Initials != value))
+				if ((this._Initials != value))
 				{
-					this._Name_Initials = value;
+					this._Initials = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Forename", DbType="VarChar(60)")]
-		public string Name_Forename
+		[Column(Storage="_NameForename", DbType="VarChar(60)")]
+		public string NameForename
 		{
 			get
 			{
-				return this._Name_Forename;
+				return this._NameForename;
 			}
 			set
 			{
-				if ((this._Name_Forename != value))
+				if ((this._NameForename != value))
 				{
-					this._Name_Forename = value;
+					this._NameForename = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Surname", DbType="VarChar(60)")]
-		public string Name_Surname
+		[Column(Storage="_NameSurname", DbType="VarChar(60)")]
+		public string NameSurname
 		{
 			get
 			{
-				return this._Name_Surname;
+				return this._NameSurname;
 			}
 			set
 			{
-				if ((this._Name_Surname != value))
+				if ((this._NameSurname != value))
 				{
-					this._Name_Surname = value;
+					this._NameSurname = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Job_Title", DbType="VarChar(255)")]
-		public string Name_Job_Title
+		[Column(Storage="_NameJobTitle", DbType="VarChar(255)")]
+		public string NameJobTitle
 		{
 			get
 			{
-				return this._Name_Job_Title;
+				return this._NameJobTitle;
 			}
 			set
 			{
-				if ((this._Name_Job_Title != value))
+				if ((this._NameJobTitle != value))
 				{
-					this._Name_Job_Title = value;
+					this._NameJobTitle = value;
 				}
 			}
 		}
@@ -17499,242 +5284,226 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_Logon_Enable", DbType="VarChar(50)")]
-		public string Logon_Enable
+		[Column(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
 		{
 			get
 			{
-				return this._Logon_Enable;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._Logon_Enable != value))
+				if ((this._Password != value))
 				{
-					this._Logon_Enable = value;
+					this._Password = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
+		[Column(Storage="_ReminderQuestionId", DbType="TinyInt")]
+		public System.Nullable<byte> ReminderQuestionId
 		{
 			get
 			{
-				return this._Enable_reminder_question_id;
+				return this._ReminderQuestionId;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_id != value))
+				if ((this._ReminderQuestionId != value))
 				{
-					this._Enable_reminder_question_id = value;
+					this._ReminderQuestionId = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
+		[Column(Storage="_ReminderCustomQuestion", DbType="VarChar(50)")]
+		public string ReminderCustomQuestion
 		{
 			get
 			{
-				return this._Enable_reminder_custom_question;
+				return this._ReminderCustomQuestion;
 			}
 			set
 			{
-				if ((this._Enable_reminder_custom_question != value))
+				if ((this._ReminderCustomQuestion != value))
 				{
-					this._Enable_reminder_custom_question = value;
+					this._ReminderCustomQuestion = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
+		[Column(Storage="_ReminderQuestionAnswer", DbType="VarChar(50)")]
+		public string ReminderQuestionAnswer
 		{
 			get
 			{
-				return this._Enable_reminder_question_answer;
+				return this._ReminderQuestionAnswer;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_answer != value))
+				if ((this._ReminderQuestionAnswer != value))
 				{
-					this._Enable_reminder_question_answer = value;
+					this._ReminderQuestionAnswer = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_details", DbType="VarChar(200)")]
-		public string User_details
+		[Column(Storage="_FlgVerified", DbType="Bit")]
+		public System.Nullable<bool> FlgVerified
 		{
 			get
 			{
-				return this._User_details;
+				return this._FlgVerified;
 			}
 			set
 			{
-				if ((this._User_details != value))
+				if ((this._FlgVerified != value))
 				{
-					this._User_details = value;
+					this._FlgVerified = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
+		[Column(Storage="_FlgEnabled", DbType="Bit")]
+		public System.Nullable<bool> FlgEnabled
 		{
 			get
 			{
-				return this._Flg_verified;
+				return this._FlgEnabled;
 			}
 			set
 			{
-				if ((this._Flg_verified != value))
+				if ((this._FlgEnabled != value))
 				{
-					this._Flg_verified = value;
+					this._FlgEnabled = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
+		[Column(Storage="_LoginAttempts", DbType="Int")]
+		public System.Nullable<int> LoginAttempts
 		{
 			get
 			{
-				return this._Flg_enabled;
+				return this._LoginAttempts;
 			}
 			set
 			{
-				if ((this._Flg_enabled != value))
+				if ((this._LoginAttempts != value))
 				{
-					this._Flg_enabled = value;
+					this._LoginAttempts = value;
 				}
 			}
 		}
 		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
+		[Column(Storage="_FlgLocked", DbType="Bit")]
+		public System.Nullable<bool> FlgLocked
 		{
 			get
 			{
-				return this._Login_attempts;
+				return this._FlgLocked;
 			}
 			set
 			{
-				if ((this._Login_attempts != value))
+				if ((this._FlgLocked != value))
 				{
-					this._Login_attempts = value;
+					this._FlgLocked = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
+		[Column(Storage="_LockedReason", DbType="VarChar(255)")]
+		public string LockedReason
 		{
 			get
 			{
-				return this._Flg_locked;
+				return this._LockedReason;
 			}
 			set
 			{
-				if ((this._Flg_locked != value))
+				if ((this._LockedReason != value))
 				{
-					this._Flg_locked = value;
+					this._LockedReason = value;
 				}
 			}
 		}
 		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Locked_reason;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Locked_reason != value))
+				if ((this._CreatedBy != value))
 				{
-					this._Locked_reason = value;
+					this._CreatedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
 		{
 			get
 			{
-				return this._Created_by;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._DateCreated != value))
 				{
-					this._Created_by = value;
+					this._DateCreated = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Date_created;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this._Date_created = value;
+					this._LastAmendedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._DateLastAmended != value))
 				{
-					this._Last_amended_by = value;
+					this._DateLastAmended = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_Role", DbType="VarChar(50)")]
+		public string Role
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._Role != value))
 				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_User_Type", DbType="Text")]
-		public string User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this._User_Type = value;
+					this._Role = value;
 				}
 			}
 		}
@@ -17745,63 +5514,61 @@ namespace LINQSimplicityCommDAL
 		
 		private System.Nullable<int> _UserId;
 		
-		private string _User_Uid;
+		private string _UserUid;
 		
-		private string _Verification_Code;
+		private string _VerificationCode;
 		
-		private System.Nullable<bool> _Flg_receive_mails;
+		private System.Nullable<bool> _FlgReceiveMails;
 		
-		private System.Nullable<bool> _Flg_deleted;
+		private System.Nullable<bool> _FlgDeleted;
 		
-		private System.Nullable<bool> _Flg_entity_on_hold;
+		private System.Nullable<bool> _FlgEntityOnHold;
 		
-		private System.Nullable<int> _User_Approved_Status;
+		private System.Nullable<int> _UserApprovedStatus;
 		
-		private System.Nullable<int> _User_Pymt_Type;
+		private System.Nullable<int> _UserPymtType;
 		
-		private string _Name_Long;
+		private string _FullName;
 		
-		private string _Name_Title;
+		private string _Title;
 		
-		private string _Name_Initials;
+		private string _Initials;
 		
-		private string _Name_Forename;
+		private string _NameForename;
 		
-		private string _Name_Surname;
+		private string _NameSurname;
 		
-		private string _Name_Job_Title;
+		private string _NameJobTitle;
 		
 		private string _Email;
 		
-		private string _Logon_Enable;
+		private string _Password;
 		
-		private System.Nullable<byte> _Enable_reminder_question_id;
+		private System.Nullable<byte> _ReminderQuestionId;
 		
-		private string _Enable_reminder_custom_question;
+		private string _ReminderCustomQuestion;
 		
-		private string _Enable_reminder_question_answer;
+		private string _ReminderQuestionAnswer;
 		
-		private string _User_details;
+		private System.Nullable<bool> _FlgVerified;
 		
-		private System.Nullable<bool> _Flg_verified;
+		private System.Nullable<bool> _FlgEnabled;
 		
-		private System.Nullable<bool> _Flg_enabled;
+		private System.Nullable<int> _LoginAttempts;
 		
-		private System.Nullable<int> _Login_attempts;
+		private System.Nullable<bool> _FlgLocked;
 		
-		private System.Nullable<bool> _Flg_locked;
+		private string _LockedReason;
 		
-		private string _Locked_reason;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<int> _Created_by;
+		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private System.Nullable<System.DateTime> _Date_created;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _User_Type;
+		private string _Role;
 		
 		public UserSelectByEmailResult()
 		{
@@ -17823,210 +5590,210 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_User_Uid", DbType="Char(36)")]
-		public string User_Uid
+		[Column(Storage="_UserUid", DbType="Char(36)")]
+		public string UserUid
 		{
 			get
 			{
-				return this._User_Uid;
+				return this._UserUid;
 			}
 			set
 			{
-				if ((this._User_Uid != value))
+				if ((this._UserUid != value))
 				{
-					this._User_Uid = value;
+					this._UserUid = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Verification_Code", DbType="Char(36)")]
-		public string Verification_Code
+		[Column(Storage="_VerificationCode", DbType="Char(36)")]
+		public string VerificationCode
 		{
 			get
 			{
-				return this._Verification_Code;
+				return this._VerificationCode;
 			}
 			set
 			{
-				if ((this._Verification_Code != value))
+				if ((this._VerificationCode != value))
 				{
-					this._Verification_Code = value;
+					this._VerificationCode = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
+		[Column(Storage="_FlgReceiveMails", DbType="Bit")]
+		public System.Nullable<bool> FlgReceiveMails
 		{
 			get
 			{
-				return this._Flg_receive_mails;
+				return this._FlgReceiveMails;
 			}
 			set
 			{
-				if ((this._Flg_receive_mails != value))
+				if ((this._FlgReceiveMails != value))
 				{
-					this._Flg_receive_mails = value;
+					this._FlgReceiveMails = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
+		[Column(Storage="_FlgDeleted", DbType="Bit")]
+		public System.Nullable<bool> FlgDeleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._FlgDeleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._FlgDeleted != value))
 				{
-					this._Flg_deleted = value;
+					this._FlgDeleted = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
+		[Column(Storage="_FlgEntityOnHold", DbType="Bit")]
+		public System.Nullable<bool> FlgEntityOnHold
 		{
 			get
 			{
-				return this._Flg_entity_on_hold;
+				return this._FlgEntityOnHold;
 			}
 			set
 			{
-				if ((this._Flg_entity_on_hold != value))
+				if ((this._FlgEntityOnHold != value))
 				{
-					this._Flg_entity_on_hold = value;
+					this._FlgEntityOnHold = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Approved_Status", DbType="Int")]
-		public System.Nullable<int> User_Approved_Status
+		[Column(Storage="_UserApprovedStatus", DbType="Int")]
+		public System.Nullable<int> UserApprovedStatus
 		{
 			get
 			{
-				return this._User_Approved_Status;
+				return this._UserApprovedStatus;
 			}
 			set
 			{
-				if ((this._User_Approved_Status != value))
+				if ((this._UserApprovedStatus != value))
 				{
-					this._User_Approved_Status = value;
+					this._UserApprovedStatus = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Pymt_Type", DbType="Int")]
-		public System.Nullable<int> User_Pymt_Type
+		[Column(Storage="_UserPymtType", DbType="Int")]
+		public System.Nullable<int> UserPymtType
 		{
 			get
 			{
-				return this._User_Pymt_Type;
+				return this._UserPymtType;
 			}
 			set
 			{
-				if ((this._User_Pymt_Type != value))
+				if ((this._UserPymtType != value))
 				{
-					this._User_Pymt_Type = value;
+					this._UserPymtType = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Long", DbType="VarChar(60)")]
-		public string Name_Long
+		[Column(Storage="_FullName", DbType="VarChar(60)")]
+		public string FullName
 		{
 			get
 			{
-				return this._Name_Long;
+				return this._FullName;
 			}
 			set
 			{
-				if ((this._Name_Long != value))
+				if ((this._FullName != value))
 				{
-					this._Name_Long = value;
+					this._FullName = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Title", DbType="VarChar(7)")]
-		public string Name_Title
+		[Column(Storage="_Title", DbType="VarChar(7)")]
+		public string Title
 		{
 			get
 			{
-				return this._Name_Title;
+				return this._Title;
 			}
 			set
 			{
-				if ((this._Name_Title != value))
+				if ((this._Title != value))
 				{
-					this._Name_Title = value;
+					this._Title = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Initials", DbType="VarChar(3)")]
-		public string Name_Initials
+		[Column(Storage="_Initials", DbType="VarChar(3)")]
+		public string Initials
 		{
 			get
 			{
-				return this._Name_Initials;
+				return this._Initials;
 			}
 			set
 			{
-				if ((this._Name_Initials != value))
+				if ((this._Initials != value))
 				{
-					this._Name_Initials = value;
+					this._Initials = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Forename", DbType="VarChar(60)")]
-		public string Name_Forename
+		[Column(Storage="_NameForename", DbType="VarChar(60)")]
+		public string NameForename
 		{
 			get
 			{
-				return this._Name_Forename;
+				return this._NameForename;
 			}
 			set
 			{
-				if ((this._Name_Forename != value))
+				if ((this._NameForename != value))
 				{
-					this._Name_Forename = value;
+					this._NameForename = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Surname", DbType="VarChar(60)")]
-		public string Name_Surname
+		[Column(Storage="_NameSurname", DbType="VarChar(60)")]
+		public string NameSurname
 		{
 			get
 			{
-				return this._Name_Surname;
+				return this._NameSurname;
 			}
 			set
 			{
-				if ((this._Name_Surname != value))
+				if ((this._NameSurname != value))
 				{
-					this._Name_Surname = value;
+					this._NameSurname = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Job_Title", DbType="VarChar(255)")]
-		public string Name_Job_Title
+		[Column(Storage="_NameJobTitle", DbType="VarChar(255)")]
+		public string NameJobTitle
 		{
 			get
 			{
-				return this._Name_Job_Title;
+				return this._NameJobTitle;
 			}
 			set
 			{
-				if ((this._Name_Job_Title != value))
+				if ((this._NameJobTitle != value))
 				{
-					this._Name_Job_Title = value;
+					this._NameJobTitle = value;
 				}
 			}
 		}
@@ -18047,242 +5814,226 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_Logon_Enable", DbType="VarChar(50)")]
-		public string Logon_Enable
+		[Column(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
 		{
 			get
 			{
-				return this._Logon_Enable;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._Logon_Enable != value))
+				if ((this._Password != value))
 				{
-					this._Logon_Enable = value;
+					this._Password = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
+		[Column(Storage="_ReminderQuestionId", DbType="TinyInt")]
+		public System.Nullable<byte> ReminderQuestionId
 		{
 			get
 			{
-				return this._Enable_reminder_question_id;
+				return this._ReminderQuestionId;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_id != value))
+				if ((this._ReminderQuestionId != value))
 				{
-					this._Enable_reminder_question_id = value;
+					this._ReminderQuestionId = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
+		[Column(Storage="_ReminderCustomQuestion", DbType="VarChar(50)")]
+		public string ReminderCustomQuestion
 		{
 			get
 			{
-				return this._Enable_reminder_custom_question;
+				return this._ReminderCustomQuestion;
 			}
 			set
 			{
-				if ((this._Enable_reminder_custom_question != value))
+				if ((this._ReminderCustomQuestion != value))
 				{
-					this._Enable_reminder_custom_question = value;
+					this._ReminderCustomQuestion = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
+		[Column(Storage="_ReminderQuestionAnswer", DbType="VarChar(50)")]
+		public string ReminderQuestionAnswer
 		{
 			get
 			{
-				return this._Enable_reminder_question_answer;
+				return this._ReminderQuestionAnswer;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_answer != value))
+				if ((this._ReminderQuestionAnswer != value))
 				{
-					this._Enable_reminder_question_answer = value;
+					this._ReminderQuestionAnswer = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_details", DbType="VarChar(200)")]
-		public string User_details
+		[Column(Storage="_FlgVerified", DbType="Bit")]
+		public System.Nullable<bool> FlgVerified
 		{
 			get
 			{
-				return this._User_details;
+				return this._FlgVerified;
 			}
 			set
 			{
-				if ((this._User_details != value))
+				if ((this._FlgVerified != value))
 				{
-					this._User_details = value;
+					this._FlgVerified = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
+		[Column(Storage="_FlgEnabled", DbType="Bit")]
+		public System.Nullable<bool> FlgEnabled
 		{
 			get
 			{
-				return this._Flg_verified;
+				return this._FlgEnabled;
 			}
 			set
 			{
-				if ((this._Flg_verified != value))
+				if ((this._FlgEnabled != value))
 				{
-					this._Flg_verified = value;
+					this._FlgEnabled = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
+		[Column(Storage="_LoginAttempts", DbType="Int")]
+		public System.Nullable<int> LoginAttempts
 		{
 			get
 			{
-				return this._Flg_enabled;
+				return this._LoginAttempts;
 			}
 			set
 			{
-				if ((this._Flg_enabled != value))
+				if ((this._LoginAttempts != value))
 				{
-					this._Flg_enabled = value;
+					this._LoginAttempts = value;
 				}
 			}
 		}
 		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
+		[Column(Storage="_FlgLocked", DbType="Bit")]
+		public System.Nullable<bool> FlgLocked
 		{
 			get
 			{
-				return this._Login_attempts;
+				return this._FlgLocked;
 			}
 			set
 			{
-				if ((this._Login_attempts != value))
+				if ((this._FlgLocked != value))
 				{
-					this._Login_attempts = value;
+					this._FlgLocked = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
+		[Column(Storage="_LockedReason", DbType="VarChar(255)")]
+		public string LockedReason
 		{
 			get
 			{
-				return this._Flg_locked;
+				return this._LockedReason;
 			}
 			set
 			{
-				if ((this._Flg_locked != value))
+				if ((this._LockedReason != value))
 				{
-					this._Flg_locked = value;
+					this._LockedReason = value;
 				}
 			}
 		}
 		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Locked_reason;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Locked_reason != value))
+				if ((this._CreatedBy != value))
 				{
-					this._Locked_reason = value;
+					this._CreatedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
 		{
 			get
 			{
-				return this._Created_by;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._DateCreated != value))
 				{
-					this._Created_by = value;
+					this._DateCreated = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Date_created;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this._Date_created = value;
+					this._LastAmendedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._DateLastAmended != value))
 				{
-					this._Last_amended_by = value;
+					this._DateLastAmended = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_Role", DbType="VarChar(50)")]
+		public string Role
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._Role != value))
 				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_User_Type", DbType="Text")]
-		public string User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this._User_Type = value;
+					this._Role = value;
 				}
 			}
 		}
@@ -18293,63 +6044,61 @@ namespace LINQSimplicityCommDAL
 		
 		private System.Nullable<int> _UserId;
 		
-		private string _User_Uid;
+		private string _UserUid;
 		
-		private string _Verification_Code;
+		private string _VerificationCode;
 		
-		private System.Nullable<bool> _Flg_receive_mails;
+		private System.Nullable<bool> _FlgReceiveMails;
 		
-		private System.Nullable<bool> _Flg_deleted;
+		private System.Nullable<bool> _FlgDeleted;
 		
-		private System.Nullable<bool> _Flg_entity_on_hold;
+		private System.Nullable<bool> _FlgEntityOnHold;
 		
-		private System.Nullable<int> _User_Approved_Status;
+		private System.Nullable<int> _UserApprovedStatus;
 		
-		private System.Nullable<int> _User_Pymt_Type;
+		private System.Nullable<int> _UserPymtType;
 		
-		private string _Name_Long;
+		private string _FullName;
 		
-		private string _Name_Title;
+		private string _Title;
 		
-		private string _Name_Initials;
+		private string _Initials;
 		
-		private string _Name_Forename;
+		private string _NameForename;
 		
-		private string _Name_Surname;
+		private string _NameSurname;
 		
-		private string _Name_Job_Title;
+		private string _NameJobTitle;
 		
 		private string _Email;
 		
-		private string _Logon_Enable;
+		private string _Password;
 		
-		private System.Nullable<byte> _Enable_reminder_question_id;
+		private System.Nullable<byte> _ReminderQuestionId;
 		
-		private string _Enable_reminder_custom_question;
+		private string _ReminderCustomQuestion;
 		
-		private string _Enable_reminder_question_answer;
+		private string _ReminderQuestionAnswer;
 		
-		private string _User_details;
+		private System.Nullable<bool> _FlgVerified;
 		
-		private System.Nullable<bool> _Flg_verified;
+		private System.Nullable<bool> _FlgEnabled;
 		
-		private System.Nullable<bool> _Flg_enabled;
+		private System.Nullable<int> _LoginAttempts;
 		
-		private System.Nullable<int> _Login_attempts;
+		private System.Nullable<bool> _FlgLocked;
 		
-		private System.Nullable<bool> _Flg_locked;
+		private string _LockedReason;
 		
-		private string _Locked_reason;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<int> _Created_by;
+		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private System.Nullable<System.DateTime> _Date_created;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _User_Type;
+		private string _Role;
 		
 		public UserSelectByIdResult()
 		{
@@ -18371,210 +6120,210 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_User_Uid", DbType="Char(36)")]
-		public string User_Uid
+		[Column(Storage="_UserUid", DbType="Char(36)")]
+		public string UserUid
 		{
 			get
 			{
-				return this._User_Uid;
+				return this._UserUid;
 			}
 			set
 			{
-				if ((this._User_Uid != value))
+				if ((this._UserUid != value))
 				{
-					this._User_Uid = value;
+					this._UserUid = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Verification_Code", DbType="Char(36)")]
-		public string Verification_Code
+		[Column(Storage="_VerificationCode", DbType="Char(36)")]
+		public string VerificationCode
 		{
 			get
 			{
-				return this._Verification_Code;
+				return this._VerificationCode;
 			}
 			set
 			{
-				if ((this._Verification_Code != value))
+				if ((this._VerificationCode != value))
 				{
-					this._Verification_Code = value;
+					this._VerificationCode = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
+		[Column(Storage="_FlgReceiveMails", DbType="Bit")]
+		public System.Nullable<bool> FlgReceiveMails
 		{
 			get
 			{
-				return this._Flg_receive_mails;
+				return this._FlgReceiveMails;
 			}
 			set
 			{
-				if ((this._Flg_receive_mails != value))
+				if ((this._FlgReceiveMails != value))
 				{
-					this._Flg_receive_mails = value;
+					this._FlgReceiveMails = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
+		[Column(Storage="_FlgDeleted", DbType="Bit")]
+		public System.Nullable<bool> FlgDeleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._FlgDeleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._FlgDeleted != value))
 				{
-					this._Flg_deleted = value;
+					this._FlgDeleted = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
+		[Column(Storage="_FlgEntityOnHold", DbType="Bit")]
+		public System.Nullable<bool> FlgEntityOnHold
 		{
 			get
 			{
-				return this._Flg_entity_on_hold;
+				return this._FlgEntityOnHold;
 			}
 			set
 			{
-				if ((this._Flg_entity_on_hold != value))
+				if ((this._FlgEntityOnHold != value))
 				{
-					this._Flg_entity_on_hold = value;
+					this._FlgEntityOnHold = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Approved_Status", DbType="Int")]
-		public System.Nullable<int> User_Approved_Status
+		[Column(Storage="_UserApprovedStatus", DbType="Int")]
+		public System.Nullable<int> UserApprovedStatus
 		{
 			get
 			{
-				return this._User_Approved_Status;
+				return this._UserApprovedStatus;
 			}
 			set
 			{
-				if ((this._User_Approved_Status != value))
+				if ((this._UserApprovedStatus != value))
 				{
-					this._User_Approved_Status = value;
+					this._UserApprovedStatus = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Pymt_Type", DbType="Int")]
-		public System.Nullable<int> User_Pymt_Type
+		[Column(Storage="_UserPymtType", DbType="Int")]
+		public System.Nullable<int> UserPymtType
 		{
 			get
 			{
-				return this._User_Pymt_Type;
+				return this._UserPymtType;
 			}
 			set
 			{
-				if ((this._User_Pymt_Type != value))
+				if ((this._UserPymtType != value))
 				{
-					this._User_Pymt_Type = value;
+					this._UserPymtType = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Long", DbType="VarChar(60)")]
-		public string Name_Long
+		[Column(Storage="_FullName", DbType="VarChar(60)")]
+		public string FullName
 		{
 			get
 			{
-				return this._Name_Long;
+				return this._FullName;
 			}
 			set
 			{
-				if ((this._Name_Long != value))
+				if ((this._FullName != value))
 				{
-					this._Name_Long = value;
+					this._FullName = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Title", DbType="VarChar(7)")]
-		public string Name_Title
+		[Column(Storage="_Title", DbType="VarChar(7)")]
+		public string Title
 		{
 			get
 			{
-				return this._Name_Title;
+				return this._Title;
 			}
 			set
 			{
-				if ((this._Name_Title != value))
+				if ((this._Title != value))
 				{
-					this._Name_Title = value;
+					this._Title = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Initials", DbType="VarChar(3)")]
-		public string Name_Initials
+		[Column(Storage="_Initials", DbType="VarChar(3)")]
+		public string Initials
 		{
 			get
 			{
-				return this._Name_Initials;
+				return this._Initials;
 			}
 			set
 			{
-				if ((this._Name_Initials != value))
+				if ((this._Initials != value))
 				{
-					this._Name_Initials = value;
+					this._Initials = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Forename", DbType="VarChar(60)")]
-		public string Name_Forename
+		[Column(Storage="_NameForename", DbType="VarChar(60)")]
+		public string NameForename
 		{
 			get
 			{
-				return this._Name_Forename;
+				return this._NameForename;
 			}
 			set
 			{
-				if ((this._Name_Forename != value))
+				if ((this._NameForename != value))
 				{
-					this._Name_Forename = value;
+					this._NameForename = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Surname", DbType="VarChar(60)")]
-		public string Name_Surname
+		[Column(Storage="_NameSurname", DbType="VarChar(60)")]
+		public string NameSurname
 		{
 			get
 			{
-				return this._Name_Surname;
+				return this._NameSurname;
 			}
 			set
 			{
-				if ((this._Name_Surname != value))
+				if ((this._NameSurname != value))
 				{
-					this._Name_Surname = value;
+					this._NameSurname = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Job_Title", DbType="VarChar(255)")]
-		public string Name_Job_Title
+		[Column(Storage="_NameJobTitle", DbType="VarChar(255)")]
+		public string NameJobTitle
 		{
 			get
 			{
-				return this._Name_Job_Title;
+				return this._NameJobTitle;
 			}
 			set
 			{
-				if ((this._Name_Job_Title != value))
+				if ((this._NameJobTitle != value))
 				{
-					this._Name_Job_Title = value;
+					this._NameJobTitle = value;
 				}
 			}
 		}
@@ -18595,242 +6344,226 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_Logon_Enable", DbType="VarChar(50)")]
-		public string Logon_Enable
+		[Column(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
 		{
 			get
 			{
-				return this._Logon_Enable;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._Logon_Enable != value))
+				if ((this._Password != value))
 				{
-					this._Logon_Enable = value;
+					this._Password = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
+		[Column(Storage="_ReminderQuestionId", DbType="TinyInt")]
+		public System.Nullable<byte> ReminderQuestionId
 		{
 			get
 			{
-				return this._Enable_reminder_question_id;
+				return this._ReminderQuestionId;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_id != value))
+				if ((this._ReminderQuestionId != value))
 				{
-					this._Enable_reminder_question_id = value;
+					this._ReminderQuestionId = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
+		[Column(Storage="_ReminderCustomQuestion", DbType="VarChar(50)")]
+		public string ReminderCustomQuestion
 		{
 			get
 			{
-				return this._Enable_reminder_custom_question;
+				return this._ReminderCustomQuestion;
 			}
 			set
 			{
-				if ((this._Enable_reminder_custom_question != value))
+				if ((this._ReminderCustomQuestion != value))
 				{
-					this._Enable_reminder_custom_question = value;
+					this._ReminderCustomQuestion = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
+		[Column(Storage="_ReminderQuestionAnswer", DbType="VarChar(50)")]
+		public string ReminderQuestionAnswer
 		{
 			get
 			{
-				return this._Enable_reminder_question_answer;
+				return this._ReminderQuestionAnswer;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_answer != value))
+				if ((this._ReminderQuestionAnswer != value))
 				{
-					this._Enable_reminder_question_answer = value;
+					this._ReminderQuestionAnswer = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_details", DbType="VarChar(200)")]
-		public string User_details
+		[Column(Storage="_FlgVerified", DbType="Bit")]
+		public System.Nullable<bool> FlgVerified
 		{
 			get
 			{
-				return this._User_details;
+				return this._FlgVerified;
 			}
 			set
 			{
-				if ((this._User_details != value))
+				if ((this._FlgVerified != value))
 				{
-					this._User_details = value;
+					this._FlgVerified = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
+		[Column(Storage="_FlgEnabled", DbType="Bit")]
+		public System.Nullable<bool> FlgEnabled
 		{
 			get
 			{
-				return this._Flg_verified;
+				return this._FlgEnabled;
 			}
 			set
 			{
-				if ((this._Flg_verified != value))
+				if ((this._FlgEnabled != value))
 				{
-					this._Flg_verified = value;
+					this._FlgEnabled = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
+		[Column(Storage="_LoginAttempts", DbType="Int")]
+		public System.Nullable<int> LoginAttempts
 		{
 			get
 			{
-				return this._Flg_enabled;
+				return this._LoginAttempts;
 			}
 			set
 			{
-				if ((this._Flg_enabled != value))
+				if ((this._LoginAttempts != value))
 				{
-					this._Flg_enabled = value;
+					this._LoginAttempts = value;
 				}
 			}
 		}
 		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
+		[Column(Storage="_FlgLocked", DbType="Bit")]
+		public System.Nullable<bool> FlgLocked
 		{
 			get
 			{
-				return this._Login_attempts;
+				return this._FlgLocked;
 			}
 			set
 			{
-				if ((this._Login_attempts != value))
+				if ((this._FlgLocked != value))
 				{
-					this._Login_attempts = value;
+					this._FlgLocked = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
+		[Column(Storage="_LockedReason", DbType="VarChar(255)")]
+		public string LockedReason
 		{
 			get
 			{
-				return this._Flg_locked;
+				return this._LockedReason;
 			}
 			set
 			{
-				if ((this._Flg_locked != value))
+				if ((this._LockedReason != value))
 				{
-					this._Flg_locked = value;
+					this._LockedReason = value;
 				}
 			}
 		}
 		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Locked_reason;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Locked_reason != value))
+				if ((this._CreatedBy != value))
 				{
-					this._Locked_reason = value;
+					this._CreatedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
 		{
 			get
 			{
-				return this._Created_by;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._DateCreated != value))
 				{
-					this._Created_by = value;
+					this._DateCreated = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Date_created;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this._Date_created = value;
+					this._LastAmendedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._DateLastAmended != value))
 				{
-					this._Last_amended_by = value;
+					this._DateLastAmended = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_Role", DbType="VarChar(50)")]
+		public string Role
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._Role != value))
 				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_User_Type", DbType="Text")]
-		public string User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this._User_Type = value;
+					this._Role = value;
 				}
 			}
 		}
@@ -18841,63 +6574,61 @@ namespace LINQSimplicityCommDAL
 		
 		private System.Nullable<int> _UserId;
 		
-		private string _User_Uid;
+		private string _UserUid;
 		
-		private string _Verification_Code;
+		private string _VerificationCode;
 		
-		private System.Nullable<bool> _Flg_receive_mails;
+		private System.Nullable<bool> _FlgReceiveMails;
 		
-		private System.Nullable<bool> _Flg_deleted;
+		private System.Nullable<bool> _FlgDeleted;
 		
-		private System.Nullable<bool> _Flg_entity_on_hold;
+		private System.Nullable<bool> _FlgEntityOnHold;
 		
-		private System.Nullable<int> _User_Approved_Status;
+		private System.Nullable<int> _UserApprovedStatus;
 		
-		private System.Nullable<int> _User_Pymt_Type;
+		private System.Nullable<int> _UserPymtType;
 		
-		private string _Name_Long;
+		private string _FullName;
 		
-		private string _Name_Title;
+		private string _Title;
 		
-		private string _Name_Initials;
+		private string _Initials;
 		
-		private string _Name_Forename;
+		private string _NameForename;
 		
-		private string _Name_Surname;
+		private string _NameSurname;
 		
-		private string _Name_Job_Title;
+		private string _NameJobTitle;
 		
 		private string _Email;
 		
-		private string _Logon_Enable;
+		private string _Password;
 		
-		private System.Nullable<byte> _Enable_reminder_question_id;
+		private System.Nullable<byte> _ReminderQuestionId;
 		
-		private string _Enable_reminder_custom_question;
+		private string _ReminderCustomQuestion;
 		
-		private string _Enable_reminder_question_answer;
+		private string _ReminderQuestionAnswer;
 		
-		private string _User_details;
+		private System.Nullable<bool> _FlgVerified;
 		
-		private System.Nullable<bool> _Flg_verified;
+		private System.Nullable<bool> _FlgEnabled;
 		
-		private System.Nullable<bool> _Flg_enabled;
+		private System.Nullable<int> _LoginAttempts;
 		
-		private System.Nullable<int> _Login_attempts;
+		private System.Nullable<bool> _FlgLocked;
 		
-		private System.Nullable<bool> _Flg_locked;
+		private string _LockedReason;
 		
-		private string _Locked_reason;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<int> _Created_by;
+		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private System.Nullable<System.DateTime> _Date_created;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _User_Type;
+		private string _Role;
 		
 		public UserSelectByUIDResult()
 		{
@@ -18919,210 +6650,210 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_User_Uid", DbType="Char(36)")]
-		public string User_Uid
+		[Column(Storage="_UserUid", DbType="Char(36)")]
+		public string UserUid
 		{
 			get
 			{
-				return this._User_Uid;
+				return this._UserUid;
 			}
 			set
 			{
-				if ((this._User_Uid != value))
+				if ((this._UserUid != value))
 				{
-					this._User_Uid = value;
+					this._UserUid = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Verification_Code", DbType="Char(36)")]
-		public string Verification_Code
+		[Column(Storage="_VerificationCode", DbType="Char(36)")]
+		public string VerificationCode
 		{
 			get
 			{
-				return this._Verification_Code;
+				return this._VerificationCode;
 			}
 			set
 			{
-				if ((this._Verification_Code != value))
+				if ((this._VerificationCode != value))
 				{
-					this._Verification_Code = value;
+					this._VerificationCode = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
+		[Column(Storage="_FlgReceiveMails", DbType="Bit")]
+		public System.Nullable<bool> FlgReceiveMails
 		{
 			get
 			{
-				return this._Flg_receive_mails;
+				return this._FlgReceiveMails;
 			}
 			set
 			{
-				if ((this._Flg_receive_mails != value))
+				if ((this._FlgReceiveMails != value))
 				{
-					this._Flg_receive_mails = value;
+					this._FlgReceiveMails = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
+		[Column(Storage="_FlgDeleted", DbType="Bit")]
+		public System.Nullable<bool> FlgDeleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._FlgDeleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._FlgDeleted != value))
 				{
-					this._Flg_deleted = value;
+					this._FlgDeleted = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
+		[Column(Storage="_FlgEntityOnHold", DbType="Bit")]
+		public System.Nullable<bool> FlgEntityOnHold
 		{
 			get
 			{
-				return this._Flg_entity_on_hold;
+				return this._FlgEntityOnHold;
 			}
 			set
 			{
-				if ((this._Flg_entity_on_hold != value))
+				if ((this._FlgEntityOnHold != value))
 				{
-					this._Flg_entity_on_hold = value;
+					this._FlgEntityOnHold = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Approved_Status", DbType="Int")]
-		public System.Nullable<int> User_Approved_Status
+		[Column(Storage="_UserApprovedStatus", DbType="Int")]
+		public System.Nullable<int> UserApprovedStatus
 		{
 			get
 			{
-				return this._User_Approved_Status;
+				return this._UserApprovedStatus;
 			}
 			set
 			{
-				if ((this._User_Approved_Status != value))
+				if ((this._UserApprovedStatus != value))
 				{
-					this._User_Approved_Status = value;
+					this._UserApprovedStatus = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Pymt_Type", DbType="Int")]
-		public System.Nullable<int> User_Pymt_Type
+		[Column(Storage="_UserPymtType", DbType="Int")]
+		public System.Nullable<int> UserPymtType
 		{
 			get
 			{
-				return this._User_Pymt_Type;
+				return this._UserPymtType;
 			}
 			set
 			{
-				if ((this._User_Pymt_Type != value))
+				if ((this._UserPymtType != value))
 				{
-					this._User_Pymt_Type = value;
+					this._UserPymtType = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Long", DbType="VarChar(60)")]
-		public string Name_Long
+		[Column(Storage="_FullName", DbType="VarChar(60)")]
+		public string FullName
 		{
 			get
 			{
-				return this._Name_Long;
+				return this._FullName;
 			}
 			set
 			{
-				if ((this._Name_Long != value))
+				if ((this._FullName != value))
 				{
-					this._Name_Long = value;
+					this._FullName = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Title", DbType="VarChar(7)")]
-		public string Name_Title
+		[Column(Storage="_Title", DbType="VarChar(7)")]
+		public string Title
 		{
 			get
 			{
-				return this._Name_Title;
+				return this._Title;
 			}
 			set
 			{
-				if ((this._Name_Title != value))
+				if ((this._Title != value))
 				{
-					this._Name_Title = value;
+					this._Title = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Initials", DbType="VarChar(3)")]
-		public string Name_Initials
+		[Column(Storage="_Initials", DbType="VarChar(3)")]
+		public string Initials
 		{
 			get
 			{
-				return this._Name_Initials;
+				return this._Initials;
 			}
 			set
 			{
-				if ((this._Name_Initials != value))
+				if ((this._Initials != value))
 				{
-					this._Name_Initials = value;
+					this._Initials = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Forename", DbType="VarChar(60)")]
-		public string Name_Forename
+		[Column(Storage="_NameForename", DbType="VarChar(60)")]
+		public string NameForename
 		{
 			get
 			{
-				return this._Name_Forename;
+				return this._NameForename;
 			}
 			set
 			{
-				if ((this._Name_Forename != value))
+				if ((this._NameForename != value))
 				{
-					this._Name_Forename = value;
+					this._NameForename = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Surname", DbType="VarChar(60)")]
-		public string Name_Surname
+		[Column(Storage="_NameSurname", DbType="VarChar(60)")]
+		public string NameSurname
 		{
 			get
 			{
-				return this._Name_Surname;
+				return this._NameSurname;
 			}
 			set
 			{
-				if ((this._Name_Surname != value))
+				if ((this._NameSurname != value))
 				{
-					this._Name_Surname = value;
+					this._NameSurname = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Job_Title", DbType="VarChar(255)")]
-		public string Name_Job_Title
+		[Column(Storage="_NameJobTitle", DbType="VarChar(255)")]
+		public string NameJobTitle
 		{
 			get
 			{
-				return this._Name_Job_Title;
+				return this._NameJobTitle;
 			}
 			set
 			{
-				if ((this._Name_Job_Title != value))
+				if ((this._NameJobTitle != value))
 				{
-					this._Name_Job_Title = value;
+					this._NameJobTitle = value;
 				}
 			}
 		}
@@ -19143,242 +6874,226 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_Logon_Enable", DbType="VarChar(50)")]
-		public string Logon_Enable
+		[Column(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
 		{
 			get
 			{
-				return this._Logon_Enable;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._Logon_Enable != value))
+				if ((this._Password != value))
 				{
-					this._Logon_Enable = value;
+					this._Password = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
+		[Column(Storage="_ReminderQuestionId", DbType="TinyInt")]
+		public System.Nullable<byte> ReminderQuestionId
 		{
 			get
 			{
-				return this._Enable_reminder_question_id;
+				return this._ReminderQuestionId;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_id != value))
+				if ((this._ReminderQuestionId != value))
 				{
-					this._Enable_reminder_question_id = value;
+					this._ReminderQuestionId = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
+		[Column(Storage="_ReminderCustomQuestion", DbType="VarChar(50)")]
+		public string ReminderCustomQuestion
 		{
 			get
 			{
-				return this._Enable_reminder_custom_question;
+				return this._ReminderCustomQuestion;
 			}
 			set
 			{
-				if ((this._Enable_reminder_custom_question != value))
+				if ((this._ReminderCustomQuestion != value))
 				{
-					this._Enable_reminder_custom_question = value;
+					this._ReminderCustomQuestion = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
+		[Column(Storage="_ReminderQuestionAnswer", DbType="VarChar(50)")]
+		public string ReminderQuestionAnswer
 		{
 			get
 			{
-				return this._Enable_reminder_question_answer;
+				return this._ReminderQuestionAnswer;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_answer != value))
+				if ((this._ReminderQuestionAnswer != value))
 				{
-					this._Enable_reminder_question_answer = value;
+					this._ReminderQuestionAnswer = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_details", DbType="VarChar(200)")]
-		public string User_details
+		[Column(Storage="_FlgVerified", DbType="Bit")]
+		public System.Nullable<bool> FlgVerified
 		{
 			get
 			{
-				return this._User_details;
+				return this._FlgVerified;
 			}
 			set
 			{
-				if ((this._User_details != value))
+				if ((this._FlgVerified != value))
 				{
-					this._User_details = value;
+					this._FlgVerified = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
+		[Column(Storage="_FlgEnabled", DbType="Bit")]
+		public System.Nullable<bool> FlgEnabled
 		{
 			get
 			{
-				return this._Flg_verified;
+				return this._FlgEnabled;
 			}
 			set
 			{
-				if ((this._Flg_verified != value))
+				if ((this._FlgEnabled != value))
 				{
-					this._Flg_verified = value;
+					this._FlgEnabled = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
+		[Column(Storage="_LoginAttempts", DbType="Int")]
+		public System.Nullable<int> LoginAttempts
 		{
 			get
 			{
-				return this._Flg_enabled;
+				return this._LoginAttempts;
 			}
 			set
 			{
-				if ((this._Flg_enabled != value))
+				if ((this._LoginAttempts != value))
 				{
-					this._Flg_enabled = value;
+					this._LoginAttempts = value;
 				}
 			}
 		}
 		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
+		[Column(Storage="_FlgLocked", DbType="Bit")]
+		public System.Nullable<bool> FlgLocked
 		{
 			get
 			{
-				return this._Login_attempts;
+				return this._FlgLocked;
 			}
 			set
 			{
-				if ((this._Login_attempts != value))
+				if ((this._FlgLocked != value))
 				{
-					this._Login_attempts = value;
+					this._FlgLocked = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
+		[Column(Storage="_LockedReason", DbType="VarChar(255)")]
+		public string LockedReason
 		{
 			get
 			{
-				return this._Flg_locked;
+				return this._LockedReason;
 			}
 			set
 			{
-				if ((this._Flg_locked != value))
+				if ((this._LockedReason != value))
 				{
-					this._Flg_locked = value;
+					this._LockedReason = value;
 				}
 			}
 		}
 		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Locked_reason;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Locked_reason != value))
+				if ((this._CreatedBy != value))
 				{
-					this._Locked_reason = value;
+					this._CreatedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
 		{
 			get
 			{
-				return this._Created_by;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._DateCreated != value))
 				{
-					this._Created_by = value;
+					this._DateCreated = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Date_created;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this._Date_created = value;
+					this._LastAmendedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._DateLastAmended != value))
 				{
-					this._Last_amended_by = value;
+					this._DateLastAmended = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_Role", DbType="VarChar(50)")]
+		public string Role
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._Role != value))
 				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_User_Type", DbType="Text")]
-		public string User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this._User_Type = value;
+					this._Role = value;
 				}
 			}
 		}
@@ -19389,63 +7104,61 @@ namespace LINQSimplicityCommDAL
 		
 		private System.Nullable<int> _UserId;
 		
-		private string _User_Uid;
+		private string _UserUid;
 		
-		private string _Verification_Code;
+		private string _VerificationCode;
 		
-		private System.Nullable<bool> _Flg_receive_mails;
+		private System.Nullable<bool> _FlgReceiveMails;
 		
-		private System.Nullable<bool> _Flg_deleted;
+		private System.Nullable<bool> _FlgDeleted;
 		
-		private System.Nullable<bool> _Flg_entity_on_hold;
+		private System.Nullable<bool> _FlgEntityOnHold;
 		
-		private System.Nullable<int> _User_Approved_Status;
+		private System.Nullable<int> _UserApprovedStatus;
 		
-		private System.Nullable<int> _User_Pymt_Type;
+		private System.Nullable<int> _UserPymtType;
 		
-		private string _Name_Long;
+		private string _FullName;
 		
-		private string _Name_Title;
+		private string _Title;
 		
-		private string _Name_Initials;
+		private string _Initials;
 		
-		private string _Name_Forename;
+		private string _NameForename;
 		
-		private string _Name_Surname;
+		private string _NameSurname;
 		
-		private string _Name_Job_Title;
+		private string _NameJobTitle;
 		
 		private string _Email;
 		
-		private string _Logon_Enable;
+		private string _Password;
 		
-		private System.Nullable<byte> _Enable_reminder_question_id;
+		private System.Nullable<byte> _ReminderQuestionId;
 		
-		private string _Enable_reminder_custom_question;
+		private string _ReminderCustomQuestion;
 		
-		private string _Enable_reminder_question_answer;
+		private string _ReminderQuestionAnswer;
 		
-		private string _User_details;
+		private System.Nullable<bool> _FlgVerified;
 		
-		private System.Nullable<bool> _Flg_verified;
+		private System.Nullable<bool> _FlgEnabled;
 		
-		private System.Nullable<bool> _Flg_enabled;
+		private System.Nullable<int> _LoginAttempts;
 		
-		private System.Nullable<int> _Login_attempts;
+		private System.Nullable<bool> _FlgLocked;
 		
-		private System.Nullable<bool> _Flg_locked;
+		private string _LockedReason;
 		
-		private string _Locked_reason;
+		private System.Nullable<int> _CreatedBy;
 		
-		private System.Nullable<int> _Created_by;
+		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private System.Nullable<System.DateTime> _Date_created;
+		private System.Nullable<int> _LastAmendedBy;
 		
-		private System.Nullable<int> _Last_amended_by;
+		private System.Nullable<System.DateTime> _DateLastAmended;
 		
-		private System.Nullable<System.DateTime> _Date_last_amended;
-		
-		private string _User_Type;
+		private string _Role;
 		
 		public UserUpdatePasswordResult()
 		{
@@ -19467,210 +7180,210 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_User_Uid", DbType="Char(36)")]
-		public string User_Uid
+		[Column(Storage="_UserUid", DbType="Char(36)")]
+		public string UserUid
 		{
 			get
 			{
-				return this._User_Uid;
+				return this._UserUid;
 			}
 			set
 			{
-				if ((this._User_Uid != value))
+				if ((this._UserUid != value))
 				{
-					this._User_Uid = value;
+					this._UserUid = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Verification_Code", DbType="Char(36)")]
-		public string Verification_Code
+		[Column(Storage="_VerificationCode", DbType="Char(36)")]
+		public string VerificationCode
 		{
 			get
 			{
-				return this._Verification_Code;
+				return this._VerificationCode;
 			}
 			set
 			{
-				if ((this._Verification_Code != value))
+				if ((this._VerificationCode != value))
 				{
-					this._Verification_Code = value;
+					this._VerificationCode = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_receive_mails", Storage="_Flg_receive_mails", DbType="Bit")]
-		public System.Nullable<bool> Flg_receive_mails
+		[Column(Storage="_FlgReceiveMails", DbType="Bit")]
+		public System.Nullable<bool> FlgReceiveMails
 		{
 			get
 			{
-				return this._Flg_receive_mails;
+				return this._FlgReceiveMails;
 			}
 			set
 			{
-				if ((this._Flg_receive_mails != value))
+				if ((this._FlgReceiveMails != value))
 				{
-					this._Flg_receive_mails = value;
+					this._FlgReceiveMails = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_deleted", Storage="_Flg_deleted", DbType="Bit")]
-		public System.Nullable<bool> Flg_deleted
+		[Column(Storage="_FlgDeleted", DbType="Bit")]
+		public System.Nullable<bool> FlgDeleted
 		{
 			get
 			{
-				return this._Flg_deleted;
+				return this._FlgDeleted;
 			}
 			set
 			{
-				if ((this._Flg_deleted != value))
+				if ((this._FlgDeleted != value))
 				{
-					this._Flg_deleted = value;
+					this._FlgDeleted = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_entity_on_hold", Storage="_Flg_entity_on_hold", DbType="Bit")]
-		public System.Nullable<bool> Flg_entity_on_hold
+		[Column(Storage="_FlgEntityOnHold", DbType="Bit")]
+		public System.Nullable<bool> FlgEntityOnHold
 		{
 			get
 			{
-				return this._Flg_entity_on_hold;
+				return this._FlgEntityOnHold;
 			}
 			set
 			{
-				if ((this._Flg_entity_on_hold != value))
+				if ((this._FlgEntityOnHold != value))
 				{
-					this._Flg_entity_on_hold = value;
+					this._FlgEntityOnHold = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Approved_Status", DbType="Int")]
-		public System.Nullable<int> User_Approved_Status
+		[Column(Storage="_UserApprovedStatus", DbType="Int")]
+		public System.Nullable<int> UserApprovedStatus
 		{
 			get
 			{
-				return this._User_Approved_Status;
+				return this._UserApprovedStatus;
 			}
 			set
 			{
-				if ((this._User_Approved_Status != value))
+				if ((this._UserApprovedStatus != value))
 				{
-					this._User_Approved_Status = value;
+					this._UserApprovedStatus = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_Pymt_Type", DbType="Int")]
-		public System.Nullable<int> User_Pymt_Type
+		[Column(Storage="_UserPymtType", DbType="Int")]
+		public System.Nullable<int> UserPymtType
 		{
 			get
 			{
-				return this._User_Pymt_Type;
+				return this._UserPymtType;
 			}
 			set
 			{
-				if ((this._User_Pymt_Type != value))
+				if ((this._UserPymtType != value))
 				{
-					this._User_Pymt_Type = value;
+					this._UserPymtType = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Long", DbType="VarChar(60)")]
-		public string Name_Long
+		[Column(Storage="_FullName", DbType="VarChar(60)")]
+		public string FullName
 		{
 			get
 			{
-				return this._Name_Long;
+				return this._FullName;
 			}
 			set
 			{
-				if ((this._Name_Long != value))
+				if ((this._FullName != value))
 				{
-					this._Name_Long = value;
+					this._FullName = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Title", DbType="VarChar(7)")]
-		public string Name_Title
+		[Column(Storage="_Title", DbType="VarChar(7)")]
+		public string Title
 		{
 			get
 			{
-				return this._Name_Title;
+				return this._Title;
 			}
 			set
 			{
-				if ((this._Name_Title != value))
+				if ((this._Title != value))
 				{
-					this._Name_Title = value;
+					this._Title = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Initials", DbType="VarChar(3)")]
-		public string Name_Initials
+		[Column(Storage="_Initials", DbType="VarChar(3)")]
+		public string Initials
 		{
 			get
 			{
-				return this._Name_Initials;
+				return this._Initials;
 			}
 			set
 			{
-				if ((this._Name_Initials != value))
+				if ((this._Initials != value))
 				{
-					this._Name_Initials = value;
+					this._Initials = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Forename", DbType="VarChar(60)")]
-		public string Name_Forename
+		[Column(Storage="_NameForename", DbType="VarChar(60)")]
+		public string NameForename
 		{
 			get
 			{
-				return this._Name_Forename;
+				return this._NameForename;
 			}
 			set
 			{
-				if ((this._Name_Forename != value))
+				if ((this._NameForename != value))
 				{
-					this._Name_Forename = value;
+					this._NameForename = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Surname", DbType="VarChar(60)")]
-		public string Name_Surname
+		[Column(Storage="_NameSurname", DbType="VarChar(60)")]
+		public string NameSurname
 		{
 			get
 			{
-				return this._Name_Surname;
+				return this._NameSurname;
 			}
 			set
 			{
-				if ((this._Name_Surname != value))
+				if ((this._NameSurname != value))
 				{
-					this._Name_Surname = value;
+					this._NameSurname = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_Name_Job_Title", DbType="VarChar(255)")]
-		public string Name_Job_Title
+		[Column(Storage="_NameJobTitle", DbType="VarChar(255)")]
+		public string NameJobTitle
 		{
 			get
 			{
-				return this._Name_Job_Title;
+				return this._NameJobTitle;
 			}
 			set
 			{
-				if ((this._Name_Job_Title != value))
+				if ((this._NameJobTitle != value))
 				{
-					this._Name_Job_Title = value;
+					this._NameJobTitle = value;
 				}
 			}
 		}
@@ -19691,912 +7404,226 @@ namespace LINQSimplicityCommDAL
 			}
 		}
 		
-		[Column(Storage="_Logon_Enable", DbType="VarChar(50)")]
-		public string Logon_Enable
+		[Column(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
 		{
 			get
 			{
-				return this._Logon_Enable;
+				return this._Password;
 			}
 			set
 			{
-				if ((this._Logon_Enable != value))
+				if ((this._Password != value))
 				{
-					this._Logon_Enable = value;
+					this._Password = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_id", Storage="_Enable_reminder_question_id", DbType="TinyInt")]
-		public System.Nullable<byte> Enable_reminder_question_id
+		[Column(Storage="_ReminderQuestionId", DbType="TinyInt")]
+		public System.Nullable<byte> ReminderQuestionId
 		{
 			get
 			{
-				return this._Enable_reminder_question_id;
+				return this._ReminderQuestionId;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_id != value))
+				if ((this._ReminderQuestionId != value))
 				{
-					this._Enable_reminder_question_id = value;
+					this._ReminderQuestionId = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_custom_question", Storage="_Enable_reminder_custom_question", DbType="VarChar(50)")]
-		public string Enable_reminder_custom_question
+		[Column(Storage="_ReminderCustomQuestion", DbType="VarChar(50)")]
+		public string ReminderCustomQuestion
 		{
 			get
 			{
-				return this._Enable_reminder_custom_question;
+				return this._ReminderCustomQuestion;
 			}
 			set
 			{
-				if ((this._Enable_reminder_custom_question != value))
+				if ((this._ReminderCustomQuestion != value))
 				{
-					this._Enable_reminder_custom_question = value;
+					this._ReminderCustomQuestion = value;
 				}
 			}
 		}
 		
-		[Column(Name="enable_reminder_question_answer", Storage="_Enable_reminder_question_answer", DbType="VarChar(50)")]
-		public string Enable_reminder_question_answer
+		[Column(Storage="_ReminderQuestionAnswer", DbType="VarChar(50)")]
+		public string ReminderQuestionAnswer
 		{
 			get
 			{
-				return this._Enable_reminder_question_answer;
+				return this._ReminderQuestionAnswer;
 			}
 			set
 			{
-				if ((this._Enable_reminder_question_answer != value))
+				if ((this._ReminderQuestionAnswer != value))
 				{
-					this._Enable_reminder_question_answer = value;
+					this._ReminderQuestionAnswer = value;
 				}
 			}
 		}
 		
-		[Column(Storage="_User_details", DbType="VarChar(200)")]
-		public string User_details
+		[Column(Storage="_FlgVerified", DbType="Bit")]
+		public System.Nullable<bool> FlgVerified
 		{
 			get
 			{
-				return this._User_details;
+				return this._FlgVerified;
 			}
 			set
 			{
-				if ((this._User_details != value))
+				if ((this._FlgVerified != value))
 				{
-					this._User_details = value;
+					this._FlgVerified = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_verified", Storage="_Flg_verified", DbType="Bit")]
-		public System.Nullable<bool> Flg_verified
+		[Column(Storage="_FlgEnabled", DbType="Bit")]
+		public System.Nullable<bool> FlgEnabled
 		{
 			get
 			{
-				return this._Flg_verified;
+				return this._FlgEnabled;
 			}
 			set
 			{
-				if ((this._Flg_verified != value))
+				if ((this._FlgEnabled != value))
 				{
-					this._Flg_verified = value;
+					this._FlgEnabled = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_enabled", Storage="_Flg_enabled", DbType="Bit")]
-		public System.Nullable<bool> Flg_enabled
+		[Column(Storage="_LoginAttempts", DbType="Int")]
+		public System.Nullable<int> LoginAttempts
 		{
 			get
 			{
-				return this._Flg_enabled;
+				return this._LoginAttempts;
 			}
 			set
 			{
-				if ((this._Flg_enabled != value))
+				if ((this._LoginAttempts != value))
 				{
-					this._Flg_enabled = value;
+					this._LoginAttempts = value;
 				}
 			}
 		}
 		
-		[Column(Name="login_attempts", Storage="_Login_attempts", DbType="Int")]
-		public System.Nullable<int> Login_attempts
+		[Column(Storage="_FlgLocked", DbType="Bit")]
+		public System.Nullable<bool> FlgLocked
 		{
 			get
 			{
-				return this._Login_attempts;
+				return this._FlgLocked;
 			}
 			set
 			{
-				if ((this._Login_attempts != value))
+				if ((this._FlgLocked != value))
 				{
-					this._Login_attempts = value;
+					this._FlgLocked = value;
 				}
 			}
 		}
 		
-		[Column(Name="flg_locked", Storage="_Flg_locked", DbType="Bit")]
-		public System.Nullable<bool> Flg_locked
+		[Column(Storage="_LockedReason", DbType="VarChar(255)")]
+		public string LockedReason
 		{
 			get
 			{
-				return this._Flg_locked;
+				return this._LockedReason;
 			}
 			set
 			{
-				if ((this._Flg_locked != value))
+				if ((this._LockedReason != value))
 				{
-					this._Flg_locked = value;
+					this._LockedReason = value;
 				}
 			}
 		}
 		
-		[Column(Name="locked_reason", Storage="_Locked_reason", DbType="VarChar(255)")]
-		public string Locked_reason
+		[Column(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
 		{
 			get
 			{
-				return this._Locked_reason;
+				return this._CreatedBy;
 			}
 			set
 			{
-				if ((this._Locked_reason != value))
+				if ((this._CreatedBy != value))
 				{
-					this._Locked_reason = value;
+					this._CreatedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="created_by", Storage="_Created_by", DbType="Int")]
-		public System.Nullable<int> Created_by
+		[Column(Storage="_DateCreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreated
 		{
 			get
 			{
-				return this._Created_by;
+				return this._DateCreated;
 			}
 			set
 			{
-				if ((this._Created_by != value))
+				if ((this._DateCreated != value))
 				{
-					this._Created_by = value;
+					this._DateCreated = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_created", Storage="_Date_created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_created
+		[Column(Storage="_LastAmendedBy", DbType="Int")]
+		public System.Nullable<int> LastAmendedBy
 		{
 			get
 			{
-				return this._Date_created;
+				return this._LastAmendedBy;
 			}
 			set
 			{
-				if ((this._Date_created != value))
+				if ((this._LastAmendedBy != value))
 				{
-					this._Date_created = value;
+					this._LastAmendedBy = value;
 				}
 			}
 		}
 		
-		[Column(Name="last_amended_by", Storage="_Last_amended_by", DbType="Int")]
-		public System.Nullable<int> Last_amended_by
+		[Column(Storage="_DateLastAmended", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateLastAmended
 		{
 			get
 			{
-				return this._Last_amended_by;
+				return this._DateLastAmended;
 			}
 			set
 			{
-				if ((this._Last_amended_by != value))
+				if ((this._DateLastAmended != value))
 				{
-					this._Last_amended_by = value;
+					this._DateLastAmended = value;
 				}
 			}
 		}
 		
-		[Column(Name="date_last_amended", Storage="_Date_last_amended", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date_last_amended
+		[Column(Storage="_Role", DbType="VarChar(50)")]
+		public string Role
 		{
 			get
 			{
-				return this._Date_last_amended;
+				return this._Role;
 			}
 			set
 			{
-				if ((this._Date_last_amended != value))
+				if ((this._Role != value))
 				{
-					this._Date_last_amended = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_User_Type", DbType="Text")]
-		public string User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this._User_Type = value;
-				}
-			}
-		}
-	}
-	
-	public partial class WishListForUserByProductIdResult
-	{
-		
-		private System.Nullable<int> _Wish_list_id;
-		
-		private System.Nullable<int> _User_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Duration;
-		
-		public WishListForUserByProductIdResult()
-		{
-		}
-		
-		[Column(Name="wish_list_id", Storage="_Wish_list_id", DbType="Int")]
-		public System.Nullable<int> Wish_list_id
-		{
-			get
-			{
-				return this._Wish_list_id;
-			}
-			set
-			{
-				if ((this._Wish_list_id != value))
-				{
-					this._Wish_list_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int")]
-		public System.Nullable<int> User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this._User_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int")]
-		public System.Nullable<int> Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this._Duration = value;
-				}
-			}
-		}
-	}
-	
-	public partial class WishListInsertResult
-	{
-		
-		private System.Nullable<int> _Wish_list_id;
-		
-		private System.Nullable<int> _User_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Duration;
-		
-		public WishListInsertResult()
-		{
-		}
-		
-		[Column(Name="wish_list_id", Storage="_Wish_list_id", DbType="Int")]
-		public System.Nullable<int> Wish_list_id
-		{
-			get
-			{
-				return this._Wish_list_id;
-			}
-			set
-			{
-				if ((this._Wish_list_id != value))
-				{
-					this._Wish_list_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int")]
-		public System.Nullable<int> User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this._User_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int")]
-		public System.Nullable<int> Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this._Duration = value;
-				}
-			}
-		}
-	}
-	
-	public partial class WishListSelectResult
-	{
-		
-		private System.Nullable<int> _Wish_list_id;
-		
-		private System.Nullable<int> _User_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Duration;
-		
-		public WishListSelectResult()
-		{
-		}
-		
-		[Column(Name="wish_list_id", Storage="_Wish_list_id", DbType="Int")]
-		public System.Nullable<int> Wish_list_id
-		{
-			get
-			{
-				return this._Wish_list_id;
-			}
-			set
-			{
-				if ((this._Wish_list_id != value))
-				{
-					this._Wish_list_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int")]
-		public System.Nullable<int> User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this._User_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int")]
-		public System.Nullable<int> Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this._Duration = value;
-				}
-			}
-		}
-	}
-	
-	public partial class WishListSelectByIdResult
-	{
-		
-		private System.Nullable<int> _Wish_list_id;
-		
-		private System.Nullable<int> _User_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Duration;
-		
-		public WishListSelectByIdResult()
-		{
-		}
-		
-		[Column(Name="wish_list_id", Storage="_Wish_list_id", DbType="Int")]
-		public System.Nullable<int> Wish_list_id
-		{
-			get
-			{
-				return this._Wish_list_id;
-			}
-			set
-			{
-				if ((this._Wish_list_id != value))
-				{
-					this._Wish_list_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int")]
-		public System.Nullable<int> User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this._User_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int")]
-		public System.Nullable<int> Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this._Duration = value;
-				}
-			}
-		}
-	}
-	
-	public partial class WishListUpdateResult
-	{
-		
-		private System.Nullable<int> _Wish_list_id;
-		
-		private System.Nullable<int> _User_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<int> _Version_id;
-		
-		private System.Nullable<int> _Product_detail_id;
-		
-		private System.Nullable<int> _Duration;
-		
-		public WishListUpdateResult()
-		{
-		}
-		
-		[Column(Name="wish_list_id", Storage="_Wish_list_id", DbType="Int")]
-		public System.Nullable<int> Wish_list_id
-		{
-			get
-			{
-				return this._Wish_list_id;
-			}
-			set
-			{
-				if ((this._Wish_list_id != value))
-				{
-					this._Wish_list_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="user_id", Storage="_User_id", DbType="Int")]
-		public System.Nullable<int> User_id
-		{
-			get
-			{
-				return this._User_id;
-			}
-			set
-			{
-				if ((this._User_id != value))
-				{
-					this._User_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_id", Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="quantity", Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[Column(Name="version_id", Storage="_Version_id", DbType="Int")]
-		public System.Nullable<int> Version_id
-		{
-			get
-			{
-				return this._Version_id;
-			}
-			set
-			{
-				if ((this._Version_id != value))
-				{
-					this._Version_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="product_detail_id", Storage="_Product_detail_id", DbType="Int")]
-		public System.Nullable<int> Product_detail_id
-		{
-			get
-			{
-				return this._Product_detail_id;
-			}
-			set
-			{
-				if ((this._Product_detail_id != value))
-				{
-					this._Product_detail_id = value;
-				}
-			}
-		}
-		
-		[Column(Name="duration", Storage="_Duration", DbType="Int")]
-		public System.Nullable<int> Duration
-		{
-			get
-			{
-				return this._Duration;
-			}
-			set
-			{
-				if ((this._Duration != value))
-				{
-					this._Duration = value;
+					this._Role = value;
 				}
 			}
 		}

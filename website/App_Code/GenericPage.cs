@@ -11,7 +11,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
 using ShoppingTrolley.Web;
-using SimplicityCommLib;   //mjaved.sim.CommonLib
+using SimplicityCommLib;
+using System.Collections.Generic;   //mjaved.sim.CommonLib
 
 /// <summary>
 /// Summary description for GenericPage
@@ -58,10 +59,12 @@ public class GenericPage : System.Web.UI.Page
             if (cookie != null && !cookie.Value.Equals(""))
             {
                 CommLibController sessionOBJ = new CommLibController();
-                if (sessionOBJ.GetUserSessionById(int.Parse(cookie.Value.ToString())).MoveNext())
+                IEnumerator<Session> iEnum = sessionOBJ.GetUserSessionByGUID(cookie.Value);
+                if (iEnum.MoveNext())
                 {
-                    return int.Parse(cookie.Value.ToString());
-                }
+                    sessionOBJ.UpdateSession(iEnum.Current.GUID, DateTime.Now, DateTime.Now.AddMinutes(20));
+                    return iEnum.Current.UserId.Value;
+                }                
             }            
             //if (Session[WebConstants.Session.USER_ID] != null)
             //{

@@ -64,9 +64,9 @@
 			<div class="watchDemoButtons">
                 <asp:Repeater ID="rptProds" runat="server">
                     <ItemTemplate>
-                    <a href='WatchDemo.aspx?productId=<%#DataBinder.Eval(Container.DataItem, "product_id")%>' style="margin-left:10px;">
-                        <asp:Image ID="Image2" runat="server" ImageUrl='<%#"~/images/watch_" + DataBinder.Eval(Container.DataItem, "short_name") + ".gif"%>'
-                        onmouseover='<%#GetMouseOver(DataBinder.Eval(Container.DataItem, "short_name"))%>' onmouseout='<%#GetMouseOut(DataBinder.Eval(Container.DataItem, "short_name"))%>'/>
+                    <a href='WatchDemo.aspx?productId=<%#DataBinder.Eval(Container.DataItem, "ProductId")%>' style="margin-left:10px;">
+                        <asp:Image ID="Image2" runat="server" ImageUrl='<%#"~/images/watch_" + DataBinder.Eval(Container.DataItem, "ShortName") + ".gif"%>'
+                        onmouseover='<%#GetMouseOver(DataBinder.Eval(Container.DataItem, "ShortName"))%>' onmouseout='<%#GetMouseOut(DataBinder.Eval(Container.DataItem, "ShortName"))%>'/>
                     </a>
                     </ItemTemplate>
                 </asp:Repeater>				

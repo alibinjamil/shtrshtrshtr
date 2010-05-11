@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
+using SimplicityCommLib;
 /// <summary>
 /// Summary description for EmailTemplates
 /// </summary>
@@ -25,10 +26,11 @@ public class EmailTemplateFactory
     {
         parameters = new Dictionary<string, string>();
         parameters.Add("##IMAGE_URL##", GetImagesUrl());
-        Customer.CustomerEntityRow customer = DatabaseUtility.GetLoggedInCustomer();
-        if (customer != null)
+        UserSelectByIdResult user = DatabaseUtility.GetLoggedInCustomer();
+
+        if (user != null)
         {
-            parameters.Add("##CUSTOMER_NAME##", customer.name_surname + ", " + customer.name_forename);
+            parameters.Add("##CUSTOMER_NAME##", user.NameSurname + ", " + user.NameForename);
         }
     }
     public Dictionary<string, string> Paramters

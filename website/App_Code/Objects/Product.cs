@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
+using SimplicityCommLib;
 
 /// <summary>
 /// Summary description for Product
@@ -25,8 +26,8 @@ namespace ShoppingTrolley.Web.Objects
             // TODO: Add constructor logic here
             //
         }
-        private Products.ProductEntityRow productDS;
-        public Products.ProductEntityRow ProductDS
+        private SimplicityCommLib.Product productDS;
+        public SimplicityCommLib.Product ProductDS
         {
             get { return productDS; }
             set { productDS = value; }
@@ -86,8 +87,8 @@ namespace ShoppingTrolley.Web.Objects
 
         public static Product LoadCompleteProduct(int productId)
         {
-            ProductsTableAdapters.ProductTableAdapter productTA = new ProductsTableAdapters.ProductTableAdapter();
-            IEnumerator<Products.ProductEntityRow> products = productTA.GetProductById(productId).GetEnumerator();
+            CommLibController productOBJ = new CommLibController();
+            IEnumerator<SimplicityCommLib.Product> products = productOBJ.GetProductById(productId);
             if (products.MoveNext())
             {
                 Product product = new Product();
@@ -146,16 +147,18 @@ namespace ShoppingTrolley.Web.Objects
             return productDetail;
         }
 
-        public static Products.ProductEntityRow GetProduct(int productId)
+        public static SimplicityCommLib.Product GetProduct(int productId)
         {
-            Products.ProductEntityRow product = null;
-            ProductsTableAdapters.ProductTableAdapter ta = new ProductsTableAdapters.ProductTableAdapter();
-            IEnumerator<Products.ProductEntityRow> products = ta.GetProductById(productId).GetEnumerator();
+            //Products.ProductEntityRow product = null;
+            CommLibController productOBJ = new CommLibController();
+            IEnumerator<SimplicityCommLib.Product> products = productOBJ.GetProductById(productId);
             if (products.MoveNext())
             {
-                product = products.Current;
+                return products.Current;                
             }
-            return product;
+            else
+                return null;
+            
         }
 
         public static Products.ExchangeRateRow GetExchangeRate(string country)

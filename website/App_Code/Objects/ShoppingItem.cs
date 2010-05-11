@@ -9,6 +9,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using SimplicityCommLib;
 
 /// <summary>
 /// Summary description for PurchasedObject
@@ -16,8 +17,8 @@ using System.Xml.Linq;
 
     public class ShoppingItem
     {
-        private Products.ProductEntityRow product;
-        public Products.ProductEntityRow Product 
+        private Product product;
+        public Product Product 
         {
             get{ return product;}
             set{product = value;}
