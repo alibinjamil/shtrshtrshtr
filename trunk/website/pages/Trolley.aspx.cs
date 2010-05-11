@@ -61,11 +61,11 @@ public partial class pages_Trolley : GenericPage
                 IEnumerator<WishList.WishListDSRow> wishListRows = null;
                 if (currentItem.ProductDetail != null)
                 {
-                    wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.product_id, currentItem.ProductDetail.product_detail_id, currentItem.ProductVersion.version_id).GetEnumerator();
+                    wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.ProductId, currentItem.ProductDetail.product_detail_id, currentItem.ProductVersion.version_id).GetEnumerator();
                 }
                 else
                 {
-                    wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.product_id, null, currentItem.ProductVersion.version_id).GetEnumerator();
+                    wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.ProductId, null, currentItem.ProductVersion.version_id).GetEnumerator();
                 }
                     
                 if (wishListRows.MoveNext())
@@ -81,7 +81,7 @@ public partial class pages_Trolley : GenericPage
                     Nullable<int> productDetailId = null;
                     if (currentItem.ProductDetail != null) productDetailId = currentItem.ProductDetail.product_detail_id;
 
-                    ta.Insert(LoggedInUserId, currentItem.Product.product_id, versionId, productDetailId, currentItem.Quantity, currentItem.DurationInMonths);
+                    ta.Insert(LoggedInUserId, currentItem.Product.ProductId, versionId, productDetailId, currentItem.Quantity, currentItem.DurationInMonths);
                 }
                 GetShoppingTrolley().RemoveAt(index);
                 SetInfoMessage("Item added to your wishlist");

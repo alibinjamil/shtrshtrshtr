@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using SimplicityCommLib;
 
 public partial class pages_PaymentResponse : AuthenticatedPage
 {
@@ -32,13 +33,13 @@ public partial class pages_PaymentResponse : AuthenticatedPage
                 panelSuccess.Visible = true;
 
                 tranTA.Update(transactionId, Request.Form.Get("decision"), null, transactionId);
-                CustomerTableAdapters.CustomerTableAdapter customerTA = new CustomerTableAdapters.CustomerTableAdapter();
-                IEnumerator<Customer.CustomerEntityRow> customers =  customerTA.GetCustomerById(LoggedInUserId).GetEnumerator();
-                if (customers.MoveNext())
+                CommLibController userOBJ = new CommLibController();
+                IEnumerator<UserSelectByIdResult> user =  userOBJ.GetUserById(LoggedInUserId);
+                if (user.MoveNext())
                 {
                     EmailUtility.SendPaymentEmail(Request.Form.Get("billTo_firstName"), Request.Form.Get("billTo_lastName"), Request.Form.Get("card_accountNumber"),
                     Request.Form.Get("card_expirationMonth"), Request.Form.Get("card_expirationYear"), Utility.GetCardType(Request.Form.Get("card_cardType")),
-                    lblAmountText.Text, customers.Current.email);
+                    lblAmountText.Text, user.Current.Email);
                 }
                 ShoppingCart.ClearTrolley();
 

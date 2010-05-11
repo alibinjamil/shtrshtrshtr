@@ -18,12 +18,15 @@ namespace ShoppingTrolley.Web.utils
         {
             PERSONAL,
             BILLING,
-            SHIPPING
+            SHIPPING,
+            COMPANY,
+            DEPARTMENT
         }
 
         public enum ENTITY_TYPE
         {
             USER
         }
+        
     }
 }

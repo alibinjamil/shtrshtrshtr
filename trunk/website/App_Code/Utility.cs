@@ -11,6 +11,9 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Text;
 using System.Security.Cryptography;
+using SimplicityCommLib;
+using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Summary description for Utility
@@ -95,10 +98,10 @@ public static class Utility
         string url = ConfigurationSettings.AppSettings[WebConstants.Config.HS_URL];
         if (HttpContext.Current.Session[WebConstants.Session.USER_ID] != null)
         {
-            Customer.CustomerEntityRow customer = DatabaseUtility.GetLoggedInCustomer();
-            if (customer != null)
+            UserSelectByIdResult User  = DatabaseUtility.GetLoggedInCustomer();
+            if (User != null)
             {
-                url += "/111AF690-0002-40D7-A26C-01D35380CE51/CreateSession.aspx?userEmail=" + customer.email + "&clientIP=" + HttpContext.Current.Request.UserHostAddress
+                url += "/111AF690-0002-40D7-A26C-01D35380CE51/CreateSession.aspx?userEmail=" + User.Email + "&clientIP=" + HttpContext.Current.Request.UserHostAddress
                     + "&key=CC17DEC2-5727-4FA8-937A-C4D3107BBE8B";
                 /*HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();

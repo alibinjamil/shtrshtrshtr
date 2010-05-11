@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 
 using ShoppingTrolley.Web;
+using SimplicityCommLib;
 public partial class pages_WatchDemo : GenericPage
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -21,8 +22,8 @@ public partial class pages_WatchDemo : GenericPage
         {
             Response.Redirect("~/pages/ViewDemo.aspx");
         }
-        ProductsTableAdapters.ProductTableAdapter prodTA = new ProductsTableAdapters.ProductTableAdapter();
-        IEnumerator<Products.ProductEntityRow> products = prodTA.GetAllProducts().GetEnumerator();
+        CommLibController productOBJ = new CommLibController();
+        List<Product> products = productOBJ.GetAllProducts();
         rptProds.DataSource = products;
         rptProds.DataBind();
         if (Request[WebConstants.Request.PRODUCT_ID] != null)
@@ -32,13 +33,14 @@ public partial class pages_WatchDemo : GenericPage
             rptVideos.DataSource = videoTA.GetVideosByProduct(productId);
             rptVideos.DataBind();
             lblContent.Visible = false;
-            while (products.MoveNext())
+            for (int i = 0; i < products.Count; i++)
             {
-                if (products.Current.product_id == productId)
+                if (products[i].ProductId == productId)
                 {
-                    lblProdName.Text = products.Current.name;
+                    lblProdName.Text = products[i].Name;
                     lblProdName.Visible = true;
                 }
+            
             }
         }
         else

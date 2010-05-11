@@ -22,36 +22,14 @@ public partial class pages_ForgotPassword : GenericPage
 
     protected void btnContinue_Click(object sender, ImageClickEventArgs e)
     {
-        CustomerTableAdapters.CustomerTableAdapter customerTA = new CustomerTableAdapters.CustomerTableAdapter();
-        IEnumerator<Customer.CustomerEntityRow> customer = customerTA.GetCustomerByEmail(txtEmail.Text).GetEnumerator();
-        if (customer.MoveNext())
-        {
-            if (customer.Current.enable_reminder_question_id == byte.Parse(listForgotPasswordQuestion.SelectedValue)
-                && customer.Current.enable_reminder_question_answer.Equals(Utility.GetMd5Sum(txtForgotPasswordAnswer.Text)))
-            {
-                string password = Utility.RandomString(8, true);
-                customerTA.UpdatePassword(Utility.GetMd5Sum(password), customer.Current.entity_id, customer.Current.entity_id);
-                EmailUtility.SendPasswordEmail(customer.Current.email, password);
-                Response.Redirect("~/pages/Login.aspx?" + WebConstants.Request.FROM_PAGE + "=ForgotPassword");
-            }
-            else
-            {
-                SetErrorMessage();
-            }
-        }
-        else
-        {
-            SetErrorMessage();
-        }
-
         //mjaved.sim.CommonLib Verifying Answer and updating password
         CommLibController userOBJ = new CommLibController();
-        IEnumerator<LINQSimplicityCommDAL.UserSelectByEmailResult> user = userOBJ.GetUserByEmail(txtEmail.Text);
+        IEnumerator<UserSelectByEmailResult> user = userOBJ.GetUserByEmail(txtEmail.Text);
 
         if (user.MoveNext())
         {
-            if (user.Current.Enable_reminder_question_id == byte.Parse(listForgotPasswordQuestion.SelectedValue)
-                && user.Current.Enable_reminder_question_answer.Equals(Utility.GetMd5Sum(txtForgotPasswordAnswer.Text)))
+            if (user.Current.ReminderQuestionId == byte.Parse(listForgotPasswordQuestion.SelectedValue)
+                && user.Current.ReminderQuestionAnswer.Equals(Utility.GetMd5Sum(txtForgotPasswordAnswer.Text)))
             {
                 string password = Utility.RandomString(8, true);
 

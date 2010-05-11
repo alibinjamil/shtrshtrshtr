@@ -121,7 +121,7 @@ public partial class pages_WishList : AuthenticatedPage
 
                     foreach (ShoppingItem item in trolleyItems)
                     {
-                        if (wishList.product_id == item.Product.product_id)
+                        if (wishList.product_id == item.Product.ProductId)
                         {
                             if (!wishList.Isproduct_detail_idNull() && item.ProductDetail != null && item.ProductDetail.product_detail_id == wishList.product_detail_id)
                             {
