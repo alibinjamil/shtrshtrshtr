@@ -98,7 +98,7 @@ public static class Utility
         string url = ConfigurationSettings.AppSettings[WebConstants.Config.HS_URL];
         if (HttpContext.Current.Session[WebConstants.Session.USER_ID] != null)
         {
-            UserSelectByIdResult User  = DatabaseUtility.GetLoggedInCustomer();
+            SimplicityCommLib.DataSets.Common.Users.UsersRow User  = DatabaseUtility.Instance.GetLoggedInCustomer();
             if (User != null)
             {
                 url += "/111AF690-0002-40D7-A26C-01D35380CE51/CreateSession.aspx?userEmail=" + User.Email + "&clientIP=" + HttpContext.Current.Request.UserHostAddress

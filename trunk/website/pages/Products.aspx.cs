@@ -11,13 +11,29 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class pages_Products : System.Web.UI.Page
+public partial class pages_Products : GenericPage
 {
+    protected override void PostAuthenticated(SimplicityCommLib.DataSets.Common.Users.UsersRow user)
+    {
+
+    }
+    protected override void PostUnauthenticated()
+    {
+
+    }
+    
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-
+    protected string GetBuyOrTry()
+    {
+        if (Request[WebConstants.Request.TRY] != null)
+        {
+            return "Try";
+        }
+        return "Buy";
+    }
     protected string GetMouseOver(object shortName)
     {
         return "this.src='../images/Buy_" + shortName + "_rollover.gif'";

@@ -58,9 +58,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{18048436-654D-404A-8EDF-8EBDE48FF272}</Project>
-      <Name>DataAccessLayer</Name>
+    <ProjectReference Include="..\SimplicityCommLib\SimplicityCommLib.csproj">
+      <Project>{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}</Project>
+      <Name>SimplicityCommLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

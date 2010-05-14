@@ -51,11 +51,11 @@
 			</div>		
 			<div class="trolleyActionsCol2">
 				<div class="floatLeft">
-                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_man.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
+                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.ShortName") + "_man.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.Name") %>'/></div>
 				<div class="floatLeft" >
-				    <div class="trolleyCell"><asp:Image ID="Image2" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.short_name") + "_logo.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.name") %>'/></div>
-				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.Product.name")%> [<%# DataBinder.Eval(Container, "DataItem.DurationString")%>]</div>		
-				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.ProductVersion.name")%></div>		
+				    <div class="trolleyCell"><asp:Image ID="Image2" runat="server" ImageUrl='<%# "~/images/" + DataBinder.Eval(Container, "DataItem.Product.ShortName") + "_logo.png" %>' AlternateText='<%# DataBinder.Eval(Container, "DataItem.Product.Name") %>'/></div>
+				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.Product.Name")%> [<%# DataBinder.Eval(Container, "DataItem.DurationString")%>]</div>		
+				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.ProductVersion.Name")%></div>		
 				    <div class="trolleyCell"><%# DataBinder.Eval(Container, "DataItem.ProductDetail.product_detail")%></div>		
 				</div>		
 			</div>

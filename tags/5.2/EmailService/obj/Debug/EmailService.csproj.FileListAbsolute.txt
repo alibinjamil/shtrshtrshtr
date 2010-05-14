@@ -11,3 +11,11 @@ E:\MyProjects\ShoppingCart\trunk\EmailService\obj\Debug\EmailService.pdb
 E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\DataAccessLayer.dll
 E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\DataAccessLayer.pdb
 E:\MyProjects\ShoppingCart\trunk\EmailService\bin\Debug\EmailService.exe.config
+E:\MyProjects\ShoppingCart\tags\5.2\EmailService\bin\Debug\EmailService.exe.config
+E:\MyProjects\ShoppingCart\tags\5.2\EmailService\bin\Debug\EmailService.exe
+E:\MyProjects\ShoppingCart\tags\5.2\EmailService\bin\Debug\EmailService.pdb
+E:\MyProjects\ShoppingCart\tags\5.2\EmailService\bin\Debug\DataAccessLayer.dll
+E:\MyProjects\ShoppingCart\tags\5.2\EmailService\bin\Debug\DataAccessLayer.pdb
+E:\MyProjects\ShoppingCart\tags\5.2\EmailService\obj\Debug\ResolveAssemblyReference.cache
+E:\MyProjects\ShoppingCart\tags\5.2\EmailService\obj\Debug\EmailService.exe
+E:\MyProjects\ShoppingCart\tags\5.2\EmailService\obj\Debug\EmailService.pdb

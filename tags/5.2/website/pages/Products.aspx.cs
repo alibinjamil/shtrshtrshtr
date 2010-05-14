@@ -17,7 +17,14 @@ public partial class pages_Products : System.Web.UI.Page
     {
 
     }
-
+    protected string GetBuyOrTry()
+    {
+        if (Request[WebConstants.Request.TRY] != null)
+        {
+            return "Try";
+        }
+        return "Buy";
+    }
     protected string GetMouseOver(object shortName)
     {
         return "this.src='../images/Buy_" + shortName + "_rollover.gif'";

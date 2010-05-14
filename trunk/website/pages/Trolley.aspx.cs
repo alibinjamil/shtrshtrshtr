@@ -25,6 +25,15 @@ public partial class pages_Trolley : GenericPage
         }
        
     }
+    protected override void PostAuthenticated(SimplicityCommLib.DataSets.Common.Users.UsersRow user)
+    {
+
+    }
+    protected override void PostUnauthenticated()
+    {
+
+    }
+
     private void BindRepeater()
     {
         rptItems.DataSource = GetShoppingTrolley();
@@ -51,7 +60,8 @@ public partial class pages_Trolley : GenericPage
         }
         else if (e.CommandName.Equals("Save"))
         {
-            if (LoggedIsUser != null)
+            SimplicityCommLib.DataSets.Common.Users.UsersRow user = Authenticate();
+            if (user != null)
             {
                 int index = int.Parse(e.CommandArgument.ToString());
                 ShoppingItem currentItem = GetShoppingTrolley()[index];
@@ -61,11 +71,11 @@ public partial class pages_Trolley : GenericPage
                 IEnumerator<WishList.WishListDSRow> wishListRows = null;
                 if (currentItem.ProductDetail != null)
                 {
-                    wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.ProductId, currentItem.ProductDetail.product_detail_id, currentItem.ProductVersion.version_id).GetEnumerator();
+                    wishListRows = ta.GetWishListForUserByProductId(user.UserId, currentItem.Product.ProductId, currentItem.ProductDetail.product_detail_id, currentItem.ProductVersion.version_id).GetEnumerator();
                 }
                 else
                 {
-                    wishListRows = ta.GetWishListForUserByProductId(LoggedInUserId, currentItem.Product.ProductId, null, currentItem.ProductVersion.version_id).GetEnumerator();
+                    wishListRows = ta.GetWishListForUserByProductId(user.UserId, currentItem.Product.ProductId, null, currentItem.ProductVersion.version_id).GetEnumerator();
                 }
                     
                 if (wishListRows.MoveNext())
@@ -81,7 +91,7 @@ public partial class pages_Trolley : GenericPage
                     Nullable<int> productDetailId = null;
                     if (currentItem.ProductDetail != null) productDetailId = currentItem.ProductDetail.product_detail_id;
 
-                    ta.Insert(LoggedInUserId, currentItem.Product.ProductId, versionId, productDetailId, currentItem.Quantity, currentItem.DurationInMonths);
+                    ta.Insert(user.UserId, currentItem.Product.ProductId, versionId, productDetailId, currentItem.Quantity, currentItem.DurationInMonths);
                 }
                 GetShoppingTrolley().RemoveAt(index);
                 SetInfoMessage("Item added to your wishlist");

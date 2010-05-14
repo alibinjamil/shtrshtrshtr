@@ -97,32 +97,36 @@ public static class EmailUtility
     }*/
 
 
-    public static void SendAccountCreationEmail(string emailAddress,string customerUID,string verificationCode)
+    public static void SendAccountCreationEmail(Customer.CustomerEntityRow customer,string password)
     {
-        MailMessage message = new MailMessage();
-        message.To.Add(new MailAddress(emailAddress));
-        string url = HttpContext.Current.Request.Url.ToString();
-        string[] paths = url.Split('/');
-        url = url.Replace(paths[paths.Length - 1], "VerifyEmail.aspx");
-        url += "?" + WebConstants.Request.USER_UID + "=" + customerUID;
-        url += "&" + WebConstants.Request.VERIFICATION_CODE + "=" + Utility.GetMd5Sum(verificationCode);
-        EmailTemplateFactory templateFactory = new EmailTemplateFactory();
-        templateFactory.Paramters.Add("##URL##", url);
-        EmailTemplates.EmailTemplateEntityRow emailTemplate = templateFactory.GetEmailContents(WebConstants.TemplateNames.ACTIVATION);
-        if (emailTemplate != null)
+        if (customer != null)
         {
-            message.Body = emailTemplate.html;
-            message.Subject = emailTemplate.subject;
+            MailMessage message = new MailMessage();
+            message.To.Add(new MailAddress(customer.email));
+            string url = HttpContext.Current.Request.Url.ToString();
+            string[] paths = url.Split('/');
+            url = url.Replace(paths[paths.Length - 1], "VerifyEmail.aspx");
+            url += "?" + WebConstants.Request.USER_UID + "=" + customer.entity_uid;
+            url += "&" + WebConstants.Request.VERIFICATION_CODE + "=" + Utility.GetMd5Sum(customer.verification_code);
+            EmailTemplateFactory templateFactory = new EmailTemplateFactory(customer);
+            templateFactory.Paramters["##PASSWORD##"] = password;
+            templateFactory.Paramters.Add("##URL##", url);
+            EmailTemplates.EmailTemplateEntityRow emailTemplate = templateFactory.GetEmailContents(WebConstants.TemplateNames.ACTIVATION);
+            if (emailTemplate != null)
+            {
+                message.Body = emailTemplate.html;
+                message.Subject = emailTemplate.subject;
+            }
+            else
+            {
+                message.Body = "Thank you for registering with Simplicity4Business. <br/> <br/>"
+                            + " Please click the following URL to activate your account. <br/><br/>"
+                            + " <a href=' " + url + "'>" + url + "</a>";
+                message.Subject = "Activation Code for Simplicity for Business";
+            }
+            message.IsBodyHtml = true;
+            SendEmail(message);
         }
-        else
-        {
-            message.Body = "Thank you for registering with Simplicity4Business. <br/> <br/>"
-                        + " Please click the following URL to activate your account. <br/><br/>"
-                        + " <a href=' " + url + "'>" + url + "</a>";
-            message.Subject = "Activation Code for Simplicity for Business";
-        }
-        message.IsBodyHtml = true;
-        SendEmail(message);
     }
 
     public static void SendPasswordEmail(string emailAddress, string password)

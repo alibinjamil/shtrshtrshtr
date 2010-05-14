@@ -21,7 +21,7 @@ public partial class pages_WishList : AuthenticatedPage
     }
     private void BindRepeater()
     {
-        if (LoggedIsUser != null)
+        if (LoggedInUser != null)
         {
             rpt.DataSource = GetWishList();
             rpt.DataBind();
@@ -30,7 +30,7 @@ public partial class pages_WishList : AuthenticatedPage
     protected void imbBtnCheckout_Click(object sender, ImageClickEventArgs e)
     {
         WishListTableAdapters.WishListDSTableAdapter wlTA = new WishListTableAdapters.WishListDSTableAdapter();
-        IEnumerator<WishList.WishListDSRow> wishLists = wlTA.GetWishListForUser(LoggedInUserId).GetEnumerator();
+        IEnumerator<WishList.WishListDSRow> wishLists = wlTA.GetWishListForUser(LoggedInUser.UserId).GetEnumerator();
         while (wishLists.MoveNext())
         {
             ShoppingTrolley.Web.Objects.Product product = ShoppingTrolley.Web.Objects.Product.LoadCompleteProduct(wishLists.Current.product_id);
@@ -47,7 +47,7 @@ public partial class pages_WishList : AuthenticatedPage
         }
         else
         {
-            if (LoggedIsUser == null)
+            if (LoggedInUser == null)
             {
                 RedirectToLogin();
             }
@@ -93,7 +93,7 @@ public partial class pages_WishList : AuthenticatedPage
         }
         else if (e.CommandName.Equals("Save"))
         {
-            if (LoggedIsUser != null)
+            if (LoggedInUser != null)
             {
                 
                 WishList.WishListDSRow wishList = null;
@@ -155,11 +155,11 @@ public partial class pages_WishList : AuthenticatedPage
     List<ShoppingItem> GetWishList()
     {
         List<ShoppingItem> shoppingItems = new List<ShoppingItem>();
-        if (LoggedIsUser != null)
+        if (LoggedInUser != null)
         {
             WishListTableAdapters.WishListDSTableAdapter ta = new WishListTableAdapters.WishListDSTableAdapter();
 
-            IEnumerator<WishList.WishListDSRow> wishLists = ta.GetWishListForUser(LoggedIsUser).GetEnumerator();
+            IEnumerator<WishList.WishListDSRow> wishLists = ta.GetWishListForUser(LoggedInUser.UserId).GetEnumerator();
             while (wishLists.MoveNext())
             {
                 shoppingItems.Add(ShoppingItem.Load(wishLists.Current));

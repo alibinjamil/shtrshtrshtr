@@ -88,7 +88,7 @@ public partial class pages_CreateAccount : GenericPage
                     }
  
                     /******/
-                    EmailUtility.SendAccountCreationEmail(txtEmail.Text, customer.entity_uid,customer.verification_code);
+                    EmailUtility.SendAccountCreationEmail(customer, txtPassword.Text);
                     Response.Redirect("~/pages/ConfirmMail.aspx");
                 }               
 

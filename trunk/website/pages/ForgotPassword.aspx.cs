@@ -15,6 +15,15 @@ using SimplicityCommLib;	//mjaved.sim.CommonLib
 
 public partial class pages_ForgotPassword : GenericPage
 {
+    protected override void PostAuthenticated(SimplicityCommLib.DataSets.Common.Users.UsersRow user)
+    {
+
+    }
+    protected override void PostUnauthenticated()
+    {
+
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -23,18 +32,16 @@ public partial class pages_ForgotPassword : GenericPage
     protected void btnContinue_Click(object sender, ImageClickEventArgs e)
     {
         //mjaved.sim.CommonLib Verifying Answer and updating password
-        CommLibController userOBJ = new CommLibController();
-        IEnumerator<UserSelectByEmailResult> user = userOBJ.GetUserByEmail(txtEmail.Text);
-
-        if (user.MoveNext())
+        SimplicityCommLib.DataSets.Common.Users.UsersRow user = DatabaseUtility.Instance.GetUserByEmail(txtEmail.Text);
+        if (user != null)
         {
-            if (user.Current.ReminderQuestionId == byte.Parse(listForgotPasswordQuestion.SelectedValue)
-                && user.Current.ReminderQuestionAnswer.Equals(Utility.GetMd5Sum(txtForgotPasswordAnswer.Text)))
+            if (user.ReminderQuestionId == byte.Parse(listForgotPasswordQuestion.SelectedValue)
+                && user.ReminderQuestionAnswer.Equals(Utility.GetMd5Sum(txtForgotPasswordAnswer.Text)))
             {
                 string password = Utility.RandomString(8, true);
-
-                userOBJ.UdateUserPassword(Utility.GetMd5Sum(password), user.Current.UserId.Value, user.Current.UserId.Value);
-                EmailUtility.SendPasswordEmail(user.Current.Email, password);
+                SimplicityCommLib.DataSets.Common.UsersTableAdapters.UsersTableAdapter userTA = new SimplicityCommLib.DataSets.Common.UsersTableAdapters.UsersTableAdapter();
+                userTA.UpdatePassword(Utility.GetMd5Sum(password), user.UserId, user.UserId);
+                EmailUtility.SendPasswordEmail(user.Email, password);
                 Response.Redirect("~/pages/Login.aspx?" + WebConstants.Request.FROM_PAGE + "=ForgotPassword");
             }
             else

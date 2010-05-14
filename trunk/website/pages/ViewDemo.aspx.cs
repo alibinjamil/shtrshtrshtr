@@ -14,11 +14,19 @@ using System.Xml.Linq;
 using ShoppingTrolley.Web;
 public partial class pages_ViewDemo : GenericPage
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void PostAuthenticated(SimplicityCommLib.DataSets.Common.Users.UsersRow user)
     {
-        if (Session[WebConstants.Session.VIEW_DEMO] != null || LoggedIsUser != null)
+        if (Session[WebConstants.Session.VIEW_DEMO] != null)
         {
             Response.Redirect("~/pages/WatchDemo.aspx");
         }
+    }
+    protected override void PostUnauthenticated()
+    {
+
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
     }
 }

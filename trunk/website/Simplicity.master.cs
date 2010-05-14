@@ -13,6 +13,7 @@ using System.Xml.Linq;
 
 using ShoppingTrolley.Web;
 using System.Collections.Generic;
+using SimplicityCommLib;
 public partial class Simplicity : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -27,18 +28,7 @@ public partial class Simplicity : System.Web.UI.MasterPage
         {
             hlLogout.Visible = true;
         }
-
-        XElement videos = XElement.Load(Server.MapPath("~/VideoConfiguration.xml"));
-
-        IEnumerable<XElement> address =
-            from el in videos.Elements("video")
-            where (string)el.Attribute("page") == Request.Url.Segments[Request.Url.Segments.Length - 1].ToLower()
-            select el;
-        foreach (XElement el in address)
-        {
-            this.Page.ClientScript.RegisterClientScriptBlock(this.GetType(),"path","var path = \'" + el.Attribute("path").Value + "\';", true);
-        }
-        
+ 
 
 
         //Request.Url.Segments[Request.Url.Segments.Length-1]

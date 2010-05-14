@@ -17,8 +17,8 @@ using SimplicityCommLib;
 
     public class ShoppingItem
     {
-        private Product product;
-        public Product Product 
+        private SimplicityCommLib.DataSets.Common.Products.ProductsRow product;
+        public SimplicityCommLib.DataSets.Common.Products.ProductsRow Product 
         {
             get{ return product;}
             set{product = value;}
@@ -106,7 +106,7 @@ using SimplicityCommLib;
         public static ShoppingItem Load(WishList.WishListDSRow wishList)
         {
             ShoppingItem shoppingItem = new ShoppingItem();
-            shoppingItem.product = ShoppingTrolley.Web.Objects.Product.GetProduct(wishList.product_id);
+            shoppingItem.product = DatabaseUtility.Instance.GetProduct(wishList.product_id);
             shoppingItem.DurationInMonths = wishList.duration;
             shoppingItem.Quantity = wishList.quantity;
             shoppingItem.wishListItemId = wishList.wish_list_id;

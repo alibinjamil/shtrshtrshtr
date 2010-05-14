@@ -16,15 +16,22 @@ using ShoppingTrolley.Web;
 using SimplicityCommLib;
 public partial class pages_WatchDemo : GenericPage
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void PostAuthenticated(SimplicityCommLib.DataSets.Common.Users.UsersRow user)
     {
-        if (Session[WebConstants.Session.VIEW_DEMO] == null && LoggedIsUser == null)
+    }
+    protected override void PostUnauthenticated()
+    {
+        if (Session[WebConstants.Session.VIEW_DEMO] == null)
         {
             Response.Redirect("~/pages/ViewDemo.aspx");
         }
-        CommLibController productOBJ = new CommLibController();
-        List<Product> products = productOBJ.GetAllProducts();
-        rptProds.DataSource = products;
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        SimplicityCommLib.DataSets.Common.ProductsTableAdapters.ProductsTableAdapter prodTA = new SimplicityCommLib.DataSets.Common.ProductsTableAdapters.ProductsTableAdapter();
+        //IEnumerator<SimplicityCommLib.DataSets.Common.Products.ProductsRow> ieProducts = .GetEnumerator();
+        rptProds.DataSource = prodTA.GetAllProducts();
         rptProds.DataBind();
         if (Request[WebConstants.Request.PRODUCT_ID] != null)
         {
@@ -33,14 +40,11 @@ public partial class pages_WatchDemo : GenericPage
             rptVideos.DataSource = videoTA.GetVideosByProduct(productId);
             rptVideos.DataBind();
             lblContent.Visible = false;
-            for (int i = 0; i < products.Count; i++)
+            SimplicityCommLib.DataSets.Common.Products.ProductsRow product = DatabaseUtility.Instance.GetProduct(productId);
+            if(product != null)
             {
-                if (products[i].ProductId == productId)
-                {
-                    lblProdName.Text = products[i].Name;
-                    lblProdName.Visible = true;
-                }
-            
+                lblProdName.Text = product.Name;
+                lblProdName.Visible = true;
             }
         }
         else

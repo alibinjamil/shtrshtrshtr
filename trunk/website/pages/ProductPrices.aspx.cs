@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
 using ShoppingTrolley.Web.Objects;
+
 public class Version
 {
     private int versionId;
@@ -121,6 +122,15 @@ public partial class pages_ProductPrices : GenericPage
             }
         }
     }
+    protected override void PostAuthenticated(SimplicityCommLib.DataSets.Common.Users.UsersRow user)
+    {
+
+    }
+    protected override void PostUnauthenticated()
+    {
+
+    }
+
     protected string GetProductImage()
     {
         if (product != null)

@@ -2,10 +2,9 @@
 using System.Diagnostics;
 using System.ServiceProcess;
 using System.Threading;
-using DataAccessLayer.DataSets.EmailQueueTableAdapters;
-using DataAccessLayer.DataSets;
 using System.Net.Mail;
 using System.Net;
+using System.Collections.Generic;
 
 namespace EmailService
 {
@@ -107,18 +106,18 @@ namespace EmailService
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = userInfo;
 
-                EmailQueueTableAdapter ta = new EmailQueueTableAdapter();
+                SimplicityCommLib.DataSets.Common.EmailQueueTableAdapters.EmailQueueTableAdapter emailQTA = new SimplicityCommLib.DataSets.Common.EmailQueueTableAdapters.EmailQueueTableAdapter();
                 Log("Connection String:" + System.Configuration.ConfigurationSettings.AppSettings["DataAccessLayer.database.ConnectionString"],EventLogEntryType.Information);
-                ta.Connection = new System.Data.SqlClient.SqlConnection(@"Data Source=270882-WEB2\SQLEXPRESS;Initial Catalog=shop;Integrated Security=False;User Id=sa;password=3400663");
-                EmailQueue.EmailQueueEntityDataTable emailQs = ta.GetEmailQueue();
-                for (int i = 0; i < emailQs.Count; i++)
+                //emailQTA.Connection = new System.Data.SqlClient.SqlConnection(@"Data Source=270882-WEB2\SQLEXPRESS;Initial Catalog=shop;Integrated Security=False;User Id=sa;password=3400663");
+                IEnumerator<SimplicityCommLib.DataSets.Common.EmailQueue.EmailQueueRow> ieEmails = emailQTA.GetRemaingQueue().GetEnumerator();
+                while(ieEmails.MoveNext())
                 {
                     try
                     {
                         MailMessage message = new MailMessage();
-                        message.From = new MailAddress(emailQs[i].from_address, emailQs[i].from_name);
-                        string[] toNames = emailQs[i].to_names.Split(',');
-                        string[] toAddresses = emailQs[i].to_addresses.Split(',');
+                        message.From = new MailAddress(ieEmails.Current.FromAddress, ieEmails.Current.FromName);
+                        string[] toNames = ieEmails.Current.ToNames.Split(',');
+                        string[] toAddresses = ieEmails.Current.ToAddresses.Split(',');
                         for (int index = 0; index < toAddresses.Length; index++)
                         {
                             if (toAddresses[index].Length > 0)
@@ -126,22 +125,22 @@ namespace EmailService
                                 message.To.Add(new MailAddress(toAddresses[index], toNames[index]));
                             }
                         }
-                        message.Subject = emailQs[i].subject;
-                        message.Body = emailQs[i].body;
+                        message.Subject = ieEmails.Current.Subject;
+                        message.Body = ieEmails.Current.Body;
                         message.IsBodyHtml = true;
                         smtp.Send(message);
-                        emailQs[i].sent_time = DateTime.Now;
-                        ta.Update(emailQs[i]);
+                        ieEmails.Current.SentTime = DateTime.Now;
+                        emailQTA.Update(ieEmails.Current);
 
-                        Log("Queue Id:" + emailQs[i].queue_id + " processed.", EventLogEntryType.Information);
+                        Log("Queue Id:" + ieEmails.Current.QueueId + " processed.", EventLogEntryType.Information);
                     }
                     catch (Exception ex)
                     {
-                        Log("Queue Id:" + emailQs[i].queue_id + " errored.", EventLogEntryType.Error);
+                        Log("Queue Id:" + ieEmails.Current.QueueId + " errored.", EventLogEntryType.Error);
                         Log(ex.ToString(), EventLogEntryType.Error);
                     }
                 }
-                ta.UpdateNumberOfTries();
+                emailQTA.UpdateNumberOfTries();
             }
             catch (Exception ex)
             {

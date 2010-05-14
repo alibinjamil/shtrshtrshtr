@@ -26,8 +26,7 @@ public class EmailTemplateFactory
     {
         parameters = new Dictionary<string, string>();
         parameters.Add("##IMAGE_URL##", GetImagesUrl());
-        UserSelectByIdResult user = DatabaseUtility.GetLoggedInCustomer();
-
+        SimplicityCommLib.DataSets.Common.Users.UsersRow user = DatabaseUtility.Instance.GetLoggedInCustomer();
         if (user != null)
         {
             parameters.Add("##CUSTOMER_NAME##", user.NameSurname + ", " + user.NameForename);
@@ -39,7 +38,7 @@ public class EmailTemplateFactory
     }
     public EmailTemplates.EmailTemplateEntityRow GetEmailContents(string templateName)
     {
-        EmailTemplates.EmailTemplateEntityRow emailTemplate = DatabaseUtility.GetEmailTemplate(templateName);
+        EmailTemplates.EmailTemplateEntityRow emailTemplate = DatabaseUtility.Instance.GetEmailTemplate(templateName);
         if (emailTemplate != null)
         {
             foreach (string key in this.parameters.Keys)

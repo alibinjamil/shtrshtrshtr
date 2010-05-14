@@ -17,4 +17,13 @@ public partial class pages_Contact : GenericPage
     {
 
     }
+    protected override void PostAuthenticated(SimplicityCommLib.DataSets.Common.Users.UsersRow user)
+    {
+
+    }
+    protected override void PostUnauthenticated()
+    {
+
+    }
+
 }

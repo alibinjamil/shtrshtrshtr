@@ -33,13 +33,11 @@ public partial class pages_PaymentResponse : AuthenticatedPage
                 panelSuccess.Visible = true;
 
                 tranTA.Update(transactionId, Request.Form.Get("decision"), null, transactionId);
-                CommLibController userOBJ = new CommLibController();
-                IEnumerator<UserSelectByIdResult> user =  userOBJ.GetUserById(LoggedInUserId);
-                if (user.MoveNext())
+                if (LoggedInUser != null)
                 {
                     EmailUtility.SendPaymentEmail(Request.Form.Get("billTo_firstName"), Request.Form.Get("billTo_lastName"), Request.Form.Get("card_accountNumber"),
                     Request.Form.Get("card_expirationMonth"), Request.Form.Get("card_expirationYear"), Utility.GetCardType(Request.Form.Get("card_cardType")),
-                    lblAmountText.Text, user.Current.Email);
+                    lblAmountText.Text, LoggedInUser.Email);
                 }
                 ShoppingCart.ClearTrolley();
 

@@ -17,23 +17,23 @@ using SimplicityCommLib;
 
 public partial class pages_AccountAddress : AuthenticatedPage
 {
-    private void SetAddresses(ref Address accountAddress,ref Address billingAddress,ref Address shippingAddress)
+    private void SetAddresses(ref SimplicityCommLib.DataSets.Common.Address.AddressRow accountAddress, ref SimplicityCommLib.DataSets.Common.Address.AddressRow billingAddress, ref SimplicityCommLib.DataSets.Common.Address.AddressRow shippingAddress)
     {
-        CommLibController addressOBJ = new CommLibController();
-        IEnumerator<Address> addresses = addressOBJ.GetAddressByTableId((int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL, LoggedInUserId);
-        while (addresses.MoveNext())
+        SimplicityCommLib.DataSets.Common.AddressTableAdapters.AddressTableAdapter addressTA = new SimplicityCommLib.DataSets.Common.AddressTableAdapters.AddressTableAdapter();
+        IEnumerator<SimplicityCommLib.DataSets.Common.Address.AddressRow> ieAddresses = addressTA.GetAddressByCategoryId(Constants.AddressCategories.UserAddress, LoggedInUser.UserId).GetEnumerator();
+        while (ieAddresses.MoveNext())
         {
-            if (addresses.Current.MultiAddType.Equals(Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL)))
+            if (ieAddresses.Current.MultiAddType.Equals(Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL)))
             {
-                accountAddress = addresses.Current;
+                accountAddress = ieAddresses.Current;
             }
-            else if (addresses.Current.MultiAddType.Equals(Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING)))
+            else if (ieAddresses.Current.MultiAddType.Equals(Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING)))
             {
-                billingAddress = addresses.Current;
+                billingAddress = ieAddresses.Current;
             }
-            else if (addresses.Current.MultiAddType.Equals(Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING)))
+            else if (ieAddresses.Current.MultiAddType.Equals(Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING)))
             {
-                shippingAddress = addresses.Current;
+                shippingAddress = ieAddresses.Current;
             }
         }
     }
@@ -42,9 +42,9 @@ public partial class pages_AccountAddress : AuthenticatedPage
     {
         if (IsPostBack == false)
         {
-            Address accountAddress = null;
-            Address billingAddress = null;
-            Address shippingAddress = null;
+            SimplicityCommLib.DataSets.Common.Address.AddressRow accountAddress = null;
+            SimplicityCommLib.DataSets.Common.Address.AddressRow billingAddress = null;
+            SimplicityCommLib.DataSets.Common.Address.AddressRow shippingAddress = null;
 
             SetAddresses(ref accountAddress, ref billingAddress, ref shippingAddress);
 
@@ -192,72 +192,70 @@ public partial class pages_AccountAddress : AuthenticatedPage
     }
     protected void btnSave_Click(object sender, ImageClickEventArgs e)
     {
-        Address accountAddress = null;
-        Address billingAddress = null;
-        Address shippingAddress = null;
+        SimplicityCommLib.DataSets.Common.Address.AddressRow accountAddress = null;
+        SimplicityCommLib.DataSets.Common.Address.AddressRow billingAddress = null;
+        SimplicityCommLib.DataSets.Common.Address.AddressRow shippingAddress = null;
 
         SetAddresses(ref accountAddress, ref billingAddress, ref shippingAddress);
-
-        CommLibController addressOBJ = new CommLibController();
-        //CustomerTableAdapters.AddressTableAdapter addressTA = new CustomerTableAdapters.AddressTableAdapter();
+        SimplicityCommLib.DataSets.Common.AddressTableAdapters.AddressTableAdapter addressTA = new SimplicityCommLib.DataSets.Common.AddressTableAdapters.AddressTableAdapter();
         if (imgBtnBilling.ImageUrl.Equals("~/images/checkbox_checked.png"))
         {
             if (billingAddress != null)
             {
-                addressOBJ.UpdateAddress(false,(int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL ,LoggedInUserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING),
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, LoggedInUserId, DateTime.Now, LoggedInUserId, DateTime.Now, null, null, null, billingAddress.AddressId);
+                addressTA.Update(false, Constants.AddressCategories.UserAddress, LoggedInUser.UserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING),
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, LoggedInUser.UserId, DateTime.Now, LoggedInUser.UserId, DateTime.Now, null, null, null, billingAddress.AddressId,billingAddress.AddressId);
             }
             else
             {
-                addressOBJ.InsertAddress(false,(int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL, LoggedInUserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING),
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, LoggedInUserId, DateTime.Now, LoggedInUserId, DateTime.Now, null, null, null);
+                addressTA.Insert(false, Constants.AddressCategories.UserAddress, LoggedInUser.UserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING),
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, LoggedInUser.UserId, DateTime.Now, LoggedInUser.UserId, DateTime.Now, null, null, null);
             }
         }
         else
         {
             if (billingAddress != null)
             {
-                addressOBJ.UpdateAddress(false,(int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL, LoggedInUserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING),
+                addressTA.Update(false, Constants.AddressCategories.UserAddress, LoggedInUser.UserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING),
                     null, txtBillingAddressNo.Text, txtBillingAddressLine1.Text, txtBillingAddressLine2.Text, txtBillingAddressLine3.Text, txtBillingAddressLine4.Text, txtBillingAddressLine5.Text,
-                    txtBillingPostCode.Text, null, txtBillingTele1.Text, txtBillingTele2.Text, txtBillingFax.Text, txtBillingMobile.Text, LoggedInUserId, DateTime.Now,
-                    LoggedInUserId, DateTime.Now, txtBillingTown.Text, txtBillingCounty.Text, txtBillingCountry.Text, billingAddress.AddressId);
+                    txtBillingPostCode.Text, null, txtBillingTele1.Text, txtBillingTele2.Text, txtBillingFax.Text, txtBillingMobile.Text, LoggedInUser.UserId, DateTime.Now,
+                    LoggedInUser.UserId, DateTime.Now, txtBillingTown.Text, txtBillingCounty.Text, txtBillingCountry.Text, billingAddress.AddressId);
             }
             else
             {
-                addressOBJ.InsertAddress(false, (int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL, LoggedInUserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING),
+                addressTA.Insert(false, Constants.AddressCategories.UserAddress, LoggedInUser.UserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.BILLING),
                     null, txtBillingAddressNo.Text, txtBillingAddressLine1.Text, txtBillingAddressLine2.Text, txtBillingAddressLine3.Text, txtBillingAddressLine4.Text, txtBillingAddressLine5.Text,
-                    txtBillingPostCode.Text, null, txtBillingTele1.Text, txtBillingTele2.Text, txtBillingFax.Text, txtBillingMobile.Text, LoggedInUserId, DateTime.Now,
-                    LoggedInUserId, DateTime.Now, txtBillingTown.Text, txtBillingCounty.Text, txtBillingCountry.Text);
+                    txtBillingPostCode.Text, null, txtBillingTele1.Text, txtBillingTele2.Text, txtBillingFax.Text, txtBillingMobile.Text, LoggedInUser.UserId, DateTime.Now,
+                    LoggedInUser.UserId, DateTime.Now, txtBillingTown.Text, txtBillingCounty.Text, txtBillingCountry.Text);
             }
         }
         if (imgBtnShipping.ImageUrl.Equals("~/images/checkbox_checked.png"))
         {
             if (shippingAddress != null)
             {
-                addressOBJ.UpdateAddress(false, (int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL, LoggedInUserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING),
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, LoggedInUserId, DateTime.Now, LoggedInUserId, DateTime.Now, null, null, null, shippingAddress.AddressId);
+                addressTA.Update(false, Constants.AddressCategories.UserAddress, LoggedInUser.UserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING),
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, LoggedInUser.UserId, DateTime.Now, LoggedInUser.UserId, DateTime.Now, null, null, null, shippingAddress.AddressId);
             }
             else
             {
-                addressOBJ.InsertAddress(false, (int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL, LoggedInUserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING),
-                    null, null, null, null, null, null, null, null, null, null, null, null, null, LoggedInUserId, DateTime.Now, LoggedInUserId, DateTime.Now, null, null, null);
+                addressTA.Insert(false, Constants.AddressCategories.UserAddress, LoggedInUser.UserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING),
+                    null, null, null, null, null, null, null, null, null, null, null, null, null, LoggedInUser.UserId, DateTime.Now, LoggedInUser.UserId, DateTime.Now, null, null, null);
             }
         }
         else
         {
             if (shippingAddress != null)
             {
-                addressOBJ.UpdateAddress(false, (int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL, LoggedInUserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING),
-                null, txtShippingAddressNo.Text, txtShippingAddressLine1.Text, txtShippingAddressLine2.Text, txtShippingAddressLine3.Text, txtShippingAddressLine4.Text, txtShippingAddressLine5.Text,
-                txtShippingPostCode.Text, null, txtShippingTele1.Text, txtShippingTele2.Text, txtShippingFax.Text, txtShippingMobile.Text, LoggedInUserId, DateTime.Now,
-                LoggedInUserId, DateTime.Now, txtShippingTown.Text, txtShippingCounty.Text, txtShippingCountry.Text, shippingAddress.AddressId);
+                addressTA.Update(false, Constants.AddressCategories.UserAddress, LoggedInUser.UserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING),
+                    null, txtShippingAddressNo.Text, txtShippingAddressLine1.Text, txtShippingAddressLine2.Text, txtShippingAddressLine3.Text, txtShippingAddressLine4.Text, txtShippingAddressLine5.Text,
+                    txtShippingPostCode.Text, null, txtShippingTele1.Text, txtShippingTele2.Text, txtShippingFax.Text, txtShippingMobile.Text, LoggedInUser.UserId, DateTime.Now,
+                    LoggedInUser.UserId, DateTime.Now, txtShippingTown.Text, txtShippingCounty.Text, txtShippingCountry.Text, shippingAddress.AddressId);
             }
             else
             {
-                addressOBJ.InsertAddress(false, (int)ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.PERSONAL, LoggedInUserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING),
+                addressTA.Insert(false, Constants.AddressCategories.UserAddress, LoggedInUser.UserId, true, false, Enum.GetName(typeof(ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE), ShoppingTrolley.Web.utils.Enums.ADDRESS_TYPE.SHIPPING),
                     null, txtShippingAddressNo.Text, txtShippingAddressLine1.Text, txtShippingAddressLine2.Text, txtShippingAddressLine3.Text, txtShippingAddressLine4.Text, txtShippingAddressLine5.Text,
-                    txtShippingPostCode.Text, null, txtShippingTele1.Text, txtShippingTele2.Text, txtShippingFax.Text, txtShippingMobile.Text, LoggedInUserId, DateTime.Now,
-                    LoggedInUserId, DateTime.Now, txtShippingTown.Text, txtShippingCounty.Text, txtShippingCountry.Text);
+                    txtShippingPostCode.Text, null, txtShippingTele1.Text, txtShippingTele2.Text, txtShippingFax.Text, txtShippingMobile.Text, LoggedInUser.UserId, DateTime.Now,
+                    LoggedInUser.UserId, DateTime.Now, txtShippingTown.Text, txtShippingCounty.Text, txtShippingCountry.Text);
             }
         }
         Response.Redirect("~/pages/ConfirmCheckout.aspx");

@@ -5,8 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 	<div class="header">
-		<div class="heading">Buy a product</div>
-		<div class="noFloat" style="font-weight:bold; padding-top:10px; font-size:1.3em;">Select a product from below to buy</div>			
+		<div class="heading"><%=GetBuyOrTry()%> a product</div>
+		<div class="noFloat" style="font-weight:bold; padding-top:10px; font-size:1.3em;">Select a product from below to <%=GetBuyOrTry().ToLower()%></div>			
 	</div>	
 	<div class="productsScreen">
         <asp:Repeater ID="rptProducts" runat="server" DataSourceID="odsProducts">
