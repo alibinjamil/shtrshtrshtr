@@ -22,25 +22,32 @@ public partial class pages_VerifyEmail : GenericPage
             IEnumerator<Customer.CustomerEntityRow> iEnum = customerTA.GetCustomerByUID(Request[WebConstants.Request.USER_UID]).GetEnumerator();
             if (iEnum.MoveNext())
             {
-                string verificationCode = Utility.GetMd5Sum(iEnum.Current.verification_code);
-                if (verificationCode.Equals(Request[WebConstants.Request.VERIFICATION_CODE]))
+                if (iEnum.Current.Isverification_codeNull() == false)
                 {
-                    customerTA.VerifyCustomer(iEnum.Current.entity_id);
-                    //activate record into HS
-                    UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
-                    IEnumerator ieUser = userTA.GetUserByLogonName(iEnum.Current.email,null).GetEnumerator();
-                    if (ieUser.MoveNext())
+                    string verificationCode = Utility.GetMd5Sum(iEnum.Current.verification_code);
+                    if (verificationCode.Equals(Request[WebConstants.Request.VERIFICATION_CODE]))
                     {
-                        User.un_co_user_detailsRow user = (User.un_co_user_detailsRow)ieUser.Current;
-                        HSCompanyTableAdapters.HSCompanyTableAdapter coTA = new HSCompanyTableAdapters.HSCompanyTableAdapter();
-                        coTA.UpdateActive(true, user.co_id);
+                        customerTA.VerifyCustomer(iEnum.Current.entity_id);
+                        //activate record into HS
+                        UserTableAdapters.un_co_user_detailsTableAdapter userTA = new UserTableAdapters.un_co_user_detailsTableAdapter();
+                        IEnumerator ieUser = userTA.GetUserByLogonName(iEnum.Current.email, null).GetEnumerator();
+                        if (ieUser.MoveNext())
+                        {
+                            User.un_co_user_detailsRow user = (User.un_co_user_detailsRow)ieUser.Current;
+                            HSCompanyTableAdapters.HSCompanyTableAdapter coTA = new HSCompanyTableAdapters.HSCompanyTableAdapter();
+                            coTA.UpdateActive(true, user.co_id);
+                        }
+                        hlHS.Visible = true;
+                        SetInfoMessage(WebConstants.Messages.Information.ACCOUNT_VERIFIED);
                     }
-                    //
-                    SetInfoMessage(WebConstants.Messages.Information.ACCOUNT_VERIFIED);
+                    else
+                    {
+                        SetErrorMessage(WebConstants.Messages.Error.CANNOT_VERIFY);
+                    }
                 }
                 else
                 {
-                    SetErrorMessage(WebConstants.Messages.Error.CANNOT_VERIFY);
+                    SetErrorMessage("Your account is already verified.");
                 }
             }
             else

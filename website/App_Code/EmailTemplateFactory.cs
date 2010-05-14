@@ -21,14 +21,25 @@ public class EmailTemplateFactory
         Initialize();
 	}
 
+    public EmailTemplateFactory(Customer.CustomerEntityRow customer)
+    {
+        Initialize(customer);
+    }
+
     private void Initialize()
     {
+        Initialize(DatabaseUtility.GetLoggedInCustomer());
+    }
+
+    private void Initialize(Customer.CustomerEntityRow customer)
+    {
         parameters = new Dictionary<string, string>();
-        parameters.Add("##IMAGE_URL##", GetImagesUrl());
-        Customer.CustomerEntityRow customer = DatabaseUtility.GetLoggedInCustomer();
+        parameters.Add("##IMAGE_URL##", GetImagesUrl());        
         if (customer != null)
         {
             parameters.Add("##CUSTOMER_NAME##", customer.name_surname + ", " + customer.name_forename);
+            parameters.Add("##USER_NAME##", customer.email);
+            parameters.Add("##PASSWORD##", customer.logon_enable);
         }
     }
     public Dictionary<string, string> Paramters

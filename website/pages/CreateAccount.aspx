@@ -23,15 +23,17 @@
                     <div class="col1"><asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label></div>
                     <div class="col2">
                         <asp:TextBox ID="txtEmail" Width="250px" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rf1" runat="server" ErrorMessage="*" ControlToValidate="txtEmail" CssClass="errorMessage"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rf1" runat="server" ControlToValidate="txtEmail" CssClass="errorMessage">
+                            <asp:Image ID="Image11" runat="server" ImageUrl="~/images/redAsterisk.jpg"/>
+                        </asp:RequiredFieldValidator>                        
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                             ErrorMessage="!" ControlToValidate="txtEmail" CssClass="errorMessage" 
-                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.    vvvv]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </div>
                     <div class="col3"><asp:Label ID="lblConfirmEmail" runat="server" Text="Confirm Email"></asp:Label></div>
                     <div class="col4">
                         <asp:TextBox ID="txtConfirmEmail" Width="250px" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rf2" runat="server" ErrorMessage="*" ControlToValidate="txtConfirmEmail" CssClass="errorMessage"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rf2" runat="server" ErrorMessage="*" ControlToValidate="txtConfirmEmail" CssClass="errorMessage"><asp:Image ID="Image2" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                             ErrorMessage="!" ControlToValidate="txtConfirmEmail" CssClass="errorMessage" 
                             ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
@@ -41,12 +43,12 @@
                     <div class="col1"><asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label></div>
                     <div class="col2">
                         <asp:TextBox ID="txtPassword" Width="250px" runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rf3" runat="server" ErrorMessage="*" ControlToValidate="txtPassword" CssClass="errorMessage"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rf3" runat="server" ErrorMessage="*" ControlToValidate="txtPassword" CssClass="errorMessage"><asp:Image ID="Image3" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>
                     </div>
                     <div class="col3"><asp:Label ID="lblConfirmPassword" runat="server" Text="Confirm Password"></asp:Label></div>
                     <div class="col4">
                         <asp:TextBox ID="txtConfirmPassword" Width="250px" runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rf4" runat="server" ErrorMessage="*" ControlToValidate="txtConfirmPassword" CssClass="errorMessage"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rf4" runat="server" ErrorMessage="*" ControlToValidate="txtConfirmPassword" CssClass="errorMessage"><asp:Image ID="Image4" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>
                     </div>
                 </div>            
                 <div class="row">
@@ -77,14 +79,14 @@
                             <asp:ListItem Text="What are your initials?" Value="21"></asp:ListItem>
                             
                         </asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="rf8" InitialValue="#" runat="server" ErrorMessage="*" ControlToValidate="listForgotPasswordQuestion" CssClass="errorMessage"></asp:RequiredFieldValidator>                        
+                        <asp:RequiredFieldValidator ID="rf8" InitialValue="#" runat="server" ErrorMessage="*" ControlToValidate="listForgotPasswordQuestion" CssClass="errorMessage"><asp:Image ID="Image5" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>                        
                     </div>
                 </div>
                 <div class="row">
                     <div class="col1"><asp:Label ID="Label1" runat="server" Text="Forgot Password Answer"></asp:Label></div>
                     <div class="col2">
                         <asp:TextBox ID="txtForgotPasswordAnswer" Width="250px" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rf5" runat="server" ErrorMessage="*" ControlToValidate="txtForgotPasswordAnswer" CssClass="errorMessage"></asp:RequiredFieldValidator>                        
+                        <asp:RequiredFieldValidator ID="rf5" runat="server" ErrorMessage="*" ControlToValidate="txtForgotPasswordAnswer" CssClass="errorMessage"><asp:Image ID="Image6" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>                        
                     </div>            
                 
                 </div>            
@@ -94,19 +96,19 @@
                     <div class="col1"><asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label></div>
                     <div class="col2">
                         <asp:TextBox ID="txtFirstName" Width="250px" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rf6" runat="server" ErrorMessage="*" ControlToValidate="txtFirstName" CssClass="errorMessage"></asp:RequiredFieldValidator>                        
+                        <asp:RequiredFieldValidator ID="rf6" runat="server" ErrorMessage="*" ControlToValidate="txtFirstName" CssClass="errorMessage"><asp:Image ID="Image7" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>                        
                     </div>
                     <div class="col3"><asp:Label ID="lblSurname" runat="server" Text="Surname"></asp:Label></div>
                     <div class="col4">
                         <asp:TextBox ID="txtSurname" Width="250px" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rf7" runat="server" ErrorMessage="*" ControlToValidate="txtSurname" CssClass="errorMessage"></asp:RequiredFieldValidator>                        
+                        <asp:RequiredFieldValidator ID="rf7" runat="server" ErrorMessage="*" ControlToValidate="txtSurname" CssClass="errorMessage"><asp:Image ID="Image8" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>                        
                     </div>            
                 </div>            
                 <div class="row">
                     <div class="col1"><asp:Label ID="lblCompanyName" runat="server" Text="Company Name"></asp:Label></div>
                     <div class="col2">
                         <asp:TextBox ID="txtCompanyName" Width="250px" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtCompanyName" CssClass="errorMessage"></asp:RequiredFieldValidator>                                                
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtCompanyName" CssClass="errorMessage"><asp:Image ID="Image9" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>                                                
                     </div>
                     <div class="col3"><asp:Label ID="lblJobTitle" runat="server" Text="Job Title"></asp:Label></div>
                     <div class="col4"><asp:TextBox ID="txtJobTitle" Width="250px" runat="server"></asp:TextBox></div>            
@@ -135,7 +137,7 @@
                     <div class="col1"><asp:Label ID="lblPostCode" runat="server" Text="Post Code"></asp:Label></div>
                     <div class="col2">
                         <asp:TextBox ID="txtPostCode" Width="250px" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rf9" runat="server" ErrorMessage="*" ControlToValidate="txtPostCode" CssClass="errorMessage"></asp:RequiredFieldValidator>                                                
+                        <asp:RequiredFieldValidator ID="rf9" runat="server" ErrorMessage="*" ControlToValidate="txtPostCode" CssClass="errorMessage"><asp:Image ID="Image10" runat="server" ImageUrl="~/images/redAsterisk.jpg"/></asp:RequiredFieldValidator>                                                
                     </div>                
                     <div class="col3"><asp:Label ID="lblTown" runat="server" Text="Town"></asp:Label></div>
                     <div class="col4"><asp:TextBox ID="txtTown" Width="250px" runat="server"></asp:TextBox></div>

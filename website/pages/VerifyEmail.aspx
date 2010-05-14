@@ -5,5 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="PageHead" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
+    <asp:HyperLink id="hlHS" NavigateUrl="~/pages/RedirectToHS.aspx" Visible="false" runat="server">Click here to continue</asp:HyperLink>
 </asp:Content>
 
