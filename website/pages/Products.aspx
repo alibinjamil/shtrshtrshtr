@@ -5,8 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 	<div class="header">
-		<div class="heading">Buy a product</div>
-		<div class="noFloat" style="font-weight:bold; padding-top:10px; font-size:1.3em;">Select a product from below to buy</div>			
+		<div class="heading"><%=GetBuyOrTry()%> a product</div>
+		<div class="noFloat" style="font-weight:bold; padding-top:10px; font-size:1.3em;">Select a product from below to <%=GetBuyOrTry().ToLower()%></div>			
 	</div>	
 	<div class="productsScreen">
         <asp:Repeater ID="rptProducts" runat="server" DataSourceID="odsProducts">
@@ -15,11 +15,11 @@
             </HeaderTemplate>
 	        <ItemTemplate>
 	        <div class='col<%#GetColNumber(DataBinder.Eval(Container, "ItemIndex", ""))%>'>
-	            <a href="ProductPrices.aspx?productId=<%# DataBinder.Eval(Container, "DataItem.product_id")%>">
+	            <a href="ProductPrices.aspx?productId=<%# DataBinder.Eval(Container, "DataItem.ProductId")%>">
 			       <asp:Image ID="imgBtnLogout" runat="server" 
-                    ImageUrl='<%# "~/images/Buy_" + DataBinder.Eval(Container, "DataItem.short_name") + ".gif" %>' AlternateText='<%# "Buy " + DataBinder.Eval(Container, "DataItem.name") %>' 
-                    onmouseover='<%# GetMouseOver(DataBinder.Eval(Container, "DataItem.short_name"))%>' 
-                    onmouseout='<%# GetMouseOut(DataBinder.Eval(Container, "DataItem.short_name")) %>'/></a>
+                    ImageUrl='<%# "~/images/Buy_" + DataBinder.Eval(Container, "DataItem.ShortName") + ".gif" %>' AlternateText='<%# "Buy " + DataBinder.Eval(Container, "DataItem.Name") %>' 
+                    onmouseover='<%# GetMouseOver(DataBinder.Eval(Container, "DataItem.ShortName"))%>' 
+                    onmouseout='<%# GetMouseOut(DataBinder.Eval(Container, "DataItem.ShortName")) %>'/></a>
             </div>
 	        </ItemTemplate>
 	        <SeparatorTemplate>
@@ -32,7 +32,8 @@
 	    <div class="noFloat" style="height:20px;">
             <asp:ObjectDataSource ID="odsProducts" runat="server" 
                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllProducts" 
-                TypeName="ProductsTableAdapters.ProductTableAdapter"></asp:ObjectDataSource>
+                
+                TypeName="SimplicityCommLib.DataSets.Common.ProductsTableAdapters.ProductsTableAdapter"></asp:ObjectDataSource>
         </div>
 	</div>	
 	<div id="dialog" style="padding:0px;" title="Prices"></div>

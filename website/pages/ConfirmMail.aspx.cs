@@ -28,4 +28,12 @@ public partial class pages_ConfirmMail : GenericPage
             Response.Redirect("~/pages/UserHome.aspx");
         }
     }
+    protected override void PostAuthenticated(SimplicityCommLib.DataSets.Common.Users.UsersRow user)
+    {
+        
+    }
+    protected override void PostUnauthenticated()
+    {
+        
+    }
 }

@@ -240,10 +240,10 @@ public partial class pages_PaymentDetails : AuthenticatedPage
 
     protected string InsertTransaction()
     {
-        if (LoggedIsUser != null && Session[WebConstants.Session.TROLLEY] != null)
+        if (Session[WebConstants.Session.TROLLEY] != null)
         {
             TransactionsTableAdapters.TransactionTableAdapter tranTA = new TransactionsTableAdapters.TransactionTableAdapter();
-            IEnumerator<Transactions.TransactionEntityRow> transaciton = tranTA.InsertAndReturn(LoggedInUserId,ShoppingCart.GetCurrentCurrency().country_code,ShoppingCart.GetCurrentCurrency().exchange_rate).GetEnumerator();
+            IEnumerator<Transactions.TransactionEntityRow> transaciton = tranTA.InsertAndReturn(LoggedInUser.UserId,ShoppingCart.GetCurrentCurrency().country_code,ShoppingCart.GetCurrentCurrency().exchange_rate).GetEnumerator();
             if (transaciton.MoveNext())
             {
                 TransactionsTableAdapters.TransactionDetailTableAdapter tranDetailTA = new TransactionsTableAdapters.TransactionDetailTableAdapter();

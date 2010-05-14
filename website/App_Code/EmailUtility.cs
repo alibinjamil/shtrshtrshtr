@@ -13,7 +13,7 @@ using System.Net.Mail;
 using System.Net;
 
 using System.Collections.Generic;
-using DataAccessLayer.DataSets.EmailQueueTableAdapters;
+
 /// <summary>
 /// Summary description for EmailUtility
 /// </summary>
@@ -42,7 +42,7 @@ public static class EmailUtility
     {
         try
         {
-            EmailQueueTableAdapter ta = new EmailQueueTableAdapter();
+            SimplicityCommLib.DataSets.Common.EmailQueueTableAdapters.EmailQueueTableAdapter ta = new SimplicityCommLib.DataSets.Common.EmailQueueTableAdapters.EmailQueueTableAdapter();
             string toEmails = "";
             string toNames = "";
             foreach(MailAddress address in message.To)
@@ -50,7 +50,7 @@ public static class EmailUtility
                 toNames += address.DisplayName + ",";
                 toEmails += address.Address + ",";
             }
-            ta.Connection = new System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ShoppingCartConnectionString"].ConnectionString);
+            //ta.Connection = new System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ShoppingCartConnectionString"].ConnectionString);
             ta.Insert(DateTime.Now, 1, "Simplicity4Business", FROM_ADDRESS, toNames.Substring(0, toNames.Length - 1), toEmails.Substring(0, toEmails.Length),
                 message.Subject, message.Body, null);
 

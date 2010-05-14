@@ -10,28 +10,22 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Collections.Generic;
-using SimplicityCommLib;
+
 /// <summary>
 /// Summary description for DatabaseUtility
 /// </summary>
-public static class DatabaseUtility
+public class DatabaseUtility : SimplicityCommLib.Utility.GenericDatabaseUtility
 {
-    public static UserSelectByIdResult GetLoggedInCustomer()
+    private static  DatabaseUtility instance = new DatabaseUtility();
+    private DatabaseUtility()
     {
-        if (HttpContext.Current.Session[WebConstants.Session.USER_ID] != null)
-        {            
-            int userId = (int)HttpContext.Current.Session[WebConstants.Session.USER_ID];
-            CommLibController userOBJ = new CommLibController();
-            IEnumerator<UserSelectByIdResult> users = userOBJ.GetUserById(userId);
-            if (users.MoveNext())
-            {
-                return users.Current;
-            }
-        }
-        return null;
     }
 
-    public static EmailTemplates.EmailTemplateEntityRow GetEmailTemplate(string name)
+    public static DatabaseUtility Instance 
+    {
+        get { return instance; }
+    }
+    public EmailTemplates.EmailTemplateEntityRow GetEmailTemplate(string name)
     {  
         EmailTemplatesTableAdapters.EmailTemplateTableAdapter ta = new EmailTemplatesTableAdapters.EmailTemplateTableAdapter();
         IEnumerator<EmailTemplates.EmailTemplateEntityRow> emailTemplates = ta.GetEmailTemplate(name).GetEnumerator();
@@ -41,6 +35,4 @@ public static class DatabaseUtility
         }
         return null;
     }
-
-
 }

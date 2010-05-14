@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website\", "{E36FDA90-61DF-4CA2-A0C4-E63B152AAAF4}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
-		ProjectReferences = "{18048436-654D-404A-8EDF-8EBDE48FF272}|DataAccessLayer.dll;"
+		ProjectReferences = "{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}|SimplicityCommLib.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/website"
 		Debug.AspNetCompiler.PhysicalPath = "E:\MyProjects\ShoppingCart\trunk\website\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\website\"
@@ -22,12 +22,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website\", "{E36
 		VWDPort = "51863"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{18048436-654D-404A-8EDF-8EBDE48FF272}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{933E5930-B6E4-434C-A89F-AFB792BDCC69}"
-	ProjectSection(ProjectDependencies) = postProject
-		{18048436-654D-404A-8EDF-8EBDE48FF272} = {18048436-654D-404A-8EDF-8EBDE48FF272}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplicityCommLib", "SimplicityCommLib\SimplicityCommLib.csproj", "{66F2AB9B-D78E-4C15-8E37-AA227B62BDC6}"
 EndProject
@@ -51,16 +46,6 @@ Global
 		{E36FDA90-61DF-4CA2-A0C4-E63B152AAAF4}.Release|Any CPU.ActiveCfg = Debug|.NET
 		{E36FDA90-61DF-4CA2-A0C4-E63B152AAAF4}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
 		{E36FDA90-61DF-4CA2-A0C4-E63B152AAAF4}.Release|Mixed Platforms.Build.0 = Debug|.NET
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Debug|.NET.ActiveCfg = Debug|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Release|.NET.ActiveCfg = Release|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{18048436-654D-404A-8EDF-8EBDE48FF272}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{933E5930-B6E4-434C-A89F-AFB792BDCC69}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{933E5930-B6E4-434C-A89F-AFB792BDCC69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{933E5930-B6E4-434C-A89F-AFB792BDCC69}.Debug|Any CPU.Build.0 = Debug|Any CPU

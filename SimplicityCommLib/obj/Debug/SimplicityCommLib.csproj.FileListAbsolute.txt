@@ -1,0 +1,6 @@
+E:\MyProjects\ShoppingCart\trunk\SimplicityCommLib\bin\Debug\SimplicityCommLib.dll.config
+E:\MyProjects\ShoppingCart\trunk\SimplicityCommLib\bin\Debug\SimplicityCommLib.dll
+E:\MyProjects\ShoppingCart\trunk\SimplicityCommLib\bin\Debug\SimplicityCommLib.pdb
+E:\MyProjects\ShoppingCart\trunk\SimplicityCommLib\obj\Debug\ResolveAssemblyReference.cache
+E:\MyProjects\ShoppingCart\trunk\SimplicityCommLib\obj\Debug\SimplicityCommLib.dll
+E:\MyProjects\ShoppingCart\trunk\SimplicityCommLib\obj\Debug\SimplicityCommLib.pdb

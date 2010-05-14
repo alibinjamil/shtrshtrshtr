@@ -26,8 +26,8 @@ namespace ShoppingTrolley.Web.Objects
             // TODO: Add constructor logic here
             //
         }
-        private SimplicityCommLib.Product productDS;
-        public SimplicityCommLib.Product ProductDS
+        private SimplicityCommLib.DataSets.Common.Products.ProductsRow productDS;
+        public SimplicityCommLib.DataSets.Common.Products.ProductsRow ProductDS
         {
             get { return productDS; }
             set { productDS = value; }
@@ -87,12 +87,12 @@ namespace ShoppingTrolley.Web.Objects
 
         public static Product LoadCompleteProduct(int productId)
         {
-            CommLibController productOBJ = new CommLibController();
-            IEnumerator<SimplicityCommLib.Product> products = productOBJ.GetProductById(productId);
-            if (products.MoveNext())
+            SimplicityCommLib.DataSets.Common.ProductsTableAdapters.ProductsTableAdapter prodTA = new SimplicityCommLib.DataSets.Common.ProductsTableAdapters.ProductsTableAdapter();
+            SimplicityCommLib.DataSets.Common.Products.ProductsRow productDS = DatabaseUtility.Instance.GetProduct(productId);
+            if (productDS != null)
             {
                 Product product = new Product();
-                product.ProductDS = products.Current;
+                product.ProductDS = productDS;
                 ProductsTableAdapters.ProductDetailTableAdapter detailTA = new ProductsTableAdapters.ProductDetailTableAdapter();
                 IEnumerator<Products.ProductDetailEntityRow> details = detailTA.GetDetailsByProduct(productId).GetEnumerator();
                 double totalPrice = 0;
@@ -147,11 +147,11 @@ namespace ShoppingTrolley.Web.Objects
             return productDetail;
         }
 
-        public static SimplicityCommLib.Product GetProduct(int productId)
+        /*public static SimplicityCommLib.DataSets.Common.Products.ProductsRow GetProduct(int productId)
         {
             //Products.ProductEntityRow product = null;
-            CommLibController productOBJ = new CommLibController();
-            IEnumerator<SimplicityCommLib.Product> products = productOBJ.GetProductById(productId);
+            SimplicityCommLib.DataSets.Common.ProductsTableAdapters.ProductsTableAdapter prodTA = new SimplicityCommLib.DataSets.Common.ProductsTableAdapters.ProductsTableAdapter();
+            IEnumerator<SimplicityCommLib.DataSets.Common.Products.ProductsRow> products = prodTA.GetProductById(productId).GetEnumerator();
             if (products.MoveNext())
             {
                 return products.Current;                
@@ -159,7 +159,7 @@ namespace ShoppingTrolley.Web.Objects
             else
                 return null;
             
-        }
+        }*/
 
         public static Products.ExchangeRateRow GetExchangeRate(string country)
         {

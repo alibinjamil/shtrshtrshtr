@@ -23,7 +23,7 @@ public partial class pages_admin_ManageEmails : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        EmailTemplates.EmailTemplateEntityRow email = DatabaseUtility.GetEmailTemplate(tbName.Text);
+        EmailTemplates.EmailTemplateEntityRow email = DatabaseUtility.Instance.GetEmailTemplate(tbName.Text);
         if (email != null)
         {
             email.html = tbHtml.Text;
@@ -43,7 +43,7 @@ public partial class pages_admin_ManageEmails : System.Web.UI.Page
     }
     protected void ButtonLoad_Click(object sender, EventArgs e)
     {
-        EmailTemplates.EmailTemplateEntityRow email = DatabaseUtility.GetEmailTemplate(tbName.Text);
+        EmailTemplates.EmailTemplateEntityRow email = DatabaseUtility.Instance.GetEmailTemplate(tbName.Text);
         if (email != null)
         {
             tbHtml.Text = email.html;
