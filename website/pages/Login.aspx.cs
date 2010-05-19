@@ -56,11 +56,11 @@ public partial class pages_Login : GenericPage
                 // Cookie Implementation
                 HttpCookie Cookie = new HttpCookie(WebConstants.Cookies.UserLoginSession);
                 Cookie.Value = System.Guid.NewGuid().ToString();
-                Cookie.Expires = DateTime.Now.AddMinutes(Constants.SessionTimeoutInMinutes);
+                Cookie.Expires = DateTime.Now.AddMinutes(Constants.Configuration.SessionTimeoutInMinutes);
                 Response.Cookies.Add(Cookie);
 
                 SimplicityCommLib.DataSets.Common.SessionsTableAdapters.SessionsTableAdapter sessionTA = new SimplicityCommLib.DataSets.Common.SessionsTableAdapters.SessionsTableAdapter();
-                sessionTA.Insert(System.Guid.NewGuid().ToString(), ieUser.Current.UserId, DateTime.Now, DateTime.Now.AddMinutes(Constants.SessionTimeoutInMinutes), Request.UserHostAddress);
+                sessionTA.Insert(System.Guid.NewGuid().ToString(), ieUser.Current.UserId, DateTime.Now, DateTime.Now.AddMinutes(Constants.Configuration.SessionTimeoutInMinutes), Request.UserHostAddress);
                 
                 //Cache.Insert("UserLoginSession", iEnumUser.Current.UserId, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(20));
 

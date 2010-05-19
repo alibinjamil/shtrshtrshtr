@@ -78,6 +78,10 @@ namespace SimplicityCommLib
                 public static string METHOD_STATEMENT = "Method Statement";
                 public static string SIGNAGE = "Signage";
             }
+            public static class Default
+            {
+                public static string NOT_SET = "[Not Set]";
+            }
         }
         /*public static enum AddressCategories
         {
